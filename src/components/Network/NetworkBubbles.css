@@ -1,0 +1,97 @@
+.NetworkBubbles {
+  position: relative;
+  /* display: flex; */
+  width: 100%;
+  height: calc(100vh - 5em);
+  max-height: 56em;
+  margin: 0 auto;
+}
+.NetworkBubbles__wrapper {
+  position: relative;
+}
+.NetworkBubbles text {
+  font-weight: 700;
+  font-size: 0.7em;
+  fill: var(--text-color);
+}
+.NetworkBubbles circle {
+  fill: #30336b;
+  transition: all 0.6s ease-out;
+}
+.NetworkBubbles__link {
+  fill: none;
+  stroke: var(--accent-medium);
+  stroke-width: 1;
+  pointer-events: none;
+}
+.NetworkBubbles__link--equal {
+  stroke: #a4acb4;
+}
+.NetworkBubbles__arrow {
+  fill: var(--accent-medium);
+}
+.NetworkBubbles .NetworkBubbles__group {
+  fill: #000;
+}
+.NetworkBubbles__type-use {
+  opacity: 0;
+  transition: all 0.2s ease-out;
+}
+.NetworkBubbles__group-g--small:hover .NetworkBubbles__type-use {
+  opacity: 1;
+}
+.NetworkBubbles__mission {
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+.NetworkBubbles__mission:hover .NetworkBubbles__type-use {
+  opacity: 1;
+}
+.NetworkBubbles--is-hovering .NetworkBubbles__mission {
+  opacity: 0.1;
+}
+.NetworkBubbles--is-hovering .NetworkBubbles__mission--is-hovered--status,
+.NetworkBubbles--is-hovering .NetworkBubbles__mission--is-hovered--type,
+.NetworkBubbles--is-hovering .NetworkBubbles__mission--is-hovered--search,
+.NetworkBubbles__mission--is-hovered--type .NetworkBubbles__type-use {
+  opacity: 1;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.NetworkBubbles__annotation {
+  position: absolute;
+  top: -6em;
+  left: -6em;
+  font-size: 0.8em;
+  pointer-events: none;
+  animation: fadeOut 0.3s ease-out;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+}
+.NetworkBubbles__annotation-line {
+  width: 6em;
+  height: 6em;
+  fill: none;
+  stroke: white;
+  stroke-width: 1;
+}
+.NetworkBubbles__annotation-text {
+  position: absolute;
+  top: -0.3em;
+  left: 0;
+  width: 10em;
+  line-height: 1.3em;
+  text-align: right;
+  transform: translate(-80%, -100%);
+  color: white;
+}
+.NetworkBubbles i {
+  font-style: italic;
+}

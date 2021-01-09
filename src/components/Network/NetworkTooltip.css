@@ -1,0 +1,87 @@
+.NetworkTooltip {
+  position: absolute;
+  top: -0.6em;
+  left: 0;
+  max-width: 16em;
+  min-width: 10em;
+  color: var(--accent-dark);
+  background: #fff;
+  padding: 0.8em 1em;
+  z-index: 100;
+  font-size: 0.9em;
+  line-height: 1.4em;
+  pointer-events: none;
+  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.5),
+    0 8px 16px -8px rgba(0, 0, 0, 0.7);
+  transition: transform 0.1s ease-out;
+}
+.NetworkTooltip__name {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 800;
+}
+.NetworkTooltip__year {
+  margin-left: 1em;
+  font-weight: 500;
+  font-size: 0.8em;
+  opacity: 0.6;
+  white-space: nowrap;
+}
+.NetworkTooltip__status--Active,
+.NetworkTooltip__status--Planned {
+  color: var(--accent-light);
+}
+.NetworkTooltip img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  max-width: 100%;
+  max-height: 30vh;
+  transform: translate(0, -100%);
+}
+.NetworkTooltip__type-name {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.9em;
+  font-weight: 700;
+  margin-right: 0.9em;
+}
+.NetworkTooltip__arrow {
+  position: absolute;
+  bottom: 1px;
+  left: 50%;
+  width: 1.1em;
+  transform-origin: left center;
+  transform: translate(0, 100%);
+}
+.NetworkTooltip__info {
+  font-size: 0.9em;
+  line-height: 1.4em;
+  margin: 0.3em 0;
+}
+
+.NetworkTooltip--vertical-bottom {
+  top: 1.6em;
+}
+.NetworkTooltip--vertical-bottom .NetworkTooltip__arrow {
+  bottom: auto;
+  top: 1px;
+  transform: translate(0, -100%) rotate(180deg);
+}
+.NetworkTooltip--vertical-bottom img {
+  top: auto;
+  bottom: 0;
+  transform: translate(0, 100%);
+}
+.NetworkTooltip--horizontal-left .NetworkTooltip__arrow {
+  left: 100%;
+  transform: translate(0, 100%) scaleX(-1);
+}
+.NetworkTooltip--horizontal-right .NetworkTooltip__arrow {
+  left: 0;
+}
+.NetworkTooltip--vertical-bottom.NetworkTooltip--horizontal-right
+  .NetworkTooltip__arrow {
+  transform: translate(0, -100%) rotate(180deg) scaleX(-1);
+}

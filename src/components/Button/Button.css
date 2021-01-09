@@ -1,0 +1,39 @@
+.Button {
+  display: inline-block;
+  padding: 0.8em 1.6em;
+  background: var(--accent-lighter);
+  color: var(--text-color);
+  font-size: 0.9em;
+  line-height: 1em;
+  outline: none;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  transition: background 0.2s ease-out;
+  appearance: none;
+}
+
+.Button:focus,
+.Button:active,
+.Button:hover {
+  background: var(--accent-light);
+  border-color: var(--accent, --accent-light);
+}
+
+.Button + .Button {
+  margin-left: 0.3em;
+}
+
+.Button--selected {
+  color: white;
+  background: var(--accent-dark);
+}
+
+.Button--style-secondary {
+  background: #838399;
+}
+
+.Button:disabled {
+  background: var(--gray);
+}

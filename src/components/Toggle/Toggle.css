@@ -1,0 +1,16 @@
+.Toggle__button {
+  text-overflow: ellipsis;
+  line-height: 1.4em;
+}
+
+.Toggle__button--is-not-selected {
+  background: transparent;
+  border-color: transparent;
+  color: #596275;
+}
+
+.Toggle__button:hover {
+  background: transparent;
+  border-color: transparent;
+  color: #303952;
+}

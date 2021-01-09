@@ -1,0 +1,68 @@
+.MissionsSearch {
+  position: relative;
+}
+.MissionsSearch__input {
+  position: relative;
+  z-index: 30;
+}
+.MissionsSearch__input input {
+  padding: 0.5em 0.8em;
+  padding-right: 2.2em;
+}
+.MissionsSearch__input__close {
+  position: absolute;
+  right: 0.6em;
+  top: 50%;
+  color: var(--gray);
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.MissionsSearch__modal {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 13rem;
+  max-height: calc(100vh - 15rem);
+  font-size: 0.8em;
+  background: var(--accent-darker);
+  padding: 1em;
+  transform: translate(0, 100%);
+  overflow: auto;
+  z-index: 100;
+}
+.MissionsSearch__modal__background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: var(--accent-lighter);
+  opacity: 0.3;
+  z-index: 20;
+  cursor: pointer;
+}
+.MissionsSearch__modal h6 {
+  margin: 1em 0 0.3em;
+}
+.MissionsSearch__options {
+  display: flex;
+  flex-wrap: wrap;
+}
+.MissionsSearch__option {
+  appearance: none;
+  border: 2px solid var(--accent-dark);
+  outline: none;
+  background: var(--accent-dark);
+  color: white;
+  padding: 0.6em 1em;
+  margin: 0 0.3em 0.3em 0;
+  white-space: nowrap;
+  max-width: 15em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+.MissionsSearch__option:hover,
+.MissionsSearch__option:focus {
+  border-color: var(--accent-light);
+}

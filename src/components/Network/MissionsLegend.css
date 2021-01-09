@@ -1,0 +1,39 @@
+.MissionsLegend {
+  position: absolute;
+  left: 1em;
+  top: 12em;
+}
+.MissionsLegend h6 {
+  margin: 0 0 0.3em;
+  font-size: 0.8em;
+  font-weight: 700;
+}
+.MissionsLegend__statuses,
+.MissionsLegend__types {
+  margin-bottom: 2em;
+}
+.MissionsLegend__type,
+.MissionsLegend__status {
+  display: flex;
+  align-items: center;
+  font-size: 0.8em;
+  /* font-weight: 600; */
+  line-height: 1.4em;
+  padding: 0.4em 0.7em;
+  margin-left: -0.7em;
+  cursor: pointer;
+}
+.MissionsLegend__type:hover,
+.MissionsLegend__status:hover {
+  background: black;
+  color: white;
+}
+.MissionsLegend__type:hover .MissionsLegend__dot {
+  fill: white;
+}
+.MissionsLegend__dot {
+  /* fill: white; */
+  width: 1em;
+  margin-right: 1em;
+  overflow: visible;
+}

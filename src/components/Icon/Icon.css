@@ -1,0 +1,17 @@
+.Icon {
+  fill: currentColor;
+  transform-origin: center center;
+}
+
+.Icon--direction-s {
+  transform: rotate(90deg);
+}
+.Icon--direction-w {
+  transform: rotate(180deg);
+}
+.Icon--direction-n {
+  transform: rotate(-90deg);
+}
+.Icon--direction-ne {
+  transform: rotate(-45deg);
+}
