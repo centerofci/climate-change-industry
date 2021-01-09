@@ -186,42 +186,21 @@ const NetworkBubbles = ({
     onFocusMission(d["name"]);
   };
 
-  const onCloseFocusedPoint = useCallback(() => {
-    onFocusMission(null);
-  }, []);
+  // const onCloseFocusedPoint = useCallback(() => {
+  //   onFocusMission(null);
+  // }, []);
 
-  const { topLeftDot } = useMemo(() => {
-    if (!groups.current) return {};
+  // const { topLeftDot } = useMemo(() => {
+  //   if (!groups.current) return {};
 
-    const topLeftDot = sortBy([...groups.current], (d) => d["x"] + d["y"])[0];
-    return { topLeftDot };
-  });
-
-  const getNamesLabel = (names) =>
-    names.split(groupSeparator).length > 2
-      ? `${names.split(groupSeparator).length} ${groupMeta["pluralNoun"]}`
-      : names.replace(new RegExp(groupSeparator, "g"), " & ");
+  //   const topLeftDot = sortBy([...groups.current], (d) => d["x"] + d["y"])[0];
+  //   return { topLeftDot };
+  // });
 
   const truncate = (str, len = 23) =>
     str.length > len - 2 ? str.slice(0, len) + "..." : str;
 
   const getLinkPath = ({ source, target, type }) => {
-    // let points = ["M", source.x, source.y];
-    // if (type == "from") {
-    //   points = ["M", source.x - 8, source.y, "L", source.x + 8, source.y];
-    // } else if (type == "to") {
-    //   points = [
-    //     ...points,
-    //     "L",
-    //     target.x - 8,
-    //     target.y,
-    //     "L",
-    //     target.x + 8,
-    //     target.y,
-    //   ];
-    // }
-    // points = [...points, "L", target.x, target.y];
-    // return points.join(" ");
     const angle = getAngleFromPoints(source, target);
     const reverseAngle = getAngleFromPoints(target, source);
     const startDiff = getPointFromAngleAndDistance(angle, source.r + 2);
