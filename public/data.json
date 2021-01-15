@@ -16,7 +16,7 @@
         "Scale / Collaboration",
         "Funding / Financing"
       ],
-      "Intervention": "Capture CO2 from ambient air to make carbon-neutral hydrocarbon fuels",
+      "Intervention": "CO2 Capture from ambient air to make carbon-neutral hydrocarbon fuels",
       "Funded by": [
         "Lowercarbon Capital",
         "Oxy Low Carbon Ventures",
@@ -27,8 +27,8 @@
         "Carbon Engineering ",
         "Pale Blue Dot"
       ],
-      "id": "Interventions--Capture CO2 from ambient air to make carbon-neutral hydrocarbon fuels",
-      "label": "Capture CO2 from ambient air to make carbon-neutral hydrocarbon fuels"
+      "id": "Interventions--CO2 Capture from ambient air to make carbon-neutral hydrocarbon fuels",
+      "label": "CO2 Capture from ambient air to make carbon-neutral hydrocarbon fuels"
     },
     {
       "Type (approach)": [
@@ -164,15 +164,66 @@
         "Council on Foreign Relations",
         "Pale Blue Dot",
         "Ken Caldeira",
-        "Carnegie Institution for Science (at Stanford)"
+        "Carnegie Institution for Science (at Stanford)",
+        "ASU Center for Negative Carbon Emissions"
       ],
       "id": "Interventions--Advancing Energy Innovation",
       "label": "Advancing Energy Innovation"
     },
     {
-      "Intervention": "Bioengineering concrete",
-      "id": "Interventions--Bioengineering concrete",
-      "label": "Bioengineering concrete"
+      "Type (approach)": [
+        "Technological Intervention",
+        "Industrial Process/Enterprise Change"
+      ],
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture"
+      ],
+      "Rate-Limiting Feature": [
+        "Technology / Engineering",
+        "Scale / Collaboration",
+        "Funding / Financing",
+        "Systems-limited (e.g. misalignment between major organizational pillars)"
+      ],
+      "Intervention": "CO2 capture from ambient air (multiple downstream applications)",
+      "Enacted/Undertaken By": [
+        "Global Thermostat",
+        "Silicon Kingdom Holdings / MechanicalTrees",
+        "ASU Center for Negative Carbon Emissions",
+        "Klaus Lackner"
+      ],
+      "id": "Interventions--CO2 capture from ambient air (multiple downstream applications)",
+      "label": "CO2 capture from ambient air (multiple downstream applications)"
+    },
+    {
+      "Type (approach)": [
+        "Technological Intervention",
+        "Industrial Process/Enterprise Change"
+      ],
+      "Associated Investments": [
+        "DoE - A Scalable Process for Upcycling Carbon Dioxide (CO2) and Coal Combustion Residues Into Construction Products",
+        "NRG COSIA Carbon XPRIZE"
+      ],
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture"
+      ],
+      "Rate-Limiting Feature": [
+        "Technology / Engineering",
+        "Scale / Collaboration",
+        "Funding / Financing"
+      ],
+      "Intervention": "CO2 Capture for Concrete/Cement production",
+      "Big/Latest News": "https://www.ourdailyplanet.com/story/new-biotech-companies-aim-to-shrink-the-carbon-footprint-of-cement/",
+      "Funded by": [
+        "Department of Energy",
+        "XPRIZE (consortium funders)"
+      ],
+      "Enacted/Undertaken By": [
+        "Carbon Upcycling UCLA",
+        "BioMason",
+        "Susteon"
+      ],
+      "id": "Interventions--CO2 Capture for Concrete/Cement production",
+      "label": "CO2 Capture for Concrete/Cement production"
     },
     {
       "Type (approach)": [
@@ -205,6 +256,22 @@
   ],
   "Investments": [
     {
+      "Source": [
+        "XPRIZE (consortium funders)"
+      ],
+      "Intervention(s) being addressed:": [
+        null
+      ],
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture "
+      ],
+      "Amount": 20000000,
+      "Entry Name": "NRG COSIA Carbon XPRIZE",
+      "id": "Investments--NRG COSIA Carbon XPRIZE",
+      "label": "NRG COSIA Carbon XPRIZE",
+      "date": null
+    },
+    {
       "Recipient": [
         "Harvard's Solar Geoengineering Research Program"
       ],
@@ -229,6 +296,33 @@
       "id": "Investments--Founding Harvard Solar Geoengineering Research Program",
       "label": "Founding Harvard Solar Geoengineering Research Program",
       "date": "2016-12-31T05:00:00.000Z"
+    },
+    {
+      "Recipient": [
+        "Carbon Upcycling UCLA",
+        "Susteon"
+      ],
+      "Source": [
+        "Department of Energy"
+      ],
+      "Intervention(s) being addressed:": [
+        null
+      ],
+      "Geography (where intervention is applied)": [
+        "North America"
+      ],
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture "
+      ],
+      "Date": "2019-01-01",
+      "Geography (of receiving entity)": [
+        "North America"
+      ],
+      "Amount": 1800000,
+      "Entry Name": "DoE - A Scalable Process for Upcycling Carbon Dioxide (CO2) and Coal Combustion Residues Into Construction Products",
+      "id": "Investments--DoE - A Scalable Process for Upcycling Carbon Dioxide (CO2) and Coal Combustion Residues Into Construction Products",
+      "label": "DoE - A Scalable Process for Upcycling Carbon Dioxide (CO2) and Coal Combustion Residues Into Construction Products",
+      "date": "2019-01-01T05:00:00.000Z"
     },
     {
       "Recipient": [
@@ -310,6 +404,34 @@
   "Actors": [
     {
       "Topical Contribution Area": [
+        "Mitigation: Green Energy / Decarbonization",
+        "Mitigation: Carbon Removal / Carbon Capture",
+        "Adaptation: Natural Ecosystem Preservation",
+        "Adaptation: Urban Human Built-Environment Protection",
+        "Adaptation: Rural Human Built-Environment Protection",
+        "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)",
+        "Mitigation: Emissions Reduction"
+      ],
+      "Number of People Involved (to 3 sig digits)": "1000+",
+      "Entity": "NASA Global Climate Change (hub)",
+      "Entity Type": [
+        "Regulatory / Gov Org"
+      ],
+      "Status": [
+        "Active"
+      ],
+      "Person or Org": "Organization",
+      "Focus": "Climate Change is entity's primary focus",
+      "Link to More Info on Entity (bio or overview page)": "https://climate.nasa.gov/solutions/adaptation-mitigation/",
+      "Directly Associated Orgs (e.g., employment/parent org):": [
+        "NASA"
+      ],
+      "id": "Actors--NASA Global Climate Change (hub)",
+      "label": "NASA Global Climate Change (hub)",
+      "year": null
+    },
+    {
+      "Topical Contribution Area": [
         "Mitigation: Carbon Removal / Carbon Capture",
         "Mitigation: Emissions Reduction"
       ],
@@ -360,6 +482,35 @@
     },
     {
       "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture"
+      ],
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Enacting/Undertaking XYZ Interventions": [
+        "CO2 Capture for Concrete/Cement production"
+      ],
+      "Entity": "Carbon Upcycling UCLA",
+      "Received XYZ Investment(s)": [
+        "DoE - A Scalable Process for Upcycling Carbon Dioxide (CO2) and Coal Combustion Residues Into Construction Products"
+      ],
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Status": [
+        "Active"
+      ],
+      "Person or Org": "Organization",
+      "Focus": "Climate Change is entity's primary focus",
+      "Link to More Info on Entity (bio or overview page)": "https://www.co2concrete.com/group/",
+      "Directly Associated Orgs (e.g., employment/parent org):": [
+        "UCLA"
+      ],
+      "Year founded / Born": "2019",
+      "id": "Actors--Carbon Upcycling UCLA",
+      "label": "Carbon Upcycling UCLA",
+      "year": 2019
+    },
+    {
+      "Topical Contribution Area": [
         "Mitigation: Emissions Reduction",
         "Mitigation: Carbon Removal / Carbon Capture",
         "Geoengineering: Solar Radiation Management",
@@ -375,7 +526,7 @@
       ],
       "Person or Org": "Organization",
       "Funding XYZ Interventions": [
-        "Capture CO2 from ambient air to make carbon-neutral hydrocarbon fuels"
+        "CO2 Capture from ambient air to make carbon-neutral hydrocarbon fuels"
       ],
       "Made XYZ Investment(s)": [
         "Investment in Carbon Energy "
@@ -502,6 +653,81 @@
     },
     {
       "Topical Contribution Area": [
+        "Mitigation: Emissions Reduction",
+        "Mitigation: Carbon Removal / Carbon Capture",
+        "Mitigation: Green Energy / Decarbonization",
+        "Adaptation: Natural Ecosystem Preservation",
+        "Adaptation: Urban Human Built-Environment Protection",
+        "Adaptation: Rural Human Built-Environment Protection",
+        "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)",
+        "Geoengineering: Solar Radiation Management"
+      ],
+      "Number of People Involved (to 3 sig digits)": "1000+",
+      "Entity": "ASU",
+      "Entity Type": [
+        "Academic Org"
+      ],
+      "Status": [
+        "Active"
+      ],
+      "Person or Org": "Organization",
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "id": "Actors--ASU",
+      "label": "ASU",
+      "year": null
+    },
+    {
+      "Topical Contribution Area": [
+        "Mitigation: Emissions Reduction",
+        "Mitigation: Carbon Removal / Carbon Capture",
+        "Mitigation: Green Energy / Decarbonization",
+        "Adaptation: Natural Ecosystem Preservation",
+        "Adaptation: Urban Human Built-Environment Protection",
+        "Adaptation: Rural Human Built-Environment Protection",
+        "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)",
+        "Geoengineering: Solar Radiation Management",
+        "Geoengineering: Oceanic Ecosystems and Chemistry"
+      ],
+      "Number of People Involved (to 3 sig digits)": "1000+",
+      "Entity": "UCLA",
+      "Entity Type": [
+        "Academic Org"
+      ],
+      "Status": [
+        "Active"
+      ],
+      "Person or Org": "Organization",
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Link to More Info on Entity (bio or overview page)": "https://www.ucla.edu/",
+      "Year founded / Born": "1919",
+      "id": "Actors--UCLA",
+      "label": "UCLA",
+      "year": 1919
+    },
+    {
+      "Topical Contribution Area": [
+        "Adaptation: Natural Ecosystem Preservation",
+        "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)",
+        "Adaptation: Rural Human Built-Environment Protection"
+      ],
+      "Number of People Involved (to 3 sig digits)": "100-500",
+      "Entity": "The Nature Conservancy",
+      "Entity Type": [
+        "Activist / Advocacy Org"
+      ],
+      "Status": [
+        "Active"
+      ],
+      "Person or Org": "Organization",
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Link to More Info on Entity (bio or overview page)": "https://www.nature.org/en-us/about-us/who-we-are/",
+      "Year founded / Born": "1951",
+      "id": "Actors--The Nature Conservancy",
+      "label": "The Nature Conservancy",
+      "year": 1951
+    },
+    {
+      "Topical Contribution Area": [
         "Adaptation: Natural Ecosystem Preservation",
         "Geoengineering: Oceanic Ecosystems and Chemistry"
       ],
@@ -545,6 +771,29 @@
     },
     {
       "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture"
+      ],
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Enacting/Undertaking XYZ Interventions": [
+        "CO2 capture from ambient air (multiple downstream applications)"
+      ],
+      "Entity": "Global Thermostat",
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Status": [
+        "Active"
+      ],
+      "Person or Org": "Organization",
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Link to More Info on Entity (bio or overview page)": "https://globalthermostat.com/the-gt-solution/",
+      "Year founded / Born": "2010",
+      "id": "Actors--Global Thermostat",
+      "label": "Global Thermostat",
+      "year": 2010
+    },
+    {
+      "Topical Contribution Area": [
         "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)",
         "Mitigation: Carbon Removal / Carbon Capture",
         "Mitigation: Green Energy / Decarbonization"
@@ -559,7 +808,7 @@
       ],
       "Person or Org": "Organization",
       "Funding XYZ Interventions": [
-        "Capture CO2 from ambient air to make carbon-neutral hydrocarbon fuels"
+        "CO2 Capture from ambient air to make carbon-neutral hydrocarbon fuels"
       ],
       "Made XYZ Investment(s)": [
         "Investment in Carbon Energy "
@@ -586,7 +835,7 @@
       ],
       "Person or Org": "Organization",
       "Funding XYZ Interventions": [
-        "Capture CO2 from ambient air to make carbon-neutral hydrocarbon fuels"
+        "CO2 Capture from ambient air to make carbon-neutral hydrocarbon fuels"
       ],
       "Made XYZ Investment(s)": [
         "Investment in Carbon Energy "
@@ -633,6 +882,32 @@
     {
       "Topical Contribution Area": [
         "Mitigation: Emissions Reduction",
+        "Mitigation: Carbon Removal / Carbon Capture",
+        "Mitigation: Green Energy / Decarbonization",
+        "Adaptation: Natural Ecosystem Preservation",
+        "Adaptation: Urban Human Built-Environment Protection",
+        "Adaptation: Rural Human Built-Environment Protection",
+        "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)"
+      ],
+      "Number of People Involved (to 3 sig digits)": "Under 10",
+      "Entity": "Our Daily Planet",
+      "Entity Type": [
+        "Media Org "
+      ],
+      "Status": [
+        "Active"
+      ],
+      "Person or Org": "Organization",
+      "Focus": "Climate Change is entity's primary focus",
+      "Link to More Info on Entity (bio or overview page)": "https://www.ourdailyplanet.com/about/",
+      "Year founded / Born": "2018",
+      "id": "Actors--Our Daily Planet",
+      "label": "Our Daily Planet",
+      "year": 2018
+    },
+    {
+      "Topical Contribution Area": [
+        "Mitigation: Emissions Reduction",
         "Mitigation: Green Energy / Decarbonization",
         "Mitigation: Carbon Removal / Carbon Capture",
         "Adaptation: Urban Human Built-Environment Protection",
@@ -657,6 +932,89 @@
       "id": "Actors--MIT",
       "label": "MIT",
       "year": 1861
+    },
+    {
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture"
+      ],
+      "Number of People Involved (to 3 sig digits)": "Under 10",
+      "Enacting/Undertaking XYZ Interventions": [
+        "CO2 capture from ambient air (multiple downstream applications)"
+      ],
+      "Entity": "Silicon Kingdom Holdings / MechanicalTrees",
+      "Entity Type": [
+        "For-Profit Climate Intervention Company",
+        "Funder Org (private e.g., VC or foundation)"
+      ],
+      "Status": [
+        "Active"
+      ],
+      "Person or Org": "Organization",
+      "Focus": "Climate Change is entity's primary focus",
+      "Partners With": [
+        "ASU"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://mechanicaltrees.com/",
+      "Year founded / Born": "2019",
+      "id": "Actors--Silicon Kingdom Holdings / MechanicalTrees",
+      "label": "Silicon Kingdom Holdings / MechanicalTrees",
+      "year": 2019
+    },
+    {
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture",
+        "Adaptation: Natural Ecosystem Preservation",
+        "Mitigation: Emissions Reduction",
+        "Mitigation: Green Energy / Decarbonization"
+      ],
+      "Number of People Involved (to 3 sig digits)": "1000+",
+      "Entity": "Department of Energy",
+      "Entity Type": [
+        "Funder Org (public e.g., NSF)",
+        "Regulatory / Gov Org"
+      ],
+      "Status": [
+        "Active"
+      ],
+      "Person or Org": "Organization",
+      "Funding XYZ Interventions": [
+        "CO2 Capture for Concrete/Cement production"
+      ],
+      "Made XYZ Investment(s)": [
+        "DoE - A Scalable Process for Upcycling Carbon Dioxide (CO2) and Coal Combustion Residues Into Construction Products"
+      ],
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Link to More Info on Entity (bio or overview page)": "https://www.energy.gov/science-innovation/climate-change",
+      "Year founded / Born": "1977",
+      "id": "Actors--Department of Energy",
+      "label": "Department of Energy",
+      "year": 1977
+    },
+    {
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture"
+      ],
+      "Number of People Involved (to 3 sig digits)": "50-100",
+      "Entity": "XPRIZE (consortium funders)",
+      "Entity Type": [
+        "Funder Org (private e.g., VC or foundation)"
+      ],
+      "Status": [
+        "Active"
+      ],
+      "Person or Org": "Organization",
+      "Funding XYZ Interventions": [
+        "CO2 Capture for Concrete/Cement production"
+      ],
+      "Made XYZ Investment(s)": [
+        "NRG COSIA Carbon XPRIZE"
+      ],
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Link to More Info on Entity (bio or overview page)": "https://carbon.xprize.org/home",
+      "Year founded / Born": "1994",
+      "id": "Actors--XPRIZE (consortium funders)",
+      "label": "XPRIZE (consortium funders)",
+      "year": 1994
     },
     {
       "Topical Contribution Area": [
@@ -745,7 +1103,7 @@
       ],
       "Number of People Involved (to 3 sig digits)": "10-50",
       "Enacting/Undertaking XYZ Interventions": [
-        "Capture CO2 from ambient air to make carbon-neutral hydrocarbon fuels",
+        "CO2 Capture from ambient air to make carbon-neutral hydrocarbon fuels",
         "Advancing Energy Innovation"
       ],
       "Entity": "Pale Blue Dot",
@@ -765,6 +1123,34 @@
       "id": "Actors--Pale Blue Dot",
       "label": "Pale Blue Dot",
       "year": 2013
+    },
+    {
+      "Topical Contribution Area": [
+        "Mitigation: Emissions Reduction",
+        "Mitigation: Carbon Removal / Carbon Capture",
+        "Mitigation: Green Energy / Decarbonization"
+      ],
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Enacting/Undertaking XYZ Interventions": [
+        "CO2 capture from ambient air (multiple downstream applications)",
+        "Advancing Energy Innovation"
+      ],
+      "Entity": "ASU Center for Negative Carbon Emissions",
+      "Entity Type": [
+        "Academic Org"
+      ],
+      "Status": [
+        "Active"
+      ],
+      "Person or Org": "Organization",
+      "Focus": "Climate Change is entity's primary focus",
+      "Link to More Info on Entity (bio or overview page)": "https://cnce.engineering.asu.edu/faqs/",
+      "Directly Associated Orgs (e.g., employment/parent org):": [
+        "ASU"
+      ],
+      "id": "Actors--ASU Center for Negative Carbon Emissions",
+      "label": "ASU Center for Negative Carbon Emissions",
+      "year": null
     },
     {
       "Topical Contribution Area": [
@@ -822,6 +1208,82 @@
     },
     {
       "Topical Contribution Area": [
+        "Mitigation: Emissions Reduction",
+        "Mitigation: Carbon Removal / Carbon Capture",
+        "Mitigation: Green Energy / Decarbonization",
+        "Adaptation: Natural Ecosystem Preservation",
+        "Adaptation: Urban Human Built-Environment Protection",
+        "Adaptation: Rural Human Built-Environment Protection",
+        "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)"
+      ],
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Entity": "UCLA Center for Climate Science",
+      "Entity Type": [
+        "Academic Org"
+      ],
+      "Status": [
+        "Active"
+      ],
+      "Person or Org": "Organization",
+      "Focus": "Climate Change is entity's primary focus",
+      "Link to More Info on Entity (bio or overview page)": "https://www.ioes.ucla.edu/climate/",
+      "Directly Associated Orgs (e.g., employment/parent org):": [
+        "UCLA"
+      ],
+      "id": "Actors--UCLA Center for Climate Science",
+      "label": "UCLA Center for Climate Science",
+      "year": null
+    },
+    {
+      "Topical Contribution Area": [
+        "Adaptation: Natural Ecosystem Preservation",
+        "Adaptation: Urban Human Built-Environment Protection",
+        "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)"
+      ],
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Entity": "Greenbelt Alliance",
+      "Entity Type": [
+        "Activist / Advocacy Org"
+      ],
+      "Status": [
+        "Active"
+      ],
+      "Person or Org": "Organization",
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Partners With": [
+        "The Nature Conservancy"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://www.greenbelt.org/",
+      "Year founded / Born": "1958",
+      "id": "Actors--Greenbelt Alliance",
+      "label": "Greenbelt Alliance",
+      "year": 1958
+    },
+    {
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture"
+      ],
+      "Number of People Involved (to 3 sig digits)": "Under 10",
+      "Enacting/Undertaking XYZ Interventions": [
+        "CO2 Capture for Concrete/Cement production"
+      ],
+      "Entity": "BioMason",
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Status": [
+        "Active"
+      ],
+      "Person or Org": "Organization",
+      "Focus": "Climate Change is entity's primary focus",
+      "Link to More Info on Entity (bio or overview page)": "https://www.biomason.com/",
+      "Year founded / Born": "2012",
+      "id": "Actors--BioMason",
+      "label": "BioMason",
+      "year": 2012
+    },
+    {
+      "Topical Contribution Area": [
         "Mitigation: Green Energy / Decarbonization"
       ],
       "Number of People Involved (to 3 sig digits)": "Individual ",
@@ -845,6 +1307,64 @@
       "id": "Actors--Saul Griffith ",
       "label": "Saul Griffith ",
       "year": 1974
+    },
+    {
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture",
+        "Mitigation: Green Energy / Decarbonization"
+      ],
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Enacting/Undertaking XYZ Interventions": [
+        "CO2 Capture for Concrete/Cement production"
+      ],
+      "Entity": "Susteon",
+      "Received XYZ Investment(s)": [
+        "DoE - A Scalable Process for Upcycling Carbon Dioxide (CO2) and Coal Combustion Residues Into Construction Products"
+      ],
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Status": [
+        "Active"
+      ],
+      "Person or Org": "Organization",
+      "Focus": "Climate Change is entity's primary focus",
+      "Partners With": [
+        "Carbon Upcycling UCLA"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "http://susteon.com/what-we-do/",
+      "Year founded / Born": "2018",
+      "id": "Actors--Susteon",
+      "label": "Susteon",
+      "year": 2018
+    },
+    {
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture",
+        "Mitigation: Green Energy / Decarbonization"
+      ],
+      "Number of People Involved (to 3 sig digits)": "Individual ",
+      "Enacting/Undertaking XYZ Interventions": [
+        "CO2 capture from ambient air (multiple downstream applications)"
+      ],
+      "Entity": "Klaus Lackner",
+      "Entity Type": [
+        "Scientific/Engineering Researcher Individual"
+      ],
+      "Status": [
+        "Active"
+      ],
+      "Person or Org": "Individual Person",
+      "Focus": "Climate Change is entity's primary focus",
+      "Link to More Info on Entity (bio or overview page)": "https://cnce.engineering.asu.edu/klaus-lackner/",
+      "Directly Associated Orgs (e.g., employment/parent org):": [
+        "ASU",
+        "ASU Center for Negative Carbon Emissions",
+        "Silicon Kingdom Holdings / MechanicalTrees"
+      ],
+      "id": "Actors--Klaus Lackner",
+      "label": "Klaus Lackner",
+      "year": null
     },
     {
       "Topical Contribution Area": [
@@ -879,7 +1399,7 @@
       ],
       "Number of People Involved (to 3 sig digits)": "10-50",
       "Enacting/Undertaking XYZ Interventions": [
-        "Capture CO2 from ambient air to make carbon-neutral hydrocarbon fuels"
+        "CO2 Capture from ambient air to make carbon-neutral hydrocarbon fuels"
       ],
       "Entity": "Carbon Engineering ",
       "Received XYZ Investment(s)": [
@@ -965,7 +1485,7 @@
       ],
       "Number of People Involved (to 3 sig digits)": "Individual ",
       "Enacting/Undertaking XYZ Interventions": [
-        "Capture CO2 from ambient air to make carbon-neutral hydrocarbon fuels",
+        "CO2 Capture from ambient air to make carbon-neutral hydrocarbon fuels",
         "Addition of Atmospheric Aerosols"
       ],
       "Entity": "David Keith",
