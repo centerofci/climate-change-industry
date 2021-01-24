@@ -12,10 +12,11 @@ import {
   forceCollide,
   forceLink,
 } from "d3-force";
+import { polygonHull } from "d3";
 
 import {
   keepBetween,
-  groupBy,
+  truncate,
   move,
   getAngleFromPoints,
   getPointFromAngleAndDistance,
@@ -25,7 +26,7 @@ import {
   sortBy,
   useChartDimensions,
 } from "./../../utils";
-import { types, typeColors } from "./../../constants";
+import { types, typeColors, typeShapes } from "./../../constants";
 import CircleText from "./../CircleText";
 import NetworkTooltip from "./NetworkTooltip";
 // import MissionsModal from "./MissionsModal";
@@ -54,7 +55,80 @@ const NetworkBubbles = ({
   const cachedGroupPositions = useRef({});
   const forceUpdate = useForceUpdate();
 
-  const groupSeparator = " -- ";
+  const clusterByKey = (groupMeta || {})["clusterBy"];
+  const getClusterName =
+    (groupMeta || {})["getClusterName"] || ((d) => d[clusterByKey]);
+  const getColor = (groupMeta || {})["getColor"] || ((d) => "#888");
+  const getSize = (groupMeta || {})["getSize"] || (() => 1);
+  const fromColor = "#92C8C6";
+  const toColor = "#EEA969";
+
+  const baseCircleSize =
+    (dms.width * dms.height * 0.001) / (data[groupType].length + 30);
+
+  const { clusters, clusterPositions } = useMemo(() => {
+    if (!data) return [];
+    let groups = {};
+    let clusters = [];
+    if (!clusterByKey) {
+      clusters = [
+        {
+          clusters: data[groupType].map((d) => ({
+            ...d,
+            name: "",
+            group: 1,
+            value: 10,
+          })),
+        },
+      ];
+    } else {
+      data[groupType].forEach((d) => {
+        let clusterName = getClusterName(d);
+        if (!groups[clusterName]) groups[clusterName] = [];
+        groups[clusterName].push({ ...d, group: clusterName, value: 10 });
+      });
+      Object.keys(groups).forEach((group) => {
+        const items = groups[group];
+        const count = items.length;
+        const area = items.reduce((a, b) => (a.value || 0) + (b.value || 0), 0);
+        clusters.push({
+          name: group,
+          count,
+          r: Math.sqrt(area / Math.PI),
+          items,
+        });
+      });
+    }
+    const numberOfGroups = clusters.length;
+    const groupPositions =
+      {
+        1: [[dms.width / 2, dms.height / 2]],
+        2: [
+          [dms.width / 5, dms.height / 2],
+          [(dms.width / 5) * 4, dms.height / 2],
+        ],
+        3: [
+          [dms.width / 3, (dms.height / 3) * 2],
+          [(dms.width / 3) * 2, dms.height / 3],
+          [(dms.width / 3) * 2, (dms.height / 3) * 2],
+        ],
+      }[numberOfGroups] ||
+      getSpiralPositions(numberOfGroups, baseCircleSize * 3, 10, 4).map((d) => [
+        d.x + dms.width / 2,
+        d.y + dms.height / 2,
+      ]);
+    let clusterPositions = {};
+    clusters.forEach(({ name }, i) => {
+      clusterPositions[name] = groupPositions[i] || [0, 0];
+    });
+    return { clusters, clusterPositions };
+  }, [data, dms.width + dms.height, groupMeta]);
+
+  const getClusterPosition = (d = {}) => {
+    const clusterName = getClusterName(d);
+    const position = clusterPositions[clusterName];
+    return position || [dms.width / 2, dms.height / 2];
+  };
 
   useEffect(() => {
     cachedGroupPositions.current = {};
@@ -91,24 +165,38 @@ const NetworkBubbles = ({
     });
 
     let nodes = flatten(
-      types.map((type) => data[type].map((d) => ({ ...d, type })))
+      types.map((type) =>
+        data[type].map((d) => ({ ...d, type, isMain: type == groupType }))
+      )
     ).filter(
       (d) =>
         d["type"] == groupType ||
         initialLinks.find((link) => link["target"] == d["id"])
     );
 
-    const baseCircleSize =
-      (dms.width * dms.height * 0.0013) / (data[groupType].length + 30);
     // const spiralPositions = getSpiralPositions(
     //   nodes.length,
     //   baseCircleSize,
     //   Math.sqrt(baseCircleSize) * 1,
     //   Math.sqrt(baseCircleSize) * 0.56
     // );
+
+    const getTertiaryBubbleColor = (d) => {
+      const matches = initialLinks.filter((link) => link["target"] == d["id"]);
+      const matchTypes = [...new Set(matches.map((d) => d["type"]))]
+        .sort()
+        .join("--");
+      return (
+        {
+          from: fromColor,
+          to: toColor,
+          "from--to": "url(#from-to)",
+        }[matchTypes] || "#95afc0"
+      );
+    };
+
     nodes = nodes.map((d, i) => {
       let cachedPosition = cachedGroupPositions.current[d["id"]];
-      console.log(cachedPosition);
       if (!cachedPosition) cachedPosition = [dms.width / 2, dms.height / 2];
       return {
         ...d,
@@ -116,16 +204,29 @@ const NetworkBubbles = ({
         // y: dms.height / 2 + spiralPositions[i].y,
         x: cachedPosition[0],
         y: cachedPosition[1],
-        r: d["type"] == groupType ? baseCircleSize * 1.5 : baseCircleSize * 0.6,
+        r:
+          (d["type"] == groupType
+            ? baseCircleSize * 1.5
+            : baseCircleSize * 0.6) * getSize(d),
+        color: d.isMain ? getColor(d) : getTertiaryBubbleColor(d),
       };
     });
-    console.log(initialLinks, nodes);
 
     links.current = initialLinks;
     simulationData.current = [...nodes];
     simulation.current = forceSimulation(simulationData.current)
-      .force("x", forceX(dms.width / 2).strength(0.03))
-      .force("y", forceY(dms.height / 2).strength(0.03))
+      .force(
+        "x",
+        forceX((d) => getClusterPosition(d)[0]).strength(
+          groupType == "Actors" ? 0.03 : (d) => (d.isMain ? 0.8 : 0)
+        )
+      )
+      .force(
+        "y",
+        forceY((d) => getClusterPosition(d)[1]).strength(
+          groupType == "Actors" ? 0.03 : (d) => (d.isMain ? 0.8 : 0)
+        )
+      )
       .force(
         "link",
         forceLink(links.current)
@@ -141,6 +242,34 @@ const NetworkBubbles = ({
       .on("tick", onTick);
   }, [dms.width, dms.height, data, groupType, currentYear, !!focusedMission]);
   useEffect(() => {}, [data]);
+
+  const groupBubbles = clusters.map(({ name, items = [] }) => {
+    const position = getClusterPosition(items[0]);
+    if (!position) return [];
+    const points = groups.current
+      .filter((d) => getClusterName(d) == name && d.isMain)
+      .map((d) => [d.x, d.y]);
+    let hull = polygonHull(points) || [];
+    if (!hull.length) hull = points;
+    const top = [
+      keepBetween(
+        points.map((d) => d[0]).reduce((a, b) => a + b, 0) / points.length,
+        50,
+        dms.width - 50
+      ),
+      keepBetween(
+        Math.min(...points.map((d) => d[1])) - baseCircleSize * 5,
+        10,
+        dms.height - 10
+      ),
+    ];
+    return {
+      name,
+      path: "M" + hull.map((d) => d.join(" ")).join(" L ") + "Z",
+      top,
+      position,
+    };
+  });
 
   function onTick(d) {
     const padding = 20;
@@ -197,9 +326,6 @@ const NetworkBubbles = ({
   //   return { topLeftDot };
   // });
 
-  const truncate = (str, len = 23) =>
-    str.length > len - 2 ? str.slice(0, len) + "..." : str;
-
   const getLinkPath = ({ source, target, type }) => {
     const angle = getAngleFromPoints(source, target);
     const reverseAngle = getAngleFromPoints(target, source);
@@ -211,6 +337,17 @@ const NetworkBubbles = ({
     ];
     if (type == "to") points.reverse();
     return `M ${points[0].join(" ")} L ${points[1].join(" ")}`;
+  };
+
+  const isInHoveredPointNetwork = (item) => {
+    if (!hoveredPoint) return true;
+    if (item.id == hoveredPoint.id) return true;
+    const inNetworkMatches = links.current.filter(
+      (d) => d.source.id == hoveredPoint.id || d.target.id == hoveredPoint.id
+    );
+    return !!inNetworkMatches.find(
+      (d) => d.source.id == item.id || d.target.id == item.id
+    );
   };
 
   return (
@@ -272,6 +409,12 @@ const NetworkBubbles = ({
                       ))}
                     </linearGradient>
                   ))} */}
+                <linearGradient id={`from-to`}>
+                  {[fromColor, toColor].map((color, i) => (
+                    <stop key={i} stopColor={color} offset={i * 100 + "%"} />
+                  ))}
+                </linearGradient>
+
                 <marker
                   id="NetworkBubbles__arrow"
                   className="NetworkBubbles__arrow"
@@ -286,6 +429,14 @@ const NetworkBubbles = ({
                 </marker>
               </defs>
 
+              {groupBubbles.map(({ name, path, top }, i) => (
+                <path
+                  key={name}
+                  className={`NetworkBubbles__cluster`}
+                  style={{ strokeWidth: baseCircleSize * 7 }}
+                  d={path}
+                ></path>
+              ))}
               {links.current.map((link, i) => (
                 <path
                   key={i}
@@ -296,6 +447,9 @@ const NetworkBubbles = ({
                       ? null
                       : "url(#NetworkBubbles__arrow)"
                   }
+                  style={{
+                    opacity: isInHoveredPointNetwork(link.target) ? 1 : 0.14,
+                  }}
                 ></path>
               ))}
 
@@ -303,20 +457,43 @@ const NetworkBubbles = ({
                 <g
                   key={item["id"]}
                   className={`NetworkBubbles__group-g`}
-                  style={move(item["x"], item["y"])}
+                  style={{
+                    ...move(item["x"], item["y"]),
+                    opacity: isInHoveredPointNetwork(item) ? 1 : 0.14,
+                  }}
                 >
+                  <g
+                    onMouseEnter={() => {
+                      // const x =
+                      //   item["x"] + nestedGroup["position"]["x"];
+                      // const y =
+                      //   item["y"] + nestedGroup["position"]["y"];
+                      updateTooltip(item);
+                    }}
+                    onMouseLeave={() => updateTooltip(null)}
+                    style={{
+                      // fill: typeColors[item["type"]],
+                      fill: item["color"],
+                      transform: `scale(${item["r"] / 50})`,
+                    }}
+                  >
+                    <circle fill="transparent" r={item["r"]} />
+                    {item["type"] == "Actors" &&
+                    item["Person or Org"] == "Organization"
+                      ? typeShapes["Organizations"]
+                      : typeShapes[item["type"]]}
+                  </g>
+
                   {groupType == item["type"] && (
                     <CircleText r={item["r"] + 6}>
                       {truncate(item["label"], Math.floor(item["r"] * 0.36))}
                     </CircleText>
                   )}
-
-                  <circle
+                  {/* <circle
                     className="NetworkBubbles__item"
                     style={{ fill: typeColors[item["type"]] }}
                     r={item["r"]}
                     onMouseEnter={() => {
-                      console.log(item);
                       // const x =
                       //   item["x"] + nestedGroup["position"]["x"];
                       // const y =
@@ -325,8 +502,18 @@ const NetworkBubbles = ({
                     }}
                     onMouseLeave={() => updateTooltip(null)}
                     // onClick={() => updateModal(child)}
-                  ></circle>
+                  ></circle> */}
                 </g>
+              ))}
+
+              {groupBubbles.map(({ name, path, top }, i) => (
+                <text
+                  key={name}
+                  style={move(...top)}
+                  className={`NetworkBubbles__cluster-name`}
+                >
+                  {name}
+                </text>
               ))}
             </svg>
           </>

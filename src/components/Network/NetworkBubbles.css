@@ -15,12 +15,13 @@
   fill: var(--text-color);
 }
 .NetworkBubbles circle {
-  fill: #30336b;
+  /* fill: #30336b; */
   transition: all 0.6s ease-out;
 }
 .NetworkBubbles__link {
   fill: none;
   stroke: var(--accent-medium);
+  stroke: #a4acb4;
   stroke-width: 1;
   pointer-events: none;
 }
@@ -29,12 +30,28 @@
 }
 .NetworkBubbles__arrow {
   fill: var(--accent-medium);
+  fill: #a4acb4;
 }
 .NetworkBubbles .NetworkBubbles__group {
   fill: #000;
 }
+.NetworkBubbles__cluster {
+  fill: #fff;
+  stroke: #fff;
+  stroke-linejoin: round;
+}
+.NetworkBubbles .NetworkBubbles__cluster-name {
+  fill: #8493a1;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  text-anchor: middle;
+}
 .NetworkBubbles__type-use {
   opacity: 0;
+  transition: all 0.2s ease-out;
+}
+.NetworkBubbles__group-g {
   transition: all 0.2s ease-out;
 }
 .NetworkBubbles__group-g--small:hover .NetworkBubbles__type-use {

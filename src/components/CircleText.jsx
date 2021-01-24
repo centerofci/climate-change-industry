@@ -15,6 +15,7 @@ const CircleText = ({ r = 10, rotate = 0, children, ...props }) => {
         ].join(" ")}
         id={id}
         transform={`rotate(${rotate})`}
+        style={{ pointerEvents: "none" }}
       ></path>
       <text textAnchor="middle" {...props}>
         <textPath href={`#${id}`} startOffset="50%">

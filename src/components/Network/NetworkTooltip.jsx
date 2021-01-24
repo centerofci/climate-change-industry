@@ -1,6 +1,7 @@
 import React from "react";
+import { format } from "d3";
 
-import { move } from "./../../utils";
+import { move, truncate } from "./../../utils";
 import { typeColors } from "./../../constants";
 
 import "./NetworkTooltip.css";
@@ -30,11 +31,30 @@ const NetworkTooltip = ({ position, data, width }) => {
       )}
     >
       <div className="NetworkTooltip__name">
-        {data["label"]}
+        {truncate(data["label"], 30)}
         {!!data["year"] && (
           <div className="NetworkTooltip__year">{data["year"]}</div>
         )}
       </div>
+      <div className="NetworkTooltip__text">{data["type"].slice(0, -1)}</div>
+      {data["Amount"] && (
+        <div className="NetworkTooltip__text">
+          ${format(",.0f")(data["Amount"])}
+        </div>
+      )}
+      {data["Topical Contribution Area"] && (
+        <div className="NetworkTooltip__text">
+          {data["Topical Contribution Area"]}
+        </div>
+      )}
+      {data["Entity Type"] && (
+        <div className="NetworkTooltip__text">
+          {data["Entity Type"].join(", ")}
+        </div>
+      )}
+      {data["Focus"] && (
+        <div className="NetworkTooltip__text">{data["Focus"]}</div>
+      )}
       {/* <div className="NetworkTooltip__info ">
         <span className={`NetworkTooltip__info actor actor--${data["actor"]}`}>
           {data["actors"].join(", ").replace(new RegExp(" -- ", "g"), ", ")}

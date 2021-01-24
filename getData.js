@@ -43,7 +43,7 @@ const init = async () => {
   console.log("we all good!");
 
   fs.writeFileSync(
-    "./public/data.json",
+    "./src/data.json",
     JSON.stringify(
       data,
       // {

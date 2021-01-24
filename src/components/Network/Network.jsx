@@ -1,6 +1,8 @@
 import React, { useEffect, useMemo, useState, useCallback } from "react";
-import { extent } from "d3-array";
+import { max } from "d3-array";
+import { scaleLog } from "d3-scale";
 
+import data from "./../../data.json";
 import { fromPairs, useInterval } from "./../../utils";
 import Toggle from "../Toggle/Toggle";
 import Icon from "../Icon/Icon";
@@ -9,7 +11,7 @@ import Icon from "../Icon/Icon";
 import NetworkBubbles from "./NetworkBubbles";
 // import NetworkLegend from "./NetworkLegend";
 
-import { typeColors } from "./../../constants";
+import { contributionAreaColors, typeColors } from "./../../constants";
 
 import "./Network.css";
 
@@ -161,6 +163,16 @@ const Network = ({
 
 export default Network;
 
+const getContributionArea = (d) => {
+  return [
+    ...new Set(d["Topical Contribution Area"].map((d) => d.split(":")[0])),
+  ].join("--");
+};
+const amountSizeScale = scaleLog()
+  .domain([1, max(data["Investments"], (d) => d["Amount"])])
+  .range([0.01, 1.2])
+  .clamp(true);
+
 const groupOptions = [
   {
     label: "Interventions",
@@ -168,11 +180,14 @@ const groupOptions = [
     pluralNoun: "interventions",
     key: "Interventions",
     accessor: (d) => d["Interventions"],
+    clusterBy: "Topical Contribution Area",
+    getClusterName: getContributionArea,
+    getColor: (d) => contributionAreaColors[getContributionArea(d)],
     links: [
       ["Associated Investments", "Investments", "equal"],
       ["Associated Regulations", "Regulations", "equal"],
-      ["Enacted/Undertaken By", "Actors", "from"],
-      ["Funded by", "Actors", "from"],
+      ["Enacted/Undertaken By", "Actors", "equal"],
+      ["Funded by", "Actors", "equal"],
     ],
   },
   {
@@ -181,6 +196,10 @@ const groupOptions = [
     pluralNoun: "investments",
     key: "Investments",
     accessor: (d) => d["Investments"],
+    clusterBy: "Topical Contribution Area",
+    getClusterName: getContributionArea,
+    getColor: (d) => contributionAreaColors[getContributionArea(d)],
+    getSize: (d) => amountSizeScale(d["Amount"]) || 0.8,
     links: [
       ["Source", "Actors", "from"],
       ["Recipient", "Actors", "to"],
@@ -193,6 +212,36 @@ const groupOptions = [
     pluralNoun: "actors",
     key: "Actors",
     accessor: (d) => d["Actors"],
+    // clusterBy: "Person or Org",
+    // getClusterName: (d) => {
+    //   return d["Person or Org"];
+    // },
+    getColor: (d) =>
+      ({
+        "Individual Person": "#89b792",
+        Organization: "#4d405a",
+      }[d["Person or Org"]]),
+    // clusterBy: "Entity Type",
+    // getClusterName: (d) => {
+    //   return (d["Entity Type"] || [])[0];
+    // },
+    // getColor: (d) =>
+    //   ({
+    //     "Individual Person": "#89b792",
+    //     Organization: "#4d405a",
+    //   }[d]),
+    getSize: (d) =>
+      ([
+        "Individual",
+        "Under 10",
+        "10-50",
+        "50-100",
+        "100-500",
+        "500-1000",
+        "1000+",
+      ].indexOf(d["Number of People Involved (to 3 sig digits)"]) +
+        8) *
+      0.13,
     links: [
       [
         "Directly Associated Orgs (e.g., employment/parent org):",

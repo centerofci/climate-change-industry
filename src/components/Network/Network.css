@@ -5,7 +5,7 @@
 .Network__bubbles {
   width: 100%;
   position: relative;
-  padding-left: 12em;
+  /* padding-left: 12em; */
 }
 .Network__controls {
   margin-top: 1em;

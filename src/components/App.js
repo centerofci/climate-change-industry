@@ -1,15 +1,13 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { json } from "d3-fetch";
 
+import data from "./../data.json";
 import { useQueryParams } from "./../utils";
 import Network from "./Network/Network";
 
 import "./App.css";
 
 function App() {
-  const [data, setData] = useState({});
   const [params, updateParams] = useQueryParams();
-  const [status, setStatus] = useState("loading");
 
   const onChangeState = (type, newState) => {
     updateParams({ [type]: newState });
@@ -30,59 +28,33 @@ function App() {
   const focusedObjective = params["objective"];
 
   return (
-    <div className={`App App--${status}`}>
-      <DataFetcher {...{ setStatus, setData }} />
-      {status === "loading" ? (
-        <div className="App__loading">Loading...</div>
-      ) : status === "success" ? (
-        viz === "network" ? (
-          <Network
-            {...{
-              data,
-              initialYear,
-              groupType,
-              // focusedMission,
-              searchTerm,
-              onChangeState,
-            }}
-          />
-        ) : // <Objectives
-        //   data={data["Objectives"]}
-        //   investigations={data["Investigations"]}
-        //   instruments={data["Instruments/Payloads"]}
-        //   missions={data["Missions"]}
-        //   focusedObjective={focusedObjective}
-        //   onChangeState={onChangeState}
-        // />
-        null
-      ) : status === "error" ? (
-        <div className="App__error">There was an issue loading the data</div>
-      ) : null}
+    <div className={`App`}>
+      {viz === "network" ? (
+        <Network
+          {...{
+            data,
+            initialYear,
+            groupType,
+            // focusedMission,
+            searchTerm,
+            onChangeState,
+          }}
+        />
+      ) : // <Objectives
+      //   data={data["Objectives"]}
+      //   investigations={data["Investigations"]}
+      //   instruments={data["Instruments/Payloads"]}
+      //   missions={data["Missions"]}
+      //   focusedObjective={focusedObjective}
+      //   onChangeState={onChangeState}
+      // />
+      null}
       {/* <SvgPatterns /> */}
     </div>
   );
 }
 
 export default App;
-
-const DataFetcher = ({ setStatus, setData }) => {
-  useEffect(() => {
-    (async function () {
-      try {
-        const res = await json(`/data.json`);
-        const data = res;
-        console.log(data);
-        setData(data);
-        setStatus("success");
-      } catch (e) {
-        console.log(e);
-        setStatus("error");
-      }
-    })();
-  }, []);
-
-  return null;
-};
 
 // const SvgPatterns = () => (
 //   <svg width="0" height="0">

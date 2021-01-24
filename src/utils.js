@@ -382,3 +382,6 @@ export function countBy(collection, func) {
 
   return object;
 }
+
+export const truncate = (str, len = 23) =>
+  str.length > len - 2 ? str.slice(0, len) + "..." : str;
