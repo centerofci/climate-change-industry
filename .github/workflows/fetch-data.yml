@@ -24,9 +24,11 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Set env variables
-        run: echo '::set-env name=AIRTABLE_API_KEY::keyuoFk91moWrBu9y'
+        run: echo "AIRTABLE_API_KEY=keyuoFk91moWrBu9y" >> $GITHUB_ENV
+
       - run: npm install
       - run: npm run data
+
       - name: Commit files # transfer the new html files back into the repository
         run: |
           git config --local user.name "wattenberger"
