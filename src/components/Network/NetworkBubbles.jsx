@@ -431,19 +431,29 @@ const NetworkBubbles = ({
                 ></path>
               ))}
               {links.current.map((link, i) => (
-                <path
-                  key={i}
-                  className={`NetworkBubbles__link NetworkBubbles__link--${link["type"]}`}
-                  d={getLinkPath(link)}
-                  markerStart={
-                    link["type"] == "equal"
-                      ? null
-                      : "url(#NetworkBubbles__arrow)"
-                  }
-                  style={{
-                    opacity: getItemOpacity(link.target, link.source),
-                  }}
-                ></path>
+                <g key={i}>
+                  <path
+                    className={`NetworkBubbles__link NetworkBubbles__link--${link["type"]}`}
+                    d={getLinkPath(link)}
+                    markerStart={
+                      link["type"] == "equal"
+                        ? null
+                        : "url(#NetworkBubbles__arrow)"
+                    }
+                    style={{
+                      opacity: getItemOpacity(link.target, link.source),
+                    }}
+                  ></path>
+                  {link["type"] != "equal" && (
+                    <path
+                      className={`NetworkBubbles__link__pulse NetworkBubbles__link__pulse--${link["type"]}`}
+                      d={getLinkPath(link)}
+                      style={{
+                        opacity: getItemOpacity(link.target, link.source),
+                      }}
+                    ></path>
+                  )}
+                </g>
               ))}
 
               {groups.current.map((item) => (

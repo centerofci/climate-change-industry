@@ -32,6 +32,26 @@
   fill: var(--accent-medium);
   fill: #a4acb4;
 }
+@keyframes pulse {
+  0% {
+    stroke-dashoffset: 0%;
+  }
+  100% {
+    stroke-dashoffset: 100%;
+  }
+}
+.NetworkBubbles__link__pulse {
+  fill: none;
+  stroke: var(--accent-medium);
+  stroke: #a4acb4;
+  stroke-width: 2.7;
+  stroke-dasharray: 1 16;
+  pointer-events: none;
+  animation: pulse 53s linear;
+  animation-iteration-count: infinite;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
 .NetworkBubbles .NetworkBubbles__group {
   fill: #000;
 }
