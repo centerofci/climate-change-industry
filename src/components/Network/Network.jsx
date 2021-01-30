@@ -28,11 +28,6 @@ const Network = ({
 
   const groupMeta = groupOptionsById[groupType];
 
-  const onLegendItemHover = useCallback((type, item) => {
-    const newFilters = item ? [{ type, value: item }] : [];
-    setActiveFilters(newFilters);
-  }, []);
-
   const onFocusItem = useCallback((newItem) => {
     onChangeState("item", newItem);
   });

@@ -30,11 +30,10 @@ const NetworkSearch = ({ data, searchTerm, setSearchTerm }) => {
   const [didMount, setDidMount] = useState(false);
   useEffect(() => {
     if (!didMount) {
-      setSearchTerm(searchTerm || null);
-    } else {
-      setSearchTerm(searchTermLocal ? searchTermLocal : null);
+      setDidMount(true);
+      return;
     }
-    setDidMount(true);
+    setSearchTerm(searchTermLocal ? searchTermLocal : null);
   }, [debouncedSearchTerm]);
 
   const onSearchTermChange = (e) => {

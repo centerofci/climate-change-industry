@@ -11,13 +11,14 @@ function App() {
   const [params, updateParams] = useQueryParams();
 
   const onChangeState = (type, newState) => {
+    console.log("change", type);
     updateParams({ [type]: newState });
   };
 
   const viz = params["viz"] || "network";
   const groupType = params["group"] || "Interventions";
   const searchTerm = params["search"] || "";
-  console.log({ s: params.searchTerm, searchTerm });
+  console.log(params["group"]);
   const focusedItem = useMemo(() => {
     if (!params["item"]) return null;
     const itemGroupType = params["item"].split("--")[0];

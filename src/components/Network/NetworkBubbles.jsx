@@ -176,23 +176,21 @@ const NetworkBubbles = ({
     //   Math.sqrt(baseCircleSize) * 0.56
     // );
 
-    const getTertiaryBubbleColor = (d) => {
+    const getMatchTypes = (d) => {
       const matches = initialLinks.filter((link) => link["target"] == d["id"]);
-      const matchTypes = [...new Set(matches.map((d) => d["type"]))]
-        .sort()
-        .join("--");
-      return (
-        {
-          from: fromColor,
-          to: toColor,
-          "from--to": "url(#from-to)",
-        }[matchTypes] || "#95afc0"
-      );
+      return [...new Set(matches.map((d) => d["type"]))].sort();
     };
-
     nodes = nodes.map((d, i) => {
       let cachedPosition = cachedGroupPositions.current[d["id"]];
       if (!cachedPosition) cachedPosition = [dms.width / 2, dms.height / 2];
+      const matchTypes = getMatchTypes(d).join("--");
+      const color = d.isMain
+        ? getColor(d)
+        : {
+            from: fromColor,
+            to: toColor,
+            "from--to": "url(#from-to)",
+          }[matchTypes] || "#95afc0";
       return {
         ...d,
         // x: dms.width / 2 + spiralPositions[i].x,
@@ -203,7 +201,8 @@ const NetworkBubbles = ({
           (d["type"] == groupType
             ? baseCircleSize * 1.5
             : baseCircleSize * 0.6) * getSize(d),
-        color: d.isMain ? getColor(d) : getTertiaryBubbleColor(d),
+        color,
+        matchTypes,
       };
     });
 
@@ -218,9 +217,11 @@ const NetworkBubbles = ({
       )
       .force(
         "y",
-        forceY((d) => getClusterPosition(d)[1]).strength(
-          groupType == "Actors" ? 0.03 : (d) => (d.isMain ? 0.8 : 0)
-        )
+        forceY(
+          (d) =>
+            getClusterPosition(d)[1] +
+            (d.matchTypes == "from" ? -30 : d.matchTypes == "to" ? 30 : 0)
+        ).strength(groupType == "Actors" ? 0.03 : (d) => (d.isMain ? 0.8 : 0.3))
       )
       .force(
         "link",
