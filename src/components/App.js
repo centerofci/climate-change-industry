@@ -1,10 +1,11 @@
 import React, { useEffect, useMemo, useState } from "react";
 
-import data from "./../data.json";
+import { data } from "./../constants";
 import { useQueryParams } from "./../utils";
 import Network from "./Network/Network";
 
 import "./App.css";
+console.log(data);
 
 function App() {
   const [params, updateParams] = useQueryParams();
@@ -15,17 +16,17 @@ function App() {
 
   const viz = params["viz"] || "network";
   const groupType = params["group"] || "Interventions";
-  const initialYear = params["year"] ? +params["year"] : null;
   const searchTerm = params["search"] || "";
-  // const focusedMission = useMemo(() => {
-  //   if (!params["mission"]) return null;
-  //   const matchingMission = (data["Missions"] || []).find(
-  //     (d) => d["name"] === params["mission"]
-  //   );
-  //   if (!matchingMission) return null;
-  //   return matchingMission;
-  // }, [params["mission"], data["Missions"]]);
-  const focusedObjective = params["objective"];
+  console.log({ s: params.searchTerm, searchTerm });
+  const focusedItem = useMemo(() => {
+    if (!params["item"]) return null;
+    const itemGroupType = params["item"].split("--")[0];
+    const matchingItem = (data[itemGroupType || groupType] || []).find(
+      (d) => d["id"] === params["item"]
+    );
+    if (!matchingItem) return null;
+    return matchingItem;
+  }, [params["item"], data]);
 
   return (
     <div className={`App`}>
@@ -33,9 +34,9 @@ function App() {
         <Network
           {...{
             data,
-            initialYear,
             groupType,
             // focusedMission,
+            focusedItem,
             searchTerm,
             onChangeState,
           }}

@@ -1,27 +1,22 @@
 .NetworkTooltip {
-  position: absolute;
-  top: -0.6em;
-  left: 0;
-  max-width: 16em;
-  min-width: 10em;
-  color: var(--accent-dark);
-  background: rgba(255, 255, 255, 0.808);
-  padding: 0.8em 1em;
-  z-index: 100;
+  position: fixed;
+  top: 2em;
+  right: 2em;
+  width: min(20em, 90vw);
   font-size: 0.9em;
-  line-height: 1.4em;
-  pointer-events: none;
-  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.5),
-    0 8px 16px -8px rgba(0, 0, 0, 0.7);
-  transition: transform 0.1s ease-out;
+  line-height: 1.3em;
+  text-align: right;
 }
 .NetworkTooltip__name {
-  display: flex;
-  justify-content: space-between;
+  /* display: flex;
+  justify-content: space-between; */
+  width: 100%;
   font-weight: 800;
 }
 .NetworkTooltip__text {
   margin: 0.3em 0;
+  font-size: 0.9em;
+  line-height: 1.3em;
 }
 .NetworkTooltip__year {
   margin-left: 1em;
@@ -29,10 +24,6 @@
   font-size: 0.8em;
   opacity: 0.6;
   white-space: nowrap;
-}
-.NetworkTooltip__status--Active,
-.NetworkTooltip__status--Planned {
-  color: var(--accent-light);
 }
 .NetworkTooltip img {
   position: absolute;
@@ -48,43 +39,17 @@
   letter-spacing: 0.06em;
   font-size: 0.9em;
   font-weight: 700;
-  margin-right: 0.9em;
-}
-.NetworkTooltip__arrow {
-  position: absolute;
-  bottom: 1px;
-  left: 50%;
-  width: 1.1em;
-  transform-origin: left center;
-  transform: translate(0, 100%);
+  margin-left: 0.9em;
 }
 .NetworkTooltip__info {
   font-size: 0.9em;
   line-height: 1.4em;
   margin: 0.3em 0;
 }
-
-.NetworkTooltip--vertical-bottom {
-  top: 1.6em;
-}
-.NetworkTooltip--vertical-bottom .NetworkTooltip__arrow {
-  bottom: auto;
-  top: 1px;
-  transform: translate(0, -100%) rotate(180deg);
-}
-.NetworkTooltip--vertical-bottom img {
-  top: auto;
-  bottom: 0;
-  transform: translate(0, 100%);
-}
-.NetworkTooltip--horizontal-left .NetworkTooltip__arrow {
-  left: 100%;
-  transform: translate(0, 100%) scaleX(-1);
-}
-.NetworkTooltip--horizontal-right .NetworkTooltip__arrow {
-  left: 0;
-}
-.NetworkTooltip--vertical-bottom.NetworkTooltip--horizontal-right
-  .NetworkTooltip__arrow {
-  transform: translate(0, -100%) rotate(180deg) scaleX(-1);
+.NetworkTooltip__note {
+  font-size: 0.9em;
+  font-style: italic;
+  opacity: 0.6;
+  line-height: 1.4em;
+  margin: 0.3em 0;
 }

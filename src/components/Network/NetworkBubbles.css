@@ -52,6 +52,7 @@
   transition: all 0.2s ease-out;
 }
 .NetworkBubbles__group-g {
+  cursor: pointer;
   transition: all 0.2s ease-out;
 }
 .NetworkBubbles__group-g--small:hover .NetworkBubbles__type-use {

@@ -1,6 +1,26 @@
 import React from "react";
+import rawData from "./data.json";
+import { fromPairs } from "./utils";
 
-export const types = ["Interventions", "Investments", "Actors", "Regulations"];
+export const types = ["Interventions", "Investments", "Actors"];
+
+const getContributionArea = (d) => {
+  return [
+    ...new Set(d["Topical Contribution Area"].map((d) => d.split(":")[0])),
+  ].sort();
+  // .join(" & ");
+};
+export const data = fromPairs(
+  types.map((type) => [
+    type,
+    rawData[type].map((d) => ({
+      ...d,
+      mainContributionArea: d["Topical Contribution Area"]
+        ? getContributionArea(d)
+        : null,
+    })),
+  ])
+);
 
 const colors = ["#4d405a", "#4d405a", "#4d405a", "#4d405a"];
 
@@ -18,6 +38,10 @@ contributionAreas.forEach((contributionArea, i) => {
     contributionAreaColorsList[i % colors.length];
 });
 export { contributionAreaColors };
+
+export const statusColors = {
+  Active: "#89b792",
+};
 
 export const typeShapes = {
   Interventions: (

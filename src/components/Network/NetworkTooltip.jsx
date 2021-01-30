@@ -6,45 +6,26 @@ import { typeColors } from "./../../constants";
 
 import "./NetworkTooltip.css";
 
-const NetworkTooltip = ({ position, data, width }) => {
-  const verticalPosition = position[1] < 200 ? "bottom" : "top";
-  const horizontalPosition =
-    position[0] < 100 ? "right" : position[0] > width - 100 ? "left" : "normal";
+const NetworkTooltip = ({ data, width }) => {
+  console.log(data);
 
   return (
-    <div
-      className={[
-        "NetworkTooltip",
-        `NetworkTooltip--vertical-${verticalPosition}`,
-        `NetworkTooltip--horizontal-${horizontalPosition}`,
-      ].join(" ")}
-      style={move(
-        `calc(${
-          horizontalPosition === "left"
-            ? -100
-            : horizontalPosition === "right"
-            ? 0
-            : -50
-        }% + ${position[0]}px)`,
-        `calc(${verticalPosition === "top" ? -100 : 0}% + ${position[1]}px)`,
-        true
-      )}
-    >
+    <div className={["NetworkTooltip"].join(" ")}>
       <div className="NetworkTooltip__name">
-        {truncate(data["label"], 30)}
         {!!data["year"] && (
           <div className="NetworkTooltip__year">{data["year"]}</div>
         )}
+        {data["label"]}
       </div>
-      <div className="NetworkTooltip__text">{data["type"].slice(0, -1)}</div>
+      {/* <div className="NetworkTooltip__text">{data["type"].slice(0, -1)}</div> */}
       {data["Amount"] && (
         <div className="NetworkTooltip__text">
           ${format(",.0f")(data["Amount"])}
         </div>
       )}
-      {data["Topical Contribution Area"] && (
+      {data["mainContributionArea"] && (
         <div className="NetworkTooltip__text">
-          {data["Topical Contribution Area"]}
+          {data["mainContributionArea"].join(" & ")}
         </div>
       )}
       {data["Entity Type"] && (
@@ -74,9 +55,11 @@ const NetworkTooltip = ({ position, data, width }) => {
           ))}
       </div>
        */}
-      <svg className="NetworkTooltip__arrow" viewBox="0 0 3 2">
+      {/* <svg className="NetworkTooltip__arrow" viewBox="0 0 3 2">
         <path d="M 1 0 L 3 0 L 0 2 Z" fill="white"></path>
-      </svg>
+      </svg> */}
+
+      <div className="NetworkTooltip__note">Click for more info</div>
     </div>
   );
 };

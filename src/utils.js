@@ -319,7 +319,7 @@ const paramsObjectToString = (obj) => {
 };
 
 export const useQueryParams = () => {
-  const [localParams, setLocalParams] = useState({});
+  const [localParams, setLocalParams] = useState(getUrlParams);
   const currentParams = useRef({});
 
   useEffect(() => {

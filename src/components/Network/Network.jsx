@@ -2,102 +2,36 @@ import React, { useEffect, useMemo, useState, useCallback } from "react";
 import { max } from "d3-array";
 import { scaleLog } from "d3-scale";
 
-import data from "./../../data.json";
-import { fromPairs, useInterval } from "./../../utils";
+import { data } from "./../../constants";
+import { fromPairs } from "./../../utils";
 import Toggle from "../Toggle/Toggle";
 import Icon from "../Icon/Icon";
-// import NetworkSearch from "./NetworkSearch";
-// import NetworkTimeline from "./NetworkTimeline";
+import NetworkSearch from "./NetworkSearch";
 import NetworkBubbles from "./NetworkBubbles";
-// import NetworkLegend from "./NetworkLegend";
+import NetworkFilters from "./NetworkFilters";
+import NetworkTooltip from "./NetworkTooltip";
+import NetworkModal from "./NetworkModal";
 
-import { contributionAreaColors, typeColors } from "./../../constants";
+import { contributionAreaColors, typeShapes } from "./../../constants";
 
 import "./Network.css";
 
 const Network = ({
   data,
-  instruments,
-  initialYear,
   groupType,
-  focusedMission,
+  focusedItem,
   searchTerm,
   onChangeState,
 }) => {
-  const [hoveredType, setHoveredType] = useState(null);
-  const [hoveredStatus, setHoveredStatus] = useState(null);
-  const [currentYear, setCurrentYear] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  // useEffect(() => {
-  //   if (isPlaying) return;
-  //   onChangeState("year", currentYear);
-  // }, [currentYear]);
-
-  // useEffect(() => {
-  //   if (isPlaying) {
-  //     onChangeState("year", null);
-  //   } else {
-  //     onChangeState("year", currentYear);
-  //   }
-  // }, [isPlaying]);
-
-  // const yearRange = useMemo(() => {
-  //   if (!data) return;
-  //   const yearRange = extent(data["Actors"], (d) => d["year"]);
-  //   if (Number.isFinite(initialYear)) {
-  //     setCurrentYear(initialYear);
-  //     setIsPlaying(false);
-  //   } else if (focusedMission) {
-  //     setIsPlaying(false);
-  //   } else {
-  //     setCurrentYear(yearRange[0]);
-  //     // setCurrentYear(2020);
-  //     // setIsPlaying(true);
-  //   }
-  //   return yearRange;
-  // }, [data]);
-
-  // const didFinishPlaying = currentYear === (yearRange || [])[1];
-  // const onToggleIsPlaying = () => {
-  //   if (didFinishPlaying && !isPlaying) {
-  //     setCurrentYear(yearRange[0]);
-  //   }
-  //   onChangeState("year", currentYear);
-  //   setIsPlaying(!isPlaying);
-  // };
-
-  // useInterval(
-  //   () => {
-  //     if (currentYear >= yearRange[1]) {
-  //       setIsPlaying(false);
-  //       return;
-  //     }
-  //     setCurrentYear(currentYear + 1);
-  //   },
-  //   isPlaying ? 300 : null
-  // );
-
-  // const onSetYear = (year) => {
-  //   setCurrentYear(year);
-  //   setIsPlaying(false);
-  // };
+  const [activeFilters, setActiveFilters] = useState([]);
+  const [hoveredItem, onHoverItem] = useState(null);
 
   const groupMeta = groupOptionsById[groupType];
 
   const onLegendItemHover = useCallback((type, item) => {
-    if (!type) {
-      setHoveredStatus(null);
-      setHoveredType(null);
-    } else if (type === "status") {
-      setHoveredType(null);
-      setHoveredStatus(item);
-    } else {
-      setHoveredType(item);
-      setHoveredStatus(null);
-    }
+    const newFilters = item ? [{ type, value: item }] : [];
+    setActiveFilters(newFilters);
   }, []);
-  // console.log({ groupType });
 
   const onFocusItem = useCallback((newItem) => {
     onChangeState("item", newItem);
@@ -107,67 +41,73 @@ const Network = ({
     onChangeState("search", newTerm);
   };
 
+  const onCloseFocusedItem = useCallback(() => {
+    onFocusItem(null);
+  }, []);
+
   return (
     <div className="Network__wrapper">
-      <div className="Network__controls">
-        {/* <button className="Network__button" onClick={onToggleIsPlaying}>
-          <Icon
-            name={isPlaying ? "pause" : didFinishPlaying ? "refresh" : "play"}
-          />
-        </button>
-        <div className="Network__current-year">{currentYear}</div> */}
-        <div className="Network__toggle">
-          <h6>Group by</h6>
-          <Toggle
-            options={groupOptions}
-            value={groupType}
-            onChange={(newValue) => onChangeState("group", newValue)}
+      <div className="Network__main">
+        <div className="Network__sidebar">
+          <div className="Network__sidebar__section Network__type">
+            <div className="Network__toggle">
+              {groupOptions.map(({ label, id }) => (
+                <button
+                  className={`Network__toggle__button Network__toggle__button--is-${
+                    groupType == id ? "selected" : "unselected"
+                  }`}
+                  onClick={() => {
+                    setActiveFilters([]);
+                    onChangeState("group", id);
+                  }}
+                >
+                  <svg viewBox="-75 -75 150 150">{typeShapes[id]}</svg>
+                  {label}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className="Network__sidebar__section Network__search">
+            <NetworkSearch {...{ data, searchTerm, setSearchTerm }} />
+          </div>
+          <div className="Network__sidebar__section Network__filters">
+            <NetworkFilters
+              filters={groupMeta["filters"]}
+              {...{ activeFilters }}
+              data={data[groupType]}
+              onUpdateFilters={setActiveFilters}
+            />
+          </div>
+        </div>
+
+        <div className="Network__bubbles">
+          <NetworkBubbles
+            {...{
+              data,
+              groupType,
+              groupMeta,
+              activeFilters,
+              focusedItem,
+              onFocusItem,
+              hoveredItem,
+              onHoverItem,
+            }}
+            searchTerm={searchTerm.toLowerCase()}
           />
         </div>
       </div>
 
-      {/* <div className="Network__timeline">
-        <NetworkTimeline
-          {...{ currentYear, yearRange }}
-          onChange={onSetYear}
-        />
-      </div> */}
+      {!!hoveredItem && <NetworkTooltip data={hoveredItem} />}
 
-      <div className="Network__bubbles">
-        <NetworkBubbles
-          {...{
-            data,
-            instruments,
-            currentYear,
-            groupType,
-            groupMeta,
-            hoveredType,
-            hoveredStatus,
-            focusedMission,
-            onFocusItem,
-          }}
-          searchTerm={searchTerm.toLowerCase()}
-        />
-      </div>
-
-      <div className="Network__search">
-        {/* <NetworkSearch {...{ data, searchTerm, setSearchTerm }} /> */}
-      </div>
-      {/* <NetworkLegend
-        {...{ hoveredType, hoveredStatus }}
-        onItemHover={onLegendItemHover}
-      /> */}
+      {focusedItem && (
+        <NetworkModal info={focusedItem} onClose={onCloseFocusedItem} />
+      )}
     </div>
   );
 };
 
 export default Network;
 
-const getContributionArea = (d) => {
-  return [
-    ...new Set(d["Topical Contribution Area"].map((d) => d.split(":")[0])),
-  ].join("--");
-};
 const amountSizeScale = scaleLog()
   .domain([1, max(data["Investments"], (d) => d["Amount"])])
   .range([0.01, 1.2])
@@ -180,9 +120,14 @@ const groupOptions = [
     pluralNoun: "interventions",
     key: "Interventions",
     accessor: (d) => d["Interventions"],
-    clusterBy: "Topical Contribution Area",
-    getClusterName: getContributionArea,
-    getColor: (d) => contributionAreaColors[getContributionArea(d)],
+    clusterBy: "mainContributionArea",
+    getClusterName: (d) => d["mainContributionArea"],
+    getColor: (d) => contributionAreaColors[d["mainContributionArea"]],
+    filters: [
+      "mainContributionArea",
+      "Rate-Limiting Feature",
+      "Type (approach)",
+    ],
     links: [
       ["Associated Investments", "Investments", "equal"],
       ["Associated Regulations", "Regulations", "equal"],
@@ -196,10 +141,12 @@ const groupOptions = [
     pluralNoun: "investments",
     key: "Investments",
     accessor: (d) => d["Investments"],
-    clusterBy: "Topical Contribution Area",
-    getClusterName: getContributionArea,
-    getColor: (d) => contributionAreaColors[getContributionArea(d)],
+    clusterBy: "mainContributionArea",
+    getClusterName: (d) => d["mainContributionArea"],
+    getColor: (d) => contributionAreaColors[d["mainContributionArea"]],
     getSize: (d) => amountSizeScale(d["Amount"]) || 0.8,
+    filters: ["mainContributionArea"],
+
     links: [
       ["Source", "Actors", "from"],
       ["Recipient", "Actors", "to"],
@@ -231,17 +178,25 @@ const groupOptions = [
     //     Organization: "#4d405a",
     //   }[d]),
     getSize: (d) =>
-      ([
-        "Individual",
-        "Under 10",
-        "10-50",
-        "50-100",
-        "100-500",
-        "500-1000",
-        "1000+",
-      ].indexOf(d["Number of People Involved (to 3 sig digits)"]) +
-        8) *
-      0.13,
+      d["Person or Org"] == "Individual Person"
+        ? 1.3
+        : ([
+            "Under 10",
+            "10-50",
+            "50-100",
+            "100-500",
+            "500-1000",
+            "1000+",
+          ].indexOf(d["Number of People Involved (to 3 sig digits)"]) +
+            8) *
+          0.13,
+    filters: [
+      "mainContributionArea",
+      "Enacting/Undertaking XYZ Interventions",
+      "Entity Type",
+      "Status",
+    ],
+
     links: [
       [
         "Directly Associated Orgs (e.g., employment/parent org):",
@@ -255,15 +210,15 @@ const groupOptions = [
       ["Received XYZ Investment(s)", "Investments", "from"],
     ],
   },
-  {
-    label: "Regulations",
-    id: "Regulations",
-    pluralNoun: "regulations",
-    key: "Regulations",
-    accessor: (d) => d["Regulations"],
-    links: [["Impacts the Following Interventions", "Interventions", "equal"]],
-  },
-].map((d) => ({ ...d, color: typeColors[d.id] }));
+  // {
+  //   label: "Regulations",
+  //   id: "Regulations",
+  //   pluralNoun: "regulations",
+  //   key: "Regulations",
+  //   accessor: (d) => d["Regulations"],
+  //   links: [["Impacts the Following Interventions", "Interventions", "equal"]],
+  // },
+];
 const groupOptionsById = fromPairs(
   groupOptions.map((group) => [group["id"], group])
 );

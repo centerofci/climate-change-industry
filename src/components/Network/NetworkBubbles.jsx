@@ -28,25 +28,21 @@ import {
 } from "./../../utils";
 import { types, typeColors, typeShapes } from "./../../constants";
 import CircleText from "./../CircleText";
-import NetworkTooltip from "./NetworkTooltip";
-// import MissionsModal from "./MissionsModal";
 
 import "./NetworkBubbles.css";
 
 const NetworkBubbles = ({
   data,
-  instruments,
-  currentYear,
   groupType,
   groupMeta,
   searchTerm,
-  hoveredType,
-  hoveredStatus,
-  focusedMission,
-  onFocusMission,
+  activeFilters,
+  focusedItem,
+  onFocusItem,
+  hoveredItem,
+  onHoverItem,
 }) => {
   const [ref, dms] = useChartDimensions();
-  const [hoveredPoint, setHoveredPoint] = useState(null);
   const timeout = useRef();
   const simulation = useRef();
   const simulationData = useRef();
@@ -54,7 +50,6 @@ const NetworkBubbles = ({
   const links = useRef([]);
   const cachedGroupPositions = useRef({});
   const forceUpdate = useForceUpdate();
-
   const clusterByKey = (groupMeta || {})["clusterBy"];
   const getClusterName =
     (groupMeta || {})["getClusterName"] || ((d) => d[clusterByKey]);
@@ -138,7 +133,7 @@ const NetworkBubbles = ({
     if (!data) return;
     if (!dms.width) return;
     if (!groupMeta) return;
-    // if (focusedMission) return;
+    // if (focusedItem) return;
 
     if (simulation.current) {
       simulation.current.stop();
@@ -240,7 +235,7 @@ const NetworkBubbles = ({
       )
       .alphaMin(0.001)
       .on("tick", onTick);
-  }, [dms.width, dms.height, data, groupType, currentYear, !!focusedMission]);
+  }, [dms.width, dms.height, data, groupType, !!focusedItem]);
   useEffect(() => {}, [data]);
 
   const groupBubbles = clusters.map(({ name, items = [] }) => {
@@ -303,21 +298,17 @@ const NetworkBubbles = ({
         clearTimeout(timeout.current);
         timeout.current = null;
       }
-      setHoveredPoint(item);
+      onHoverItem(item);
     } else {
       timeout.current = setTimeout(() => {
-        setHoveredPoint(null);
+        onHoverItem(null);
         timeout.current = null;
       }, 300);
     }
   };
   const updateModal = (d) => {
-    onFocusMission(d["name"]);
+    onFocusItem(d["name"]);
   };
-
-  // const onCloseFocusedPoint = useCallback(() => {
-  //   onFocusMission(null);
-  // }, []);
 
   // const { topLeftDot } = useMemo(() => {
   //   if (!groups.current) return {};
@@ -339,37 +330,51 @@ const NetworkBubbles = ({
     return `M ${points[0].join(" ")} L ${points[1].join(" ")}`;
   };
 
-  const isInHoveredPointNetwork = (item) => {
-    if (!hoveredPoint) return true;
-    if (item.id == hoveredPoint.id) return true;
+  const isInHoveredPointNetwork = (item, source) => {
+    if (item.id == hoveredItem.id) return 1;
     const inNetworkMatches = links.current.filter(
-      (d) => d.source.id == hoveredPoint.id || d.target.id == hoveredPoint.id
+      (d) => d.source.id == hoveredItem.id || d.target.id == hoveredItem.id
     );
-    return !!inNetworkMatches.find(
-      (d) => d.source.id == item.id || d.target.id == item.id
+    const doesHaveAMatch = !!inNetworkMatches.find(
+      (d) =>
+        (d.target.id == item.id || d.source.id == item.id) &&
+        (!source || d.source.id == source.id)
     );
+    return doesHaveAMatch ? 0.9 : 0.13;
+  };
+
+  const getItemOpacity = (item, source = null) => {
+    if (searchTerm)
+      return item.label.toLowerCase().includes(searchTerm) ? 1 : 0.13;
+    if (hoveredItem) return isInHoveredPointNetwork(item, source);
+    if (!activeFilters.length) return 1;
+
+    const unsatisifiedActiveFilters = activeFilters.filter(
+      ({ type, value: filterValue }) => {
+        const value = getFilterFromItem(item, type);
+        if (!value.length) return true;
+        if (source) {
+          const sourceValue = getFilterFromItem(source, type);
+          if (!sourceValue.includes(filterValue)) return true;
+          return false;
+        }
+        if (value.includes(filterValue)) return false;
+        return true;
+      }
+    );
+    return unsatisifiedActiveFilters.length ? 0.13 : 1;
   };
 
   return (
     <div
       ref={ref}
       className={`NetworkBubbles NetworkBubbles--${
-        hoveredType || hoveredStatus || searchTerm ? "is" : "is-not"
+        activeFilters.length || searchTerm ? "is" : "is-not"
       }-hovering`}
     >
       <div className="NetworkBubbles__wrapper">
         {groups.current && (
           <>
-            {hoveredPoint && (
-              <NetworkTooltip
-                position={[
-                  hoveredPoint["x"],
-                  hoveredPoint["y"] - hoveredPoint["r"],
-                ]}
-                data={hoveredPoint}
-                width={dms.width}
-              />
-            )}
             {/* {topLeftDot && (
               <div
                 className="NetworkBubbles__annotation"
@@ -389,7 +394,7 @@ const NetworkBubbles = ({
                   ></path>
                 </svg>
                 <div className="NetworkBubbles__annotation-text">
-                  Each dot is a mission
+                  Each dot is a Item
                   <br />
                   <i>hover to see details</i>
                 </div>
@@ -397,18 +402,6 @@ const NetworkBubbles = ({
             )} */}
             <svg width={dms.width} height={dms.height}>
               <defs>
-                {/* {groupType === "type" &&
-                  groups.current.map(({ id, stops }) => (
-                    <linearGradient id={`gradient-${id}`} key={id}>
-                      {stops.map(({ color, start }, i) => (
-                        <stop
-                          key={i}
-                          stopColor={color}
-                          offset={start * 100 + "%"}
-                        />
-                      ))}
-                    </linearGradient>
-                  ))} */}
                 <linearGradient id={`from-to`}>
                   {[fromColor, toColor].map((color, i) => (
                     <stop key={i} stopColor={color} offset={i * 100 + "%"} />
@@ -448,7 +441,7 @@ const NetworkBubbles = ({
                       : "url(#NetworkBubbles__arrow)"
                   }
                   style={{
-                    opacity: isInHoveredPointNetwork(link.target) ? 1 : 0.14,
+                    opacity: getItemOpacity(link.target, link.source),
                   }}
                 ></path>
               ))}
@@ -459,17 +452,12 @@ const NetworkBubbles = ({
                   className={`NetworkBubbles__group-g`}
                   style={{
                     ...move(item["x"], item["y"]),
-                    opacity: isInHoveredPointNetwork(item) ? 1 : 0.14,
+                    opacity: getItemOpacity(item),
                   }}
+                  onClick={() => onFocusItem(item.id)}
                 >
                   <g
-                    onMouseEnter={() => {
-                      // const x =
-                      //   item["x"] + nestedGroup["position"]["x"];
-                      // const y =
-                      //   item["y"] + nestedGroup["position"]["y"];
-                      updateTooltip(item);
-                    }}
+                    onMouseEnter={() => updateTooltip(item)}
                     onMouseLeave={() => updateTooltip(null)}
                     style={{
                       // fill: typeColors[item["type"]],
@@ -489,20 +477,6 @@ const NetworkBubbles = ({
                       {truncate(item["label"], Math.floor(item["r"] * 0.36))}
                     </CircleText>
                   )}
-                  {/* <circle
-                    className="NetworkBubbles__item"
-                    style={{ fill: typeColors[item["type"]] }}
-                    r={item["r"]}
-                    onMouseEnter={() => {
-                      // const x =
-                      //   item["x"] + nestedGroup["position"]["x"];
-                      // const y =
-                      //   item["y"] + nestedGroup["position"]["y"];
-                      updateTooltip(item);
-                    }}
-                    onMouseLeave={() => updateTooltip(null)}
-                    // onClick={() => updateModal(child)}
-                  ></circle> */}
                 </g>
               ))}
 
@@ -519,13 +493,6 @@ const NetworkBubbles = ({
           </>
         )}
       </div>
-      {/* {focusedMission && (
-        <MissionsModal
-          info={focusedMission}
-          instruments={instruments}
-          onClose={onCloseFocusedPoint}
-        />
-      )} */}
     </div>
   );
 };
@@ -536,3 +503,10 @@ function useForceUpdate() {
   const [, setValue] = useState(0); // integer state
   return () => setValue((value) => ++value); // update the state to force render
 }
+
+const getFilterFromItem = (d, filter) => {
+  const value = d[filter];
+  if (!value) return [];
+  if (typeof value == "object") return value;
+  return [value];
+};

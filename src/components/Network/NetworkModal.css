@@ -1,4 +1,4 @@
-.MissionsModal {
+.NetworkModal {
   position: fixed;
   left: 50%;
   top: 50%;
@@ -7,11 +7,11 @@
   pointer-events: none;
 }
 
-.MissionsModal h6 {
+.NetworkModal h6 {
   margin-bottom: 0.3em;
 }
 
-.MissionsModal__content {
+.NetworkModal__content {
   min-width: 20em;
   max-width: 80vw;
   max-height: 80vh;
@@ -22,7 +22,7 @@
   pointer-events: all;
 }
 
-.MissionsModal__background {
+.NetworkModal__background {
   position: fixed;
   top: 0;
   right: 0;
@@ -34,7 +34,7 @@
   z-index: 100;
 }
 
-.MissionsModal__close {
+.NetworkModal__close {
   position: absolute;
   top: 1em;
   right: 1.4em;
@@ -42,19 +42,19 @@
   cursor: pointer;
 }
 
-.MissionsModal__status {
+.NetworkModal__status {
   display: flex;
   align-items: center;
   margin-bottom: 0.5em;
 }
-.MissionsModal__status__info {
+.NetworkModal__status__info {
   padding-left: 0.8em;
   font-size: 0.8em;
   line-height: 1.3em;
   /* color: var(--gray); */
   font-style: italic;
 }
-.MissionsModal__name {
+.NetworkModal__name {
   font-size: 2em;
   line-height: 1.27em;
   margin-bottom: 0.5em;
@@ -64,18 +64,18 @@
   align-items: baseline;
   font-weight: 800;
 }
-.MissionsModal__year {
+.NetworkModal__year {
   margin-left: 1.7em;
   font-weight: 500;
   font-size: 0.6em;
   opacity: 0.6;
   white-space: nowrap;
 }
-.MissionsModal__status--Active,
-.MissionsModal__status--Planned {
+.NetworkModal__status--Active,
+.NetworkModal__status--Planned {
   color: var(--accent-light);
 }
-.MissionsModal img {
+.NetworkModal img {
   position: absolute;
   top: 50%;
   right: 1em;
@@ -83,7 +83,7 @@
   transform: translate(100%, -50%);
   max-width: 15em;
 }
-.MissionsModal__type-name {
+.NetworkModal__type-name {
   margin-top: 1em;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -91,45 +91,45 @@
   font-weight: 700;
   margin-right: 1em;
 }
-.MissionsModal__info {
+.NetworkModal__info {
   /* font-size: 0.9em; */
   /* line-height: 1.4em; */
   margin: 0.6em 0;
 }
-.MissionsModal__actor {
+.NetworkModal__actor {
   padding-bottom: 2em;
   font-size: 1.1em;
   line-height: 1.4em;
   font-weight: 600;
 }
-.MissionsModal__cards {
+.NetworkModal__cards {
   display: flex;
   flex-wrap: wrap;
   margin: 0 -0.2em;
   font-size: 0.9em;
 }
-.MissionsModal__card {
+.NetworkModal__card {
   max-width: 35em;
   margin: 0.2em;
   padding: 0.4em 1em;
   background: #f4f4f4;
   border-radius: 0.3em;
 }
-.MissionsModal__text {
+.NetworkModal__text {
   line-height: 1.6em;
   margin: 0.3em 0;
 }
 
 @media (max-width: 800px) {
-  .MissionsModal {
+  .NetworkModal {
     width: 100%;
     max-width: calc(100vw - 2em);
   }
-  .MissionsModal__content {
+  .NetworkModal__content {
     min-width: 0;
     max-width: calc(100vw - 2em);
   }
-  .MissionsModal img {
+  .NetworkModal img {
     position: relative;
     top: 0;
     right: 0;
@@ -139,11 +139,11 @@
   }
 }
 @media (max-height: 700px) {
-  .MissionsModal {
+  .NetworkModal {
     height: 100%;
     max-height: calc(100vh - 2em);
   }
-  .MissionsModal__content {
+  .NetworkModal__content {
     min-height: 0;
     max-height: calc(100vh - 2em);
   }

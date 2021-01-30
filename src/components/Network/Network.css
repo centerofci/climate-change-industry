@@ -2,27 +2,35 @@
   position: relative;
   width: 100%;
 }
+.Network__main {
+  width: 100%;
+  display: flex;
+}
 .Network__bubbles {
   width: 100%;
   position: relative;
+  flex: 1;
+  min-width: 30em;
   /* padding-left: 12em; */
 }
-.Network__controls {
-  margin-top: 1em;
-  margin-bottom: 1em;
-  display: flex;
-  align-items: center;
-  padding-left: 1em;
-  padding-right: 3em;
+.Network__sidebar {
+  flex: 0 0 15em;
+  max-width: 15em;
+  background: #fff;
+  margin: 1em;
+  max-height: 90vh;
+  overflow: auto;
+}
+.Network__sidebar h6 {
+  margin-bottom: 0.3em;
 }
 
-.Network__current-year {
-  margin: 0 0 0 0.6em;
-  font-weight: 700;
-  font-feature-settings: "tnum", 1;
-  font-size: 1.3em;
+.Network__sidebar__section {
+  padding: 1em;
 }
-
+.Network__sidebar__section + .Network__sidebar__section {
+  border-top: 1px solid #e2e8ee;
+}
 .Network__button {
   display: block;
   appearance: none;
@@ -40,17 +48,6 @@
   cursor: pointer;
 }
 
-.Network__toggle {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-}
-
-.Network__toggle h6 {
-  margin: 0;
-  margin-right: 2em;
-}
-
 .Network__timeline {
   margin-left: 1em;
   margin-right: 3em;
@@ -58,9 +55,28 @@
 }
 
 .Network__search {
-  position: absolute;
-  left: 1em;
-  top: 9em;
+}
+
+.Network__toggle__button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.2em 0.3em;
+  font-size: 0.9em;
+  appearance: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.Network__toggle__button--is-selected {
+  /* color: var(--accent-medium); */
+}
+.Network__toggle__button--is-unselected {
+  color: var(--gray-dark);
+}
+.Network__toggle__button svg {
+  width: 2.3em;
+  fill: currentColor;
 }
 
 @media (max-height: 700px) {

@@ -1,13 +1,25 @@
 import React, { useEffect, useState, useMemo } from "react";
 
-import { countBy, useDebounce, sortByFunction, fromPairs } from "./../../utils";
+import {
+  countBy,
+  flatten,
+  useDebounce,
+  sortByFunction,
+  fromPairs,
+} from "./../../utils";
+import { types } from "./../../constants";
 import Icon from "./../Icon/Icon";
 
-import "./MissionsSearch.css";
+import "./NetworkSearch.css";
 
-const MissionsSearch = ({ data, searchTerm, setSearchTerm }) => {
+const NetworkSearch = ({ data, searchTerm, setSearchTerm }) => {
   const [searchTermLocal, setSearchTermLocal] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+
+  const allItems = useMemo(
+    () => flatten(types.map((type) => data[type].map((d) => ({ ...d, type })))),
+    [data]
+  );
 
   useEffect(() => {
     setSearchTermLocal(searchTerm);
@@ -15,8 +27,14 @@ const MissionsSearch = ({ data, searchTerm, setSearchTerm }) => {
 
   const debouncedSearchTerm = useDebounce(searchTermLocal, 300);
 
+  const [didMount, setDidMount] = useState(false);
   useEffect(() => {
-    setSearchTerm(searchTermLocal ? searchTermLocal : null);
+    if (!didMount) {
+      setSearchTerm(searchTerm || null);
+    } else {
+      setSearchTerm(searchTermLocal ? searchTermLocal : null);
+    }
+    setDidMount(true);
   }, [debouncedSearchTerm]);
 
   const onSearchTermChange = (e) => {
@@ -27,13 +45,13 @@ const MissionsSearch = ({ data, searchTerm, setSearchTerm }) => {
   const uniqueStringsPerField = useMemo(() => {
     let uniqueStringsPerField = {};
     fields.forEach((field) => {
-      const items = countBy(data, fieldToAccessorMap[field]);
+      const items = countBy(allItems, fieldToAccessorMap[field]);
       uniqueStringsPerField[field] = Object.keys(items)
         .filter((d) => d)
         .sort(sortByFunction((d) => -items[d]));
     });
     return uniqueStringsPerField;
-  }, [data]);
+  }, [allItems]);
 
   const searchTermLocalLower = searchTermLocal.toLowerCase();
 
@@ -59,8 +77,8 @@ const MissionsSearch = ({ data, searchTerm, setSearchTerm }) => {
   }, []);
 
   return (
-    <div className="MissionsSearch">
-      <div className="MissionsSearch__input">
+    <div className="NetworkSearch">
+      <div className="NetworkSearch__input">
         <input
           value={searchTermLocal}
           onChange={onSearchTermChange}
@@ -69,7 +87,7 @@ const MissionsSearch = ({ data, searchTerm, setSearchTerm }) => {
         />
         {!!searchTermLocal && (
           <Icon
-            className="MissionsSearch__input__close"
+            className="NetworkSearch__input__close"
             name="x"
             size="s"
             onClick={() => setSearchTerm("")}
@@ -78,14 +96,14 @@ const MissionsSearch = ({ data, searchTerm, setSearchTerm }) => {
       </div>
       {isOpen && (
         <>
-          <div className="MissionsSearch__modal">
+          <div className="NetworkSearch__modal">
             {fields.map((field) => (
-              <div className="MissionsSearch__field" key={field}>
+              <div className="NetworkSearch__field" key={field}>
                 <h6>{field}</h6>
-                <div className="MissionsSearch__options">
+                <div className="NetworkSearch__options">
                   {filteredStringsPerField[field].slice(0, 5).map((item) => (
                     <button
-                      className="MissionsSearch__option"
+                      className="NetworkSearch__option"
                       key={item}
                       onClick={() => setSearchTerm(item)}
                     >
@@ -93,7 +111,7 @@ const MissionsSearch = ({ data, searchTerm, setSearchTerm }) => {
                     </button>
                   ))}
                   {filteredStringsPerField[field].length > 4 && (
-                    <div className="MissionsSearch__more">
+                    <div className="NetworkSearch__more">
                       + {filteredStringsPerField[field].length - 4} more
                     </div>
                   )}
@@ -102,7 +120,7 @@ const MissionsSearch = ({ data, searchTerm, setSearchTerm }) => {
             ))}
           </div>
           <div
-            className="MissionsSearch__modal__background"
+            className="NetworkSearch__modal__background"
             onClick={() => setIsOpen(false)}
           ></div>
         </>
@@ -111,12 +129,12 @@ const MissionsSearch = ({ data, searchTerm, setSearchTerm }) => {
   );
 };
 
-export default MissionsSearch;
+export default NetworkSearch;
 
-const fields = ["technology", "programs", "missions", "actors"];
 const fieldToAccessorMap = {
-  missions: (d) => [d["name"]],
-  actors: (d) => d["actors"] || [],
-  programs: (d) => d["programs"] || [],
-  technology: (d) => d["Technologies/Payload"] || [],
+  Interventions: (d) => [d["type"] == "Interventions" ? d["label"] : undefined],
+  Investments: (d) => [d["type"] == "Investments" ? d["label"] : undefined],
+  Actors: (d) => [d["type"] == "Actors" ? d["label"] : undefined],
+  Regulations: (d) => [d["type"] == "Regulations" ? d["label"] : undefined],
 };
+const fields = Object.keys(fieldToAccessorMap);
