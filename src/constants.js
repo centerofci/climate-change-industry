@@ -31,7 +31,12 @@ types.forEach((type, i) => {
 export { typeColors };
 
 export const contributionAreas = ["Mitigation", "Geoengineering"];
-const contributionAreaColorsList = ["#89b792", "#4d405a", "#F79F1F"];
+// const contributionAreaColorsList = ["#89b792", "#4d405a", "#F79F1F"];
+const contributionAreaColorsList = [
+  "var(--accent-2)",
+  "var(--accent-3)",
+  "#F79F1F",
+];
 let contributionAreaColors = {};
 contributionAreas.forEach((contributionArea, i) => {
   contributionAreaColors[contributionArea] =
@@ -41,6 +46,10 @@ export { contributionAreaColors };
 
 export const statusColors = {
   Active: "#89b792",
+};
+
+export const fieldLabels = {
+  mainContributionArea: "Main contribution area",
 };
 
 export const typeShapes = {

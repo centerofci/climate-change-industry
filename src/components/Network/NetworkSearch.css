@@ -6,8 +6,17 @@
   z-index: 30;
 }
 .NetworkSearch__input input {
+  background: var(--gray-lightest);
+  border: 1px solid var(--gray-light);
+  border: none;
+  width: 100%;
+  font-size: 0.9em;
   padding: 0.5em 0.8em;
-  padding-right: 2.2em;
+  padding-right: 1.9em;
+  font-weight: 100;
+}
+.NetworkSearch__input input:placeholder {
+  font-weight: 100;
 }
 .NetworkSearch__input__close {
   position: absolute;
@@ -23,13 +32,14 @@
   left: 0; */
   /* transform: translate(0, 100%); */
   position: fixed;
-  top: 17.8em;
-  left: 3.8em;
+  top: 22em;
+  left: 3.7em;
   width: 19rem;
-  max-height: calc(100vh - 15rem);
+  max-height: calc(100vh - 20rem);
   font-size: 0.8em;
-  background: #dee4ea;
-  padding: 1em;
+  color: var(--gray-dark);
+  background: var(--gray-lightest);
+  padding: 0 1em 1em;
   overflow: auto;
   z-index: 100;
 }
@@ -40,7 +50,7 @@
   bottom: 0;
   left: 0;
   background: #fff;
-  opacity: 0.3;
+  opacity: 0.5;
   z-index: 20;
   cursor: pointer;
 }

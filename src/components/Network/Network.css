@@ -16,9 +16,22 @@
 .Network__sidebar {
   flex: 0 0 15em;
   max-width: 15em;
-  background: #fff;
   margin: 1em;
+  display: flex;
+  flex-direction: column;
   max-height: 90vh;
+}
+.Network__sidebar h1 {
+  margin-top: 0;
+  font-size: 2em;
+  line-height: 1em;
+  font-weight: 800;
+}
+.Network__sidebar__top {
+  flex: none;
+}
+.Network__sidebar__bottom {
+  background: #fff;
   overflow: auto;
 }
 .Network__sidebar h6 {
@@ -29,7 +42,8 @@
   padding: 1em;
 }
 .Network__sidebar__section + .Network__sidebar__section {
-  border-top: 1px solid #e2e8ee;
+  padding-top: 0;
+  /* border-top: 1px solid #e2e8ee; */
 }
 .Network__button {
   display: block;
@@ -57,6 +71,9 @@
 .Network__search {
 }
 
+.Network__toggle {
+  margin: -0.5em 0 0.5em;
+}
 .Network__toggle__button {
   display: flex;
   align-items: center;
@@ -70,6 +87,7 @@
 }
 .Network__toggle__button--is-selected {
   /* color: var(--accent-medium); */
+  background: #fff;
 }
 .Network__toggle__button--is-unselected {
   color: var(--gray-dark);

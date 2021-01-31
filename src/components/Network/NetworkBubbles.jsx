@@ -1,10 +1,4 @@
-import React, {
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-  useCallback,
-} from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import {
   forceSimulation,
   forceX,
@@ -12,6 +6,7 @@ import {
   forceCollide,
   forceLink,
 } from "d3-force";
+import { scaleLinear } from "d3-scale";
 import { polygonHull } from "d3";
 
 import {
@@ -41,6 +36,8 @@ const NetworkBubbles = ({
   onFocusItem,
   hoveredItem,
   onHoverItem,
+  focusedNode,
+  setFocusedNode,
 }) => {
   const [ref, dms] = useChartDimensions();
   const timeout = useRef();
@@ -176,35 +173,75 @@ const NetworkBubbles = ({
     //   Math.sqrt(baseCircleSize) * 0.56
     // );
 
+    const getMatches = (d = {}) => {
+      if (!d) return [];
+      return initialLinks.filter(
+        (link) => link["target"] == d["id"] || link["source"] == d["id"]
+      );
+    };
     const getMatchTypes = (d) => {
       const matches = initialLinks.filter((link) => link["target"] == d["id"]);
       return [...new Set(matches.map((d) => d["type"]))].sort();
     };
-    nodes = nodes.map((d, i) => {
-      let cachedPosition = cachedGroupPositions.current[d["id"]];
-      if (!cachedPosition) cachedPosition = [dms.width / 2, dms.height / 2];
-      const matchTypes = getMatchTypes(d).join("--");
-      const color = d.isMain
-        ? getColor(d)
-        : {
-            from: fromColor,
-            to: toColor,
-            "from--to": "url(#from-to)",
-          }[matchTypes] || "#95afc0";
-      return {
-        ...d,
-        // x: dms.width / 2 + spiralPositions[i].x,
-        // y: dms.height / 2 + spiralPositions[i].y,
-        x: cachedPosition[0],
-        y: cachedPosition[1],
-        r:
-          (d["type"] == groupType
-            ? baseCircleSize * 1.5
-            : baseCircleSize * 0.6) * getSize(d),
-        color,
-        matchTypes,
-      };
-    });
+
+    nodes = nodes
+      .map((d, i) => {
+        let cachedPosition = cachedGroupPositions.current[d["id"]];
+        if (!cachedPosition) cachedPosition = [dms.width / 2, dms.height / 2];
+        const matchTypes = getMatchTypes(d).join("--");
+        const color = d.isMain ? getColor(d) : "var(--accent-1)";
+        // {
+        //     from: fromColor,
+        //     to: toColor,
+        //     "from--to": "url(#from-to)",
+        //   }[matchTypes] || "#95afc0";
+        return {
+          ...d,
+          // x: dms.width / 2 + spiralPositions[i].x,
+          // y: dms.height / 2 + spiralPositions[i].y,
+          x: cachedPosition[0],
+          y: cachedPosition[1],
+          r:
+            (d["type"] == groupType
+              ? baseCircleSize * 1.5
+              : baseCircleSize * 0.7) * getSize(d),
+          numberOfLinks: getMatches(d).length,
+          color,
+          matchTypes,
+        };
+      })
+      .sort((a, b) => b.numberOfLinks - a.numberOfLinks);
+
+    const newFocusedNode = focusedNode || nodes.find((d) => d.isMain);
+    setFocusedNode(newFocusedNode);
+
+    console.log(nodes);
+    if (groupType == "Actors") {
+      const matchingLinks = getMatches(newFocusedNode);
+      const matchingIds = new Set([
+        ...matchingLinks.map((d) => d["source"]),
+        ...matchingLinks.map((d) => d["target"]),
+      ]);
+      const nextLevelMatchingLinks = initialLinks.filter(
+        (link) => matchingIds.has(link.target) || matchingIds.has(link.source)
+      );
+      const nextLevelMatchingIds = new Set([
+        ...nextLevelMatchingLinks.map((d) => d["source"]),
+        ...nextLevelMatchingLinks.map((d) => d["target"]),
+      ]);
+      const getDistanceFromFocusedNode = (d) =>
+        d.id == newFocusedNode.id ? 0 : matchingIds.has(d.id) ? 1 : 2;
+      const isAttachedToFocusedNode = (d) => nextLevelMatchingIds.has(d);
+      nodes = nodes
+        .filter((d) => isAttachedToFocusedNode(d["id"]))
+        .map((d) => ({ ...d, distance: getDistanceFromFocusedNode(d) }));
+      console.log(initialLinks);
+      initialLinks = initialLinks.filter(
+        (link) =>
+          isAttachedToFocusedNode(link["source"]) &&
+          isAttachedToFocusedNode(link["target"])
+      );
+    }
 
     links.current = initialLinks;
     simulationData.current = [...nodes];
@@ -212,7 +249,7 @@ const NetworkBubbles = ({
       .force(
         "x",
         forceX((d) => getClusterPosition(d)[0]).strength(
-          groupType == "Actors" ? 0.03 : (d) => (d.isMain ? 0.8 : 0)
+          groupType == "Actors" ? 0.5 : (d) => (d.isMain ? 0.8 : 0)
         )
       )
       .force(
@@ -221,7 +258,7 @@ const NetworkBubbles = ({
           (d) =>
             getClusterPosition(d)[1] +
             (d.matchTypes == "from" ? -30 : d.matchTypes == "to" ? 30 : 0)
-        ).strength(groupType == "Actors" ? 0.03 : (d) => (d.isMain ? 0.8 : 0.3))
+        ).strength(groupType == "Actors" ? 0.5 : (d) => (d.isMain ? 0.8 : 0.3))
       )
       .force(
         "link",
@@ -232,40 +269,48 @@ const NetworkBubbles = ({
       )
       .force(
         "collide",
-        forceCollide((d) => d["r"] + dms.width * 0.02).strength(0.6)
+        forceCollide(
+          (d) => d["r"] + baseCircleSize * (groupType == "Actors" ? 3 : 1.2)
+        )
+          .strength(0.6)
+          .iterations(groupType == "Actors" ? 10 : 6)
       )
       .alphaMin(0.001)
+      .alpha(groupType == "Actors" && focusedNode ? 0.2 : 1)
       .on("tick", onTick);
-  }, [dms.width, dms.height, data, groupType, !!focusedItem]);
-  useEffect(() => {}, [data]);
+  }, [dms.width, dms.height, data, groupType, !!focusedItem, focusedNode]);
 
-  const groupBubbles = clusters.map(({ name, items = [] }) => {
-    const position = getClusterPosition(items[0]);
-    if (!position) return [];
-    const points = groups.current
-      .filter((d) => getClusterName(d) == name && d.isMain)
-      .map((d) => [d.x, d.y]);
-    let hull = polygonHull(points) || [];
-    if (!hull.length) hull = points;
-    const top = [
-      keepBetween(
-        points.map((d) => d[0]).reduce((a, b) => a + b, 0) / points.length,
-        50,
-        dms.width - 50
-      ),
-      keepBetween(
-        Math.min(...points.map((d) => d[1])) - baseCircleSize * 5,
-        10,
-        dms.height - 10
-      ),
-    ];
-    return {
-      name,
-      path: "M" + hull.map((d) => d.join(" ")).join(" L ") + "Z",
-      top,
-      position,
-    };
-  });
+  const groupBubbles =
+    groupType == "Actors"
+      ? []
+      : clusters.map(({ name, items = [] }) => {
+          const position = getClusterPosition(items[0]);
+          if (!position) return [];
+          const points = groups.current
+            .filter((d) => getClusterName(d) == name && d.isMain)
+            .map((d) => [d.x, d.y]);
+          let hull = polygonHull(points) || [];
+          if (!hull.length) hull = points;
+          const top = [
+            keepBetween(
+              points.map((d) => d[0]).reduce((a, b) => a + b, 0) /
+                points.length,
+              50,
+              dms.width - 50
+            ),
+            keepBetween(
+              Math.min(...points.map((d) => d[1])) - baseCircleSize * 5,
+              10,
+              dms.height - 10
+            ),
+          ];
+          return {
+            name,
+            path: "M" + hull.map((d) => d.join(" ")).join(" L ") + "Z",
+            top,
+            position,
+          };
+        });
 
   function onTick(d) {
     const padding = 20;
@@ -294,6 +339,7 @@ const NetworkBubbles = ({
   }
 
   const updateTooltip = (item) => {
+    // if (groupType == "Actors") return;
     if (item) {
       if (timeout.current) {
         clearTimeout(timeout.current);
@@ -307,16 +353,6 @@ const NetworkBubbles = ({
       }, 300);
     }
   };
-  const updateModal = (d) => {
-    onFocusItem(d["name"]);
-  };
-
-  // const { topLeftDot } = useMemo(() => {
-  //   if (!groups.current) return {};
-
-  //   const topLeftDot = sortBy([...groups.current], (d) => d["x"] + d["y"])[0];
-  //   return { topLeftDot };
-  // });
 
   const getLinkPath = ({ source, target, type }) => {
     const angle = getAngleFromPoints(source, target);
@@ -347,6 +383,9 @@ const NetworkBubbles = ({
   const getItemOpacity = (item, source = null) => {
     if (searchTerm)
       return item.label.toLowerCase().includes(searchTerm) ? 1 : 0.13;
+    if (Number.isFinite(item.distance)) {
+      return [1, 0.9, 0.3][item.distance];
+    }
     if (hoveredItem) return isInHoveredPointNetwork(item, source);
     if (!activeFilters.length) return 1;
 
@@ -421,6 +460,29 @@ const NetworkBubbles = ({
                 >
                   <path d="M 0 1 L 6 5 L 0 9 z" />
                 </marker>
+
+                <filter
+                  id="noise"
+                  x={-dms.width}
+                  y={-dms.height}
+                  // width="600%"
+                  // height="600%"
+                  width={dms.width * 2}
+                  height={dms.height * 2}
+                >
+                  <feTurbulence
+                    baseFrequency="0.03 0.03"
+                    result="NOISE"
+                    numOctaves="2"
+                  ></feTurbulence>
+                  <feDisplacementMap
+                    in="SourceGraphic"
+                    in2="NOISE"
+                    scale="13"
+                    xChannelSelector="R"
+                    yChannelSelector="R"
+                  ></feDisplacementMap>
+                </filter>
               </defs>
 
               {groupBubbles.map(({ name, path, top }, i) => (
@@ -428,6 +490,7 @@ const NetworkBubbles = ({
                   key={name}
                   className={`NetworkBubbles__cluster`}
                   style={{ strokeWidth: baseCircleSize * 7 }}
+                  filter="url(#noise)"
                   d={path}
                 ></path>
               ))}
@@ -465,7 +528,11 @@ const NetworkBubbles = ({
                     ...move(item["x"], item["y"]),
                     opacity: getItemOpacity(item),
                   }}
-                  onClick={() => onFocusItem(item.id)}
+                  onClick={() =>
+                    groupType == "Actors"
+                      ? setFocusedNode(item)
+                      : onFocusItem(item.id)
+                  }
                 >
                   <g
                     onMouseEnter={() => updateTooltip(item)}

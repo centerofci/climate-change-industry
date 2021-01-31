@@ -9,6 +9,7 @@ import Icon from "../Icon/Icon";
 import NetworkSearch from "./NetworkSearch";
 import NetworkBubbles from "./NetworkBubbles";
 import NetworkFilters from "./NetworkFilters";
+import NetworkList from "./NetworkList";
 import NetworkTooltip from "./NetworkTooltip";
 import NetworkModal from "./NetworkModal";
 
@@ -25,6 +26,7 @@ const Network = ({
 }) => {
   const [activeFilters, setActiveFilters] = useState([]);
   const [hoveredItem, onHoverItem] = useState(null);
+  const [focusedNode, setFocusedNode] = useState(null);
 
   const groupMeta = groupOptionsById[groupType];
 
@@ -44,34 +46,51 @@ const Network = ({
     <div className="Network__wrapper">
       <div className="Network__main">
         <div className="Network__sidebar">
-          <div className="Network__sidebar__section Network__type">
-            <div className="Network__toggle">
-              {groupOptions.map(({ label, id }) => (
-                <button
-                  className={`Network__toggle__button Network__toggle__button--is-${
-                    groupType == id ? "selected" : "unselected"
-                  }`}
-                  onClick={() => {
-                    setActiveFilters([]);
-                    onChangeState("group", id);
-                  }}
-                >
-                  <svg viewBox="-75 -75 150 150">{typeShapes[id]}</svg>
-                  {label}
-                </button>
-              ))}
+          <div className="Network__sidebar__top">
+            <h1>The Climate Industry</h1>
+            <div className="Network__type">
+              <div className="Network__toggle">
+                {groupOptions.map(({ label, id }) => (
+                  <button
+                    className={`Network__toggle__button Network__toggle__button--is-${
+                      groupType == id ? "selected" : "unselected"
+                    }`}
+                    onClick={() => {
+                      setActiveFilters([]);
+                      setSearchTerm(null);
+                      onChangeState("group", id);
+                    }}
+                  >
+                    <svg viewBox="-75 -75 150 150">{typeShapes[id]}</svg>
+                    {label}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
-          <div className="Network__sidebar__section Network__search">
-            <NetworkSearch {...{ data, searchTerm, setSearchTerm }} />
-          </div>
-          <div className="Network__sidebar__section Network__filters">
-            <NetworkFilters
-              filters={groupMeta["filters"]}
-              {...{ activeFilters }}
-              data={data[groupType]}
-              onUpdateFilters={setActiveFilters}
-            />
+          <div className="Network__sidebar__bottom">
+            {groupType == "Actors" ? (
+              <div className="Network__sidebar__section Network__filters">
+                <NetworkList
+                  data={data[groupType]}
+                  {...{ focusedNode, setFocusedNode }}
+                />
+              </div>
+            ) : (
+              <>
+                <div className="Network__sidebar__section Network__search">
+                  <NetworkSearch {...{ data, searchTerm, setSearchTerm }} />
+                </div>
+                <div className="Network__sidebar__section Network__filters">
+                  <NetworkFilters
+                    filters={groupMeta["filters"]}
+                    {...{ activeFilters }}
+                    data={data[groupType]}
+                    onUpdateFilters={setActiveFilters}
+                  />
+                </div>
+              </>
+            )}
           </div>
         </div>
 
@@ -86,6 +105,8 @@ const Network = ({
               onFocusItem,
               hoveredItem,
               onHoverItem,
+              focusedNode,
+              setFocusedNode,
             }}
             searchTerm={searchTerm.toLowerCase()}
           />
@@ -160,8 +181,8 @@ const groupOptions = [
     // },
     getColor: (d) =>
       ({
-        "Individual Person": "#89b792",
-        Organization: "#4d405a",
+        "Individual Person": "var(--accent-3)",
+        Organization: "var(--accent-2)",
       }[d["Person or Org"]]),
     // clusterBy: "Entity Type",
     // getClusterName: (d) => {
@@ -173,7 +194,9 @@ const groupOptions = [
     //     Organization: "#4d405a",
     //   }[d]),
     getSize: (d) =>
-      d["Person or Org"] == "Individual Person"
+      d.type != "Actors"
+        ? 1.7
+        : d["Person or Org"] == "Individual Person"
         ? 1.3
         : ([
             "Under 10",

@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 
 import Icon from "./../Icon/Icon";
 
-import { typeColors } from "./../../constants";
+import { fieldLabels } from "./../../constants";
 import { flatten, toTitleCase } from "./../../utils";
 
 import "./NetworkFilters.css";
@@ -54,7 +54,7 @@ const NetworkFilters = ({ data, filters, activeFilters, onUpdateFilters }) => {
     <div className="NetworkFilters">
       {parsedFilters.map(({ name, values }) => (
         <div className="NetworkFilters__filter">
-          <h6>{name}</h6>
+          <h6>{fieldLabels[name] || name}</h6>
           {values.map((value) => {
             const state = getFilterState(name, value);
             return (

@@ -21,16 +21,16 @@
 .NetworkBubbles__link {
   fill: none;
   stroke: var(--accent-medium);
-  stroke: #a4acb4;
+  stroke: var(--gray);
   stroke-width: 1;
   pointer-events: none;
 }
 .NetworkBubbles__link--equal {
-  stroke: #a4acb4;
+  stroke: var(--gray);
 }
 .NetworkBubbles__arrow {
   fill: var(--accent-medium);
-  fill: #a4acb4;
+  fill: var(--gray);
 }
 @keyframes pulse {
   0% {
@@ -43,14 +43,16 @@
 .NetworkBubbles__link__pulse {
   fill: none;
   stroke: var(--accent-medium);
-  stroke: #a4acb4;
+  stroke: #fff;
   stroke-width: 2.7;
-  stroke-dasharray: 1 16;
+  stroke-dasharray: 1 9;
   pointer-events: none;
   animation: pulse 53s linear;
   animation-iteration-count: infinite;
   stroke-linecap: round;
   stroke-linejoin: round;
+  stroke-opacity: 0.7;
+  mix-blend-mode: color-dodge;
 }
 .NetworkBubbles .NetworkBubbles__group {
   fill: #000;
@@ -61,7 +63,7 @@
   stroke-linejoin: round;
 }
 .NetworkBubbles .NetworkBubbles__cluster-name {
-  fill: #8493a1;
+  fill: var(--gray-dark);
   text-transform: uppercase;
   letter-spacing: 0.16em;
   font-weight: 700;

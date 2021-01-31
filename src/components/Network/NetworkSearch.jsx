@@ -81,7 +81,7 @@ const NetworkSearch = ({ data, searchTerm, setSearchTerm }) => {
         <input
           value={searchTermLocal}
           onChange={onSearchTermChange}
-          placeholder="Search for a mission"
+          placeholder="Search for a name"
           onFocus={() => setIsOpen(true)}
         />
         {!!searchTermLocal && (

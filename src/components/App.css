@@ -1,15 +1,23 @@
 @import url("https://rsms.me/inter/inter.css");
 html {
-  --text-color: #02142b;
   --accent-darker: #000;
-  --accent-dark: #02142b;
+  --accent-dark: #0d0c12;
+  --text-color: var(--accent-dark);
   --accent-medium: #7ca4c3;
-  --accent-light: #bddd94;
+  --accent-1: #b88c7f;
+  --accent-2: #255445;
+  --accent-2: #008b94;
+  --accent-3: #729486;
+  --accent-3: #5da17c;
+  /* --accent-1: #bc8797; */
+  --accent-light: #efd1c9;
   --accent-lighter: #d3dae2;
   --accent-lightest: #e2e8ee;
-  --gray: #a4acb4;
-  --gray-light: #d9e1e9;
-  --gray-dark: #51658a;
+  --gray: #a8a4a4;
+  --gray-light: #ddd9d9;
+  --gray-lightest: #ebebeb;
+  --gray-dark: #d4b46b;
+  --gray-dark: #868585;
 
   font-family: Inter, serif;
   font-size: 1.1em;
@@ -17,6 +25,7 @@ html {
   font-weight: 400;
   color: var(--text-color);
   background: var(--accent-lightest);
+  background: var(--gray-lightest);
   /* background: #130f40; */
   /* background: #313f53; */
 }
@@ -99,23 +108,23 @@ svg {
 ::-moz-scrollbar-track {
   box-shadow: none;
   border-radius: 10px;
-  background: #000;
+  background: #fff;
 }
 ::-webkit-scrollbar-track {
   box-shadow: none;
   border-radius: 10px;
-  background: #000;
+  background: #fff;
 }
 ::scrollbar-thumb {
   border-radius: 10px;
-  background: var(--gray);
+  background: #dad6d6;
   box-shadow: none;
 }
 ::-moz-scrollbar-thumb {
-  background: var(--gray);
+  background: #dad6d6;
   border-radius: 6px;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--gray);
+  background: #dad6d6;
   border-radius: 6px;
 }
