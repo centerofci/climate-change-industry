@@ -543,7 +543,15 @@ const NetworkBubbles = ({
                       transform: `scale(${item["r"] / 50})`,
                     }}
                   >
-                    <circle fill="transparent" r={item["r"]} />
+                    <circle
+                      fill={
+                        groupType == "Actors" &&
+                        item["id"] == (focusedNode || {})["id"]
+                          ? "white"
+                          : "transparent"
+                      }
+                      r={item["r"] + baseCircleSize * 3.6}
+                    />
                     {item["type"] == "Actors" &&
                     item["Person or Org"] == "Organization"
                       ? typeShapes["Organizations"]
