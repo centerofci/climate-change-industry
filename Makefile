@@ -2,8 +2,8 @@ PHONY: github
 
 github:
 	npm run build
-	scp -r ./build ./docs
-	npx staticrypt ./docs/index.html climate -o ./docs/index.html
+	rm -rf docs/*
+	scp -r ./build/* ./docs/
 	git add -A
 	git commit -m "update github pages"
 	git push
