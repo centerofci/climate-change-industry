@@ -77,6 +77,33 @@
     },
     {
       "Type (approach)": [
+        "Information/Education Intervention"
+      ],
+      "Topical Contribution Area": [
+        "Mitigation: Emission Reduction",
+        "Adaptation: Natural Ecosystem Protection",
+        "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)",
+        "Adaptation: Urban Human Built-Environment Protection",
+        "Adaptation: Rural Human Built-Environment Protection",
+        "Geoengineering: Solar Radiation Management",
+        "Geoengineering: Oceanic Ecosystems and Chemistry"
+      ],
+      "Rate-Limiting Feature": [
+        "Science",
+        "Technology / Engineering"
+      ],
+      "Intervention": "Climate/Earth System Modelling",
+      "Enacted/Undertaken By": [
+        "Tapio Schneider",
+        "Ken Caldeira",
+        "James Hansen",
+        "Susan Solomon"
+      ],
+      "id": "Interventions--Climate/Earth System Modelling",
+      "label": "Climate/Earth System Modelling"
+    },
+    {
+      "Type (approach)": [
         "Regulatory Intervention",
         "Policy Intervention"
       ],
@@ -101,6 +128,88 @@
       ],
       "id": "Interventions--Governance / Public Policy for Geoengineering",
       "label": "Governance / Public Policy for Geoengineering"
+    },
+    {
+      "Type (approach)": [
+        "Policy Intervention",
+        "Regulatory Intervention",
+        "Technological Intervention"
+      ],
+      "Topical Contribution Area": [
+        "Mitigation: Emission Reduction",
+        "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)",
+        "Adaptation: Natural Ecosystem Protection",
+        "Adaptation: Urban Human Built-Environment Protection",
+        "Adaptation: Rural Human Built-Environment Protection"
+      ],
+      "Rate-Limiting Feature": [
+        "Technology / Engineering",
+        "Scale / Collaboration",
+        "Funding / Financing",
+        "Regulations"
+      ],
+      "Intervention": "Environmental Monitoring",
+      "Funded by": [
+        "Oil and Gas Climate Initiative (OGCI)",
+        "Energy Innovation Capital "
+      ],
+      "Enacted/Undertaken By": [
+        "Blue Sky Analytics",
+        "Kairos Aerospace, Inc"
+      ],
+      "id": "Interventions--Environmental Monitoring",
+      "label": "Environmental Monitoring"
+    },
+    {
+      "Type (approach)": [
+        "Technological Intervention",
+        "Policy Intervention",
+        "Regulatory Intervention"
+      ],
+      "Topical Contribution Area": [
+        "Adaptation: Natural Ecosystem Protection",
+        "Adaptation: Rural Human Built-Environment Protection",
+        "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)"
+      ],
+      "Rate-Limiting Feature": [
+        "Technology / Engineering",
+        "Society",
+        "Politics ",
+        "Scale / Collaboration",
+        "Funding / Financing",
+        "Regulations"
+      ],
+      "Intervention": "Biomass/Ecosystem Managment",
+      "Enacted/Undertaken By": [
+        "Dendra Systems"
+      ],
+      "id": "Interventions--Biomass/Ecosystem Managment",
+      "label": "Biomass/Ecosystem Managment"
+    },
+    {
+      "Type (approach)": [
+        "Technological Intervention",
+        "Policy Intervention"
+      ],
+      "Topical Contribution Area": [
+        "Adaptation: Natural Ecosystem Protection",
+        "Adaptation: Urban Human Built-Environment Protection",
+        "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)",
+        "Adaptation: Rural Human Built-Environment Protection"
+      ],
+      "Rate-Limiting Feature": [
+        "Technology / Engineering",
+        "Scale / Collaboration",
+        "Funding / Financing",
+        "Systems-limited (e.g. misalignment between major organizational pillars)",
+        "Politics "
+      ],
+      "Intervention": "Coastal Management",
+      "Enacted/Undertaken By": [
+        "Nihon Suido Consultants"
+      ],
+      "id": "Interventions--Coastal Management",
+      "label": "Coastal Management"
     },
     {
       "Type (approach)": [
@@ -214,7 +323,7 @@
       "Intervention": "CO2 Capture for Concrete/Cement production",
       "Big/Latest News": "https://www.ourdailyplanet.com/story/new-biotech-companies-aim-to-shrink-the-carbon-footprint-of-cement/",
       "Funded by": [
-        "Department of Energy",
+        "U.S. Department of Energy",
         "XPRIZE (consortium funders)"
       ],
       "Enacted/Undertaken By": [
@@ -248,7 +357,9 @@
         "Saul Griffith ",
         "OtherLabs",
         "Ken Caldeira",
-        "Carnegie Institution for Science (at Stanford)"
+        "Carnegie Institution for Science (at Stanford)",
+        "Japan Renewable Energy Corporation",
+        "Shizen Energy Group"
       ],
       "id": "Interventions--Decarbonizing the Economy",
       "label": "Decarbonizing the Economy"
@@ -303,7 +414,7 @@
         "Susteon"
       ],
       "Source": [
-        "Department of Energy"
+        "U.S. Department of Energy"
       ],
       "Intervention(s) being addressed:": [
         null
@@ -426,9 +537,34 @@
       "Directly Associated Orgs (e.g., employment/parent org):": [
         "NASA"
       ],
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--NASA Global Climate Change (hub)",
       "label": "NASA Global Climate Change (hub)",
       "year": null
+    },
+    {
+      "Topical Contribution Area": [
+        "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)"
+      ],
+      "Number of People Involved (to 3 sig digits)": "500-1000",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Coastal Management"
+      ],
+      "Entity": "Nihon Suido Consultants",
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Status": [
+        "Active"
+      ],
+      "Person or Org": "Organization",
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Link to More Info on Entity (bio or overview page)": "http://en.nissuicon.co.jp/",
+      "Year founded / Born": "1959",
+      "Primary Operating Geography (Country)": "Japan",
+      "id": "Actors--Nihon Suido Consultants",
+      "label": "Nihon Suido Consultants",
+      "year": 1959
     },
     {
       "Topical Contribution Area": [
@@ -437,7 +573,8 @@
       ],
       "Number of People Involved (to 3 sig digits)": "Individual ",
       "Enacting/Undertaking XYZ Interventions": [
-        "CO2 removal via enhanced rock weathering"
+        "CO2 removal via enhanced rock weathering",
+        "Climate/Earth System Modelling"
       ],
       "Entity": "James Hansen",
       "Entity Type": [
@@ -454,6 +591,7 @@
         "NASA"
       ],
       "Year founded / Born": "1941",
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--James Hansen",
       "label": "James Hansen",
       "year": 1941
@@ -463,6 +601,9 @@
         "Mitigation: Emissions Reduction"
       ],
       "Number of People Involved (to 3 sig digits)": "Individual ",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Climate/Earth System Modelling"
+      ],
       "Entity": "Susan Solomon",
       "Entity Type": [
         "Scientific/Engineering Researcher Individual"
@@ -476,9 +617,62 @@
       "Directly Associated Orgs (e.g., employment/parent org):": [
         "MIT"
       ],
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--Susan Solomon",
       "label": "Susan Solomon",
       "year": null
+    },
+    {
+      "Topical Contribution Area": [
+        "Mitigation: Emissions Reduction",
+        "Adaptation: Natural Ecosystem Preservation",
+        "Adaptation: Urban Human Built-Environment Protection",
+        "Adaptation: Rural Human Built-Environment Protection",
+        "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)"
+      ],
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Environmental Monitoring"
+      ],
+      "Entity": "Blue Sky Analytics",
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Status": [
+        "Active"
+      ],
+      "Person or Org": "Organization",
+      "Focus": "Climate Change is entity's primary focus",
+      "Link to More Info on Entity (bio or overview page)": "https://blueskyhq.in/",
+      "Year founded / Born": "2018",
+      "Primary Operating Geography (Country)": "India",
+      "id": "Actors--Blue Sky Analytics",
+      "label": "Blue Sky Analytics",
+      "year": 2018
+    },
+    {
+      "Topical Contribution Area": [
+        "Mitigation: Green Energy / Decarbonization"
+      ],
+      "Number of People Involved (to 3 sig digits)": "Under 10",
+      "Entity": "Energy Innovation Capital ",
+      "Entity Type": [
+        "Funder Org (private e.g., VC or foundation)"
+      ],
+      "Status": [
+        "Active"
+      ],
+      "Person or Org": "Organization",
+      "Funding XYZ Interventions": [
+        "Environmental Monitoring"
+      ],
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Link to More Info on Entity (bio or overview page)": "https://energyinnovationcapital.com/investments",
+      "Year founded / Born": "2018",
+      "Primary Operating Geography (Country)": "USA",
+      "id": "Actors--Energy Innovation Capital ",
+      "label": "Energy Innovation Capital ",
+      "year": 2018
     },
     {
       "Topical Contribution Area": [
@@ -505,6 +699,7 @@
         "UCLA"
       ],
       "Year founded / Born": "2019",
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--Carbon Upcycling UCLA",
       "label": "Carbon Upcycling UCLA",
       "year": 2019
@@ -533,9 +728,34 @@
       ],
       "Focus": "Climate Change is entity's primary focus",
       "Link to More Info on Entity (bio or overview page)": "https://lowercarboncapital.com/",
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--Lowercarbon Capital",
       "label": "Lowercarbon Capital",
       "year": null
+    },
+    {
+      "Topical Contribution Area": [
+        "Mitigation: Green Energy / Decarbonization"
+      ],
+      "Number of People Involved (to 3 sig digits)": "100-500",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Decarbonizing the Economy"
+      ],
+      "Entity": "Japan Renewable Energy Corporation",
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Status": [
+        "Active"
+      ],
+      "Person or Org": "Organization",
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Link to More Info on Entity (bio or overview page)": "http://www.jre.co.jp/en/",
+      "Year founded / Born": "2012",
+      "Primary Operating Geography (Country)": "Japan",
+      "id": "Actors--Japan Renewable Energy Corporation",
+      "label": "Japan Renewable Energy Corporation",
+      "year": 2012
     },
     {
       "Topical Contribution Area": [
@@ -561,6 +781,7 @@
       "Focus": "Climate Change is among entity's portfolio focuses",
       "Link to More Info on Entity (bio or overview page)": "https://sloan.org/about",
       "Year founded / Born": "1934",
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--Alfred P. Sloan Foundation ",
       "label": "Alfred P. Sloan Foundation ",
       "year": 1934
@@ -593,6 +814,7 @@
         "Stanford University "
       ],
       "Year founded / Born": "2002",
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--Carnegie Institution for Science (at Stanford)",
       "label": "Carnegie Institution for Science (at Stanford)",
       "year": 2002
@@ -619,6 +841,7 @@
       "Focus": "Climate Change is among entity's portfolio focuses",
       "Link to More Info on Entity (bio or overview page)": "https://www.nasa.gov/",
       "Year founded / Born": "1958",
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--NASA",
       "label": "NASA",
       "year": 1958
@@ -647,6 +870,7 @@
       "Focus": "Climate Change is among entity's portfolio focuses",
       "Link to More Info on Entity (bio or overview page)": "https://www.harvard.edu/",
       "Year founded / Born": "1636",
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--Harvard University ",
       "label": "Harvard University ",
       "year": 1636
@@ -672,8 +896,33 @@
       ],
       "Person or Org": "Organization",
       "Focus": "Climate Change is among entity's portfolio focuses",
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--ASU",
       "label": "ASU",
+      "year": null
+    },
+    {
+      "Topical Contribution Area": [
+        "Adaptation: Natural Ecosystem Preservation",
+        "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)"
+      ],
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Biomass/Ecosystem Managment"
+      ],
+      "Entity": "Dendra Systems",
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Status": [
+        "Active"
+      ],
+      "Person or Org": "Organization",
+      "Focus": "Climate Change is entity's primary focus",
+      "Link to More Info on Entity (bio or overview page)": "https://www.dendra.io/about",
+      "Primary Operating Geography (Country)": "UK",
+      "id": "Actors--Dendra Systems",
+      "label": "Dendra Systems",
       "year": null
     },
     {
@@ -700,6 +949,7 @@
       "Focus": "Climate Change is among entity's portfolio focuses",
       "Link to More Info on Entity (bio or overview page)": "https://www.ucla.edu/",
       "Year founded / Born": "1919",
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--UCLA",
       "label": "UCLA",
       "year": 1919
@@ -722,6 +972,7 @@
       "Focus": "Climate Change is among entity's portfolio focuses",
       "Link to More Info on Entity (bio or overview page)": "https://www.nature.org/en-us/about-us/who-we-are/",
       "Year founded / Born": "1951",
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--The Nature Conservancy",
       "label": "The Nature Conservancy",
       "year": 1951
@@ -743,6 +994,7 @@
       "Person or Org": "Organization",
       "Focus": "Climate Change is entity's primary focus",
       "Link to More Info on Entity (bio or overview page)": "https://www.oceancollectiv.co/",
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--Ocean Collectiv",
       "label": "Ocean Collectiv",
       "year": null
@@ -765,6 +1017,7 @@
       "Person or Org": "Organization",
       "Focus": "Climate Change is entity's primary focus",
       "Link to More Info on Entity (bio or overview page)": "https://urbanoceanlab.org/",
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--Urban Ocean Lab",
       "label": "Urban Ocean Lab",
       "year": null
@@ -788,6 +1041,7 @@
       "Focus": "Climate Change is among entity's portfolio focuses",
       "Link to More Info on Entity (bio or overview page)": "https://globalthermostat.com/the-gt-solution/",
       "Year founded / Born": "2010",
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--Global Thermostat",
       "label": "Global Thermostat",
       "year": 2010
@@ -816,6 +1070,7 @@
       "Focus": "Climate Change is entity's primary focus",
       "Link to More Info on Entity (bio or overview page)": "https://www.rusheen.com/#about",
       "Year founded / Born": "2015",
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--Rusheen Capital Management ",
       "label": "Rusheen Capital Management ",
       "year": 2015
@@ -843,6 +1098,7 @@
       "Focus": "Climate Change is entity's primary focus",
       "Link to More Info on Entity (bio or overview page)": "https://www.oxylowcarbon.com/carbon-neutral/about-us",
       "Year founded / Born": "2018",
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--Oxy Low Carbon Ventures",
       "label": "Oxy Low Carbon Ventures",
       "year": 2018
@@ -858,7 +1114,8 @@
       "Enacting/Undertaking XYZ Interventions": [
         "Addition of Atmospheric Aerosols",
         "Advancing Energy Innovation",
-        "Decarbonizing the Economy"
+        "Decarbonizing the Economy",
+        "Climate/Earth System Modelling"
       ],
       "Entity": "Ken Caldeira",
       "Entity Type": [
@@ -875,6 +1132,7 @@
         "Stanford University "
       ],
       "Year founded / Born": "1960",
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--Ken Caldeira",
       "label": "Ken Caldeira",
       "year": 1960
@@ -901,6 +1159,7 @@
       "Focus": "Climate Change is entity's primary focus",
       "Link to More Info on Entity (bio or overview page)": "https://www.ourdailyplanet.com/about/",
       "Year founded / Born": "2018",
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--Our Daily Planet",
       "label": "Our Daily Planet",
       "year": 2018
@@ -929,6 +1188,7 @@
       "Focus": "Climate Change is among entity's portfolio focuses",
       "Link to More Info on Entity (bio or overview page)": "https://www.mit.edu/",
       "Year founded / Born": "1861",
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--MIT",
       "label": "MIT",
       "year": 1861
@@ -956,6 +1216,7 @@
       ],
       "Link to More Info on Entity (bio or overview page)": "https://mechanicaltrees.com/",
       "Year founded / Born": "2019",
+      "Primary Operating Geography (Country)": "Ireland",
       "id": "Actors--Silicon Kingdom Holdings / MechanicalTrees",
       "label": "Silicon Kingdom Holdings / MechanicalTrees",
       "year": 2019
@@ -968,7 +1229,7 @@
         "Mitigation: Green Energy / Decarbonization"
       ],
       "Number of People Involved (to 3 sig digits)": "1000+",
-      "Entity": "Department of Energy",
+      "Entity": "U.S. Department of Energy",
       "Entity Type": [
         "Funder Org (public e.g., NSF)",
         "Regulatory / Gov Org"
@@ -986,9 +1247,34 @@
       "Focus": "Climate Change is among entity's portfolio focuses",
       "Link to More Info on Entity (bio or overview page)": "https://www.energy.gov/science-innovation/climate-change",
       "Year founded / Born": "1977",
-      "id": "Actors--Department of Energy",
-      "label": "Department of Energy",
+      "Primary Operating Geography (Country)": "USA",
+      "id": "Actors--U.S. Department of Energy",
+      "label": "U.S. Department of Energy",
       "year": 1977
+    },
+    {
+      "Topical Contribution Area": [
+        "Mitigation: Emissions Reduction",
+        "Mitigation: Carbon Removal / Carbon Capture",
+        "Mitigation: Green Energy / Decarbonization",
+        "Adaptation: Urban Human Built-Environment Protection",
+        "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)"
+      ],
+      "Number of People Involved (to 3 sig digits)": "100-500",
+      "Entity": "Japan Climate Leaders' Partnership (JCLP)",
+      "Entity Type": [
+        "Activist / Advocacy Org"
+      ],
+      "Status": [
+        "Active"
+      ],
+      "Person or Org": "Organization",
+      "Focus": "Climate Change is entity's primary focus",
+      "Link to More Info on Entity (bio or overview page)": "https://japan-clp.jp/en",
+      "Primary Operating Geography (Country)": "Japan",
+      "id": "Actors--Japan Climate Leaders' Partnership (JCLP)",
+      "label": "Japan Climate Leaders' Partnership (JCLP)",
+      "year": null
     },
     {
       "Topical Contribution Area": [
@@ -1012,6 +1298,7 @@
       "Focus": "Climate Change is among entity's portfolio focuses",
       "Link to More Info on Entity (bio or overview page)": "https://carbon.xprize.org/home",
       "Year founded / Born": "1994",
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--XPRIZE (consortium funders)",
       "label": "XPRIZE (consortium funders)",
       "year": 1994
@@ -1041,6 +1328,7 @@
       "Focus": "Climate Change is among entity's portfolio focuses",
       "Link to More Info on Entity (bio or overview page)": "https://www.cfr.org/",
       "Year founded / Born": "1921",
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--Council on Foreign Relations",
       "label": "Council on Foreign Relations",
       "year": 1921
@@ -1065,9 +1353,34 @@
       "Focus": "Climate Change is among entity's portfolio focuses",
       "Link to More Info on Entity (bio or overview page)": "https://www.otherlab.com/blog-posts/us-energy-flow-super-sankey",
       "Year founded / Born": "2009",
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--OtherLabs",
       "label": "OtherLabs",
       "year": 2009
+    },
+    {
+      "Topical Contribution Area": [
+        "Mitigation: Green Energy / Decarbonization"
+      ],
+      "Number of People Involved (to 3 sig digits)": "100-500",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Decarbonizing the Economy"
+      ],
+      "Entity": "Shizen Energy Group",
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Status": [
+        "Active"
+      ],
+      "Person or Org": "Organization",
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Link to More Info on Entity (bio or overview page)": "https://www.shizenenergy.net/en/about/",
+      "Year founded / Born": "2011",
+      "Primary Operating Geography (Country)": "Japan",
+      "id": "Actors--Shizen Energy Group",
+      "label": "Shizen Energy Group",
+      "year": 2011
     },
     {
       "Topical Contribution Area": [
@@ -1092,6 +1405,7 @@
         "Ocean Collectiv",
         "Urban Ocean Lab"
       ],
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--Ayana Elizabeth Johnson",
       "label": "Ayana Elizabeth Johnson",
       "year": null
@@ -1120,6 +1434,7 @@
       ],
       "Link to More Info on Entity (bio or overview page)": "https://pale-blu.com/",
       "Year founded / Born": "2013",
+      "Primary Operating Geography (Country)": "UK",
       "id": "Actors--Pale Blue Dot",
       "label": "Pale Blue Dot",
       "year": 2013
@@ -1148,9 +1463,38 @@
       "Directly Associated Orgs (e.g., employment/parent org):": [
         "ASU"
       ],
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--ASU Center for Negative Carbon Emissions",
       "label": "ASU Center for Negative Carbon Emissions",
       "year": null
+    },
+    {
+      "Topical Contribution Area": [
+        "Mitigation: Emissions Reduction",
+        "Mitigation: Carbon Removal / Carbon Capture",
+        "Mitigation: Green Energy / Decarbonization",
+        "Adaptation: Natural Ecosystem Preservation",
+        "Adaptation: Urban Human Built-Environment Protection",
+        "Adaptation: Rural Human Built-Environment Protection",
+        "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)",
+        "Geoengineering: Solar Radiation Management"
+      ],
+      "Number of People Involved (to 3 sig digits)": "1000+",
+      "Entity": "CalTech",
+      "Entity Type": [
+        "Academic Org"
+      ],
+      "Status": [
+        "Active"
+      ],
+      "Person or Org": "Organization",
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Link to More Info on Entity (bio or overview page)": "https://www.caltech.edu/",
+      "Year founded / Born": "1891",
+      "Primary Operating Geography (Country)": "USA",
+      "id": "Actors--CalTech",
+      "label": "CalTech",
+      "year": 1891
     },
     {
       "Topical Contribution Area": [
@@ -1178,9 +1522,36 @@
         "Harvard University "
       ],
       "Year founded / Born": "2017",
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--Harvard's Solar Geoengineering Research Program",
       "label": "Harvard's Solar Geoengineering Research Program",
       "year": 2017
+    },
+    {
+      "Topical Contribution Area": [
+        "Mitigation: Green Energy / Decarbonization",
+        "Mitigation: Emissions Reduction",
+        "Mitigation: Carbon Removal / Carbon Capture"
+      ],
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Entity": "Oil and Gas Climate Initiative (OGCI)",
+      "Entity Type": [
+        "Funder Org (private e.g., VC or foundation)"
+      ],
+      "Status": [
+        "Active"
+      ],
+      "Person or Org": "Organization",
+      "Funding XYZ Interventions": [
+        "Environmental Monitoring"
+      ],
+      "Focus": "Climate Change is entity's primary focus",
+      "Link to More Info on Entity (bio or overview page)": "https://oilandgasclimateinitiative.com/",
+      "Year founded / Born": "2014",
+      "Primary Operating Geography (Country)": "UK",
+      "id": "Actors--Oil and Gas Climate Initiative (OGCI)",
+      "label": "Oil and Gas Climate Initiative (OGCI)",
+      "year": 2014
     },
     {
       "Topical Contribution Area": [
@@ -1202,6 +1573,7 @@
       "Focus": "Climate Change is among entity's portfolio focuses",
       "Link to More Info on Entity (bio or overview page)": "https://www.columbia.edu/",
       "Year founded / Born": "1754",
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--Columbia University",
       "label": "Columbia University",
       "year": 1754
@@ -1230,9 +1602,40 @@
       "Directly Associated Orgs (e.g., employment/parent org):": [
         "UCLA"
       ],
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--UCLA Center for Climate Science",
       "label": "UCLA Center for Climate Science",
       "year": null
+    },
+    {
+      "Topical Contribution Area": [
+        "Mitigation: Emissions Reduction",
+        "Adaptation: Natural Ecosystem Preservation",
+        "Adaptation: Urban Human Built-Environment Protection",
+        "Adaptation: Rural Human Built-Environment Protection"
+      ],
+      "Number of People Involved (to 3 sig digits)": "Individual ",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Climate/Earth System Modelling"
+      ],
+      "Entity": "Tapio Schneider",
+      "Entity Type": [
+        "Scientific/Engineering Researcher Individual"
+      ],
+      "Status": [
+        "Active"
+      ],
+      "Person or Org": "Individual Person",
+      "Focus": "Climate Change is entity's primary focus",
+      "Link to More Info on Entity (bio or overview page)": "https://en.wikipedia.org/wiki/Tapio_Schneider",
+      "Directly Associated Orgs (e.g., employment/parent org):": [
+        "CalTech"
+      ],
+      "Year founded / Born": "1972",
+      "Primary Operating Geography (Country)": "USA",
+      "id": "Actors--Tapio Schneider",
+      "label": "Tapio Schneider",
+      "year": 1972
     },
     {
       "Topical Contribution Area": [
@@ -1255,6 +1658,7 @@
       ],
       "Link to More Info on Entity (bio or overview page)": "https://www.greenbelt.org/",
       "Year founded / Born": "1958",
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--Greenbelt Alliance",
       "label": "Greenbelt Alliance",
       "year": 1958
@@ -1278,6 +1682,7 @@
       "Focus": "Climate Change is entity's primary focus",
       "Link to More Info on Entity (bio or overview page)": "https://www.biomason.com/",
       "Year founded / Born": "2012",
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--BioMason",
       "label": "BioMason",
       "year": 2012
@@ -1304,6 +1709,7 @@
         "OtherLabs"
       ],
       "Year founded / Born": "1974",
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--Saul Griffith ",
       "label": "Saul Griffith ",
       "year": 1974
@@ -1334,6 +1740,7 @@
       ],
       "Link to More Info on Entity (bio or overview page)": "http://susteon.com/what-we-do/",
       "Year founded / Born": "2018",
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--Susteon",
       "label": "Susteon",
       "year": 2018
@@ -1362,6 +1769,7 @@
         "ASU Center for Negative Carbon Emissions",
         "Silicon Kingdom Holdings / MechanicalTrees"
       ],
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--Klaus Lackner",
       "label": "Klaus Lackner",
       "year": null
@@ -1388,6 +1796,7 @@
       "Focus": "Climate Change is among entity's portfolio focuses",
       "Link to More Info on Entity (bio or overview page)": "https://www.openphilanthropy.org/focus/global-catastrophic-risks/miscellaneous/harvard-university-solar-geoengineering-research-program",
       "Year founded / Born": "2017",
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--Open Philanthropy",
       "label": "Open Philanthropy",
       "year": 2017
@@ -1418,6 +1827,7 @@
       ],
       "Link to More Info on Entity (bio or overview page)": "https://carbonengineering.com/our-story/",
       "Year founded / Born": "2009",
+      "Primary Operating Geography (Country)": "Canada",
       "id": "Actors--Carbon Engineering ",
       "label": "Carbon Engineering ",
       "year": 2009
@@ -1446,6 +1856,7 @@
         "Harvard's Solar Geoengineering Research Program"
       ],
       "Year founded / Born": "1980",
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--Gernot Wagner ",
       "label": "Gernot Wagner ",
       "year": 1980
@@ -1473,9 +1884,34 @@
       "Focus": "Climate Change is among entity's portfolio focuses",
       "Link to More Info on Entity (bio or overview page)": "https://www.stanford.edu/",
       "Year founded / Born": "1885",
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--Stanford University ",
       "label": "Stanford University ",
       "year": 1885
+    },
+    {
+      "Topical Contribution Area": [
+        "Mitigation: Emissions Reduction"
+      ],
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Environmental Monitoring"
+      ],
+      "Entity": "Kairos Aerospace, Inc",
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Status": [
+        "Active"
+      ],
+      "Person or Org": "Organization",
+      "Focus": "Climate Change is entity's primary focus",
+      "Link to More Info on Entity (bio or overview page)": "http://kairosaerospace.com/",
+      "Year founded / Born": "2014",
+      "Primary Operating Geography (Country)": "USA",
+      "id": "Actors--Kairos Aerospace, Inc",
+      "label": "Kairos Aerospace, Inc",
+      "year": 2014
     },
     {
       "Topical Contribution Area": [
@@ -1489,6 +1925,7 @@
         "Addition of Atmospheric Aerosols"
       ],
       "Entity": "David Keith",
+      "Secondary Geography (Country)": "Canada",
       "Entity Type": [
         "Scientific/Engineering Researcher Individual",
         "Activist / Advocacy Individual ",
@@ -1505,6 +1942,7 @@
         "Harvard's Solar Geoengineering Research Program",
         "Carbon Engineering "
       ],
+      "Primary Operating Geography (Country)": "USA",
       "id": "Actors--David Keith",
       "label": "David Keith",
       "year": null

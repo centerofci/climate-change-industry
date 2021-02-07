@@ -13,6 +13,7 @@
   font-weight: 700;
   font-size: 0.7em;
   fill: var(--text-color);
+  user-select: none;
 }
 .NetworkBubbles circle {
   /* fill: #30336b; */

@@ -25,10 +25,15 @@
   margin-top: 0;
   font-size: 2em;
   line-height: 1em;
+  width: min(90vw, 20em);
   font-weight: 800;
 }
 .Network__sidebar__top {
   flex: none;
+}
+.Network__sidebar__bottom-label {
+  margin-top: 0.7em;
+  margin-left: 1em;
 }
 .Network__sidebar__bottom {
   background: #fff;
@@ -79,10 +84,9 @@
   align-items: center;
   width: 100%;
   padding: 0.2em 0.3em;
-  font-size: 0.9em;
-  appearance: none;
+  margin: 0;
+  font-size: 0.8em;
   background: none;
-  border: none;
   cursor: pointer;
 }
 .Network__toggle__button--is-selected {
@@ -94,6 +98,7 @@
 }
 .Network__toggle__button svg {
   width: 2.3em;
+  margin-right: 0.3em;
   fill: currentColor;
 }
 

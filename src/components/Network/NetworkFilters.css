@@ -16,7 +16,10 @@
   font-size: 0.8em;
   line-height: 1.3em;
   padding: 0.4em 0.6em;
+  margin-left: -0.6em;
+  width: calc(100% + 1.2em);
   cursor: pointer;
+  color: var(--override-color);
 }
 .NetworkFilters__filter__item .Icon {
   flex: 0 0 12px;
@@ -26,7 +29,7 @@
   color: var(--gray);
 }
 .NetworkFilters__filter__item--is-selected {
-  background: var(--accent-3);
+  background: var(--override-color, var(--accent-3));
   color: #fff;
 }
 .NetworkFilters__filter__item:hover {
@@ -34,5 +37,5 @@
 }
 
 .NetworkFilters__filter__item--is-selected:hover {
-  background: var(--accent-2);
+  background: var(--override-color, var(--accent-3));
 }

@@ -18,7 +18,7 @@ function App() {
   const viz = params["viz"] || "network";
   const groupType = params["group"] || "Interventions";
   const searchTerm = params["search"] || "";
-  console.log(params["group"]);
+
   const focusedItem = useMemo(() => {
     if (!params["item"]) return null;
     const itemGroupType = params["item"].split("--")[0];
@@ -29,6 +29,16 @@ function App() {
     return matchingItem;
   }, [params["item"], data]);
 
+  const focusedNode = useMemo(() => {
+    if (!params["focused"] || typeof params["focused"] != "string") return null;
+    const itemGroupType = params["focused"].split("--")[0];
+    const matchingItem = (data[itemGroupType || groupType] || []).find(
+      (d) => d["id"] === params["focused"]
+    );
+    if (!matchingItem) return null;
+    return matchingItem;
+  }, [params["focused"], data]);
+
   return (
     <div className={`App`}>
       {viz === "network" ? (
@@ -36,8 +46,8 @@ function App() {
           {...{
             data,
             groupType,
-            // focusedMission,
             focusedItem,
+            focusedNode,
             searchTerm,
             onChangeState,
           }}

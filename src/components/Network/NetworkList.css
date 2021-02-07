@@ -6,8 +6,20 @@
   line-height: 1.3em;
   font-weight: 700;
 }
-.NetworkList__filter + .NetworkList__filter {
-  margin-top: 1.3em;
+.NetworkList__select {
+  width: 100%;
+  margin-bottom: 1.3em;
+  padding: 0.5em 0.6em;
+}
+.NetworkList__filter {
+  position: relative;
+}
+.NetworkList__clear {
+  position: absolute;
+  top: 0;
+  right: 0.2em;
+  font-size: 0.5em;
+  color: var(--gray);
 }
 .NetworkList__filter__item {
   display: flex;
@@ -16,6 +28,8 @@
   font-size: 0.8em;
   line-height: 1.3em;
   padding: 0.4em 0.6em;
+  margin-left: -0.6em;
+  width: calc(100% + 1.2em);
   cursor: pointer;
 }
 .NetworkList__filter__item .Icon {
@@ -26,8 +40,12 @@
   /* color: var(--gray); */
 }
 .NetworkList__filter__item--is-selected {
+  position: sticky;
+  top: 0;
+  bottom: 0;
   background: var(--accent-3);
   color: #fff;
+  z-index: 10;
 }
 .NetworkList__filter__item:hover {
   background: var(--accent-lightest);

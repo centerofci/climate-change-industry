@@ -6,9 +6,7 @@ import { typeColors } from "./../../constants";
 
 import "./NetworkTooltip.css";
 
-const NetworkTooltip = ({ data, width }) => {
-  console.log(data);
-
+const NetworkTooltip = ({ data, groupType, isFocused, onFocus }) => {
   return (
     <div className={["NetworkTooltip"].join(" ")}>
       <div className="NetworkTooltip__name">
@@ -33,9 +31,9 @@ const NetworkTooltip = ({ data, width }) => {
           {data["Entity Type"].join(", ")}
         </div>
       )}
-      {data["Focus"] && (
+      {/* {data["Focus"] && (
         <div className="NetworkTooltip__text">{data["Focus"]}</div>
-      )}
+      )} */}
       {/* <div className="NetworkTooltip__info ">
         <span className={`NetworkTooltip__info actor actor--${data["actor"]}`}>
           {data["actors"].join(", ").replace(new RegExp(" -- ", "g"), ", ")}
@@ -59,7 +57,20 @@ const NetworkTooltip = ({ data, width }) => {
         <path d="M 1 0 L 3 0 L 0 2 Z" fill="white"></path>
       </svg> */}
 
-      <div className="NetworkTooltip__note">Click for more info</div>
+      {groupType == "Actors" ? (
+        isFocused ? (
+          <button
+            className="NetworkTooltip__more"
+            onClick={() => onFocus(data["id"])}
+          >
+            More info
+          </button>
+        ) : (
+          <div className="NetworkTooltip__note">Click to center</div>
+        )
+      ) : (
+        <div className="NetworkTooltip__note">Click for more info</div>
+      )}
     </div>
   );
 };

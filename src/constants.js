@@ -30,19 +30,35 @@ types.forEach((type, i) => {
 });
 export { typeColors };
 
-export const contributionAreas = ["Mitigation", "Geoengineering"];
+export const contributionAreas = ["Mitigation", "Geoengineering", "Adaptation"];
 // const contributionAreaColorsList = ["#89b792", "#4d405a", "#F79F1F"];
 const contributionAreaColorsList = [
   "var(--accent-2)",
   "var(--accent-3)",
-  "#F79F1F",
+  "var(--accent-4)",
 ];
 let contributionAreaColors = {};
 contributionAreas.forEach((contributionArea, i) => {
   contributionAreaColors[contributionArea] =
     contributionAreaColorsList[i % colors.length];
 });
-export { contributionAreaColors };
+let contributionAreaColorCombos = [];
+const handleCombo = (areaNames) => {
+  const slug = areaNames.sort().join("--");
+  contributionAreaColorCombos.push({
+    slug,
+    colors: areaNames.map((d) => contributionAreaColors[d]),
+  });
+  contributionAreaColors[slug] = `url(#${slug})`;
+};
+contributionAreas.forEach((contributionArea, i) => {
+  contributionAreas.slice(i + 1).forEach((otherContributionArea) => {
+    const areaNames = [contributionArea, otherContributionArea];
+    handleCombo(areaNames);
+  });
+});
+handleCombo(contributionAreas);
+export { contributionAreaColors, contributionAreaColorCombos };
 
 export const statusColors = {
   Active: "#89b792",
@@ -50,6 +66,7 @@ export const statusColors = {
 
 export const fieldLabels = {
   mainContributionArea: "Main contribution area",
+  "Entity Type": "actor type",
 };
 
 export const typeShapes = {

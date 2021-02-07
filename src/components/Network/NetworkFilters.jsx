@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 
 import Icon from "./../Icon/Icon";
 
-import { fieldLabels } from "./../../constants";
+import { fieldLabels, contributionAreaColors } from "./../../constants";
 import { flatten, toTitleCase } from "./../../utils";
 
 import "./NetworkFilters.css";
@@ -62,6 +62,11 @@ const NetworkFilters = ({ data, filters, activeFilters, onUpdateFilters }) => {
                 className={`NetworkFilters__filter__item NetworkFilters__filter__item--is-${state}`}
                 key={value}
                 onClick={() => onClickItem(name, value)}
+                style={
+                  name == "mainContributionArea"
+                    ? { "--override-color": contributionAreaColors[value] }
+                    : {}
+                }
                 // onMouseLeave={() => onMouseLeaveItem(name, null)}
               >
                 {toTitleCase(value)}

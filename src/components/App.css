@@ -4,18 +4,19 @@ html {
   --accent-dark: #0d0c12;
   --text-color: var(--accent-dark);
   --accent-medium: #7ca4c3;
-  --accent-1: #b88c7f;
+  --accent-1: #afb9c5;
   --accent-2: #255445;
   --accent-2: #008b94;
   --accent-3: #729486;
   --accent-3: #5da17c;
+  --accent-4: #866fac;
   /* --accent-1: #bc8797; */
   --accent-light: #efd1c9;
   --accent-lighter: #d3dae2;
   --accent-lightest: #e2e8ee;
   --gray: #a8a4a4;
   --gray-light: #ddd9d9;
-  --gray-lightest: #ebebeb;
+  --gray-lightest: #e2e8ee;
   --gray-dark: #d4b46b;
   --gray-dark: #868585;
 
@@ -74,6 +75,27 @@ button,
 figure,
 svg {
   font-family: var(--figure-font);
+}
+
+button {
+  appearance: none;
+  margin-top: 0.4em;
+  padding: 0.56em 1em;
+  background: #fff;
+  font-size: 0.8em;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  border: 1px solid transparent;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+a {
+  color: var(--accent-2);
+}
+a:visited {
+  color: var(--accent-3);
 }
 
 ::selection {

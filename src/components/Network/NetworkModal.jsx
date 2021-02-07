@@ -43,6 +43,36 @@ const NetworkModal = ({ info = {}, onClose }) => {
           {info["Focus"] && (
             <div className="NetworkModal__info">{info["Focus"]}</div>
           )}
+          {info["Link to More Info on Entity (bio or overview page)"] && (
+            <a
+              href={info["Link to More Info on Entity (bio or overview page)"]}
+              target="_blank"
+              rel="noopener"
+              className="NetworkModal__link"
+            >
+              More info
+            </a>
+          )}
+          {info["URL for Context"] && (
+            <a
+              href={info["URL for Context"]}
+              target="_blank"
+              rel="noopener"
+              className="NetworkModal__link"
+            >
+              More info
+            </a>
+          )}
+          {info["Big/Latest News"] && (
+            <a
+              href={info["Big/Latest News"]}
+              target="_blank"
+              rel="noopener"
+              className="NetworkModal__link"
+            >
+              Latest news
+            </a>
+          )}
         </div>
       </div>
     </>
