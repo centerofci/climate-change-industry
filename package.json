@@ -26,6 +26,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build && npx staticrypt ./build/index.html climate -o ./build/index.html",
+    "github": "BUILD_PATH=docs PUBLIC_URL=/climate-change-industry react-scripts build && npx staticrypt ./docs/index.html climate -o ./docs/index.html",
     "data": "node getData.js",
     "eject": "react-scripts eject"
   },
