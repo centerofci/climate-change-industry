@@ -25,7 +25,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && npx staticrypt ./build/index.html climate -o ./build/index.html",
     "data": "node getData.js",
     "eject": "react-scripts eject"
   },
