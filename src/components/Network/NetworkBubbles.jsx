@@ -7,7 +7,7 @@ import {
   forceLink,
 } from "d3-force";
 import { scaleLinear } from "d3-scale";
-import { polygonHull } from "d3";
+import { polygonCentroid, polygonHull } from "d3";
 
 import {
   keepBetween,
@@ -46,8 +46,11 @@ const NetworkBubbles = ({
 }) => {
   const [ref, dms] = useChartDimensions();
   const timeout = useRef();
+  const simulationClusters = useRef();
+  const simulationClustersData = useRef();
   const simulation = useRef();
   const simulationData = useRef();
+  const tickIteration = useRef();
   const groups = useRef([]);
   const links = useRef([]);
   const cachedGroupPositions = useRef({});
@@ -85,7 +88,11 @@ const NetworkBubbles = ({
         let clusterName = getClusterName(d);
         if (clusterName && clusterName.length > 1) return;
         if (!groups[clusterName]) groups[clusterName] = [];
-        groups[clusterName].push({ ...d, group: clusterName, value: 10 });
+        groups[clusterName].push({
+          ...d,
+          group: clusterName,
+          value: baseCircleSize * 70,
+        });
       });
       Object.keys(groups).forEach((group) => {
         const items = groups[group];
@@ -94,32 +101,42 @@ const NetworkBubbles = ({
         clusters.push({
           name: group,
           count,
-          r: Math.sqrt(area / Math.PI),
+          r: Math.sqrt(area / Math.PI) * 8,
           items,
         });
       });
     }
     const numberOfGroups = clusters.length;
-    const groupPositions =
-      {
-        1: [[dms.width / 2, dms.height / 2]],
-        2: [
-          [dms.width / 5, dms.height / 2],
-          [(dms.width / 5) * 4, dms.height / 2],
-        ],
-        3: [
-          [dms.width / 3, (dms.height / 3) * 2],
-          [(dms.width / 3) * 2, dms.height / 3],
-          [(dms.width / 3) * 2, (dms.height / 3) * 2],
-        ],
-      }[numberOfGroups] ||
-      getSpiralPositions(numberOfGroups, baseCircleSize * 3, 10, 4).map((d) => [
-        d.x + dms.width / 2,
-        d.y + dms.height / 2,
-      ]);
+    const groupPositions = getSpiralPositions(
+      numberOfGroups,
+      baseCircleSize * 3,
+      10,
+      4
+    ).map((d, i) => ({
+      ...d,
+      ...clusters[i],
+      x: d.x + dms.width / 2,
+      y: d.y + dms.height / 2,
+    }));
+
+    simulationClustersData.current = [...groupPositions.map((d) => ({ ...d }))];
+    simulationClusters.current = forceSimulation(simulationClustersData.current)
+      .force("x", forceX(dms.width / 2).strength(0.5))
+      .force("y", forceY(dms.height / 2).strength(0.5))
+      .force(
+        "collide",
+        forceCollide((d) => d["r"] + baseCircleSize * 2)
+      )
+      .stop();
+    new Array(30).fill(0).forEach(() => {
+      simulationClusters.current.tick();
+    });
     let clusterPositions = {};
     clusters.forEach(({ name }, i) => {
-      clusterPositions[name] = groupPositions[i] || [0, 0];
+      clusterPositions[name] = [
+        simulationClustersData.current[i].x,
+        simulationClustersData.current[i].y,
+      ];
     });
     return { clusters, clusterPositions };
   }, [data, dms.width + dms.height, groupMeta]);
@@ -249,6 +266,18 @@ const NetworkBubbles = ({
         };
       })
       .sort((a, b) => b.numberOfLinks - a.numberOfLinks);
+    nodes = nodes.map((node) => ({
+      ...node,
+      linkedNodeIds: node.isMain
+        ? []
+        : [
+            ...new Set(
+              getMatches(node).map(
+                (d) => [d.source, d.target].filter((d) => d != node.id)[0]
+              )
+            ),
+          ],
+    }));
 
     const newFocusedNode = focusedNode || nodes.find((d) => d.isMain);
     if (!hoveredItem && groupType == "Actors") {
@@ -283,6 +312,7 @@ const NetworkBubbles = ({
       );
     }
 
+    tickIteration.current = 0;
     links.current = [...initialLinks];
     simulationData.current = [...nodes];
     simulation.current = forceSimulation(simulationData.current)
@@ -366,6 +396,16 @@ const NetworkBubbles = ({
 
   function onTick(d) {
     const padding = 20;
+    let secondaryNodesOnNodeRunningCount = {};
+    const numberOfPositions = 5;
+    const spiralPositions = new Array(numberOfPositions)
+      .fill(0)
+      .map((_, i) =>
+        getPointFromAngleAndDistance(
+          (360 / numberOfPositions) * i,
+          baseCircleSize * 2
+        )
+      );
     simulationData.current.forEach((d) => {
       d["x"] = keepBetween(
         d["x"],
@@ -377,6 +417,33 @@ const NetworkBubbles = ({
         d["r"] + padding,
         dms.height - d["r"] - padding
       );
+      if (groupType != "Actors" && tickIteration.current < 20 && !d.isMain) {
+        let position = [dms.width / 2, dms.height / 2];
+        const linkedNodes = d.linkedNodeIds.map((link) =>
+          simulationData.current.find((d) => d.id == link)
+        );
+
+        if (linkedNodes.length > 1) {
+          position = polygonCentroid(linkedNodes.map((d) => [d.x, d.y]));
+        }
+        if (linkedNodes.length == 1 || Number.isNaN(position[0])) {
+          let linkedId = linkedNodes[0].id;
+          if (!secondaryNodesOnNodeRunningCount[linkedId])
+            secondaryNodesOnNodeRunningCount[linkedId] = 0;
+          const spiralPosition =
+            spiralPositions[
+              secondaryNodesOnNodeRunningCount[linkedId] %
+                spiralPositions.length
+            ];
+          position = [
+            linkedNodes[0].x + spiralPosition.x,
+            linkedNodes[0].y + spiralPosition.y,
+          ];
+          secondaryNodesOnNodeRunningCount[linkedId]++;
+        }
+        d["x"] = position[0];
+        d["y"] = position[1];
+      }
     });
     groups.current = simulationData.current;
 
@@ -386,11 +453,14 @@ const NetworkBubbles = ({
         groups.current.map((item) => [item["id"], [item["x"], item["y"]]])
       ),
     };
+    tickIteration.current++;
+
     forceUpdate();
     // setGroups(simulationData.current);
   }
 
   const updateTooltip = (item) => {
+    console.log(item);
     // if (groupType == "Actors") return;
     if (item) {
       if (timeout.current) {
