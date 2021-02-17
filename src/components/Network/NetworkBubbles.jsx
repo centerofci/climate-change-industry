@@ -126,11 +126,11 @@ const NetworkBubbles = ({
     simulationClusters.current = forceSimulation(simulationClustersData.current)
       .force(
         "x",
-        forceX(dms.width / 2).strength(dms.width < dms.height ? 0.2 : 0.05)
+        forceX(dms.width / 2).strength(dms.width < dms.height ? 0.1 : 0.05)
       )
       .force(
         "y",
-        forceY(dms.height / 2).strength(dms.width < dms.height ? 0.05 : 0.2)
+        forceY(dms.height / 2).strength(dms.width < dms.height ? 0.05 : 0.1)
       )
       .force(
         "collide",
@@ -328,7 +328,7 @@ const NetworkBubbles = ({
       .force(
         "x",
         forceX((d) => d.clusterPosition[0]).strength(
-          groupType == "Actors" ? 0.5 : (d) => (d.isMain ? 0.3 : 0)
+          groupType == "Actors" ? 0.3 : (d) => (d.isMain ? 0.2 : 0)
         )
       )
       .force(
@@ -337,14 +337,14 @@ const NetworkBubbles = ({
           (d) =>
             d.clusterPosition[1] +
             (d.matchTypes == "from" ? -30 : d.matchTypes == "to" ? 30 : 0)
-        ).strength(groupType == "Actors" ? 0.5 : (d) => (d.isMain ? 0.3 : 0))
+        ).strength(groupType == "Actors" ? 0.3 : (d) => (d.isMain ? 0.2 : 0))
       )
       .force(
         "link",
         forceLink(links.current)
           .id((d) => d["id"])
-          .distance(baseCircleSize * 2)
-          .strength(0.6)
+          .distance(baseCircleSize * 2.6)
+          .strength(0.4)
       )
       .force(
         "collide",
