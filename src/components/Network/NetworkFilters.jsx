@@ -53,7 +53,7 @@ const NetworkFilters = ({ data, filters, activeFilters, onUpdateFilters }) => {
   return (
     <div className="NetworkFilters">
       {parsedFilters.map(({ name, values }) => (
-        <div className="NetworkFilters__filter">
+        <div className="NetworkFilters__filter" key={name}>
           <h6>{fieldLabels[name] || name}</h6>
           {values.map((value) => {
             const state = getFilterState(name, value);

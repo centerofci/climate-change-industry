@@ -6,7 +6,6 @@ import {
   forceCollide,
   forceLink,
 } from "d3-force";
-import { scaleLinear } from "d3-scale";
 import { polygonCentroid, polygonHull } from "d3";
 
 import {
@@ -101,34 +100,44 @@ const NetworkBubbles = ({
         clusters.push({
           name: group,
           count,
-          r: Math.sqrt(area / Math.PI) * 8,
+          r: Math.sqrt(area / Math.PI) * 1,
           items,
         });
       });
     }
     const numberOfGroups = clusters.length;
-    const groupPositions = getSpiralPositions(
-      numberOfGroups,
-      baseCircleSize * 3,
-      10,
-      4
-    ).map((d, i) => ({
-      ...d,
-      ...clusters[i],
-      x: d.x + dms.width / 2,
-      y: d.y + dms.height / 2,
-    }));
+
+    const groupPositions = new Array(numberOfGroups)
+      .fill(0)
+      .map((_, i) =>
+        getPointFromAngleAndDistance(
+          (360 / numberOfGroups) * i + 180,
+          baseCircleSize * 6
+        )
+      )
+      .map((d, i) => ({
+        ...d,
+        ...clusters[i],
+        x: d.x + dms.width / 2,
+        y: d.y + dms.height / 2,
+      }));
 
     simulationClustersData.current = [...groupPositions.map((d) => ({ ...d }))];
     simulationClusters.current = forceSimulation(simulationClustersData.current)
-      .force("x", forceX(dms.width / 2).strength(0.5))
-      .force("y", forceY(dms.height / 2).strength(0.5))
+      .force(
+        "x",
+        forceX(dms.width / 2).strength(dms.width < dms.height ? 0.2 : 0.05)
+      )
+      .force(
+        "y",
+        forceY(dms.height / 2).strength(dms.width < dms.height ? 0.05 : 0.2)
+      )
       .force(
         "collide",
-        forceCollide((d) => d["r"] + baseCircleSize * 2)
+        forceCollide((d) => d["r"] + baseCircleSize * 8)
       )
       .stop();
-    new Array(30).fill(0).forEach(() => {
+    new Array(60).fill(0).forEach(() => {
       simulationClusters.current.tick();
     });
     let clusterPositions = {};
@@ -362,6 +371,12 @@ const NetworkBubbles = ({
     groupType == "Actors" ? focusedNode : "",
   ]);
 
+  useEffect(() => {
+    if (groupType != "Actors") return;
+    if (!focusedNode) return;
+    onHoverItem(focusedNode);
+  }, [groupType == "Actors" ? focusedNode : ""]);
+
   const groupBubbles =
     groupType == "Actors"
       ? []
@@ -388,7 +403,9 @@ const NetworkBubbles = ({
           ];
           return {
             name,
-            path: "M" + hull.map((d) => d.join(" ")).join(" L ") + "Z",
+            path: hull.length
+              ? "M" + hull.map((d) => d.join(" ")).join(" L ") + "Z"
+              : "",
             top,
             position,
           };
@@ -460,8 +477,6 @@ const NetworkBubbles = ({
   }
 
   const updateTooltip = (item) => {
-    console.log(item);
-    // if (groupType == "Actors") return;
     if (item) {
       if (timeout.current) {
         clearTimeout(timeout.current);

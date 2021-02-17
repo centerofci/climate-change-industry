@@ -55,3 +55,10 @@
 }
 .NetworkTooltip__link {
 }
+
+@media (max-width: 850px) {
+  .NetworkTooltip {
+    top: auto;
+    bottom: 2em;
+  }
+}

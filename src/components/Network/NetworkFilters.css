@@ -6,7 +6,7 @@
   line-height: 1.3em;
   font-weight: 700;
 }
-.NetworkFilters__filter + .NetworkFilters__filter {
+.NetworkFilters__filter {
   margin-top: 1.3em;
 }
 .NetworkFilters__filter__item {

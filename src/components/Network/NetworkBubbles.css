@@ -11,7 +11,7 @@
 }
 .NetworkBubbles text {
   font-weight: 700;
-  font-size: 0.7em;
+  font-size: calc(0.4em + 0.2vw + 0.2vh);
   fill: var(--text-color);
   user-select: none;
 }
