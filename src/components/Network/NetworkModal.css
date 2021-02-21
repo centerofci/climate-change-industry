@@ -75,6 +75,10 @@
 .NetworkModal__status--Planned {
   color: var(--accent-light);
 }
+.NetworkModal__label {
+  font-size: 0.9em;
+  font-weight: 600;
+}
 .NetworkModal img {
   position: absolute;
   top: 50%;
@@ -94,7 +98,7 @@
 .NetworkModal__info {
   /* font-size: 0.9em; */
   /* line-height: 1.4em; */
-  margin: 0.6em 0;
+  margin: 1.3em 0;
 }
 .NetworkModal__actor {
   padding-bottom: 2em;
