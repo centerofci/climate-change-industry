@@ -5,7 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 The bulk of the code lives in `/src/components`. If you want to update a specific part of the app, you can find it by:
 
 1. Inspect the element in the browser
-1. I've named each element's `class` based on the BEM methodology. If you see a class that starts with a capital letter (eg. `MissionBubbles__tpe-path`), the root of that string will be the name of the component it belongs to (`MissionBubbles`)
+1. I've named each element's `class` based on the BEM methodology. If you see a class that starts with a capital letter (eg. `Network__type-path`), the root of that string will be the name of the component it belongs to (`Network`)
 1. Find the component with the same name in `/src/components`
 
 The root of the app is in `src/components/App.js`. You can always trace the render logic from here to find when components are rendered.
@@ -24,9 +24,13 @@ You will also see any lint errors in the console.
 
 ## Deploying
 
-I have a production environment on Netlify that runs `yarn build` whenever changes are pushed to the `master` Github branch. So deploying is as easy as pushing your changes.
+To deploy to Github Pages, run:
 
-Make sure that you don't have any lint errors when running locally -- the production app will fail to update if there are any.
+```shell
+npm run deploy
+```
+
+This will build the production bundle and push to the `gh-pages` branch, which is used to host the site.
 
 ## Updating data
 

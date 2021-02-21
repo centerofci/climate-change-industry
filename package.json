@@ -1,7 +1,7 @@
 {
   "name": "climate-change-industry",
   "version": "0.1.0",
-  "homepage": "https://wattenberger.github.io/climate-change-industry",
+  "homepage": "https://centerofci.github.io/climate-change-industry",
   "private": true,
   "dependencies": {
     "classnames": "^2.2.6",

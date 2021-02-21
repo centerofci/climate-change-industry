@@ -69,7 +69,7 @@ const NetworkList = ({ data, filters, focusedNode, setFocusedNodeId }) => {
   return (
     <div className="NetworkList">
       {parsedFilters.map(({ name, values }) => (
-        <div className="NetworkList__filter">
+        <div className="NetworkList__filter" key={name}>
           <select
             className="NetworkList__select"
             value={getFilterValue(name) || ""}

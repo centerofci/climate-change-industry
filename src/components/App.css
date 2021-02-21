@@ -18,7 +18,8 @@ html {
   --gray-light: #ddd9d9;
   --gray-lightest: #e2e8ee;
   --gray-dark: #d4b46b;
-  --gray-dark: #868585;
+  /* --gray-dark: #888; */
+  --gray-dark: #afb9c5;
 
   font-family: Inter, serif;
   font-size: 1.1em;

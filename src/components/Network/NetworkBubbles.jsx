@@ -292,7 +292,7 @@ const NetworkBubbles = ({
     if (!hoveredItem && groupType == "Actors") {
       onHoverItem(newFocusedNode);
     }
-    setFocusedNodeId(newFocusedNode["id"]);
+    if (newFocusedNode) setFocusedNodeId(newFocusedNode["id"]);
 
     // filter to just 2nd & 3rd relatives
     if (groupType == "Actors") {

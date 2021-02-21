@@ -24,7 +24,7 @@ const init = async () => {
     const res = await grabDataForBase(base);
     rawData[base] = res;
     nameMaps[base] = fromPairs(
-      res["records"].map((d) => [
+      (res["records"] || []).map((d) => [
         d["id"],
         d["fields"]["Intervention"] ||
           d["fields"]["Entry Name"] ||
@@ -65,6 +65,12 @@ async function grabDataForBase(base) {
   console.log("fetching data for", base);
   let res = await asyncFetch(url);
   await sleep(300); // airtable's api limits us to 5 requests / second
+
+  if (res["error"]) {
+    console.log("Error fetching data");
+    console.log(res["error"]["message"]);
+    return;
+  }
 
   let iteration = 0;
   while (res["offset"] && iteration < 10) {

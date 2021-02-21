@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useMemo } from "react";
 
 import Icon from "./../Icon/Icon";
 import NetworkSearch from "./NetworkSearch";
@@ -44,6 +44,24 @@ const Network = ({
     onFocusItem(null);
   }, []);
 
+  const relationships = {
+    Interventions: "associated investments, funders, and actors",
+    Investments: "source, recipient, and addressed interventions",
+    Actors:
+      "partners, associated organizations, funded & undertaken interventions, and made & received investments",
+  };
+  const directions = {
+    Interventions:
+      "Hover or filter to isolate an intervention's primary connections, or click to see more details about an intervention.",
+    Investments:
+      "Hover or filter to isolate an investment's primary connections, or click to see more details about an investment.",
+    Actors: "Select an actor to see its primary and secondary connections.",
+  };
+
+  const about = useMemo(() => {
+    return `These are the current ${groupType}, linked to their ${relationships[groupType]}. <em>${directions[groupType]}</em>`;
+  }, [groupType]);
+
   return (
     <div className="Network__wrapper">
       <div className="Network__main">
@@ -54,6 +72,10 @@ const Network = ({
         >
           <div className="Network__sidebar__top">
             <h1 className="Network__title">The Climate Change Industry</h1>
+            <div
+              className="Network__info"
+              dangerouslySetInnerHTML={{ __html: about }}
+            />
             <div className="Network__type">
               <div className="Network__toggle">
                 {groupOptions.map(({ label, id }) => (
@@ -80,7 +102,7 @@ const Network = ({
 
           <div className="Network__about">
             <h1>The Climate Change Industry</h1>
-            This is about
+            <div dangerouslySetInnerHTML={{ __html: about }} />
             <button
               className="Network__sidebar__close"
               onClick={() => setIsAboutShowing(false)}

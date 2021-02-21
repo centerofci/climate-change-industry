@@ -11,13 +11,13 @@ function App() {
   const [params, updateParams] = useQueryParams();
 
   const onChangeState = (type, newState) => {
-    console.log("change", type);
     updateParams({ [type]: newState });
   };
 
   const viz = params["viz"] || "network";
   const groupType = params["group"] || "Interventions";
   const searchTerm = params["search"] || "";
+  const isEmbed = !!params["embed"];
 
   const focusedItem = useMemo(() => {
     if (!params["item"]) return null;
@@ -40,7 +40,7 @@ function App() {
   }, [params["focused"], data]);
 
   return (
-    <div className={`App`}>
+    <div className={`App App--is-${isEmbed ? "embed" : "normal"}`}>
       {viz === "network" ? (
         <Network
           {...{

@@ -32,10 +32,10 @@
   left: 0; */
   /* transform: translate(0, 100%); */
   position: fixed;
-  top: 22.6em;
-  left: 3.7em;
+  top: 15.5em;
+  left: 19.6em;
   width: 19rem;
-  max-height: calc(100vh - 20rem);
+  max-height: calc(100vh - 10rem);
   font-size: 0.8em;
   color: var(--gray-dark);
   background: var(--gray-lightest);
