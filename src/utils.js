@@ -6,6 +6,8 @@ export const move = (x, y = 0, isAttr = false) => ({
   transform: `translate(${x}${isAttr ? "" : "px"}, ${y}${isAttr ? "" : "px"})`,
 });
 
+export const getRandomBetween = (min, max) => min + Math.random() * (max - min);
+
 export const moveCentered = (x, y = 0) => ({
   transform: `translate(calc(${x}px - 50%), calc(${y}px - 50%))`,
 });

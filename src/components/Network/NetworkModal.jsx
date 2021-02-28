@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { format } from "d3-format";
 
 import StatusPill from "./StatusPill";
