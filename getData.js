@@ -23,6 +23,11 @@ const init = async () => {
   for (const base of bases) {
     const res = await grabDataForBase(base);
     rawData[base] = res;
+    if (!res) {
+      console.log("No data found for base", base);
+      return;
+    }
+
     nameMaps[base] = fromPairs(
       (res["records"] || []).map((d) => [
         d["id"],
