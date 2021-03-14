@@ -1,0 +1,64 @@
+.MapTooltip {
+  position: fixed;
+  top: 2em;
+  right: 2em;
+  width: min(20em, 90vw);
+  font-size: 0.9em;
+  line-height: 1.3em;
+  text-align: right;
+}
+.MapTooltip__name {
+  /* display: flex;
+  justify-content: space-between; */
+  width: 100%;
+  font-weight: 800;
+}
+.MapTooltip__text {
+  margin: 0.3em 0;
+  font-size: 0.9em;
+  line-height: 1.3em;
+}
+.MapTooltip__year {
+  margin-left: 1em;
+  font-weight: 500;
+  font-size: 0.8em;
+  opacity: 0.6;
+  white-space: nowrap;
+}
+.MapTooltip img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  max-width: 100%;
+  max-height: 30vh;
+  transform: translate(0, -100%);
+}
+.MapTooltip__type-name {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.9em;
+  font-weight: 700;
+  margin-left: 0.9em;
+}
+.MapTooltip__info {
+  font-size: 0.9em;
+  line-height: 1.4em;
+  margin: 0.3em 0;
+}
+.MapTooltip__note {
+  font-size: 0.9em;
+  font-style: italic;
+  opacity: 0.6;
+  line-height: 1.4em;
+  margin: 0.3em 0;
+}
+
+@media (max-width: 850px) {
+  .MapTooltip {
+    top: auto;
+    bottom: 5em;
+    left: 2em;
+    text-align: left;
+  }
+}

@@ -1,22 +1,32 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { geoNaturalEarth1, geoPath, geoGraticule10, scaleSqrt } from "d3";
+import {
+  geoNaturalEarth1,
+  geoPath,
+  geoGraticule10,
+  Delaunay,
+  pointer,
+} from "d3";
 
 import {
+  getDistanceFromXY,
   getSpiralPositions,
   scaleCanvas,
   useChartDimensions,
 } from "./../../utils";
 import countryShapes from "./countries.json";
+import MapTooltip from "./MapTooltip";
 
 import "./Map.css";
 
 const sphere = { type: "Sphere" };
 const countryAccessor = (d) => d["Primary Operating Geography (Country)"];
 const spiralPositions = getSpiralPositions(100, 5, 2.5, 1.5);
+const countryNamesMap = { USA: "United States of America" };
 
 const MapWrapper = ({ allData, data }) => {
   const [ref, dms] = useChartDimensions();
   const [blankMap, setBlankMap] = useState();
+  const [hoveredItem, setHoveredItem] = useState();
   const canvasElement = useRef();
 
   const width = useMemo(() => Math.min(1400, dms.height * 1.3, dms.width), [
@@ -106,11 +116,35 @@ const MapWrapper = ({ allData, data }) => {
   //   [width, data]
   // );
 
-  const bubbles = useMemo(() => data.map((d) => [d[0], d[1], d[1].length]), [
-    data,
+  const bubbles = useMemo(() => {
+    let bubbles = [];
+    data.forEach(([countryName, actors]) => {
+      const lookupName = countryNamesMap[countryName] || countryName;
+      const country = Object.values(countryShapes).find(
+        (d) => d.properties.geounit == lookupName
+      );
+      if (!country) return;
+      const centroid = getCentroid(country);
+      if (!centroid) return;
+
+      actors.forEach((d, i) => {
+        const spiralPosition = spiralPositions[i];
+
+        bubbles.push({
+          ...d,
+          country,
+          x: centroid[0] + spiralPosition.x,
+          y: centroid[1] + spiralPosition.y,
+        });
+      });
+    });
+    return bubbles;
+  }, [data, projection]);
+
+  const voronoi = useMemo(() => Delaunay.from(bubbles.map((d) => [d.x, d.y])), [
+    bubbles,
   ]);
 
-  const countryNamesMap = { USA: "United States of America" };
   const drawBubbles = () => {
     if (!canvasElement.current) return;
     if (!blankMap) return;
@@ -120,29 +154,18 @@ const MapWrapper = ({ allData, data }) => {
     ctx.putImageData(blankMap, 0, 0);
 
     ctx.globalCompositeOperation = "multiply";
-    bubbles.forEach(([name, entities, numberOfCircles], i) => {
-      const lookupName = countryNamesMap[name] || name;
-      const country = Object.values(countryShapes).find(
-        (d) => d.properties.geounit == lookupName
-      );
-      if (!country) return;
-      const centroid = getCentroid(country);
-      if (!centroid) return;
+    ctx.fillStyle = "#5da17c";
+    const r = 5;
 
-      ctx.fillStyle = "#5da17c";
-      const r = 5;
-      for (let i = 0; i < numberOfCircles; i++) {
-        ctx.beginPath();
-        const spiralPosition = spiralPositions[i];
-        // const opacity = 1;
-
-        ctx.arc(
-          centroid[0] + spiralPosition.x,
-          centroid[1] + spiralPosition.y,
-          r,
-          0,
-          2 * Math.PI
-        );
+    bubbles.forEach(({ id, x, y }, i) => {
+      ctx.beginPath();
+      if (hoveredItem && hoveredItem.id == id) {
+        ctx.fillStyle = "#45a";
+        ctx.arc(x, y, r, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.fillStyle = "#5da17c";
+      } else {
+        ctx.arc(x, y, r, 0, 2 * Math.PI);
         ctx.fill();
       }
     });
@@ -223,14 +246,29 @@ const MapWrapper = ({ allData, data }) => {
     ctx.globalCompositeOperation = "normal";
   };
 
-  useEffect(drawBubbles, [blankMap, data, width, projection]);
+  useEffect(drawBubbles, [blankMap, data, width, projection, hoveredItem]);
+
+  const onMouseMove = (e) => {
+    const [x, y] = pointer(e);
+    const pointIndex = voronoi.find(x, y);
+    const point = bubbles[pointIndex];
+    const distance = getDistanceFromXY([point.x - x, point.y - y]);
+    if (distance > 100) {
+      setHoveredItem();
+    } else {
+      setHoveredItem(point);
+    }
+  };
 
   return (
     <div className="Map" ref={ref}>
       <canvas
+        onMouseMove={onMouseMove}
+        onMouseLeave={() => setHoveredItem()}
         ref={canvasElement}
         style={{ width: `${width}px`, height: `${height}px` }}
       />
+      {!!hoveredItem && <MapTooltip data={hoveredItem} />}
     </div>
   );
 };
