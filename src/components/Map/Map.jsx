@@ -1,11 +1,31 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
+import Select from "react-select";
+
 import {
   geoNaturalEarth1,
+  geoMercator,
   geoPath,
   geoGraticule10,
   Delaunay,
   pointer,
+  geoEqualEarth,
 } from "d3";
+import {
+  geoArmadillo,
+  geoBaker,
+  geoBerghaus,
+  geoEckert3,
+  geoFahey,
+  geoGilbert,
+  geoGingery,
+  geoGinzburg9,
+  geoHealpix,
+  geoHufnagel,
+  geoInterruptedHomolosine,
+  geoInterruptedMollweideHemispheres,
+  geoPolyhedralWaterman,
+} from "d3-geo-projection";
+// import verticalProjection from "./vertical-projection";
 
 import {
   getDistanceFromXY,
@@ -27,7 +47,12 @@ const MapWrapper = ({ allData, data }) => {
   const [ref, dms] = useChartDimensions();
   const [blankMap, setBlankMap] = useState();
   const [hoveredItem, setHoveredItem] = useState();
+  const [projectionName, setProjectionName] = useState(
+    projectionNameOptions[0]
+  );
   const canvasElement = useRef();
+
+  const projectionFunction = projectionNameOptionsMap[projectionName];
 
   const width = useMemo(() => Math.min(1400, dms.height * 1.3, dms.width), [
     dms.width,
@@ -35,9 +60,12 @@ const MapWrapper = ({ allData, data }) => {
   ]);
 
   const { height, projection } = useMemo(() => {
-    const maxHeight = window.innerHeight;
+    const maxHeight = window.innerHeight - 100;
     try {
-      const projection = geoNaturalEarth1().fitSize([width, maxHeight], sphere);
+      const projection = projectionFunction().fitSize(
+        [width, maxHeight],
+        sphere
+      );
 
       const pathGenerator = geoPath(projection);
       const [[x0, y0], [x1, y1]] = pathGenerator.bounds(sphere);
@@ -51,7 +79,7 @@ const MapWrapper = ({ allData, data }) => {
       console.log(e);
       return {};
     }
-  }, [width]);
+  }, [width, projectionFunction]);
 
   const draw = () => {
     if (!canvasElement.current) return;
@@ -65,7 +93,8 @@ const MapWrapper = ({ allData, data }) => {
         pathGenerator(shape);
       };
       drawPath(sphere);
-      // if (!isVertical) ctx.clip();
+      ctx.save();
+      ctx.clip();
 
       const fill = (color) => {
         ctx.fillStyle = color;
@@ -87,7 +116,7 @@ const MapWrapper = ({ allData, data }) => {
         fill("#f8f8f8");
         stroke("#ccc");
       });
-      // ctx.restore(); // stop clipping
+      ctx.restore(); // stop clipping
 
       drawPath(sphere);
       stroke("#ccc");
@@ -152,6 +181,7 @@ const MapWrapper = ({ allData, data }) => {
     const ctx = canvasElement.current.getContext("2d");
 
     ctx.putImageData(blankMap, 0, 0);
+    ctx.restore(); // stop clipping
 
     ctx.globalCompositeOperation = "multiply";
     ctx.fillStyle = "#5da17c";
@@ -262,6 +292,15 @@ const MapWrapper = ({ allData, data }) => {
 
   return (
     <div className="Map" ref={ref}>
+      <div className="Map__controls" style={{ width: "20em" }}>
+        <Select
+          options={projectionNameOptionsParsed}
+          value={projectionNameOptionsParsed.find(
+            (d) => d.label === projectionName
+          )}
+          onChange={({ value }) => setProjectionName(value)}
+        />
+      </div>
       <canvas
         onMouseMove={onMouseMove}
         onMouseLeave={() => setHoveredItem()}
@@ -274,3 +313,30 @@ const MapWrapper = ({ allData, data }) => {
 };
 
 export default MapWrapper;
+
+const projectionNameOptionsMap = {
+  // vertical: verticalProjection,
+  "natural earth": geoNaturalEarth1,
+  mercator: geoMercator,
+  "equal earth": geoEqualEarth,
+  armadillo: geoArmadillo,
+  baker: geoBaker,
+  berghaus: geoBerghaus,
+  eckert: geoEckert3,
+  fahey: geoFahey,
+  gilbert: geoGilbert,
+  gingery: geoGingery,
+  healpix: geoHealpix,
+  ginzberg: geoGinzburg9,
+  hufnagel: geoHufnagel,
+  "interrupted homolosine": geoInterruptedHomolosine,
+  "mollweide split": geoInterruptedMollweideHemispheres,
+  "polyhedral waterman": geoPolyhedralWaterman,
+};
+const projectionNameOptions = Object.keys(projectionNameOptionsMap);
+const projectionNameOptionsParsed = projectionNameOptions.map(
+  (projectionNameOption) => ({
+    label: projectionNameOption,
+    value: projectionNameOption,
+  })
+);
