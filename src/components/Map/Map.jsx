@@ -157,7 +157,7 @@ const MapWrapper = ({ allData, data }) => {
     ctx.fillStyle = "#5da17c";
     const r = 5;
 
-    bubbles.forEach(({ id, x, y }, i) => {
+    bubbles.forEach(({ id, x, y }) => {
       ctx.beginPath();
       if (hoveredItem && hoveredItem.id == id) {
         ctx.fillStyle = "#45a";

@@ -10,6 +10,7 @@
   margin-top: 1.3em;
 }
 .NetworkFilters__filter__item {
+  /* position: relative; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -20,6 +21,27 @@
   width: calc(100% + 1.2em);
   cursor: pointer;
   color: var(--override-color);
+}
+.NetworkFilters__filter__item__info {
+  position: absolute;
+  /* bottom: 0; */
+  padding: 1em;
+  max-width: min(37em, 90vw);
+  color: var(--text-color);
+  background: #fff;
+  pointer-events: none;
+  transform: translateY(50%);
+  margin-top: 2.6em;
+  margin-left: -1em;
+  opacity: 0;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  z-index: 10;
+}
+.NetworkFilters__filter__item__info b {
+  color: var(--override-color);
+}
+.NetworkFilters__filter__item:hover .NetworkFilters__filter__item__info {
+  opacity: 1;
 }
 .NetworkFilters__filter__item .Icon {
   flex: 0 0 12px;
@@ -38,4 +60,10 @@
 
 .NetworkFilters__filter__item--is-selected:hover {
   background: var(--override-color, var(--accent-3));
+}
+
+@media (max-width: 900px) {
+  .NetworkFilters__filter__item__info {
+    display: none;
+  }
 }

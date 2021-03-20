@@ -103,3 +103,24 @@ export const typeShapes = {
     </g>
   ),
 };
+
+export const relationships = {
+  Interventions: "associated investments, funders, and actors",
+  Investments: "source, recipient, and addressed interventions",
+  Actors:
+    "partners, associated organizations, funded & undertaken interventions, and made & received investments",
+};
+
+export const directions = {
+  Interventions:
+    "Hover or filter to isolate an intervention's primary connections, or click to see more details about an intervention.",
+  Investments:
+    "Hover or filter to isolate an investment's primary connections, or click to see more details about an investment.",
+  Actors: "Select an actor to see its primary and secondary connections.",
+};
+
+export const contributionAreaDescriptions = {
+  Mitigation: `climate interventions that reduce carbon (primarily) and other greenhouse gas emissions, either through reduction of production of emissions or through innovative techniques for emissions capture. This can be thought of as addressing the root causes.`,
+  Adaptation: `climate interventions that take an active role in improving robustness and resiliency of habitats and occupants (humans, animals, plant life, etc.) in the face of climate changes (e.g. sea-level rise) and extreme weather. This can be thought of as preparing to ride-out the changes that are already coming, given the modeled levels of warming and expected climate consequences.`,
+  Geoengineering: `human-engineered interventions, typically at a global or large ecosystem level (e.g. solar radiation management via introduction of atmospheric aerosols), to control or influence the Earth-climate system with the goal of reducing negative climate change impacts. This can be thought of as "clean-up control" or trying to partially reverse or reduce the impact of climate change; note there is considerable debate around how to define, scope and regulate geo-engineering, with many ethical and governance considerations to address. We anticipate that geoengineering tools will likely need to be among humanity's (thoughtfully considered) arrows in our climate-response quiver.`,
+};

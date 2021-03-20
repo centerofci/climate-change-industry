@@ -8,7 +8,12 @@ import NetworkList from "./NetworkList";
 import NetworkTooltip from "./NetworkTooltip";
 import NetworkModal from "./NetworkModal";
 
-import { typeShapes } from "./../../constants";
+import {
+  typeShapes,
+  relationships,
+  directions,
+  contributionAreaDescriptions,
+} from "./../../constants";
 import { groupOptions, groupOptionsById } from "./../../group-options";
 
 import "./Network.css";
@@ -44,19 +49,18 @@ const Network = ({
     onFocusItem(null);
   }, []);
 
-  const relationships = {
-    Interventions: "associated investments, funders, and actors",
-    Investments: "source, recipient, and addressed interventions",
-    Actors:
-      "partners, associated organizations, funded & undertaken interventions, and made & received investments",
-  };
-  const directions = {
-    Interventions:
-      "Hover or filter to isolate an intervention's primary connections, or click to see more details about an intervention.",
-    Investments:
-      "Hover or filter to isolate an investment's primary connections, or click to see more details about an investment.",
-    Actors: "Select an actor to see its primary and secondary connections.",
-  };
+  const contributionAreaText = [
+    `There are three main contribution areas: <ul>`,
+    Object.keys(contributionAreaDescriptions)
+      .map(
+        (areaName) =>
+          `<li style="margin-top: 1em"><b>${areaName}</b>: ${contributionAreaDescriptions[areaName]}</li>`
+      )
+      .join("\n"),
+    `</ul>`,
+    `<br />`,
+    `<i>These are CCI's working definitions, subject to change, and we note there is still ample industry debate on the delineation of these framings.</i>`,
+  ].join("\n");
 
   const about = useMemo(() => {
     return `These are the current ${groupType}, linked to their ${relationships[groupType]}. <em>${directions[groupType]}</em>`;
@@ -103,6 +107,9 @@ const Network = ({
           <div className="Network__about">
             <h1>The Climate Change Industry</h1>
             <div dangerouslySetInnerHTML={{ __html: about }} />
+            <br />
+            <div dangerouslySetInnerHTML={{ __html: contributionAreaText }} />
+
             <button
               className="Network__sidebar__close"
               onClick={() => setIsAboutShowing(false)}

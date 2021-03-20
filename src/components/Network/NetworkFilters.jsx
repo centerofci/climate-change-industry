@@ -2,7 +2,11 @@ import React, { useMemo } from "react";
 
 import Icon from "./../Icon/Icon";
 
-import { fieldLabels, contributionAreaColors } from "./../../constants";
+import {
+  fieldLabels,
+  contributionAreaColors,
+  contributionAreaDescriptions,
+} from "./../../constants";
 import { flatten, toTitleCase } from "./../../utils";
 
 import "./NetworkFilters.css";
@@ -71,6 +75,19 @@ const NetworkFilters = ({ data, filters, activeFilters, onUpdateFilters }) => {
               >
                 {toTitleCase(value)}
                 {state == "selected" && <Icon name="x" size="s" />}
+                {name === "mainContributionArea" && (
+                  <div className="NetworkFilters__filter__item__info">
+                    <b>{toTitleCase(value)}</b>:{" "}
+                    {contributionAreaDescriptions[value]}.
+                    <br />
+                    <br />
+                    <i>
+                      These are CCI's working definitions, subject to change,
+                      and we note there is still ample industry debate on the
+                      delineation of these framings.
+                    </i>
+                  </div>
+                )}
               </div>
             );
           })}
