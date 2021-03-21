@@ -1,11 +1,14 @@
 .MapTooltip {
   position: fixed;
-  top: 2em;
-  right: 2em;
+  top: 1em;
+  right: 1em;
+  padding: 1em;
   width: min(20em, 90vw);
   font-size: 0.9em;
   line-height: 1.3em;
   text-align: right;
+  background: var(--gray-lightest);
+  z-index: 10;
 }
 .MapTooltip__name {
   /* display: flex;

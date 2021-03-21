@@ -1,0 +1,13 @@
+.Map {
+  width: 100%;
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.Map__controls {
+  padding-bottom: 1em;
+}

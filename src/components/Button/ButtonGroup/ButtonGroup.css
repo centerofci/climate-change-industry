@@ -1,23 +1,29 @@
 .ButtonGroup .Button {
+  margin: 0;
   border-radius: 1.3em;
-  background: #fff;
   color: var(--accent, --text-color);
 }
 
-.ButtonGroup .Button + .Button {
-  margin-left: 0.6em;
+.ButtonGroup .Button:first-of-type {
+  border-radius: 1em 0 0 1em;
+}
+.ButtonGroup .Button {
+  border-radius: 1em;
+}
+.ButtonGroup .Button:last-of-type {
+  border-radius: 0 1em 1em 0;
 }
 
 .ButtonGroup .Button--active {
-  color: white;
-  background: var(--accent, --accent-medium);
+  color: var(--accent-dark);
+  background: #fff;
 }
 
 .ButtonGroup .Button--active:hover,
 .ButtonGroup .Button--active:focus,
 .ButtonGroup .Button--active:active {
-  color: white;
-  background: var(--accent, --accent-medium);
+  color: var(--accent-dark);
+  background: #fff;
 }
 
 /* .ButtonGroup:hover {

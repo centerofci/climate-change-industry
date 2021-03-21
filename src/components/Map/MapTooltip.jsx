@@ -60,7 +60,7 @@ const MapTooltip = ({ data }) => {
         <path d="M 1 0 L 3 0 L 0 2 Z" fill="white"></path>
       </svg> */}
 
-      <div className="MapTooltip__note">Click for more info</div>
+      {/* <div className="MapTooltip__note">Click for more info</div> */}
     </div>
   );
 };
