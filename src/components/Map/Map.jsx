@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import Select from "react-select";
 
 import {
   geoNaturalEarth1,
@@ -43,13 +42,10 @@ const countryAccessor = (d) => d["Primary Operating Geography (Country)"];
 const spiralPositions = getSpiralPositions(100, 5, 2.5, 1.5);
 const countryNamesMap = { USA: "United States of America" };
 
-const MapWrapper = ({ allData, data }) => {
+const MapWrapper = ({ allData, data, projectionName, setFocusedItem }) => {
   const [ref, dms] = useChartDimensions();
   const [blankMap, setBlankMap] = useState();
   const [hoveredItem, setHoveredItem] = useState();
-  const [projectionName, setProjectionName] = useState(
-    projectionNameOptions[0]
-  );
   const canvasElement = useRef();
 
   const projectionFunction = projectionNameOptionsMap[projectionName];
@@ -289,10 +285,21 @@ const MapWrapper = ({ allData, data }) => {
       setHoveredItem(point);
     }
   };
+  const onClick = (e) => {
+    const [x, y] = pointer(e);
+    const pointIndex = voronoi.find(x, y);
+    const point = bubbles[pointIndex];
+    const distance = getDistanceFromXY([point.x - x, point.y - y]);
+    if (distance > 100) {
+      setFocusedItem();
+    } else {
+      setFocusedItem(point);
+    }
+  };
 
   return (
     <div className="Map" ref={ref}>
-      <div className="Map__controls" style={{ width: "20em" }}>
+      {/* <div className="Map__controls" style={{ width: "20em" }}>
         <Select
           options={projectionNameOptionsParsed}
           value={projectionNameOptionsParsed.find(
@@ -300,10 +307,11 @@ const MapWrapper = ({ allData, data }) => {
           )}
           onChange={({ value }) => setProjectionName(value)}
         />
-      </div>
+      </div> */}
       <canvas
         onMouseMove={onMouseMove}
         onMouseLeave={() => setHoveredItem()}
+        onClick={onClick}
         ref={canvasElement}
         style={{ width: `${width}px`, height: `${height}px` }}
       />
@@ -334,7 +342,7 @@ const projectionNameOptionsMap = {
   "polyhedral waterman": geoPolyhedralWaterman,
 };
 const projectionNameOptions = Object.keys(projectionNameOptionsMap);
-const projectionNameOptionsParsed = projectionNameOptions.map(
+export const projectionNameOptionsParsed = projectionNameOptions.map(
   (projectionNameOption) => ({
     label: projectionNameOption,
     value: projectionNameOption,

@@ -1,18 +1,14 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
-import Select from "react-select";
-
-// import verticalProjection from "./vertical-projection";
+import React, { useMemo, useRef, useState } from "react";
+// import { MeshPhongMaterial, Color } from "three";
 
 import countryShapes from "./countries.json";
 import countryCentersMap from "./country-centers.json";
 import { getSpiralPositions } from "./../../utils";
-// import GlobeTooltip from "./GlobeTooltip";
 import Globe from "react-globe.gl";
+// import BlankMap from "./BlankMap";
 import MapTooltip from "./MapTooltip";
 
 import "./Globe.css";
-import { extent } from "d3-array";
-import { scaleLinear } from "d3-scale";
 
 const countryAccessor = (d) => d["Primary Operating Geography (Country)"];
 const spiralPositions = getSpiralPositions(100, 5, 2.5, 1.5);
@@ -20,9 +16,10 @@ const countryNamesMap = { USA: "United States of America" };
 
 const getCentroid = (country) => countryCentersMap[country];
 
-const GlobeWrapper = ({ allData, data }) => {
+const GlobeWrapper = ({ allData, data, setFocusedItem }) => {
   const [hoveredItem, setHoveredItem] = useState();
-  // const globeElement = useRef();
+  const [blankMapTextureImage, setBlankMapTextureImage] = useState();
+  const globeElement = useRef();
 
   // const canvasElement = useRef();
 
@@ -43,6 +40,39 @@ const GlobeWrapper = ({ allData, data }) => {
   //       .range([0.1, width * 0.06]),
   //   [width, data]
   // );
+
+  // const globeMaterial = useMemo(() => {
+  //   if (!blankMapTextureImage) return;
+  //   const globeMaterial = new MeshPhongMaterial();
+  //   globeMaterial.specularMap = blankMapTextureImage;
+  //   globeMaterial.specular = new Color("grey");
+  //   globeMaterial.shininess = 15;
+  //   console.log(globeMaterial);
+  //   return globeMaterial;
+  // }, [blankMapTextureImage]);
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     // wait for scene to be populated (asynchronously)
+  //     const directionalLight = globeElement.current
+  //       .scene()
+  //       .children.find((obj3d) => obj3d.type === "DirectionalLight");
+  //     directionalLight && directionalLight.position.set(1, 1, 1); // change light position to see the specularMap's effect
+  //   });
+  // }, []);
+
+  const onGlobeLoad = () => {
+    const scene = globeElement.current.scene();
+    console.log(scene);
+    // ambient light
+    scene.children[1].intensity = 1.36;
+    // directional light
+    scene.children[2].intensity = 0.1;
+
+    scene.rotation.y = 0.5 * Math.PI;
+    scene.rotation.x = 0.15 * Math.PI;
+  };
+
   const { bubbles, arcs } = useMemo(() => {
     // const heightScale = scaleLinear()
     //   .domain(extent(data.map((d) => d[1].length)))
@@ -68,7 +98,7 @@ const GlobeWrapper = ({ allData, data }) => {
 
         bubbles.push({
           ...d,
-          name: d["label"],
+          // name: d["label"],
           lat: centroid[1] + spiralPosition.x * 0.2,
           lng: centroid[0] + spiralPosition.y * 0.3,
           // alt: heightScale(actors.length),
@@ -151,16 +181,21 @@ const GlobeWrapper = ({ allData, data }) => {
   return (
     <div className="Globe">
       {!!hoveredItem && <MapTooltip data={hoveredItem} />}
+      {/* <BlankMap onImageUpdate={setBlankMapTextureImage} /> */}
 
       <Globe
+        ref={globeElement}
         // globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
-        globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
+        // globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
+        globeImageUrl="/map.png"
+        // globeMaterial={globeMaterial}
         bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
-        backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
+        // backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
         backgroundColor="#E2E8EE"
         pointsData={bubbles}
         pointAltitude={(d) => d["alt"]}
         pointRadius={0.5}
+        pointColor={() => "#5B9C79"}
         // pointsMerge={true}
         onPointHover={onPointHover}
         arcsData={arcs}
@@ -174,6 +209,8 @@ const GlobeWrapper = ({ allData, data }) => {
         arcDashLength={0.4}
         arcDashGap={0.2}
         arcDashAnimateTime={1500}
+        onGlobeReady={onGlobeLoad}
+        onPointClick={setFocusedItem}
         // pointOfView={{ lat: 38, lng: -97, altitude: 2.5 }}
         // ref={globeElement}
         // onMapReady={() => {
@@ -187,22 +224,6 @@ const GlobeWrapper = ({ allData, data }) => {
 
         // pointsData={myData}
       />
-      {/* <div className="Globe__controls" style={{ width: "20em" }}>
-        <Select
-          options={projectionNameOptionsParsed}
-          value={projectionNameOptionsParsed.find(
-            (d) => d.label === projectionName
-          )}
-          onChange={({ value }) => setProjectionName(value)}
-        />
-      </div> */}
-      {/* <canvas
-        onMouseMove={onMouseMove}
-        onMouseLeave={() => setHoveredItem()}
-        ref={canvasElement}
-        style={{ width: `${width}px`, height: `${height}px` }}
-      />
-      {!!hoveredItem && <GlobeTooltip data={hoveredItem} />} */}
     </div>
   );
 };

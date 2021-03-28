@@ -1,13 +1,15 @@
-import React, { useMemo, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
+import Select from "react-select";
 import { group } from "d3";
 
 import Globe from "./Globe";
-import Map from "./Map";
-import Toggle from "./../Toggle/Toggle";
+import NetworkModal from "./../Network/NetworkModal";
+import Map, { projectionNameOptionsParsed } from "./Map";
 
-const MapWrapper = ({ data }) => {
-  const [view, setView] = useState("globe");
-  console.log(data);
+import "./MapWrapper.css";
+
+const MapWrapper = ({ data, focusedItem, onChangeState }) => {
+  const [view, setView] = useState(typeOptions[0]);
 
   const countryAccessor = (d) => d["Primary Operating Geography (Country)"];
 
@@ -16,16 +18,40 @@ const MapWrapper = ({ data }) => {
     [data]
   );
 
+  const setFocusedItem = useCallback((newItem) => {
+    onChangeState("item", newItem && newItem.id);
+  });
+
+  const onCloseFocusedItem = useCallback(() => {
+    setFocusedItem(null);
+  }, []);
+
   return (
     <div className="MapWrapper">
       <div className="MapWrapper__controls">
-        <Toggle options={toggleOptions} value={view} onChange={setView} />
+        <Select options={typeOptions} value={view} onChange={setView} />
+        {/* <Toggle options={toggleOptions} value={view} onChange={setView} /> */}
       </div>
 
-      {view === "globe" ? (
-        <Globe data={groupedData} allData={data} />
-      ) : (
-        <Map data={groupedData} allData={data} />
+      <div className="MapWrapper__main">
+        {view.value === "globe" ? (
+          <Globe
+            data={groupedData}
+            allData={data}
+            {...{ focusedItem, setFocusedItem }}
+          />
+        ) : (
+          <Map
+            data={groupedData}
+            allData={data}
+            projectionName={view.value}
+            {...{ focusedItem, setFocusedItem }}
+          />
+        )}
+      </div>
+
+      {focusedItem && (
+        <NetworkModal info={focusedItem} onClose={onCloseFocusedItem} />
       )}
     </div>
   );
@@ -36,4 +62,12 @@ export default MapWrapper;
 const toggleOptions = [
   { label: "Globe", id: "globe" },
   { label: "Map", id: "map" },
+];
+
+const typeOptions = [
+  {
+    label: "Globe",
+    value: "globe",
+  },
+  ...projectionNameOptionsParsed,
 ];

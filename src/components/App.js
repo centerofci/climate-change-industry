@@ -55,7 +55,13 @@ function App() {
           }}
         />
       ) : (
-        <MapWrapper data={data} />
+        <MapWrapper
+          data={data}
+          {...{
+            focusedItem,
+            onChangeState,
+          }}
+        />
       )}
     </div>
   );

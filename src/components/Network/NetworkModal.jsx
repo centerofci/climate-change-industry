@@ -85,12 +85,12 @@ const NetworkModal = ({ info = {}, onClose }) => {
           ].map(
             (key) =>
               info[key] && (
-                <div className="NetworkModal__info">
+                <div className="NetworkModal__info" key={info[key]}>
                   <div className="NetworkModal__label">
                     {key.split(" (")[0]}:
                   </div>
                   {Array.isArray(info[key])
-                    ? info[key].map((d) => <div>{d}</div>)
+                    ? info[key].map((d) => <div key={d}>{d}</div>)
                     : info[key]}
                 </div>
               )
