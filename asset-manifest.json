@@ -1,13 +1,14 @@
 {
   "main.css": "/climate-change-industry/static/css/main.76db21e9.chunk.css",
-  "main.js": "/climate-change-industry/static/js/main.cc22047a.chunk.js",
-  "main.js.map": "/climate-change-industry/static/js/main.cc22047a.chunk.js.map",
+  "main.js": "/climate-change-industry/static/js/main.32ad3594.chunk.js",
+  "main.js.map": "/climate-change-industry/static/js/main.32ad3594.chunk.js.map",
   "runtime~main.js": "/climate-change-industry/static/js/runtime~main.9d9ef6f6.js",
   "runtime~main.js.map": "/climate-change-industry/static/js/runtime~main.9d9ef6f6.js.map",
-  "static/js/2.0feacd27.chunk.js": "/climate-change-industry/static/js/2.0feacd27.chunk.js",
-  "static/js/2.0feacd27.chunk.js.map": "/climate-change-industry/static/js/2.0feacd27.chunk.js.map",
+  "static/js/2.a9d245b0.chunk.js": "/climate-change-industry/static/js/2.a9d245b0.chunk.js",
+  "static/js/2.a9d245b0.chunk.js.map": "/climate-change-industry/static/js/2.a9d245b0.chunk.js.map",
   "index.html": "/climate-change-industry/index.html",
-  "precache-manifest.c5fe7427949b783fe8856e9d1af2f0c7.js": "/climate-change-industry/precache-manifest.c5fe7427949b783fe8856e9d1af2f0c7.js",
+  "precache-manifest.309efa44082f297a4a77053ec4faa71c.js": "/climate-change-industry/precache-manifest.309efa44082f297a4a77053ec4faa71c.js",
   "service-worker.js": "/climate-change-industry/service-worker.js",
-  "static/css/main.76db21e9.chunk.css.map": "/climate-change-industry/static/css/main.76db21e9.chunk.css.map"
+  "static/css/main.76db21e9.chunk.css.map": "/climate-change-industry/static/css/main.76db21e9.chunk.css.map",
+  "static/media/map.png": "/climate-change-industry/static/media/map.237b420e.png"
 }
