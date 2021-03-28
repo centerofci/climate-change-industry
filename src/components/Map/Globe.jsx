@@ -7,6 +7,7 @@ import { getSpiralPositions } from "./../../utils";
 import Globe from "react-globe.gl";
 // import BlankMap from "./BlankMap";
 import MapTooltip from "./MapTooltip";
+import mapImageUrl from "./map.png";
 
 import "./Globe.css";
 
@@ -187,7 +188,7 @@ const GlobeWrapper = ({ allData, data, setFocusedItem }) => {
         ref={globeElement}
         // globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
         // globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
-        globeImageUrl="/map.png"
+        globeImageUrl={mapImageUrl}
         // globeMaterial={globeMaterial}
         bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
         // backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
