@@ -19,7 +19,7 @@ const getCentroid = (country) => countryCentersMap[country];
 
 const GlobeWrapper = ({ allData, data, setFocusedItem }) => {
   const [hoveredItem, setHoveredItem] = useState();
-  const [blankMapTextureImage, setBlankMapTextureImage] = useState();
+  // const [blankMapTextureImage, setBlankMapTextureImage] = useState();
   const globeElement = useRef();
 
   // const canvasElement = useRef();
@@ -74,6 +74,10 @@ const GlobeWrapper = ({ allData, data, setFocusedItem }) => {
     scene.rotation.x = 0.15 * Math.PI;
   };
 
+  const xScale = 0.26;
+  const yScale = 0.2;
+
+  const arcOpacity = 0.8;
   const { bubbles, arcs } = useMemo(() => {
     // const heightScale = scaleLinear()
     //   .domain(extent(data.map((d) => d[1].length)))
@@ -96,14 +100,16 @@ const GlobeWrapper = ({ allData, data, setFocusedItem }) => {
       // });
       actors.forEach((d, i) => {
         const spiralPosition = spiralPositions[i];
+        const color = `rgba(91, 156, 121, ${d.opacity})`;
 
         bubbles.push({
           ...d,
           // name: d["label"],
-          lat: centroid[1] + spiralPosition.x * 0.2,
-          lng: centroid[0] + spiralPosition.y * 0.3,
+          lng: centroid[0] + spiralPosition.x * xScale,
+          lat: centroid[1] + spiralPosition.y * yScale,
           // alt: heightScale(actors.length),
           alt: 0.05,
+          color,
           // ...d,
           // country,
           // x: centroid[0] + spiralPosition.x,
@@ -111,26 +117,37 @@ const GlobeWrapper = ({ allData, data, setFocusedItem }) => {
         });
       });
     });
+    const getActorObject = (actorName) => {
+      const actorObject = allData["Actors"].find(
+        (d) => d["label"] == actorName
+      );
+      return actorObject;
+    };
+    const getActorCountry = (actorObject) => {
+      const name = countryAccessor(actorObject);
+      if (!name) return;
+      const lookupName = countryNamesMap[name] || name;
+      const country = Object.values(countryShapes).find(
+        (d) => d["properties"]["geounit"] == lookupName
+      );
+      if (!country) return;
+      const centroid = getCentroid(country.properties.geounit);
+      return { name, centroid };
+    };
+    const getCountryOffset = (source) => {
+      const filteredCountries = data.find(
+        ([country]) => country == countryAccessor(source)
+      );
+      if (!filteredCountries) return [0, 0];
 
-    const arcs = allData["Investments"]
+      const index = filteredCountries[1].findIndex((d) => d.id == source.id);
+      const spiralPosition = spiralPositions[index];
+
+      return [spiralPosition.x * xScale, spiralPosition.y * yScale];
+    };
+
+    const investments = allData["Investments"]
       .map((investment) => {
-        const getActorObject = (actorName) => {
-          const actorObject = allData["Actors"].find(
-            (d) => d["label"] == actorName
-          );
-          return actorObject;
-        };
-        const getActorCountry = (actorObject) => {
-          const name = countryAccessor(actorObject);
-          if (!name) return;
-          const lookupName = countryNamesMap[name] || name;
-          const country = Object.values(countryShapes).find(
-            (d) => d["properties"]["geounit"] == lookupName
-          );
-          if (!country) return;
-          const centroid = getCentroid(country.properties.geounit);
-          return { name, centroid };
-        };
         const fromObject = (investment["Source"] || [])
           .map(getActorObject)
           .find((d) => d);
@@ -138,22 +155,11 @@ const GlobeWrapper = ({ allData, data, setFocusedItem }) => {
           .map(getActorObject)
           .find((d) => d);
         if (!fromObject || !toObject) return;
+        if (fromObject.opacity < 0.5 || toObject.opacity < 0.5) return;
 
         const from = getActorCountry(fromObject);
         const to = getActorCountry(toObject);
 
-        const getCountryOffset = (source) => {
-          const filteredCountries = data.find(
-            ([country]) => country == countryAccessor(source)
-          );
-          if (!filteredCountries) return [0, 0];
-
-          const index = filteredCountries[1].findIndex(
-            (d) => d.id == source.id
-          );
-          const spiralPosition = spiralPositions[index];
-          return [spiralPosition.x * 0.3, spiralPosition.y * 0.2];
-        };
         if (!from || !to) return;
         const fromOffset = getCountryOffset(fromObject);
         const toOffset = getCountryOffset(toObject);
@@ -166,9 +172,63 @@ const GlobeWrapper = ({ allData, data, setFocusedItem }) => {
           startLng: from.centroid[0] + fromOffset[0],
           endLat: to.centroid[1] + toOffset[1],
           endLng: to.centroid[0] + toOffset[0],
+          animatedTime: 1500,
+          dashLength: 0.4,
+          dashGap: 0.2,
+          altitudeAutoScale: 0.6,
+          color: [
+            `rgba(32, 190, 201, ${arcOpacity})`,
+            `rgba(134, 111, 172, ${arcOpacity})`,
+            // `rgba(255, 0, 0, ${arcOpacity})`,
+          ],
         };
       })
       .filter((d) => d);
+
+    let collaborations = [];
+
+    allData["Actors"].forEach((actor) => {
+      const collaboratorNames =
+        actor["Directly Associated Orgs (e.g., employment/parent org):"] || [];
+
+      collaboratorNames.forEach((collaborator) => {
+        const fromObject = actor;
+        const toObject = getActorObject(collaborator);
+        if (!toObject) return;
+
+        if (fromObject.opacity < 0.5 || toObject.opacity < 0.5) return;
+
+        const from = getActorCountry(fromObject);
+        const to = getActorCountry(toObject);
+        if (!from || !to) return;
+
+        const fromOffset = getCountryOffset(fromObject);
+        const toOffset = getCountryOffset(toObject);
+
+        collaborations = [
+          ...collaborations,
+          {
+            from: { ...from, offset: fromOffset },
+            to: { ...to, offset: toOffset },
+            name: `${fromObject.label} - ${toObject.label}`,
+            startLat: from.centroid[1] + fromOffset[1],
+            startLng: from.centroid[0] + fromOffset[0],
+            endLat: to.centroid[1] + toOffset[1],
+            endLng: to.centroid[0] + toOffset[0],
+            animatedTime: 0,
+            dashLength: undefined,
+            dashGap: 0,
+            altitudeAutoScale: 0.3,
+            color: [
+              `rgba(188, 135, 151, ${arcOpacity})`,
+              `rgba(239, 209, 201, ${arcOpacity})`,
+            ],
+          },
+        ];
+      });
+    });
+
+    const arcs = [...investments, ...collaborations];
 
     return { bubbles, arcs };
   }, [data]);
@@ -178,7 +238,6 @@ const GlobeWrapper = ({ allData, data, setFocusedItem }) => {
     console.log(e);
   };
 
-  const OPACITY = 0.8;
   return (
     <div className="Globe">
       {!!hoveredItem && <MapTooltip data={hoveredItem} />}
@@ -196,20 +255,17 @@ const GlobeWrapper = ({ allData, data, setFocusedItem }) => {
         pointsData={bubbles}
         pointAltitude={(d) => d["alt"]}
         pointRadius={0.5}
-        pointColor={() => "#5B9C79"}
+        pointColor={(d) => d.color}
         // pointsMerge={true}
         onPointHover={onPointHover}
         arcsData={arcs}
         // arcColor={() => "#45aeb1"}
-        arcColor={() => [
-          `rgba(32, 190, 201, ${OPACITY})`,
-          `rgba(0, 139, 148, ${OPACITY})`,
-          // `rgba(255, 0, 0, ${OPACITY})`,
-        ]}
+        arcColor={(d) => d.color}
         arcStroke={0.6}
-        arcDashLength={0.4}
-        arcDashGap={0.2}
-        arcDashAnimateTime={1500}
+        arcAltitudeAutoScale={(d) => d.altitudeAutoScale}
+        arcDashLength={(d) => d.dashLength}
+        arcDashGap={(d) => d.dashGap}
+        arcDashAnimateTime={(d) => d.animatedTime}
         onGlobeReady={onGlobeLoad}
         onPointClick={setFocusedItem}
         // pointOfView={{ lat: 38, lng: -97, altitude: 2.5 }}

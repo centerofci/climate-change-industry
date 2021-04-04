@@ -183,7 +183,7 @@ const MapWrapper = ({ allData, data, projectionName, setFocusedItem }) => {
     ctx.fillStyle = "#5da17c";
     const r = 5;
 
-    bubbles.forEach(({ id, x, y }) => {
+    bubbles.forEach(({ id, opacity, x, y }) => {
       ctx.beginPath();
       if (hoveredItem && hoveredItem.id == id) {
         ctx.fillStyle = "#45a";
@@ -191,30 +191,45 @@ const MapWrapper = ({ allData, data, projectionName, setFocusedItem }) => {
         ctx.fill();
         ctx.fillStyle = "#5da17c";
       } else {
+        const color = `rgba(91, 156, 121, ${opacity})`;
+        ctx.fillStyle = color;
         ctx.arc(x, y, r, 0, 2 * Math.PI);
         ctx.fill();
       }
     });
 
-    const arcs = allData["Investments"]
+    const arcOpacity = 0.8;
+    const getActorObject = (actorName) => {
+      const actorObject = allData["Actors"].find(
+        (d) => d["label"] == actorName
+      );
+      return actorObject;
+    };
+    const getActorCountry = (actorObject) => {
+      const name = countryAccessor(actorObject);
+      if (!name) return;
+      const lookupName = countryNamesMap[name] || name;
+      const country = Object.values(countryShapes).find(
+        (d) => d["properties"]["geounit"] == lookupName
+      );
+      if (!country) return;
+      const centroid = getCentroid(country);
+      return { name, centroid };
+    };
+    const getCountryOffset = (source) => {
+      const filteredCountries = data.find(
+        ([country]) => country == countryAccessor(source)
+      );
+      if (!filteredCountries) return [0, 0];
+
+      const index = filteredCountries[1].findIndex((d) => d.id == source.id);
+      const spiralPosition = spiralPositions[index];
+
+      return [spiralPosition.x, spiralPosition.y];
+    };
+
+    const investments = allData["Investments"]
       .map((investment) => {
-        const getActorObject = (actorName) => {
-          const actorObject = allData["Actors"].find(
-            (d) => d["label"] == actorName
-          );
-          return actorObject;
-        };
-        const getActorCountry = (actorObject) => {
-          const name = countryAccessor(actorObject);
-          if (!name) return;
-          const lookupName = countryNamesMap[name] || name;
-          const country = Object.values(countryShapes).find(
-            (d) => d["properties"]["geounit"] == lookupName
-          );
-          if (!country) return;
-          const centroid = getCentroid(country);
-          return { name, centroid };
-        };
         const fromObject = (investment["Source"] || [])
           .map(getActorObject)
           .find((d) => d);
@@ -222,50 +237,85 @@ const MapWrapper = ({ allData, data, projectionName, setFocusedItem }) => {
           .map(getActorObject)
           .find((d) => d);
         if (!fromObject || !toObject) return;
+        if (fromObject.opacity < 0.5 || toObject.opacity < 0.5) return;
 
         const from = getActorCountry(fromObject);
         const to = getActorCountry(toObject);
 
-        const getCountryOffset = (source) => {
-          const filteredCountries = data.find(
-            ([country]) => country == countryAccessor(source)
-          );
-          if (!filteredCountries) return [0, 0];
-
-          const index = filteredCountries[1].findIndex(
-            (d) => d.id == source.id
-          );
-          const spiralPosition = spiralPositions[index];
-          return [spiralPosition.x, spiralPosition.y];
-        };
         if (!from || !to) return;
         const fromOffset = getCountryOffset(fromObject);
         const toOffset = getCountryOffset(toObject);
+
         return {
           from: { ...from, offset: fromOffset },
           to: { ...to, offset: toOffset },
+          name: `${fromObject.label} - ${toObject.label}`,
+          startLat: from.centroid[1] + fromOffset[1],
+          startLng: from.centroid[0] + fromOffset[0],
+          endLat: to.centroid[1] + toOffset[1],
+          endLng: to.centroid[0] + toOffset[0],
+          animatedTime: 1500,
+          dashLength: 0.4,
+          dashGap: 0.2,
+          altitudeAutoScale: 0.6,
+          color: `rgba(32, 190, 201, ${arcOpacity})`,
         };
       })
       .filter((d) => d);
 
-    const pathGenerator = geoPath(projection, ctx);
+    let collaborations = [];
 
-    arcs.forEach(({ from, to }) => {
+    allData["Actors"].forEach((actor) => {
+      const collaboratorNames =
+        actor["Directly Associated Orgs (e.g., employment/parent org):"] || [];
+
+      collaboratorNames.forEach((collaborator) => {
+        const fromObject = actor;
+        const toObject = getActorObject(collaborator);
+        if (!toObject) return;
+
+        if (fromObject.opacity < 0.5 || toObject.opacity < 0.5) return;
+
+        const from = getActorCountry(fromObject);
+        const to = getActorCountry(toObject);
+        if (!from || !to) return;
+
+        const fromOffset = getCountryOffset(fromObject);
+        const toOffset = getCountryOffset(toObject);
+
+        collaborations = [
+          ...collaborations,
+          {
+            from: { ...from, offset: fromOffset },
+            to: { ...to, offset: toOffset },
+            name: `${fromObject.label} - ${toObject.label}`,
+            startLat: from.centroid[1] + fromOffset[1],
+            startLng: from.centroid[0] + fromOffset[0],
+            endLat: to.centroid[1] + toOffset[1],
+            endLng: to.centroid[0] + toOffset[0],
+            animatedTime: 0,
+            dashLength: undefined,
+            dashGap: 0,
+            altitudeAutoScale: 0.3,
+            color: `rgba(188, 135, 151, ${arcOpacity})`,
+          },
+        ];
+      });
+    });
+
+    const arcs = [...investments, ...collaborations];
+
+    const pathGenerator = geoPath(projection, ctx);
+    arcs.forEach(({ startLat, startLng, endLat, endLng, color }) => {
       ctx.beginPath();
       pathGenerator({
         type: "LineString",
         coordinates: [
-          projection.invert([
-            from.centroid[0] + from.offset[0],
-            from.centroid[1] + from.offset[1],
-          ]),
-          projection.invert([
-            to.centroid[0] + to.offset[0],
-            to.centroid[1] + to.offset[1],
-          ]),
+          projection.invert([startLng, startLat]),
+          projection.invert([endLng, endLat]),
         ],
       });
-      ctx.strokeStyle = "#0d0c12";
+      ctx.strokeStyle = color;
       ctx.stroke();
     });
 
