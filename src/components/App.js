@@ -20,6 +20,7 @@ function App() {
   const groupType = params["group"] || "Interventions";
   const searchTerm = params["search"] || "";
   const isEmbed = !!params["embed"];
+  const projectionName = params["projection"];
 
   const focusedItem = useMemo(() => {
     if (!params["item"]) return null;
@@ -59,6 +60,7 @@ function App() {
           data={data}
           {...{
             focusedItem,
+            projectionName,
             onChangeState,
           }}
         />

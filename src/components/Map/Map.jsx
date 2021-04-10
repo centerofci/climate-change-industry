@@ -39,7 +39,7 @@ import "./Map.css";
 
 const sphere = { type: "Sphere" };
 const countryAccessor = (d) => d["Primary Operating Geography (Country)"];
-const spiralPositions = getSpiralPositions(100, 5, 2.5, 1.5);
+const spiralPositions = getSpiralPositions(100, 5, 2, 1.2);
 const countryNamesMap = { USA: "United States of America" };
 
 const MapWrapper = ({ allData, data, projectionName, setFocusedItem }) => {
@@ -154,10 +154,14 @@ const MapWrapper = ({ allData, data, projectionName, setFocusedItem }) => {
 
       actors.forEach((d, i) => {
         const spiralPosition = spiralPositions[i];
-
+        const color =
+          d["Person or Org"] === "Individual Person"
+            ? `rgba(91, 156, 121, 1)`
+            : `rgba(49, 63, 83, 1)`;
         bubbles.push({
           ...d,
           country,
+          color,
           x: centroid[0] + spiralPosition.x,
           y: centroid[1] + spiralPosition.y,
         });
@@ -181,9 +185,9 @@ const MapWrapper = ({ allData, data, projectionName, setFocusedItem }) => {
 
     ctx.globalCompositeOperation = "multiply";
     ctx.fillStyle = "#5da17c";
-    const r = 5;
+    const r = 3;
 
-    bubbles.forEach(({ id, opacity, x, y }) => {
+    bubbles.forEach(({ id, color, opacity, x, y }) => {
       ctx.beginPath();
       if (hoveredItem && hoveredItem.id == id) {
         ctx.fillStyle = "#45a";
@@ -191,8 +195,8 @@ const MapWrapper = ({ allData, data, projectionName, setFocusedItem }) => {
         ctx.fill();
         ctx.fillStyle = "#5da17c";
       } else {
-        const color = `rgba(91, 156, 121, ${opacity})`;
-        ctx.fillStyle = color;
+        // const color = `rgba(91, 156, 121, ${opacity})`;
+        ctx.fillStyle = multiplyRgbaOpacity(color, opacity);
         ctx.arc(x, y, r, 0, 2 * Math.PI);
         ctx.fill();
       }
@@ -254,11 +258,13 @@ const MapWrapper = ({ allData, data, projectionName, setFocusedItem }) => {
           startLng: from.centroid[0] + fromOffset[0],
           endLat: to.centroid[1] + toOffset[1],
           endLng: to.centroid[0] + toOffset[0],
+          fromId: fromObject.id,
+          toId: toObject.id,
           animatedTime: 1500,
           dashLength: 0.4,
           dashGap: 0.2,
           altitudeAutoScale: 0.6,
-          color: `rgba(32, 190, 201, ${arcOpacity})`,
+          initialColor: `rgba(32, 190, 201, ${arcOpacity})`,
         };
       })
       .filter((d) => d);
@@ -293,11 +299,13 @@ const MapWrapper = ({ allData, data, projectionName, setFocusedItem }) => {
             startLng: from.centroid[0] + fromOffset[0],
             endLat: to.centroid[1] + toOffset[1],
             endLng: to.centroid[0] + toOffset[0],
+            fromId: fromObject.id,
+            toId: toObject.id,
             animatedTime: 0,
             dashLength: undefined,
             dashGap: 0,
             altitudeAutoScale: 0.3,
-            color: `rgba(188, 135, 151, ${arcOpacity})`,
+            initialColor: `rgba(188, 135, 151, ${arcOpacity})`,
           },
         ];
       });
@@ -305,8 +313,24 @@ const MapWrapper = ({ allData, data, projectionName, setFocusedItem }) => {
 
     const arcs = [...investments, ...collaborations];
 
+    const filteredArcs = arcs
+      .map((arc) => {
+        const isHighlighted =
+          !hoveredItem ||
+          arc.fromId === hoveredItem.id ||
+          arc.toId === hoveredItem.id;
+        return {
+          ...arc,
+          sortOrder: isHighlighted ? 1 : 0,
+          color: isHighlighted
+            ? multiplyRgbaOpacity(arc.initialColor, 1)
+            : multiplyRgbaOpacity(arc.initialColor, 0),
+        };
+      })
+      .sort((a, b) => b.sortOrder - a.sortOrder);
+
     const pathGenerator = geoPath(projection, ctx);
-    arcs.forEach(({ startLat, startLng, endLat, endLng, color }) => {
+    filteredArcs.forEach(({ startLat, startLng, endLat, endLng, color }) => {
       ctx.beginPath();
       pathGenerator({
         type: "LineString",
@@ -315,6 +339,7 @@ const MapWrapper = ({ allData, data, projectionName, setFocusedItem }) => {
           projection.invert([endLng, endLat]),
         ],
       });
+      ctx.strokeWidth = 2;
       ctx.strokeStyle = color;
       ctx.stroke();
     });
@@ -398,3 +423,9 @@ export const projectionNameOptionsParsed = projectionNameOptions.map(
     value: projectionNameOption,
   })
 );
+
+const multiplyRgbaOpacity = (rgb, opacityMultiplier) => {
+  const currentOpacity = +rgb.split(/[\,\)]/g)[3];
+  const newOpacity = currentOpacity * opacityMultiplier;
+  return rgb.split(",").slice(0, -1).join(",") + ", " + newOpacity + ")";
+};

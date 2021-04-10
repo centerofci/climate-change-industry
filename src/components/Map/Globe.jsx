@@ -48,7 +48,6 @@ const GlobeWrapper = ({ allData, data, setFocusedItem }) => {
   //   globeMaterial.specularMap = blankMapTextureImage;
   //   globeMaterial.specular = new Color("grey");
   //   globeMaterial.shininess = 15;
-  //   console.log(globeMaterial);
   //   return globeMaterial;
   // }, [blankMapTextureImage]);
 
@@ -64,7 +63,6 @@ const GlobeWrapper = ({ allData, data, setFocusedItem }) => {
 
   const onGlobeLoad = () => {
     const scene = globeElement.current.scene();
-    console.log(scene);
     // ambient light
     scene.children[1].intensity = 1.36;
     // directional light
@@ -100,15 +98,19 @@ const GlobeWrapper = ({ allData, data, setFocusedItem }) => {
       // });
       actors.forEach((d, i) => {
         const spiralPosition = spiralPositions[i];
-        const color = `rgba(91, 156, 121, ${d.opacity})`;
+        const color =
+          d["Person or Org"] === "Individual Person"
+            ? `rgba(91, 156, 121, ${d.opacity})`
+            : `rgba(49, 63, 83, ${d.opacity})`;
 
         bubbles.push({
           ...d,
+          name: "",
           // name: d["label"],
           lng: centroid[0] + spiralPosition.x * xScale,
           lat: centroid[1] + spiralPosition.y * yScale,
           // alt: heightScale(actors.length),
-          alt: 0.05,
+          alt: 0.01,
           color,
           // ...d,
           // country,
@@ -167,16 +169,17 @@ const GlobeWrapper = ({ allData, data, setFocusedItem }) => {
         return {
           from: { ...from, offset: fromOffset },
           to: { ...to, offset: toOffset },
-          name: `${fromObject.label} - ${toObject.label}`,
           startLat: from.centroid[1] + fromOffset[1],
           startLng: from.centroid[0] + fromOffset[0],
           endLat: to.centroid[1] + toOffset[1],
           endLng: to.centroid[0] + toOffset[0],
-          animatedTime: 1500,
+          fromId: fromObject["id"],
+          toId: toObject["id"],
+          animatedTime: 5100,
           dashLength: 0.4,
-          dashGap: 0.2,
+          dashGap: 0.1,
           altitudeAutoScale: 0.6,
-          color: [
+          initialColor: [
             `rgba(32, 190, 201, ${arcOpacity})`,
             `rgba(134, 111, 172, ${arcOpacity})`,
             // `rgba(255, 0, 0, ${arcOpacity})`,
@@ -188,8 +191,11 @@ const GlobeWrapper = ({ allData, data, setFocusedItem }) => {
     let collaborations = [];
 
     allData["Actors"].forEach((actor) => {
-      const collaboratorNames =
-        actor["Directly Associated Orgs (e.g., employment/parent org):"] || [];
+      const collaboratorNames = [
+        ...(actor["Directly Associated Orgs (e.g., employment/parent org):"] ||
+          []),
+        ...(actor["Partners With"] || []),
+      ];
 
       collaboratorNames.forEach((collaborator) => {
         const fromObject = actor;
@@ -210,16 +216,17 @@ const GlobeWrapper = ({ allData, data, setFocusedItem }) => {
           {
             from: { ...from, offset: fromOffset },
             to: { ...to, offset: toOffset },
-            name: `${fromObject.label} - ${toObject.label}`,
             startLat: from.centroid[1] + fromOffset[1],
             startLng: from.centroid[0] + fromOffset[0],
             endLat: to.centroid[1] + toOffset[1],
             endLng: to.centroid[0] + toOffset[0],
+            fromId: fromObject["id"],
+            toId: toObject["id"],
             animatedTime: 0,
             dashLength: undefined,
             dashGap: 0,
             altitudeAutoScale: 0.3,
-            color: [
+            initialColor: [
               `rgba(188, 135, 151, ${arcOpacity})`,
               `rgba(239, 209, 201, ${arcOpacity})`,
             ],
@@ -233,9 +240,26 @@ const GlobeWrapper = ({ allData, data, setFocusedItem }) => {
     return { bubbles, arcs };
   }, [data]);
 
+  const filteredArcs = React.useMemo(() => {
+    return arcs
+      .map((arc) => {
+        const isHighlighted =
+          !hoveredItem ||
+          arc.fromId === hoveredItem.id ||
+          arc.toId === hoveredItem.id;
+        return {
+          ...arc,
+          sortOrder: isHighlighted ? 1 : 0,
+          color: isHighlighted
+            ? arc.initialColor.map((d) => multiplyRgbaOpacity(d, 1))
+            : arc.initialColor.map((d) => multiplyRgbaOpacity(d, 0)),
+        };
+      })
+      .sort((a, b) => b.sortOrder - a.sortOrder);
+  }, [arcs, hoveredItem]);
+
   const onPointHover = (e) => {
     setHoveredItem(e);
-    console.log(e);
   };
 
   return (
@@ -254,24 +278,24 @@ const GlobeWrapper = ({ allData, data, setFocusedItem }) => {
         backgroundColor="#E2E8EE"
         pointsData={bubbles}
         pointAltitude={(d) => d["alt"]}
-        pointRadius={0.5}
+        pointRadius={0.7}
         pointColor={(d) => d.color}
         // pointsMerge={true}
         onPointHover={onPointHover}
-        arcsData={arcs}
+        arcsData={filteredArcs}
         // arcColor={() => "#45aeb1"}
         arcColor={(d) => d.color}
-        arcStroke={0.6}
+        arcStroke={0.5}
         arcAltitudeAutoScale={(d) => d.altitudeAutoScale}
         arcDashLength={(d) => d.dashLength}
         arcDashGap={(d) => d.dashGap}
         arcDashAnimateTime={(d) => d.animatedTime}
+        arcsTransitionDuration={1}
         onGlobeReady={onGlobeLoad}
         onPointClick={setFocusedItem}
         // pointOfView={{ lat: 38, lng: -97, altitude: 2.5 }}
         // ref={globeElement}
         // onMapReady={() => {
-        //   console.log("HI", { globeElement });
         //   globeElement.current.pointOfView({
         //     lat: 39.6,
         //     lng: -98.5,
@@ -286,3 +310,9 @@ const GlobeWrapper = ({ allData, data, setFocusedItem }) => {
 };
 
 export default GlobeWrapper;
+
+const multiplyRgbaOpacity = (rgb, opacityMultiplier) => {
+  const currentOpacity = +rgb.split(/[\,\)]/g)[3];
+  const newOpacity = currentOpacity * opacityMultiplier;
+  return rgb.split(",").slice(0, -1).join(",") + ", " + newOpacity + ")";
+};

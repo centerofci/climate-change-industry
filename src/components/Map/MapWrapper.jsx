@@ -9,32 +9,48 @@ import Map, { projectionNameOptionsParsed } from "./Map";
 import "./MapWrapper.css";
 import NetworkFilters from "../Network/NetworkFilters";
 
-const MapWrapper = ({ data = {}, focusedItem, onChangeState }) => {
-  const [view, setView] = useState(typeOptions[0]);
+const MapWrapper = ({
+  data = {},
+  projectionName,
+  focusedItem,
+  onChangeState,
+}) => {
   const [activeFilters, setActiveFilters] = useState([]);
 
   const countryAccessor = (d) => d["Primary Operating Geography (Country)"];
 
+  const setMapProjection = (newProjection) => {
+    onChangeState("projection", newProjection.label);
+  };
+  const projection =
+    typeOptions.find((d) => d.label === projectionName) || typeOptions[0];
+
   const parsedData = useMemo(() => {
     return {
       ...data,
-      Actors: (data["Actors"] || []).map((item) => {
-        const unsatisifiedActiveFilters = activeFilters.filter(
-          ({ type, value: filterValue }) => {
-            const value = getFilterFromItem(item, type) || [];
-            if (!value.length) return true;
-            // if (source) {
-            //   const sourceValue = getFilterFromItem(source, type);
-            //   if (!sourceValue.includes(filterValue)) return true;
-            //   return false;
-            // }
-            if (value.includes(filterValue)) return false;
-            return true;
-          }
-        );
-        const opacity = unsatisifiedActiveFilters.length ? 0.13 : 1;
-        return { ...item, opacity };
-      }),
+      Actors: (data["Actors"] || [])
+        .map((item) => {
+          const unsatisifiedActiveFilters = activeFilters.filter(
+            ({ type, value: filterValue }) => {
+              const value = getFilterFromItem(item, type) || [];
+              if (!value.length) return true;
+              // if (source) {
+              //   const sourceValue = getFilterFromItem(source, type);
+              //   if (!sourceValue.includes(filterValue)) return true;
+              //   return false;
+              // }
+              if (value.includes(filterValue)) return false;
+              return true;
+            }
+          );
+          const opacity = unsatisifiedActiveFilters.length ? 0.13 : 1;
+          return { ...item, opacity };
+        })
+        .sort((a, b) => {
+          const aValue = a["Person or Org"] === "Individual Person" ? 1 : 0;
+          const bValue = b["Person or Org"] === "Individual Person" ? 1 : 0;
+          return aValue - bValue;
+        }),
     };
   }, [data, activeFilters]);
 
@@ -54,8 +70,12 @@ const MapWrapper = ({ data = {}, focusedItem, onChangeState }) => {
   return (
     <div className="MapWrapper">
       <div className="MapWrapper__controls">
-        <Select options={typeOptions} value={view} onChange={setView} />
-        {/* <Toggle options={toggleOptions} value={view} onChange={setView} /> */}
+        <Select
+          options={typeOptions}
+          value={projection}
+          onChange={setMapProjection}
+        />
+        {/* <Toggle options={toggleOptions} value={projection} onChange={setView} /> */}
 
         <h6 className="MapWrapper__sidebar__bottom-label">Filter by</h6>
 
@@ -70,7 +90,7 @@ const MapWrapper = ({ data = {}, focusedItem, onChangeState }) => {
       </div>
 
       <div className="MapWrapper__main">
-        {view.value === "globe" ? (
+        {projection.value === "globe" ? (
           <Globe
             data={groupedData}
             allData={parsedData}
@@ -80,7 +100,7 @@ const MapWrapper = ({ data = {}, focusedItem, onChangeState }) => {
           <Map
             data={groupedData}
             allData={parsedData}
-            projectionName={view.value}
+            projectionName={projection.value}
             {...{ focusedItem, setFocusedItem }}
           />
         )}
