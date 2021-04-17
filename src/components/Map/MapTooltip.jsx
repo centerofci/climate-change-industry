@@ -1,14 +1,16 @@
 import React from "react";
 import { format } from "d3";
 
-import { move, truncate } from "./../../utils";
-import { typeColors } from "./../../constants";
-
 import "./MapTooltip.css";
 
 const countryAccessor = (d) => d["Primary Operating Geography (Country)"];
 
 const MapTooltip = ({ data }) => {
+  console.log(data.relationships);
+  const relationships = data.relationships.map((d) => ({
+    ...d,
+    type: !d.dashGap ? "collaboration" : d.fromId === data.id ? "from" : "to",
+  }));
   return (
     <div className={["MapTooltip"].join(" ")}>
       <div className="MapTooltip__name">
@@ -17,7 +19,6 @@ const MapTooltip = ({ data }) => {
         )}
         {data["label"]}
       </div>
-      {/* <div className="MapTooltip__text">{data["type"].slice(0, -1)}</div> */}
       {countryAccessor(data) && (
         <div className="MapTooltip__text">{countryAccessor(data)}</div>
       )}
@@ -33,6 +34,20 @@ const MapTooltip = ({ data }) => {
       )}
       {data["Entity Type"] && (
         <div className="MapTooltip__text">{data["Entity Type"].join(", ")}</div>
+      )}
+      {!!relationships.length && (
+        <div className="MapTooltip__text">
+          {relationships.map((d) => (
+            <div key={d.id}>
+              {d.type === "collaboration"
+                ? "Collaborates with"
+                : d.type === "from"
+                ? "Invested in"
+                : "Received investment from"}{" "}
+              <b>{[d.toName, d.fromName].find((d) => d != data.label)}</b>
+            </div>
+          ))}
+        </div>
       )}
       {/* {data["Focus"] && (
         <div className="MapTooltip__text">{data["Focus"]}</div>

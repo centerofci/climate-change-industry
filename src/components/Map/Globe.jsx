@@ -175,6 +175,8 @@ const GlobeWrapper = ({ allData, data, setFocusedItem }) => {
           endLng: to.centroid[0] + toOffset[0],
           fromId: fromObject["id"],
           toId: toObject["id"],
+          fromName: fromObject["label"],
+          toName: toObject["label"],
           animatedTime: 5100,
           dashLength: 0.4,
           dashGap: 0.1,
@@ -222,6 +224,8 @@ const GlobeWrapper = ({ allData, data, setFocusedItem }) => {
             endLng: to.centroid[0] + toOffset[0],
             fromId: fromObject["id"],
             toId: toObject["id"],
+            fromName: fromObject["label"],
+            toName: toObject["label"],
             animatedTime: 0,
             dashLength: undefined,
             dashGap: 0,
@@ -259,7 +263,17 @@ const GlobeWrapper = ({ allData, data, setFocusedItem }) => {
   }, [arcs, hoveredItem]);
 
   const onPointHover = (e) => {
-    setHoveredItem(e);
+    if (!e) return;
+    const relationships = arcs
+      .map((arc) => {
+        const isHighlighted = arc.fromId === e.id || arc.toId === e.id;
+        if (!isHighlighted) return;
+        return {
+          ...arc,
+        };
+      })
+      .filter(Boolean);
+    setHoveredItem({ ...e, relationships });
   };
 
   return (

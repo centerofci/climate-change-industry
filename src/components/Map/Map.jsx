@@ -46,6 +46,7 @@ const MapWrapper = ({ allData, data, projectionName, setFocusedItem }) => {
   const [ref, dms] = useChartDimensions();
   const [blankMap, setBlankMap] = useState();
   const [hoveredItem, setHoveredItem] = useState();
+  const arcsRef = useRef([]);
   const canvasElement = useRef();
 
   const projectionFunction = projectionNameOptionsMap[projectionName];
@@ -260,6 +261,8 @@ const MapWrapper = ({ allData, data, projectionName, setFocusedItem }) => {
           endLng: to.centroid[0] + toOffset[0],
           fromId: fromObject.id,
           toId: toObject.id,
+          fromName: fromObject["label"],
+          toName: toObject["label"],
           animatedTime: 1500,
           dashLength: 0.4,
           dashGap: 0.2,
@@ -301,6 +304,8 @@ const MapWrapper = ({ allData, data, projectionName, setFocusedItem }) => {
             endLng: to.centroid[0] + toOffset[0],
             fromId: fromObject.id,
             toId: toObject.id,
+            fromName: fromObject["label"],
+            toName: toObject["label"],
             animatedTime: 0,
             dashLength: undefined,
             dashGap: 0,
@@ -312,6 +317,7 @@ const MapWrapper = ({ allData, data, projectionName, setFocusedItem }) => {
     });
 
     const arcs = [...investments, ...collaborations];
+    arcsRef.current = arcs;
 
     const filteredArcs = arcs
       .map((arc) => {
@@ -357,7 +363,17 @@ const MapWrapper = ({ allData, data, projectionName, setFocusedItem }) => {
     if (distance > 100) {
       setHoveredItem();
     } else {
-      setHoveredItem(point);
+      const relationships = arcsRef.current
+        .map((arc) => {
+          const isHighlighted =
+            arc.fromId === point.id || arc.toId === point.id;
+          if (!isHighlighted) return;
+          return {
+            ...arc,
+          };
+        })
+        .filter(Boolean);
+      setHoveredItem({ ...point, relationships });
     }
   };
   const onClick = (e) => {
