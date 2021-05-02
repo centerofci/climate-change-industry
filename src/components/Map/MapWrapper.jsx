@@ -96,6 +96,13 @@ const MapWrapper = ({
             allData={parsedData}
             {...{ focusedItem, setFocusedItem }}
           />
+        ) : projection.value === "globe-day" ? (
+          <Globe
+            data={groupedData}
+            allData={parsedData}
+            imageName="day"
+            {...{ focusedItem, setFocusedItem }}
+          />
         ) : (
           <Map
             data={groupedData}
@@ -119,6 +126,10 @@ const typeOptions = [
   {
     label: "Globe",
     value: "globe",
+  },
+  {
+    label: "Globe (light theme)",
+    value: "globe-day",
   },
   ...projectionNameOptionsParsed,
 ];

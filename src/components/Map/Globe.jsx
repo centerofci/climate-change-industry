@@ -12,12 +12,12 @@ import mapImageUrl from "./map.png";
 import "./Globe.css";
 
 const countryAccessor = (d) => d["Primary Operating Geography (Country)"];
-const spiralPositions = getSpiralPositions(100, 5, 2.5, 1.5);
+const spiralPositions = getSpiralPositions(100, 5, 2, 1.1);
 const countryNamesMap = { USA: "United States of America" };
 
 const getCentroid = (country) => countryCentersMap[country];
 
-const GlobeWrapper = ({ allData, data, setFocusedItem }) => {
+const GlobeWrapper = ({ allData, data, setFocusedItem, imageName }) => {
   const [hoveredItem, setHoveredItem] = useState();
   // const [blankMapTextureImage, setBlankMapTextureImage] = useState();
   const globeElement = useRef();
@@ -100,8 +100,12 @@ const GlobeWrapper = ({ allData, data, setFocusedItem }) => {
         const spiralPosition = spiralPositions[i];
         const color =
           d["Person or Org"] === "Individual Person"
-            ? `rgba(91, 156, 121, ${d.opacity})`
-            : `rgba(49, 63, 83, ${d.opacity})`;
+            ? `rgba(239, 209, 201, ${d.opacity})`
+            : imageName === "day"
+            ? `rgba(236, 243, 250, ${d.opacity})`
+            : `rgba(255, 255, 255, ${d.opacity})`;
+        // ? `rgba(91, 156, 121, ${d.opacity})`
+        // : `rgba(49, 63, 83, ${d.opacity})`;
 
         bubbles.push({
           ...d,
@@ -110,7 +114,7 @@ const GlobeWrapper = ({ allData, data, setFocusedItem }) => {
           lng: centroid[0] + spiralPosition.x * xScale,
           lat: centroid[1] + spiralPosition.y * yScale,
           // alt: heightScale(actors.length),
-          alt: 0.01,
+          alt: 0.03,
           color,
           // ...d,
           // country,
@@ -262,8 +266,11 @@ const GlobeWrapper = ({ allData, data, setFocusedItem }) => {
       .sort((a, b) => b.sortOrder - a.sortOrder);
   }, [arcs, hoveredItem]);
 
-  const onPointHover = (e) => {
-    if (!e) return;
+  const onPointHover = (e, f) => {
+    if (!e) {
+      setHoveredItem(null);
+      return;
+    }
     const relationships = arcs
       .map((arc) => {
         const isHighlighted = arc.fromId === e.id || arc.toId === e.id;
@@ -283,16 +290,20 @@ const GlobeWrapper = ({ allData, data, setFocusedItem }) => {
 
       <Globe
         ref={globeElement}
-        // globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
+        globeImageUrl={
+          imageName === "day"
+            ? `//unpkg.com/three-globe/example/img/earth-day.jpg`
+            : `//unpkg.com/three-globe/example/img/earth-blue-marble.jpg`
+        }
         // globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
-        globeImageUrl={mapImageUrl}
+        // globeImageUrl={mapImageUrl}
         // globeMaterial={globeMaterial}
         bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
         // backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
         backgroundColor="#E2E8EE"
         pointsData={bubbles}
         pointAltitude={(d) => d["alt"]}
-        pointRadius={0.7}
+        pointRadius={0.5}
         pointColor={(d) => d.color}
         // pointsMerge={true}
         onPointHover={onPointHover}
