@@ -28,7 +28,7 @@ jobs:
 
       - run: npm install
       - run: npm run data
-      - run: CI='' npm run deploy
+      - run: npm run deploy
 
       - name: Commit files # transfer the new html files back into the repository
         run: |
