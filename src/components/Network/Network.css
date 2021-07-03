@@ -19,10 +19,13 @@
   display: none;
 }
 .Network__info {
+  position: relative;
   width: min(90vw, 35em);
   font-size: 0.86em;
   line-height: 1.5em;
   margin: -0.2em 0 2em;
+  pointer-events: none;
+  z-index: 10;
 }
 .Network__sidebar {
   flex: 0 0 15em;
@@ -33,11 +36,14 @@
   max-height: 90vh;
 }
 .Network__sidebar h1 {
+  position: relative;
   margin-top: 0;
   font-size: 2em;
   line-height: 1em;
   width: min(90vw, 20em);
   font-weight: 800;
+  pointer-events: none;
+  z-index: 10;
 }
 .Network__sidebar__top {
   flex: none;
