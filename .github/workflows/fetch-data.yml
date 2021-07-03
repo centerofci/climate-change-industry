@@ -28,7 +28,6 @@ jobs:
 
       - run: npm install
       - run: npm run data
-      - run: npm run deploy
 
       - name: Commit files # transfer the new html files back into the repository
         run: |
@@ -40,3 +39,9 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           force: true
+      - run: npm run build
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
