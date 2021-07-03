@@ -1,22 +1,19 @@
 {
   "Interventions": [
     {
-      "Type (approach)": [
-        "Technological Intervention"
-      ],
-      "Associated Investments": [
-        "Investment in Carbon Energy "
-      ],
-      "Topical Contribution Area": [
-        "Mitigation: Carbon Removal / Carbon Capture",
-        "Mitigation: Green Energy / Decarbonization"
-      ],
+      "Intervention": "CO2 Capture from ambient air to make carbon-neutral hydrocarbon fuels",
       "Rate-Limiting Feature": [
         "Technology / Engineering",
         "Scale / Collaboration",
         "Funding / Financing"
       ],
-      "Intervention": "CO2 Capture from ambient air to make carbon-neutral hydrocarbon fuels",
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture",
+        "Mitigation: Green Energy / Decarbonization"
+      ],
+      "Type (approach)": [
+        "Technological Intervention"
+      ],
       "Funded by": [
         "Lowercarbon Capital",
         "Oxy Low Carbon Ventures",
@@ -27,18 +24,14 @@
         "Carbon Engineering ",
         "Pale Blue Dot"
       ],
+      "Associated Investments": [
+        "Investment in Carbon Energy "
+      ],
       "id": "Interventions--CO2 Capture from ambient air to make carbon-neutral hydrocarbon fuels",
       "label": "CO2 Capture from ambient air to make carbon-neutral hydrocarbon fuels"
     },
     {
-      "Type (approach)": [
-        "Economic Intervention"
-      ],
-      "Topical Contribution Area": [
-        "Geoengineering: Solar Radiation Management",
-        "Geoengineering: Oceanic Ecosystems and Chemistry",
-        "Geoengineering: Micro/Local"
-      ],
+      "Intervention": "Economics of Geoengineering",
       "Rate-Limiting Feature": [
         "Funding / Financing",
         "Systems-limited (e.g. misalignment between major organizational pillars)",
@@ -49,7 +42,14 @@
         "Ideas / Currently unsolved",
         "Regulations"
       ],
-      "Intervention": "Economics of Geoengineering",
+      "Topical Contribution Area": [
+        "Geoengineering: Solar Radiation Management",
+        "Geoengineering: Oceanic Ecosystems and Chemistry",
+        "Geoengineering: Micro/Local"
+      ],
+      "Type (approach)": [
+        "Economic Intervention"
+      ],
       "Enacted/Undertaken By": [
         "Gernot Wagner "
       ],
@@ -57,27 +57,31 @@
       "label": "Economics of Geoengineering"
     },
     {
-      "Type (approach)": [
-        "Technological Intervention"
-      ],
-      "Topical Contribution Area": [
-        "Mitigation: Carbon Removal / Carbon Capture"
-      ],
+      "Intervention": "CO2 removal via enhanced rock weathering",
       "Rate-Limiting Feature": [
         "Technology / Engineering",
         "Scale / Collaboration",
         "Funding / Financing"
       ],
-      "Intervention": "CO2 removal via enhanced rock weathering",
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture"
+      ],
+      "Type (approach)": [
+        "Technological Intervention"
+      ],
       "Enacted/Undertaken By": [
-        "James Hansen"
+        "James Hansen",
+        "The Future Forest Company",
+        "Project Vesta"
       ],
       "id": "Interventions--CO2 removal via enhanced rock weathering",
       "label": "CO2 removal via enhanced rock weathering"
     },
     {
-      "Type (approach)": [
-        "Information/Education Intervention"
+      "Intervention": "Climate/Earth System Modelling",
+      "Rate-Limiting Feature": [
+        "Science",
+        "Technology / Engineering"
       ],
       "Topical Contribution Area": [
         "Mitigation: Emission Reduction",
@@ -88,30 +92,21 @@
         "Geoengineering: Solar Radiation Management",
         "Geoengineering: Oceanic Ecosystems and Chemistry"
       ],
-      "Rate-Limiting Feature": [
-        "Science",
-        "Technology / Engineering"
+      "Type (approach)": [
+        "Information/Education Intervention"
       ],
-      "Intervention": "Climate/Earth System Modelling",
       "Enacted/Undertaken By": [
         "Tapio Schneider",
         "Ken Caldeira",
         "James Hansen",
-        "Susan Solomon"
+        "Susan Solomon",
+        "Pachama"
       ],
       "id": "Interventions--Climate/Earth System Modelling",
       "label": "Climate/Earth System Modelling"
     },
     {
-      "Type (approach)": [
-        "Regulatory Intervention",
-        "Policy Intervention"
-      ],
-      "Topical Contribution Area": [
-        "Geoengineering: Solar Radiation Management",
-        "Geoengineering: Oceanic Ecosystems and Chemistry",
-        "Geoengineering: Micro/Local"
-      ],
+      "Intervention": "Governance / Public Policy for Geoengineering",
       "Rate-Limiting Feature": [
         "Politics ",
         "Technology / Engineering",
@@ -121,7 +116,15 @@
         "Systems-limited (e.g. misalignment between major organizational pillars)",
         "Regulations"
       ],
-      "Intervention": "Governance / Public Policy for Geoengineering",
+      "Topical Contribution Area": [
+        "Geoengineering: Solar Radiation Management",
+        "Geoengineering: Oceanic Ecosystems and Chemistry",
+        "Geoengineering: Micro/Local"
+      ],
+      "Type (approach)": [
+        "Regulatory Intervention",
+        "Policy Intervention"
+      ],
       "Enacted/Undertaken By": [
         "Gernot Wagner ",
         "NASA"
@@ -130,10 +133,12 @@
       "label": "Governance / Public Policy for Geoengineering"
     },
     {
-      "Type (approach)": [
-        "Policy Intervention",
-        "Regulatory Intervention",
-        "Technological Intervention"
+      "Intervention": "Environmental Monitoring",
+      "Rate-Limiting Feature": [
+        "Technology / Engineering",
+        "Scale / Collaboration",
+        "Funding / Financing",
+        "Regulations"
       ],
       "Topical Contribution Area": [
         "Mitigation: Emission Reduction",
@@ -142,16 +147,15 @@
         "Adaptation: Urban Human Built-Environment Protection",
         "Adaptation: Rural Human Built-Environment Protection"
       ],
-      "Rate-Limiting Feature": [
-        "Technology / Engineering",
-        "Scale / Collaboration",
-        "Funding / Financing",
-        "Regulations"
+      "Type (approach)": [
+        "Policy Intervention",
+        "Regulatory Intervention",
+        "Technological Intervention"
       ],
-      "Intervention": "Environmental Monitoring",
       "Funded by": [
         "Oil and Gas Climate Initiative (OGCI)",
-        "Energy Innovation Capital "
+        "Energy Innovation Capital ",
+        "Additional Ventures"
       ],
       "Enacted/Undertaken By": [
         "Blue Sky Analytics",
@@ -161,16 +165,7 @@
       "label": "Environmental Monitoring"
     },
     {
-      "Type (approach)": [
-        "Technological Intervention",
-        "Policy Intervention",
-        "Regulatory Intervention"
-      ],
-      "Topical Contribution Area": [
-        "Adaptation: Natural Ecosystem Protection",
-        "Adaptation: Rural Human Built-Environment Protection",
-        "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)"
-      ],
+      "Intervention": "Biomass/Ecosystem Managment",
       "Rate-Limiting Feature": [
         "Technology / Engineering",
         "Society",
@@ -179,24 +174,35 @@
         "Funding / Financing",
         "Regulations"
       ],
-      "Intervention": "Biomass/Ecosystem Managment",
+      "Topical Contribution Area": [
+        "Adaptation: Natural Ecosystem Protection",
+        "Adaptation: Rural Human Built-Environment Protection",
+        "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)"
+      ],
+      "Type (approach)": [
+        "Technological Intervention",
+        "Policy Intervention",
+        "Regulatory Intervention"
+      ],
+      "Funded by": [
+        "Additional Ventures"
+      ],
       "Enacted/Undertaken By": [
-        "Dendra Systems"
+        "Dendra Systems",
+        "The Land Institute",
+        "Charm Industrial",
+        "Mootral"
+      ],
+      "Associated Investments": [
+        "Additional Ventures Grant to The Land Institute",
+        "Investment in Charm Industrial",
+        "Investment in Mootral"
       ],
       "id": "Interventions--Biomass/Ecosystem Managment",
       "label": "Biomass/Ecosystem Managment"
     },
     {
-      "Type (approach)": [
-        "Technological Intervention",
-        "Policy Intervention"
-      ],
-      "Topical Contribution Area": [
-        "Adaptation: Natural Ecosystem Protection",
-        "Adaptation: Urban Human Built-Environment Protection",
-        "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)",
-        "Adaptation: Rural Human Built-Environment Protection"
-      ],
+      "Intervention": "Coastal Management",
       "Rate-Limiting Feature": [
         "Technology / Engineering",
         "Scale / Collaboration",
@@ -204,7 +210,16 @@
         "Systems-limited (e.g. misalignment between major organizational pillars)",
         "Politics "
       ],
-      "Intervention": "Coastal Management",
+      "Topical Contribution Area": [
+        "Adaptation: Natural Ecosystem Protection",
+        "Adaptation: Urban Human Built-Environment Protection",
+        "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)",
+        "Adaptation: Rural Human Built-Environment Protection"
+      ],
+      "Type (approach)": [
+        "Technological Intervention",
+        "Policy Intervention"
+      ],
       "Enacted/Undertaken By": [
         "Nihon Suido Consultants"
       ],
@@ -212,23 +227,19 @@
       "label": "Coastal Management"
     },
     {
-      "Type (approach)": [
-        "Technological Intervention"
-      ],
-      "Associated Investments": [
-        "Founding Harvard Solar Geoengineering Research Program",
-        "Symposium for Harvard Solar Geoengineering Research Program"
-      ],
-      "Topical Contribution Area": [
-        "Geoengineering: Solar Radiation Management"
-      ],
+      "Intervention": "Addition of Atmospheric Aerosols",
       "Rate-Limiting Feature": [
         "Science",
         "Society",
         "Funding / Financing",
         "Systems-limited (e.g. misalignment between major organizational pillars)"
       ],
-      "Intervention": "Addition of Atmospheric Aerosols",
+      "Topical Contribution Area": [
+        "Geoengineering: Solar Radiation Management"
+      ],
+      "Type (approach)": [
+        "Technological Intervention"
+      ],
       "Funded by": [
         "Open Philanthropy",
         "Alfred P. Sloan Foundation "
@@ -239,23 +250,15 @@
         "Ken Caldeira",
         "Carnegie Institution for Science (at Stanford)"
       ],
+      "Associated Investments": [
+        "Founding Harvard Solar Geoengineering Research Program",
+        "Symposium for Harvard Solar Geoengineering Research Program"
+      ],
       "id": "Interventions--Addition of Atmospheric Aerosols",
       "label": "Addition of Atmospheric Aerosols"
     },
     {
-      "Type (approach)": [
-        "Economic Intervention",
-        "Policy Intervention",
-        "Technological Intervention",
-        "Regulatory Intervention"
-      ],
-      "Associated Investments": [
-        "Program on Energy Security and Climate Change"
-      ],
-      "Topical Contribution Area": [
-        "Mitigation: Green Energy / Decarbonization",
-        "Mitigation: Emission Reduction"
-      ],
+      "Intervention": "Advancing Energy Innovation",
       "Rate-Limiting Feature": [
         "Politics ",
         "Technology / Engineering",
@@ -265,7 +268,16 @@
         "Systems-limited (e.g. misalignment between major organizational pillars)",
         "Regulations"
       ],
-      "Intervention": "Advancing Energy Innovation",
+      "Topical Contribution Area": [
+        "Mitigation: Green Energy / Decarbonization",
+        "Mitigation: Emission Reduction"
+      ],
+      "Type (approach)": [
+        "Economic Intervention",
+        "Policy Intervention",
+        "Technological Intervention",
+        "Regulatory Intervention"
+      ],
       "Funded by": [
         "Alfred P. Sloan Foundation "
       ],
@@ -274,53 +286,68 @@
         "Pale Blue Dot",
         "Ken Caldeira",
         "Carnegie Institution for Science (at Stanford)",
-        "ASU Center for Negative Carbon Emissions"
+        "ASU Center for Negative Carbon Emissions",
+        "Bloom Biorenewables",
+        "C-Zero",
+        "Dandelion Energy"
+      ],
+      "Associated Investments": [
+        "Program on Energy Security and Climate Change",
+        "Investment in Bloom Biorenewables",
+        "Investment in C-Zero",
+        "Investment in Dandelion Energy"
       ],
       "id": "Interventions--Advancing Energy Innovation",
       "label": "Advancing Energy Innovation"
     },
     {
-      "Type (approach)": [
-        "Technological Intervention",
-        "Industrial Process/Enterprise Change"
-      ],
-      "Topical Contribution Area": [
-        "Mitigation: Carbon Removal / Carbon Capture"
-      ],
+      "Intervention": "CO2 capture from ambient air (multiple downstream applications)",
       "Rate-Limiting Feature": [
         "Technology / Engineering",
         "Scale / Collaboration",
         "Funding / Financing",
         "Systems-limited (e.g. misalignment between major organizational pillars)"
       ],
-      "Intervention": "CO2 capture from ambient air (multiple downstream applications)",
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture"
+      ],
+      "Type (approach)": [
+        "Technological Intervention",
+        "Industrial Process/Enterprise Change"
+      ],
       "Enacted/Undertaken By": [
         "Global Thermostat",
         "Silicon Kingdom Holdings / MechanicalTrees",
         "ASU Center for Negative Carbon Emissions",
-        "Klaus Lackner"
+        "Klaus Lackner",
+        "Climeworks",
+        "Heirloom",
+        "Mission Zero Technologies",
+        "The Future Forest Company",
+        "RunningTide",
+        "Soil Carbon Co."
+      ],
+      "Associated Investments": [
+        "Investment in Heirloom",
+        "Investment in RunningTide"
       ],
       "id": "Interventions--CO2 capture from ambient air (multiple downstream applications)",
       "label": "CO2 capture from ambient air (multiple downstream applications)"
     },
     {
-      "Type (approach)": [
-        "Technological Intervention",
-        "Industrial Process/Enterprise Change"
-      ],
-      "Associated Investments": [
-        "DoE - A Scalable Process for Upcycling Carbon Dioxide (CO2) and Coal Combustion Residues Into Construction Products",
-        "NRG COSIA Carbon XPRIZE"
-      ],
-      "Topical Contribution Area": [
-        "Mitigation: Carbon Removal / Carbon Capture"
-      ],
+      "Intervention": "CO2 Capture for Concrete/Cement production",
       "Rate-Limiting Feature": [
         "Technology / Engineering",
         "Scale / Collaboration",
         "Funding / Financing"
       ],
-      "Intervention": "CO2 Capture for Concrete/Cement production",
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture"
+      ],
+      "Type (approach)": [
+        "Technological Intervention",
+        "Industrial Process/Enterprise Change"
+      ],
       "Big/Latest News": "https://www.ourdailyplanet.com/story/new-biotech-companies-aim-to-shrink-the-carbon-footprint-of-cement/",
       "Funded by": [
         "U.S. Department of Energy",
@@ -329,20 +356,22 @@
       "Enacted/Undertaken By": [
         "Carbon Upcycling UCLA",
         "BioMason",
-        "Susteon"
+        "Susteon",
+        "CarbonCure",
+        "CarbonBuilt ",
+        "Solidia"
+      ],
+      "Associated Investments": [
+        "DoE - A Scalable Process for Upcycling Carbon Dioxide (CO2) and Coal Combustion Residues Into Construction Products",
+        "NRG COSIA Carbon XPRIZE",
+        "Breakthrough Energy Ventures Investment in CarbonCure",
+        "Investment in Solidia Technologies"
       ],
       "id": "Interventions--CO2 Capture for Concrete/Cement production",
       "label": "CO2 Capture for Concrete/Cement production"
     },
     {
-      "Type (approach)": [
-        "Industrial Process/Enterprise Change",
-        "Economic Intervention",
-        "Regulatory Intervention"
-      ],
-      "Topical Contribution Area": [
-        "Mitigation: Green Energy / Decarbonization"
-      ],
+      "Intervention": "Decarbonizing the Economy",
       "Rate-Limiting Feature": [
         "Politics ",
         "Technology / Engineering",
@@ -352,14 +381,40 @@
         "Systems-limited (e.g. misalignment between major organizational pillars)",
         "Regulations"
       ],
-      "Intervention": "Decarbonizing the Economy",
+      "Topical Contribution Area": [
+        "Mitigation: Green Energy / Decarbonization"
+      ],
+      "Type (approach)": [
+        "Industrial Process/Enterprise Change",
+        "Economic Intervention",
+        "Regulatory Intervention"
+      ],
       "Enacted/Undertaken By": [
         "Saul Griffith ",
         "OtherLabs",
         "Ken Caldeira",
         "Carnegie Institution for Science (at Stanford)",
         "Japan Renewable Energy Corporation",
-        "Shizen Energy Group"
+        "Shizen Energy Group",
+        "Watershed Climate",
+        "Stripe",
+        "The Greenlining Institute",
+        "Boston Metal",
+        "enVerid",
+        "Solidia",
+        "CarbonChain",
+        "Remora Carbon",
+        "Normative"
+      ],
+      "Associated Investments": [
+        "Investment in Watershed Climate",
+        "MacKenzie Scott Grant to The Greenlining Institute",
+        "Investment in Boston Metal",
+        "Investment in enVerid",
+        "Investment in Solidia Technologies",
+        "Investment in CarbonChain",
+        "Investment in Remora Carbon",
+        "Investment in Normative"
       ],
       "id": "Interventions--Decarbonizing the Economy",
       "label": "Decarbonizing the Economy"
@@ -367,30 +422,83 @@
   ],
   "Investments": [
     {
+      "Entry Name": "Breakthrough Energy Ventures Investment in CarbonCure",
+      "Source": [
+        "Breakthrough Energy Ventures"
+      ],
+      "Recipient": [
+        "CarbonCure"
+      ],
+      "Date": "2020-09-17",
+      "Intervention(s) being addressed:": [
+        null
+      ],
+      "Geography (of receiving entity)": [
+        "North America"
+      ],
+      "Geography (where intervention is applied)": [
+        "North America"
+      ],
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture "
+      ],
+      "URL for Context": "https://www.carboncure.com/news/amazon-and-breakthrough-energy-ventures-co-lead-investment-in-cleantech-company-carboncure/",
+      "id": "Investments--Breakthrough Energy Ventures Investment in CarbonCure",
+      "label": "Breakthrough Energy Ventures Investment in CarbonCure",
+      "date": "2020-09-17T00:00:00.000Z"
+    },
+    {
+      "Entry Name": "MacKenzie Scott Grant to The Greenlining Institute",
+      "Source": [
+        "MacKenzie Scott"
+      ],
+      "Recipient": [
+        "The Greenlining Institute"
+      ],
+      "Date": "2021-06-16",
+      "Intervention(s) being addressed:": [
+        null
+      ],
+      "id": "Investments--MacKenzie Scott Grant to The Greenlining Institute",
+      "label": "MacKenzie Scott Grant to The Greenlining Institute",
+      "date": "2021-06-16T00:00:00.000Z"
+    },
+    {
+      "Entry Name": "NRG COSIA Carbon XPRIZE",
+      "Amount": 20000000,
       "Source": [
         "XPRIZE (consortium funders)"
       ],
+      "Recipient": [
+        "CarbonCure",
+        "CarbonBuilt "
+      ],
+      "Date": "2021-04-01",
       "Intervention(s) being addressed:": [
         null
       ],
       "Topical Contribution Area": [
         "Mitigation: Carbon Removal / Carbon Capture "
       ],
-      "Amount": 20000000,
-      "Entry Name": "NRG COSIA Carbon XPRIZE",
       "id": "Investments--NRG COSIA Carbon XPRIZE",
       "label": "NRG COSIA Carbon XPRIZE",
-      "date": null
+      "date": "2021-04-01T00:00:00.000Z"
     },
     {
-      "Recipient": [
-        "Harvard's Solar Geoengineering Research Program"
-      ],
+      "Entry Name": "Founding Harvard Solar Geoengineering Research Program",
+      "Amount": 2500000,
       "Source": [
         "Open Philanthropy"
       ],
+      "Recipient": [
+        "Harvard's Solar Geoengineering Research Program"
+      ],
+      "Date": "2016-12-31",
       "Intervention(s) being addressed:": [
         null
+      ],
+      "Geography (of receiving entity)": [
+        "North America"
       ],
       "Geography (where intervention is applied)": [
         "Global"
@@ -398,26 +506,154 @@
       "Topical Contribution Area": [
         "Geoengineering: Solar Radiation Management"
       ],
-      "Date": "2016-12-31",
+      "id": "Investments--Founding Harvard Solar Geoengineering Research Program",
+      "label": "Founding Harvard Solar Geoengineering Research Program",
+      "date": "2016-12-31T00:00:00.000Z"
+    },
+    {
+      "Entry Name": "Investment in Mootral",
+      "Amount": 7800000,
+      "Source": [
+        "Lowercarbon Capital"
+      ],
+      "Recipient": [
+        "Mootral"
+      ],
+      "Intervention(s) being addressed:": [
+        null
+      ],
+      "Geography (of receiving entity)": [
+        "Europe"
+      ],
+      "Geography (where intervention is applied)": [
+        "Global"
+      ],
+      "Topical Contribution Area": [
+        "Mitigation: Emissions Reduction"
+      ],
+      "URL for Context": "https://www.crunchbase.com/organization/mootral",
+      "id": "Investments--Investment in Mootral",
+      "label": "Investment in Mootral",
+      "date": null
+    },
+    {
+      "Entry Name": "Investment in Remora Carbon",
+      "Source": [
+        "Lowercarbon Capital",
+        "Y Combinator"
+      ],
+      "Recipient": [
+        "Remora Carbon"
+      ],
+      "Intervention(s) being addressed:": [
+        null
+      ],
       "Geography (of receiving entity)": [
         "North America"
       ],
-      "Amount": 2500000,
-      "Entry Name": "Founding Harvard Solar Geoengineering Research Program",
-      "id": "Investments--Founding Harvard Solar Geoengineering Research Program",
-      "label": "Founding Harvard Solar Geoengineering Research Program",
-      "date": "2016-12-31T05:00:00.000Z"
+      "Geography (where intervention is applied)": [
+        "Global"
+      ],
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture ",
+        "Mitigation: Emissions Reduction"
+      ],
+      "URL for Context": "https://www.remoracarbon.com/",
+      "id": "Investments--Investment in Remora Carbon",
+      "label": "Investment in Remora Carbon",
+      "date": null
     },
     {
+      "Entry Name": "Investment in C-Zero",
+      "Amount": 11500000,
+      "Source": [
+        "Breakthrough Energy Ventures"
+      ],
+      "Recipient": [
+        "C-Zero"
+      ],
+      "Date": "2021-02-09",
+      "Intervention(s) being addressed:": [
+        null
+      ],
+      "Geography (of receiving entity)": [
+        "North America"
+      ],
+      "Geography (where intervention is applied)": [
+        "Global"
+      ],
+      "Topical Contribution Area": [
+        "Mitigation: Green Energy / Decarbonization"
+      ],
+      "URL for Context": "https://www.bloomberg.com/press-releases/2021-02-09/c-zero-raises-11-5m-series-a-to-produce-clean-hydrogen-from-natural-gas",
+      "id": "Investments--Investment in C-Zero",
+      "label": "Investment in C-Zero",
+      "date": "2021-02-09T00:00:00.000Z"
+    },
+    {
+      "Entry Name": "Investment in Soil Carbon Co.",
+      "Amount": 6940000,
+      "Source": [
+        "Lowercarbon Capital",
+        "Clean Energy Finance Corporation"
+      ],
+      "Recipient": [
+        "Soil Carbon Co."
+      ],
+      "Geography (of receiving entity)": [
+        "APAC"
+      ],
+      "Geography (where intervention is applied)": [
+        "Global"
+      ],
+      "URL for Context": "https://agfundernews.com/using-microfungi-and-melanin-this-soil-carbon-startup-just-raised-6-9m-in-a-round-led-by-li-ka-shings-vc-firm.html",
+      "id": "Investments--Investment in Soil Carbon Co.",
+      "label": "Investment in Soil Carbon Co.",
+      "date": null
+    },
+    {
+      "Entry Name": "Investment in CarbonChain",
+      "Amount": 125000,
+      "Source": [
+        "Lowercarbon Capital",
+        "Y Combinator"
+      ],
+      "Recipient": [
+        "CarbonChain"
+      ],
+      "Intervention(s) being addressed:": [
+        null
+      ],
+      "Geography (of receiving entity)": [
+        "Europe"
+      ],
+      "Geography (where intervention is applied)": [
+        "Global"
+      ],
+      "Topical Contribution Area": [
+        "Mitigation: Emissions Reduction"
+      ],
+      "URL for Context": "https://www.crunchbase.com/organization/carbonchain-io",
+      "id": "Investments--Investment in CarbonChain",
+      "label": "Investment in CarbonChain",
+      "date": null
+    },
+    {
+      "Entry Name": "DoE - A Scalable Process for Upcycling Carbon Dioxide (CO2) and Coal Combustion Residues Into Construction Products",
+      "Amount": 1800000,
+      "Source": [
+        "U.S. Department of Energy"
+      ],
       "Recipient": [
         "Carbon Upcycling UCLA",
         "Susteon"
       ],
-      "Source": [
-        "U.S. Department of Energy"
-      ],
+      "Date": "2019-01-01",
       "Intervention(s) being addressed:": [
         null
+      ],
+      "Geography (of receiving entity)": [
+        "North America"
       ],
       "Geography (where intervention is applied)": [
         "North America"
@@ -425,25 +661,51 @@
       "Topical Contribution Area": [
         "Mitigation: Carbon Removal / Carbon Capture "
       ],
-      "Date": "2019-01-01",
-      "Geography (of receiving entity)": [
-        "North America"
-      ],
-      "Amount": 1800000,
-      "Entry Name": "DoE - A Scalable Process for Upcycling Carbon Dioxide (CO2) and Coal Combustion Residues Into Construction Products",
       "id": "Investments--DoE - A Scalable Process for Upcycling Carbon Dioxide (CO2) and Coal Combustion Residues Into Construction Products",
       "label": "DoE - A Scalable Process for Upcycling Carbon Dioxide (CO2) and Coal Combustion Residues Into Construction Products",
-      "date": "2019-01-01T05:00:00.000Z"
+      "date": "2019-01-01T00:00:00.000Z"
     },
     {
-      "Recipient": [
-        "Harvard's Solar Geoengineering Research Program"
-      ],
+      "Entry Name": "Investment in Normative",
+      "Amount": 2100000,
       "Source": [
-        "Alfred P. Sloan Foundation "
+        "Lowercarbon Capital"
+      ],
+      "Recipient": [
+        "Normative"
       ],
       "Intervention(s) being addressed:": [
         null
+      ],
+      "Geography (of receiving entity)": [
+        "Europe"
+      ],
+      "Geography (where intervention is applied)": [
+        "Global"
+      ],
+      "Topical Contribution Area": [
+        "Mitigation: Emissions Reduction"
+      ],
+      "URL for Context": "https://www.crunchbase.com/organization/normative-io/company_financials",
+      "id": "Investments--Investment in Normative",
+      "label": "Investment in Normative",
+      "date": null
+    },
+    {
+      "Entry Name": "Symposium for Harvard Solar Geoengineering Research Program",
+      "Amount": 90070,
+      "Source": [
+        "Alfred P. Sloan Foundation "
+      ],
+      "Recipient": [
+        "Harvard's Solar Geoengineering Research Program"
+      ],
+      "Date": "2016-12-31",
+      "Intervention(s) being addressed:": [
+        null
+      ],
+      "Geography (of receiving entity)": [
+        "North America"
       ],
       "Geography (where intervention is applied)": [
         "Global"
@@ -451,49 +713,285 @@
       "Topical Contribution Area": [
         "Geoengineering: Solar Radiation Management"
       ],
-      "Date": "2016-12-31",
+      "id": "Investments--Symposium for Harvard Solar Geoengineering Research Program",
+      "label": "Symposium for Harvard Solar Geoengineering Research Program",
+      "date": "2016-12-31T00:00:00.000Z"
+    },
+    {
+      "Entry Name": "Investment in RunningTide",
+      "Source": [
+        "Yes VC",
+        "Lowercarbon Capital"
+      ],
+      "Recipient": [
+        "RunningTide"
+      ],
+      "Intervention(s) being addressed:": [
+        null
+      ],
       "Geography (of receiving entity)": [
         "North America"
       ],
-      "Amount": 90070,
-      "Entry Name": "Symposium for Harvard Solar Geoengineering Research Program",
-      "id": "Investments--Symposium for Harvard Solar Geoengineering Research Program",
-      "label": "Symposium for Harvard Solar Geoengineering Research Program",
-      "date": "2016-12-31T05:00:00.000Z"
+      "Geography (where intervention is applied)": [
+        "North America"
+      ],
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture "
+      ],
+      "URL for Context": "https://www.crunchbase.com/organization/running-tide/company_financials",
+      "id": "Investments--Investment in RunningTide",
+      "label": "Investment in RunningTide",
+      "date": null
     },
     {
-      "Recipient": [
-        "Carbon Engineering "
+      "Entry Name": "Additional Ventures Grant to Project Vesta",
+      "Amount": 1600000,
+      "Source": [
+        "Additional Ventures"
       ],
+      "Recipient": [
+        "Project Vesta"
+      ],
+      "Date": "2020-12-01",
+      "Geography (of receiving entity)": [
+        "North America"
+      ],
+      "Geography (where intervention is applied)": [
+        "North America"
+      ],
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture "
+      ],
+      "URL for Context": "https://www.projectvesta.org/blog/additional-ventures-pv-press-release",
+      "id": "Investments--Additional Ventures Grant to Project Vesta",
+      "label": "Additional Ventures Grant to Project Vesta",
+      "date": "2020-12-01T00:00:00.000Z"
+    },
+    {
+      "Entry Name": "Investment in Charm Industrial",
+      "Source": [
+        "Lowercarbon Capital"
+      ],
+      "Recipient": [
+        "Charm Industrial"
+      ],
+      "Intervention(s) being addressed:": [
+        null
+      ],
+      "Geography (of receiving entity)": [
+        "North America"
+      ],
+      "Geography (where intervention is applied)": [
+        "North America"
+      ],
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture "
+      ],
+      "URL for Context": "https://lowercarboncapital.com/companies/",
+      "id": "Investments--Investment in Charm Industrial",
+      "label": "Investment in Charm Industrial",
+      "date": null
+    },
+    {
+      "Entry Name": "Investment in Carbon Energy ",
       "Source": [
         "Lowercarbon Capital",
         "Oxy Low Carbon Ventures",
         "Rusheen Capital Management "
       ],
+      "Recipient": [
+        "Carbon Engineering "
+      ],
       "Intervention(s) being addressed:": [
         null
+      ],
+      "Geography (of receiving entity)": [
+        "North America"
       ],
       "Topical Contribution Area": [
         "Mitigation: Carbon Removal / Carbon Capture ",
         "Mitigation: Green Energy / Decarbonization"
       ],
-      "Geography (of receiving entity)": [
-        "North America"
-      ],
-      "Entry Name": "Investment in Carbon Energy ",
       "id": "Investments--Investment in Carbon Energy ",
       "label": "Investment in Carbon Energy ",
       "date": null
     },
     {
-      "Recipient": [
-        "Council on Foreign Relations"
-      ],
+      "Entry Name": "Investment in Watershed Climate",
       "Source": [
-        "Alfred P. Sloan Foundation "
+        "Patrick Collison"
       ],
       "Intervention(s) being addressed:": [
         null
+      ],
+      "Geography (of receiving entity)": [
+        "North America"
+      ],
+      "Geography (where intervention is applied)": [
+        "North America"
+      ],
+      "Topical Contribution Area": [
+        "Mitigation: Emissions Reduction"
+      ],
+      "URL for Context": "https://www.bloomberg.com/news/articles/2021-02-24/how-measuring-and-reducing-emissions-has-become-its-own-business",
+      "id": "Investments--Investment in Watershed Climate",
+      "label": "Investment in Watershed Climate",
+      "date": null
+    },
+    {
+      "Entry Name": "Investment in enVerid",
+      "Amount": 24700000,
+      "Source": [
+        "Breakthrough Energy Ventures"
+      ],
+      "Recipient": [
+        "enVerid"
+      ],
+      "Intervention(s) being addressed:": [
+        null
+      ],
+      "Geography (of receiving entity)": [
+        "North America"
+      ],
+      "Geography (where intervention is applied)": [
+        "Global"
+      ],
+      "Topical Contribution Area": [
+        "Mitigation: Emissions Reduction"
+      ],
+      "URL for Context": "https://www.crunchbase.com/organization/enverid/company_financials",
+      "id": "Investments--Investment in enVerid",
+      "label": "Investment in enVerid",
+      "date": null
+    },
+    {
+      "Entry Name": "Investment in Solidia Technologies",
+      "Amount": 105000000,
+      "Source": [
+        "Prelude Ventures",
+        "Breakthrough Energy Ventures"
+      ],
+      "Recipient": [
+        "Solidia"
+      ],
+      "Intervention(s) being addressed:": [
+        null,
+        null
+      ],
+      "Geography (of receiving entity)": [
+        "North America"
+      ],
+      "Geography (where intervention is applied)": [
+        "Global"
+      ],
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture ",
+        "Mitigation: Emissions Reduction"
+      ],
+      "URL for Context": "https://www.crunchbase.com/organization/solidia-technologies/company_financials",
+      "id": "Investments--Investment in Solidia Technologies",
+      "label": "Investment in Solidia Technologies",
+      "date": null
+    },
+    {
+      "Entry Name": "Investment in Boston Metal",
+      "Amount": 70000000,
+      "Source": [
+        "Breakthrough Energy Ventures",
+        "Prelude Ventures",
+        "The Engine"
+      ],
+      "Recipient": [
+        "Boston Metal"
+      ],
+      "Intervention(s) being addressed:": [
+        null
+      ],
+      "Geography (of receiving entity)": [
+        "North America"
+      ],
+      "Geography (where intervention is applied)": [
+        "Global"
+      ],
+      "Topical Contribution Area": [
+        "Mitigation: Emissions Reduction"
+      ],
+      "URL for Context": "https://www.crunchbase.com/organization/boston-metal/company_financials",
+      "id": "Investments--Investment in Boston Metal",
+      "label": "Investment in Boston Metal",
+      "date": null
+    },
+    {
+      "Entry Name": "Investment in Bloom Biorenewables",
+      "Amount": 1300000,
+      "Source": [
+        "Breakthrough Energy Ventures"
+      ],
+      "Recipient": [
+        "Bloom Biorenewables"
+      ],
+      "Date": "2021-02-23",
+      "Intervention(s) being addressed:": [
+        null
+      ],
+      "Geography (of receiving entity)": [
+        "Europe"
+      ],
+      "Geography (where intervention is applied)": [
+        "Global"
+      ],
+      "Topical Contribution Area": [
+        "Mitigation: Green Energy / Decarbonization",
+        "Mitigation: Emissions Reduction"
+      ],
+      "URL for Context": "https://www.crunchbase.com/organization/bloom-biorenewables/company_financials",
+      "id": "Investments--Investment in Bloom Biorenewables",
+      "label": "Investment in Bloom Biorenewables",
+      "date": "2021-02-23T00:00:00.000Z"
+    },
+    {
+      "Entry Name": "Investment in Heirloom",
+      "Source": [
+        "Breakthrough Energy Ventures",
+        "Lowercarbon Capital",
+        "Yes VC",
+        "Prelude Ventures"
+      ],
+      "Recipient": [
+        "Heirloom"
+      ],
+      "Intervention(s) being addressed:": [
+        null
+      ],
+      "Geography (of receiving entity)": [
+        "North America"
+      ],
+      "Geography (where intervention is applied)": [
+        "North America"
+      ],
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture "
+      ],
+      "URL for Context": "https://www.crunchbase.com/organization/heirloom-d756/company_financials",
+      "id": "Investments--Investment in Heirloom",
+      "label": "Investment in Heirloom",
+      "date": null
+    },
+    {
+      "Entry Name": "Program on Energy Security and Climate Change",
+      "Amount": 125000,
+      "Source": [
+        "Alfred P. Sloan Foundation "
+      ],
+      "Recipient": [
+        "Council on Foreign Relations"
+      ],
+      "Date": "2017-01-01",
+      "Intervention(s) being addressed:": [
+        null
+      ],
+      "Geography (of receiving entity)": [
+        "North America"
       ],
       "Geography (where intervention is applied)": [
         "Global"
@@ -501,19 +999,127 @@
       "Topical Contribution Area": [
         "Mitigation: Green Energy / Decarbonization"
       ],
-      "Date": "2017-01-01",
+      "id": "Investments--Program on Energy Security and Climate Change",
+      "label": "Program on Energy Security and Climate Change",
+      "date": "2017-01-01T00:00:00.000Z"
+    },
+    {
+      "Entry Name": "Additional Ventures Grant to The Land Institute",
+      "Amount": 1800000,
+      "Source": [
+        "Additional Ventures"
+      ],
+      "Recipient": [
+        "The Land Institute"
+      ],
+      "Date": "2021-03-19",
+      "Intervention(s) being addressed:": [
+        null
+      ],
       "Geography (of receiving entity)": [
         "North America"
       ],
-      "Amount": 125000,
-      "Entry Name": "Program on Energy Security and Climate Change",
-      "id": "Investments--Program on Energy Security and Climate Change",
-      "label": "Program on Energy Security and Climate Change",
-      "date": "2017-01-01T05:00:00.000Z"
+      "Geography (where intervention is applied)": [
+        "North America"
+      ],
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture ",
+        "Adaptation: Natural Ecosystem Preservation"
+      ],
+      "URL for Context": "https://landinstitute.org/philanthropic-funding-ignites-promising-carbon-sequestration-modeling/",
+      "id": "Investments--Additional Ventures Grant to The Land Institute",
+      "label": "Additional Ventures Grant to The Land Institute",
+      "date": "2021-03-19T00:00:00.000Z"
+    },
+    {
+      "Entry Name": "Investment in Pachama",
+      "Amount": 24300000,
+      "Source": [
+        "Y Combinator",
+        "Lowercarbon Capital",
+        "Breakthrough Energy Ventures"
+      ],
+      "Recipient": [
+        "Pachama"
+      ],
+      "Geography (of receiving entity)": [
+        "North America"
+      ],
+      "Geography (where intervention is applied)": [
+        "Global"
+      ],
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture "
+      ],
+      "URL for Context": "https://www.crunchbase.com/organization/pachama/company_financials",
+      "id": "Investments--Investment in Pachama",
+      "label": "Investment in Pachama",
+      "date": null
+    },
+    {
+      "Entry Name": "Investment in Dandelion Energy",
+      "Amount": 64500000,
+      "Source": [
+        "Breakthrough Energy Ventures"
+      ],
+      "Recipient": [
+        "Dandelion Energy"
+      ],
+      "Intervention(s) being addressed:": [
+        null
+      ],
+      "Geography (of receiving entity)": [
+        "North America"
+      ],
+      "Geography (where intervention is applied)": [
+        "North America"
+      ],
+      "Topical Contribution Area": [
+        "Mitigation: Green Energy / Decarbonization"
+      ],
+      "URL for Context": "https://www.crunchbase.com/organization/dandelion-energy/company_financials",
+      "id": "Investments--Investment in Dandelion Energy",
+      "label": "Investment in Dandelion Energy",
+      "date": null
     }
   ],
   "Actors": [
     {
+      "Entity": "Heirloom",
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture"
+      ],
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Year founded / Born": "2020",
+      "Enacting/Undertaking XYZ Interventions": [
+        "CO2 capture from ambient air (multiple downstream applications)"
+      ],
+      "Person or Org": "Organization",
+      "Received XYZ Investment(s)": [
+        "Investment in Heirloom"
+      ],
+      "Directly Associated Orgs (e.g., employment/parent org):": [
+        "Peter Keleman",
+        "Jennifer Wilcox"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://www.heirloomcarbon.com/about",
+      "Partners With": [
+        "Stripe"
+      ],
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--Heirloom",
+      "label": "Heirloom",
+      "year": 2020
+    },
+    {
+      "Entity": "NASA Global Climate Change (hub)",
       "Topical Contribution Area": [
         "Mitigation: Green Energy / Decarbonization",
         "Mitigation: Carbon Removal / Carbon Capture",
@@ -524,105 +1130,179 @@
         "Mitigation: Emissions Reduction"
       ],
       "Number of People Involved (to 3 sig digits)": "1000+",
-      "Entity": "NASA Global Climate Change (hub)",
-      "Entity Type": [
-        "Regulatory / Gov Org"
-      ],
+      "Focus": "Climate Change is entity's primary focus",
       "Status": [
         "Active"
       ],
+      "Entity Type": [
+        "Regulatory / Gov Org"
+      ],
       "Person or Org": "Organization",
-      "Focus": "Climate Change is entity's primary focus",
-      "Link to More Info on Entity (bio or overview page)": "https://climate.nasa.gov/solutions/adaptation-mitigation/",
       "Directly Associated Orgs (e.g., employment/parent org):": [
         "NASA"
       ],
-      "Primary Operating Geography (Country)": "USA",
+      "Link to More Info on Entity (bio or overview page)": "https://climate.nasa.gov/solutions/adaptation-mitigation/",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--NASA Global Climate Change (hub)",
       "label": "NASA Global Climate Change (hub)",
       "year": null
     },
     {
+      "Entity": "Nihon Suido Consultants",
       "Topical Contribution Area": [
         "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)"
       ],
       "Number of People Involved (to 3 sig digits)": "500-1000",
-      "Enacting/Undertaking XYZ Interventions": [
-        "Coastal Management"
-      ],
-      "Entity": "Nihon Suido Consultants",
-      "Entity Type": [
-        "For-Profit Climate Intervention Company"
-      ],
+      "Focus": "Climate Change is among entity's portfolio focuses",
       "Status": [
         "Active"
       ],
-      "Person or Org": "Organization",
-      "Focus": "Climate Change is among entity's portfolio focuses",
-      "Link to More Info on Entity (bio or overview page)": "http://en.nissuicon.co.jp/",
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
       "Year founded / Born": "1959",
-      "Primary Operating Geography (Country)": "Japan",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Coastal Management"
+      ],
+      "Person or Org": "Organization",
+      "Link to More Info on Entity (bio or overview page)": "http://en.nissuicon.co.jp/",
+      "Primary Operating Geography (Country)": "JP",
       "id": "Actors--Nihon Suido Consultants",
       "label": "Nihon Suido Consultants",
       "year": 1959
     },
     {
+      "Entity": "Clean Energy Finance Corporation",
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Funder Org (public e.g., NSF)"
+      ],
+      "Year founded / Born": "2012",
+      "Person or Org": "Organization",
+      "Made XYZ Investment(s)": [
+        "Investment in Soil Carbon Co."
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://www.cefc.com.au/",
+      "Primary Operating Geography (Country)": "AU",
+      "id": "Actors--Clean Energy Finance Corporation",
+      "label": "Clean Energy Finance Corporation",
+      "year": 2012
+    },
+    {
+      "Entity": "James Hansen",
       "Topical Contribution Area": [
         "Mitigation: Carbon Removal / Carbon Capture",
         "Mitigation: Emissions Reduction"
       ],
       "Number of People Involved (to 3 sig digits)": "Individual ",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Scientific/Engineering Researcher Individual"
+      ],
+      "Year founded / Born": "1941",
       "Enacting/Undertaking XYZ Interventions": [
         "CO2 removal via enhanced rock weathering",
         "Climate/Earth System Modelling"
       ],
-      "Entity": "James Hansen",
-      "Entity Type": [
-        "Scientific/Engineering Researcher Individual"
-      ],
-      "Status": [
-        "Active"
-      ],
       "Person or Org": "Individual Person",
-      "Focus": "Climate Change is entity's primary focus",
-      "Link to More Info on Entity (bio or overview page)": "https://en.wikipedia.org/wiki/James_Hansen",
       "Directly Associated Orgs (e.g., employment/parent org):": [
         "Columbia University",
         "NASA"
       ],
-      "Year founded / Born": "1941",
-      "Primary Operating Geography (Country)": "USA",
+      "Link to More Info on Entity (bio or overview page)": "https://en.wikipedia.org/wiki/James_Hansen",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--James Hansen",
       "label": "James Hansen",
       "year": 1941
     },
     {
+      "Entity": "Watershed Climate",
+      "Topical Contribution Area": [
+        "Mitigation: Emissions Reduction"
+      ],
+      "Number of People Involved (to 3 sig digits)": "Under 10",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Year founded / Born": "2020",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Decarbonizing the Economy"
+      ],
+      "Person or Org": "Organization",
+      "Directly Associated Orgs (e.g., employment/parent org):": [
+        "Patrick Collison"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://watershedclimate.com",
+      "Partners With": [
+        "Stripe"
+      ],
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--Watershed Climate",
+      "label": "Watershed Climate",
+      "year": 2020
+    },
+    {
+      "Entity": "Prelude Ventures",
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Funder Org (private e.g., VC or foundation)"
+      ],
+      "Year founded / Born": "2013",
+      "Person or Org": "Organization",
+      "Made XYZ Investment(s)": [
+        "Investment in Boston Metal",
+        "Investment in Heirloom",
+        "Investment in Solidia Technologies"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://www.preludeventures.com/",
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--Prelude Ventures",
+      "label": "Prelude Ventures",
+      "year": 2013
+    },
+    {
+      "Entity": "Susan Solomon",
       "Topical Contribution Area": [
         "Mitigation: Emissions Reduction"
       ],
       "Number of People Involved (to 3 sig digits)": "Individual ",
-      "Enacting/Undertaking XYZ Interventions": [
-        "Climate/Earth System Modelling"
-      ],
-      "Entity": "Susan Solomon",
-      "Entity Type": [
-        "Scientific/Engineering Researcher Individual"
-      ],
+      "Focus": "Climate Change is entity's primary focus",
       "Status": [
         "Active"
       ],
+      "Entity Type": [
+        "Scientific/Engineering Researcher Individual"
+      ],
+      "Enacting/Undertaking XYZ Interventions": [
+        "Climate/Earth System Modelling"
+      ],
       "Person or Org": "Individual Person",
-      "Focus": "Climate Change is entity's primary focus",
-      "Link to More Info on Entity (bio or overview page)": "https://eapsweb.mit.edu/people/solos",
       "Directly Associated Orgs (e.g., employment/parent org):": [
         "MIT"
       ],
-      "Primary Operating Geography (Country)": "USA",
+      "Link to More Info on Entity (bio or overview page)": "https://eapsweb.mit.edu/people/solos",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--Susan Solomon",
       "label": "Susan Solomon",
       "year": null
     },
     {
+      "Entity": "Blue Sky Analytics",
       "Topical Contribution Area": [
         "Mitigation: Emissions Reduction",
         "Adaptation: Natural Ecosystem Preservation",
@@ -631,80 +1311,169 @@
         "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)"
       ],
       "Number of People Involved (to 3 sig digits)": "10-50",
-      "Enacting/Undertaking XYZ Interventions": [
-        "Environmental Monitoring"
-      ],
-      "Entity": "Blue Sky Analytics",
-      "Entity Type": [
-        "For-Profit Climate Intervention Company"
-      ],
+      "Focus": "Climate Change is entity's primary focus",
       "Status": [
         "Active"
       ],
-      "Person or Org": "Organization",
-      "Focus": "Climate Change is entity's primary focus",
-      "Link to More Info on Entity (bio or overview page)": "https://blueskyhq.in/",
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
       "Year founded / Born": "2018",
-      "Primary Operating Geography (Country)": "India",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Environmental Monitoring"
+      ],
+      "Person or Org": "Organization",
+      "Link to More Info on Entity (bio or overview page)": "https://blueskyhq.in/",
+      "Primary Operating Geography (Country)": "IN",
       "id": "Actors--Blue Sky Analytics",
       "label": "Blue Sky Analytics",
       "year": 2018
     },
     {
+      "Entity": "Energy Innovation Capital ",
       "Topical Contribution Area": [
         "Mitigation: Green Energy / Decarbonization"
       ],
       "Number of People Involved (to 3 sig digits)": "Under 10",
-      "Entity": "Energy Innovation Capital ",
-      "Entity Type": [
-        "Funder Org (private e.g., VC or foundation)"
-      ],
+      "Focus": "Climate Change is among entity's portfolio focuses",
       "Status": [
         "Active"
       ],
+      "Entity Type": [
+        "Funder Org (private e.g., VC or foundation)"
+      ],
+      "Year founded / Born": "2018",
       "Person or Org": "Organization",
       "Funding XYZ Interventions": [
         "Environmental Monitoring"
       ],
-      "Focus": "Climate Change is among entity's portfolio focuses",
       "Link to More Info on Entity (bio or overview page)": "https://energyinnovationcapital.com/investments",
-      "Year founded / Born": "2018",
-      "Primary Operating Geography (Country)": "USA",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--Energy Innovation Capital ",
       "label": "Energy Innovation Capital ",
       "year": 2018
     },
     {
+      "Entity": "Carbon Upcycling UCLA",
       "Topical Contribution Area": [
         "Mitigation: Carbon Removal / Carbon Capture"
       ],
       "Number of People Involved (to 3 sig digits)": "10-50",
-      "Enacting/Undertaking XYZ Interventions": [
-        "CO2 Capture for Concrete/Cement production"
-      ],
-      "Entity": "Carbon Upcycling UCLA",
-      "Received XYZ Investment(s)": [
-        "DoE - A Scalable Process for Upcycling Carbon Dioxide (CO2) and Coal Combustion Residues Into Construction Products"
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
       ],
       "Entity Type": [
         "For-Profit Climate Intervention Company"
       ],
-      "Status": [
-        "Active"
+      "Year founded / Born": "2019",
+      "Enacting/Undertaking XYZ Interventions": [
+        "CO2 Capture for Concrete/Cement production"
       ],
       "Person or Org": "Organization",
-      "Focus": "Climate Change is entity's primary focus",
-      "Link to More Info on Entity (bio or overview page)": "https://www.co2concrete.com/group/",
+      "Received XYZ Investment(s)": [
+        "DoE - A Scalable Process for Upcycling Carbon Dioxide (CO2) and Coal Combustion Residues Into Construction Products"
+      ],
       "Directly Associated Orgs (e.g., employment/parent org):": [
         "UCLA"
       ],
-      "Year founded / Born": "2019",
-      "Primary Operating Geography (Country)": "USA",
+      "Link to More Info on Entity (bio or overview page)": "https://www.co2concrete.com/group/",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--Carbon Upcycling UCLA",
       "label": "Carbon Upcycling UCLA",
       "year": 2019
     },
     {
+      "Entity": "Patrick Collison",
+      "Topical Contribution Area": [
+        "Mitigation: Emissions Reduction",
+        "Mitigation: Green Energy / Decarbonization"
+      ],
+      "Number of People Involved (to 3 sig digits)": "Individual ",
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Funder / Donor Individual ",
+        "Founder / StartUp Individual "
+      ],
+      "Year founded / Born": "1988",
+      "Person or Org": "Individual Person",
+      "Made XYZ Investment(s)": [
+        "Investment in Watershed Climate"
+      ],
+      "Directly Associated Orgs (e.g., employment/parent org):": [
+        "Stripe"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://patrickcollison.com",
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--Patrick Collison",
+      "label": "Patrick Collison",
+      "year": 1988
+    },
+    {
+      "Entity": "enVerid",
+      "Topical Contribution Area": [
+        "Mitigation: Emissions Reduction",
+        "Adaptation: Urban Human Built-Environment Protection"
+      ],
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Year founded / Born": "2010",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Decarbonizing the Economy"
+      ],
+      "Person or Org": "Organization",
+      "Received XYZ Investment(s)": [
+        "Investment in enVerid"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://enverid.com/",
+      "Partners With": [
+        "U.S. Department of Energy",
+        "MIT",
+        "University of Southern California"
+      ],
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--enVerid",
+      "label": "enVerid",
+      "year": 2010
+    },
+    {
+      "Entity": "Boston Metal",
+      "Topical Contribution Area": [
+        "Mitigation: Emissions Reduction"
+      ],
+      "Number of People Involved (to 3 sig digits)": "50-100",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Year founded / Born": "2012",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Decarbonizing the Economy"
+      ],
+      "Person or Org": "Organization",
+      "Received XYZ Investment(s)": [
+        "Investment in Boston Metal"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://bostonmetal.com/",
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--Boston Metal",
+      "label": "Boston Metal",
+      "year": 2012
+    },
+    {
+      "Entity": "Lowercarbon Capital",
       "Topical Contribution Area": [
         "Mitigation: Emissions Reduction",
         "Mitigation: Carbon Removal / Carbon Capture",
@@ -712,63 +1481,73 @@
         "Mitigation: Green Energy / Decarbonization"
       ],
       "Number of People Involved (to 3 sig digits)": "Under 10",
-      "Entity": "Lowercarbon Capital",
-      "Entity Type": [
-        "Funder Org (private e.g., VC or foundation)"
-      ],
+      "Focus": "Climate Change is entity's primary focus",
       "Status": [
         "Active"
+      ],
+      "Entity Type": [
+        "Funder Org (private e.g., VC or foundation)"
       ],
       "Person or Org": "Organization",
       "Funding XYZ Interventions": [
         "CO2 Capture from ambient air to make carbon-neutral hydrocarbon fuels"
       ],
       "Made XYZ Investment(s)": [
-        "Investment in Carbon Energy "
+        "Investment in Carbon Energy ",
+        "Investment in Heirloom",
+        "Investment in Pachama",
+        "Investment in RunningTide",
+        "Investment in Charm Industrial",
+        "Investment in CarbonChain",
+        "Investment in Mootral",
+        "Investment in Soil Carbon Co.",
+        "Investment in Remora Carbon",
+        "Investment in Normative"
       ],
-      "Focus": "Climate Change is entity's primary focus",
       "Link to More Info on Entity (bio or overview page)": "https://lowercarboncapital.com/",
-      "Primary Operating Geography (Country)": "USA",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--Lowercarbon Capital",
       "label": "Lowercarbon Capital",
       "year": null
     },
     {
+      "Entity": "Japan Renewable Energy Corporation",
       "Topical Contribution Area": [
         "Mitigation: Green Energy / Decarbonization"
       ],
       "Number of People Involved (to 3 sig digits)": "100-500",
-      "Enacting/Undertaking XYZ Interventions": [
-        "Decarbonizing the Economy"
-      ],
-      "Entity": "Japan Renewable Energy Corporation",
-      "Entity Type": [
-        "For-Profit Climate Intervention Company"
-      ],
+      "Focus": "Climate Change is among entity's portfolio focuses",
       "Status": [
         "Active"
       ],
-      "Person or Org": "Organization",
-      "Focus": "Climate Change is among entity's portfolio focuses",
-      "Link to More Info on Entity (bio or overview page)": "http://www.jre.co.jp/en/",
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
       "Year founded / Born": "2012",
-      "Primary Operating Geography (Country)": "Japan",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Decarbonizing the Economy"
+      ],
+      "Person or Org": "Organization",
+      "Link to More Info on Entity (bio or overview page)": "http://www.jre.co.jp/en/",
+      "Primary Operating Geography (Country)": "JP",
       "id": "Actors--Japan Renewable Energy Corporation",
       "label": "Japan Renewable Energy Corporation",
       "year": 2012
     },
     {
+      "Entity": "Alfred P. Sloan Foundation ",
       "Topical Contribution Area": [
         "Geoengineering: Solar Radiation Management"
       ],
       "Number of People Involved (to 3 sig digits)": "10-50",
-      "Entity": "Alfred P. Sloan Foundation ",
-      "Entity Type": [
-        "Funder Org (private e.g., VC or foundation)"
-      ],
+      "Focus": "Climate Change is among entity's portfolio focuses",
       "Status": [
         "Active"
       ],
+      "Entity Type": [
+        "Funder Org (private e.g., VC or foundation)"
+      ],
+      "Year founded / Born": "1934",
       "Person or Org": "Organization",
       "Funding XYZ Interventions": [
         "Advancing Energy Innovation",
@@ -778,15 +1557,14 @@
         "Symposium for Harvard Solar Geoengineering Research Program",
         "Program on Energy Security and Climate Change"
       ],
-      "Focus": "Climate Change is among entity's portfolio focuses",
       "Link to More Info on Entity (bio or overview page)": "https://sloan.org/about",
-      "Year founded / Born": "1934",
-      "Primary Operating Geography (Country)": "USA",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--Alfred P. Sloan Foundation ",
       "label": "Alfred P. Sloan Foundation ",
       "year": 1934
     },
     {
+      "Entity": "Carnegie Institution for Science (at Stanford)",
       "Topical Contribution Area": [
         "Mitigation: Emissions Reduction",
         "Mitigation: Carbon Removal / Carbon Capture",
@@ -795,31 +1573,31 @@
         "Geoengineering: Oceanic Ecosystems and Chemistry"
       ],
       "Number of People Involved (to 3 sig digits)": "10-50",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Academic Org"
+      ],
+      "Year founded / Born": "2002",
       "Enacting/Undertaking XYZ Interventions": [
         "Addition of Atmospheric Aerosols",
         "Advancing Energy Innovation",
         "Decarbonizing the Economy"
       ],
-      "Entity": "Carnegie Institution for Science (at Stanford)",
-      "Entity Type": [
-        "Academic Org"
-      ],
-      "Status": [
-        "Active"
-      ],
       "Person or Org": "Organization",
-      "Focus": "Climate Change is entity's primary focus",
-      "Link to More Info on Entity (bio or overview page)": "https://dge.carnegiescience.edu/about",
       "Directly Associated Orgs (e.g., employment/parent org):": [
         "Stanford University "
       ],
-      "Year founded / Born": "2002",
-      "Primary Operating Geography (Country)": "USA",
+      "Link to More Info on Entity (bio or overview page)": "https://dge.carnegiescience.edu/about",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--Carnegie Institution for Science (at Stanford)",
       "label": "Carnegie Institution for Science (at Stanford)",
       "year": 2002
     },
     {
+      "Entity": "NASA",
       "Topical Contribution Area": [
         "Mitigation: Emissions Reduction",
         "Mitigation: Green Energy / Decarbonization",
@@ -827,26 +1605,85 @@
         "Geoengineering: Solar Radiation Management"
       ],
       "Number of People Involved (to 3 sig digits)": "1000+",
-      "Enacting/Undertaking XYZ Interventions": [
-        "Governance / Public Policy for Geoengineering"
-      ],
-      "Entity": "NASA",
-      "Entity Type": [
-        "Regulatory / Gov Org"
-      ],
+      "Focus": "Climate Change is among entity's portfolio focuses",
       "Status": [
         "Active"
       ],
-      "Person or Org": "Organization",
-      "Focus": "Climate Change is among entity's portfolio focuses",
-      "Link to More Info on Entity (bio or overview page)": "https://www.nasa.gov/",
+      "Entity Type": [
+        "Regulatory / Gov Org"
+      ],
       "Year founded / Born": "1958",
-      "Primary Operating Geography (Country)": "USA",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Governance / Public Policy for Geoengineering"
+      ],
+      "Person or Org": "Organization",
+      "Link to More Info on Entity (bio or overview page)": "https://www.nasa.gov/",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--NASA",
       "label": "NASA",
       "year": 1958
     },
     {
+      "Entity": "Additional Ventures",
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture",
+        "Mitigation: Emissions Reduction",
+        "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)",
+        "Adaptation: Natural Ecosystem Preservation"
+      ],
+      "Number of People Involved (to 3 sig digits)": "Under 10",
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Funder Org (private e.g., VC or foundation)"
+      ],
+      "Year founded / Born": "2017",
+      "Person or Org": "Organization",
+      "Funding XYZ Interventions": [
+        "Environmental Monitoring",
+        "Biomass/Ecosystem Managment"
+      ],
+      "Made XYZ Investment(s)": [
+        "Additional Ventures Grant to Project Vesta",
+        "Additional Ventures Grant to The Land Institute"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://www.additionalventures.org/climate",
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--Additional Ventures",
+      "label": "Additional Ventures",
+      "year": 2017
+    },
+    {
+      "Entity": "Pachama",
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture"
+      ],
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Year founded / Born": "2018",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Climate/Earth System Modelling"
+      ],
+      "Person or Org": "Organization",
+      "Received XYZ Investment(s)": [
+        "Investment in Pachama"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://pachama.com",
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--Pachama",
+      "label": "Pachama",
+      "year": 2018
+    },
+    {
+      "Entity": "Harvard University ",
       "Topical Contribution Area": [
         "Mitigation: Emissions Reduction",
         "Mitigation: Green Energy / Decarbonization",
@@ -859,23 +1696,78 @@
         "Geoengineering: Oceanic Ecosystems and Chemistry"
       ],
       "Number of People Involved (to 3 sig digits)": "1000+",
-      "Entity": "Harvard University ",
-      "Entity Type": [
-        "Academic Org"
-      ],
+      "Focus": "Climate Change is among entity's portfolio focuses",
       "Status": [
         "Active"
       ],
-      "Person or Org": "Organization",
-      "Focus": "Climate Change is among entity's portfolio focuses",
-      "Link to More Info on Entity (bio or overview page)": "https://www.harvard.edu/",
+      "Entity Type": [
+        "Academic Org"
+      ],
       "Year founded / Born": "1636",
-      "Primary Operating Geography (Country)": "USA",
+      "Person or Org": "Organization",
+      "Link to More Info on Entity (bio or overview page)": "https://www.harvard.edu/",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--Harvard University ",
       "label": "Harvard University ",
       "year": 1636
     },
     {
+      "Entity": "The Greenlining Institute",
+      "Topical Contribution Area": [
+        "Mitigation: Emissions Reduction"
+      ],
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Activist / Advocacy Org"
+      ],
+      "Year founded / Born": "1993",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Decarbonizing the Economy"
+      ],
+      "Person or Org": "Organization",
+      "Received XYZ Investment(s)": [
+        "MacKenzie Scott Grant to The Greenlining Institute"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://greenlining.org/",
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--The Greenlining Institute",
+      "label": "The Greenlining Institute",
+      "year": 1993
+    },
+    {
+      "Entity": "Soil Carbon Co.",
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture"
+      ],
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Year founded / Born": "2019",
+      "Enacting/Undertaking XYZ Interventions": [
+        "CO2 capture from ambient air (multiple downstream applications)"
+      ],
+      "Person or Org": "Organization",
+      "Received XYZ Investment(s)": [
+        "Investment in Soil Carbon Co."
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://www.soilcarbon.co/",
+      "Primary Operating Geography (Country)": "AU",
+      "Secondary Geography (Country)": "US",
+      "id": "Actors--Soil Carbon Co.",
+      "label": "Soil Carbon Co.",
+      "year": 2019
+    },
+    {
+      "Entity": "ASU",
       "Topical Contribution Area": [
         "Mitigation: Emissions Reduction",
         "Mitigation: Carbon Removal / Carbon Capture",
@@ -887,45 +1779,155 @@
         "Geoengineering: Solar Radiation Management"
       ],
       "Number of People Involved (to 3 sig digits)": "1000+",
-      "Entity": "ASU",
-      "Entity Type": [
-        "Academic Org"
-      ],
+      "Focus": "Climate Change is among entity's portfolio focuses",
       "Status": [
         "Active"
       ],
+      "Entity Type": [
+        "Academic Org"
+      ],
       "Person or Org": "Organization",
-      "Focus": "Climate Change is among entity's portfolio focuses",
-      "Primary Operating Geography (Country)": "USA",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--ASU",
       "label": "ASU",
       "year": null
     },
     {
+      "Entity": "Mootral",
+      "Topical Contribution Area": [
+        "Mitigation: Emissions Reduction"
+      ],
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Year founded / Born": "2018",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Biomass/Ecosystem Managment"
+      ],
+      "Person or Org": "Organization",
+      "Received XYZ Investment(s)": [
+        "Investment in Mootral"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://www.mootral.com/",
+      "Primary Operating Geography (Country)": "CH",
+      "Secondary Geography (Country)": "US",
+      "id": "Actors--Mootral",
+      "label": "Mootral",
+      "year": 2018
+    },
+    {
+      "Entity": "MacKenzie Scott",
+      "Number of People Involved (to 3 sig digits)": "Individual ",
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Funder / Donor Individual "
+      ],
+      "Year founded / Born": "1970",
+      "Person or Org": "Individual Person",
+      "Made XYZ Investment(s)": [
+        "MacKenzie Scott Grant to The Greenlining Institute"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://en.wikipedia.org/wiki/MacKenzie_Scott",
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--MacKenzie Scott",
+      "label": "MacKenzie Scott",
+      "year": 1970
+    },
+    {
+      "Entity": "Dendra Systems",
       "Topical Contribution Area": [
         "Adaptation: Natural Ecosystem Preservation",
         "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)"
       ],
       "Number of People Involved (to 3 sig digits)": "10-50",
-      "Enacting/Undertaking XYZ Interventions": [
-        "Biomass/Ecosystem Managment"
-      ],
-      "Entity": "Dendra Systems",
-      "Entity Type": [
-        "For-Profit Climate Intervention Company"
-      ],
+      "Focus": "Climate Change is entity's primary focus",
       "Status": [
         "Active"
       ],
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Enacting/Undertaking XYZ Interventions": [
+        "Biomass/Ecosystem Managment"
+      ],
       "Person or Org": "Organization",
-      "Focus": "Climate Change is entity's primary focus",
       "Link to More Info on Entity (bio or overview page)": "https://www.dendra.io/about",
-      "Primary Operating Geography (Country)": "UK",
+      "Primary Operating Geography (Country)": "GB",
       "id": "Actors--Dendra Systems",
       "label": "Dendra Systems",
       "year": null
     },
     {
+      "Entity": "CarbonBuilt ",
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture"
+      ],
+      "Number of People Involved (to 3 sig digits)": "Under 10",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Year founded / Born": "2021",
+      "Enacting/Undertaking XYZ Interventions": [
+        "CO2 Capture for Concrete/Cement production"
+      ],
+      "Person or Org": "Organization",
+      "Received XYZ Investment(s)": [
+        "NRG COSIA Carbon XPRIZE"
+      ],
+      "Directly Associated Orgs (e.g., employment/parent org):": [
+        "UCLA"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://www.carbonbuilt.com/",
+      "Partners With": [
+        "Stripe",
+        "U.S. Department of Energy"
+      ],
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--CarbonBuilt ",
+      "label": "CarbonBuilt ",
+      "year": 2021
+    },
+    {
+      "Entity": "Normative",
+      "Topical Contribution Area": [
+        "Mitigation: Emissions Reduction"
+      ],
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Year founded / Born": "2014",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Decarbonizing the Economy"
+      ],
+      "Person or Org": "Organization",
+      "Received XYZ Investment(s)": [
+        "Investment in Normative"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://normative.io/",
+      "Primary Operating Geography (Country)": "SE",
+      "id": "Actors--Normative",
+      "label": "Normative",
+      "year": 2014
+    },
+    {
+      "Entity": "UCLA",
       "Topical Contribution Area": [
         "Mitigation: Emissions Reduction",
         "Mitigation: Carbon Removal / Carbon Capture",
@@ -938,128 +1940,184 @@
         "Geoengineering: Oceanic Ecosystems and Chemistry"
       ],
       "Number of People Involved (to 3 sig digits)": "1000+",
-      "Entity": "UCLA",
-      "Entity Type": [
-        "Academic Org"
-      ],
+      "Focus": "Climate Change is among entity's portfolio focuses",
       "Status": [
         "Active"
       ],
-      "Person or Org": "Organization",
-      "Focus": "Climate Change is among entity's portfolio focuses",
-      "Link to More Info on Entity (bio or overview page)": "https://www.ucla.edu/",
+      "Entity Type": [
+        "Academic Org"
+      ],
       "Year founded / Born": "1919",
-      "Primary Operating Geography (Country)": "USA",
+      "Person or Org": "Organization",
+      "Link to More Info on Entity (bio or overview page)": "https://www.ucla.edu/",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--UCLA",
       "label": "UCLA",
       "year": 1919
     },
     {
+      "Entity": "Climeworks",
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture"
+      ],
+      "Number of People Involved (to 3 sig digits)": "50-100",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Year founded / Born": "2009",
+      "Enacting/Undertaking XYZ Interventions": [
+        "CO2 capture from ambient air (multiple downstream applications)"
+      ],
+      "Person or Org": "Organization",
+      "Link to More Info on Entity (bio or overview page)": "https://climeworks.com/",
+      "Partners With": [
+        "Stripe"
+      ],
+      "Primary Operating Geography (Country)": "CH",
+      "Secondary Geography (Country)": "IS",
+      "id": "Actors--Climeworks",
+      "label": "Climeworks",
+      "year": 2009
+    },
+    {
+      "Entity": "The Nature Conservancy",
       "Topical Contribution Area": [
         "Adaptation: Natural Ecosystem Preservation",
         "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)",
         "Adaptation: Rural Human Built-Environment Protection"
       ],
       "Number of People Involved (to 3 sig digits)": "100-500",
-      "Entity": "The Nature Conservancy",
-      "Entity Type": [
-        "Activist / Advocacy Org"
-      ],
+      "Focus": "Climate Change is among entity's portfolio focuses",
       "Status": [
         "Active"
       ],
-      "Person or Org": "Organization",
-      "Focus": "Climate Change is among entity's portfolio focuses",
-      "Link to More Info on Entity (bio or overview page)": "https://www.nature.org/en-us/about-us/who-we-are/",
+      "Entity Type": [
+        "Activist / Advocacy Org"
+      ],
       "Year founded / Born": "1951",
-      "Primary Operating Geography (Country)": "USA",
+      "Person or Org": "Organization",
+      "Link to More Info on Entity (bio or overview page)": "https://www.nature.org/en-us/about-us/who-we-are/",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--The Nature Conservancy",
       "label": "The Nature Conservancy",
       "year": 1951
     },
     {
+      "Entity": "Ocean Collectiv",
       "Topical Contribution Area": [
         "Adaptation: Natural Ecosystem Preservation",
         "Geoengineering: Oceanic Ecosystems and Chemistry"
       ],
       "Number of People Involved (to 3 sig digits)": "10-50",
-      "Entity": "Ocean Collectiv",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
       "Entity Type": [
         "Activist / Advocacy Org",
         "For-Profit Climate Intervention Company"
       ],
-      "Status": [
-        "Active"
-      ],
       "Person or Org": "Organization",
-      "Focus": "Climate Change is entity's primary focus",
       "Link to More Info on Entity (bio or overview page)": "https://www.oceancollectiv.co/",
-      "Primary Operating Geography (Country)": "USA",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--Ocean Collectiv",
       "label": "Ocean Collectiv",
       "year": null
     },
     {
+      "Entity": "Urban Ocean Lab",
       "Topical Contribution Area": [
         "Adaptation: Natural Ecosystem Preservation",
         "Adaptation: Urban Human Built-Environment Protection",
         "Geoengineering: Oceanic Ecosystems and Chemistry"
       ],
       "Number of People Involved (to 3 sig digits)": "Under 10",
-      "Entity": "Urban Ocean Lab",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
       "Entity Type": [
         "Activist / Advocacy Org",
         "Think Tank / Policy Org (outside academia)"
       ],
-      "Status": [
-        "Active"
-      ],
       "Person or Org": "Organization",
-      "Focus": "Climate Change is entity's primary focus",
       "Link to More Info on Entity (bio or overview page)": "https://urbanoceanlab.org/",
-      "Primary Operating Geography (Country)": "USA",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--Urban Ocean Lab",
       "label": "Urban Ocean Lab",
       "year": null
     },
     {
+      "Entity": "Bloom Biorenewables",
+      "Topical Contribution Area": [
+        "Mitigation: Green Energy / Decarbonization"
+      ],
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Year founded / Born": "2019",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Advancing Energy Innovation"
+      ],
+      "Person or Org": "Organization",
+      "Received XYZ Investment(s)": [
+        "Investment in Bloom Biorenewables"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://bloombiorenewables.com/",
+      "Primary Operating Geography (Country)": "CH",
+      "id": "Actors--Bloom Biorenewables",
+      "label": "Bloom Biorenewables",
+      "year": 2019
+    },
+    {
+      "Entity": "Global Thermostat",
       "Topical Contribution Area": [
         "Mitigation: Carbon Removal / Carbon Capture"
       ],
       "Number of People Involved (to 3 sig digits)": "10-50",
-      "Enacting/Undertaking XYZ Interventions": [
-        "CO2 capture from ambient air (multiple downstream applications)"
-      ],
-      "Entity": "Global Thermostat",
-      "Entity Type": [
-        "For-Profit Climate Intervention Company"
-      ],
+      "Focus": "Climate Change is among entity's portfolio focuses",
       "Status": [
         "Active"
       ],
-      "Person or Org": "Organization",
-      "Focus": "Climate Change is among entity's portfolio focuses",
-      "Link to More Info on Entity (bio or overview page)": "https://globalthermostat.com/the-gt-solution/",
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
       "Year founded / Born": "2010",
-      "Primary Operating Geography (Country)": "USA",
+      "Enacting/Undertaking XYZ Interventions": [
+        "CO2 capture from ambient air (multiple downstream applications)"
+      ],
+      "Person or Org": "Organization",
+      "Link to More Info on Entity (bio or overview page)": "https://globalthermostat.com/the-gt-solution/",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--Global Thermostat",
       "label": "Global Thermostat",
       "year": 2010
     },
     {
+      "Entity": "Rusheen Capital Management ",
       "Topical Contribution Area": [
         "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)",
         "Mitigation: Carbon Removal / Carbon Capture",
         "Mitigation: Green Energy / Decarbonization"
       ],
       "Number of People Involved (to 3 sig digits)": "Under 10",
-      "Entity": "Rusheen Capital Management ",
-      "Entity Type": [
-        "Funder Org (private e.g., VC or foundation)"
-      ],
+      "Focus": "Climate Change is entity's primary focus",
       "Status": [
         "Active"
       ],
+      "Entity Type": [
+        "Funder Org (private e.g., VC or foundation)"
+      ],
+      "Year founded / Born": "2015",
       "Person or Org": "Organization",
       "Funding XYZ Interventions": [
         "CO2 Capture from ambient air to make carbon-neutral hydrocarbon fuels"
@@ -1067,27 +2125,27 @@
       "Made XYZ Investment(s)": [
         "Investment in Carbon Energy "
       ],
-      "Focus": "Climate Change is entity's primary focus",
       "Link to More Info on Entity (bio or overview page)": "https://www.rusheen.com/#about",
-      "Year founded / Born": "2015",
-      "Primary Operating Geography (Country)": "USA",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--Rusheen Capital Management ",
       "label": "Rusheen Capital Management ",
       "year": 2015
     },
     {
+      "Entity": "Oxy Low Carbon Ventures",
       "Topical Contribution Area": [
         "Mitigation: Green Energy / Decarbonization",
         "Mitigation: Carbon Removal / Carbon Capture"
       ],
       "Number of People Involved (to 3 sig digits)": "10-50",
-      "Entity": "Oxy Low Carbon Ventures",
-      "Entity Type": [
-        "Funder Org (private e.g., VC or foundation)"
-      ],
+      "Focus": "Climate Change is entity's primary focus",
       "Status": [
         "Active"
       ],
+      "Entity Type": [
+        "Funder Org (private e.g., VC or foundation)"
+      ],
+      "Year founded / Born": "2018",
       "Person or Org": "Organization",
       "Funding XYZ Interventions": [
         "CO2 Capture from ambient air to make carbon-neutral hydrocarbon fuels"
@@ -1095,15 +2153,14 @@
       "Made XYZ Investment(s)": [
         "Investment in Carbon Energy "
       ],
-      "Focus": "Climate Change is entity's primary focus",
       "Link to More Info on Entity (bio or overview page)": "https://www.oxylowcarbon.com/carbon-neutral/about-us",
-      "Year founded / Born": "2018",
-      "Primary Operating Geography (Country)": "USA",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--Oxy Low Carbon Ventures",
       "label": "Oxy Low Carbon Ventures",
       "year": 2018
     },
     {
+      "Entity": "Ken Caldeira",
       "Topical Contribution Area": [
         "Geoengineering: Oceanic Ecosystems and Chemistry",
         "Mitigation: Emissions Reduction",
@@ -1111,33 +2168,62 @@
         "Geoengineering: Solar Radiation Management"
       ],
       "Number of People Involved (to 3 sig digits)": "Individual ",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Scientific/Engineering Researcher Individual"
+      ],
+      "Year founded / Born": "1960",
       "Enacting/Undertaking XYZ Interventions": [
         "Addition of Atmospheric Aerosols",
         "Advancing Energy Innovation",
         "Decarbonizing the Economy",
         "Climate/Earth System Modelling"
       ],
-      "Entity": "Ken Caldeira",
-      "Entity Type": [
-        "Scientific/Engineering Researcher Individual"
-      ],
-      "Status": [
-        "Active"
-      ],
       "Person or Org": "Individual Person",
-      "Focus": "Climate Change is entity's primary focus",
-      "Link to More Info on Entity (bio or overview page)": "https://en.wikipedia.org/wiki/Ken_Caldeira",
       "Directly Associated Orgs (e.g., employment/parent org):": [
         "Carnegie Institution for Science (at Stanford)",
         "Stanford University "
       ],
-      "Year founded / Born": "1960",
-      "Primary Operating Geography (Country)": "USA",
+      "Link to More Info on Entity (bio or overview page)": "https://en.wikipedia.org/wiki/Ken_Caldeira",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--Ken Caldeira",
       "label": "Ken Caldeira",
       "year": 1960
     },
     {
+      "Entity": "Solidia",
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture",
+        "Mitigation: Emissions Reduction"
+      ],
+      "Number of People Involved (to 3 sig digits)": "50-100",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Year founded / Born": "2008",
+      "Enacting/Undertaking XYZ Interventions": [
+        "CO2 Capture for Concrete/Cement production",
+        "Decarbonizing the Economy"
+      ],
+      "Person or Org": "Organization",
+      "Received XYZ Investment(s)": [
+        "Investment in Solidia Technologies"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://www.solidiatech.com/",
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--Solidia",
+      "label": "Solidia",
+      "year": 2008
+    },
+    {
+      "Entity": "Our Daily Planet",
       "Topical Contribution Area": [
         "Mitigation: Emissions Reduction",
         "Mitigation: Carbon Removal / Carbon Capture",
@@ -1148,23 +2234,23 @@
         "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)"
       ],
       "Number of People Involved (to 3 sig digits)": "Under 10",
-      "Entity": "Our Daily Planet",
-      "Entity Type": [
-        "Media Org "
-      ],
+      "Focus": "Climate Change is entity's primary focus",
       "Status": [
         "Active"
       ],
-      "Person or Org": "Organization",
-      "Focus": "Climate Change is entity's primary focus",
-      "Link to More Info on Entity (bio or overview page)": "https://www.ourdailyplanet.com/about/",
+      "Entity Type": [
+        "Media Org "
+      ],
       "Year founded / Born": "2018",
-      "Primary Operating Geography (Country)": "USA",
+      "Person or Org": "Organization",
+      "Link to More Info on Entity (bio or overview page)": "https://www.ourdailyplanet.com/about/",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--Our Daily Planet",
       "label": "Our Daily Planet",
       "year": 2018
     },
     {
+      "Entity": "MIT",
       "Topical Contribution Area": [
         "Mitigation: Emissions Reduction",
         "Mitigation: Green Energy / Decarbonization",
@@ -1177,51 +2263,54 @@
         "Geoengineering: Oceanic Ecosystems and Chemistry"
       ],
       "Number of People Involved (to 3 sig digits)": "1000+",
-      "Entity": "MIT",
-      "Entity Type": [
-        "Academic Org"
-      ],
+      "Focus": "Climate Change is among entity's portfolio focuses",
       "Status": [
         "Active"
       ],
-      "Person or Org": "Organization",
-      "Focus": "Climate Change is among entity's portfolio focuses",
-      "Link to More Info on Entity (bio or overview page)": "https://www.mit.edu/",
+      "Entity Type": [
+        "Academic Org"
+      ],
       "Year founded / Born": "1861",
-      "Primary Operating Geography (Country)": "USA",
+      "Person or Org": "Organization",
+      "Link to More Info on Entity (bio or overview page)": "https://www.mit.edu/",
+      "Partners With": [
+        "The Land Institute"
+      ],
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--MIT",
       "label": "MIT",
       "year": 1861
     },
     {
+      "Entity": "Silicon Kingdom Holdings / MechanicalTrees",
       "Topical Contribution Area": [
         "Mitigation: Carbon Removal / Carbon Capture"
       ],
       "Number of People Involved (to 3 sig digits)": "Under 10",
-      "Enacting/Undertaking XYZ Interventions": [
-        "CO2 capture from ambient air (multiple downstream applications)"
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
       ],
-      "Entity": "Silicon Kingdom Holdings / MechanicalTrees",
       "Entity Type": [
         "For-Profit Climate Intervention Company",
         "Funder Org (private e.g., VC or foundation)"
       ],
-      "Status": [
-        "Active"
+      "Year founded / Born": "2019",
+      "Enacting/Undertaking XYZ Interventions": [
+        "CO2 capture from ambient air (multiple downstream applications)"
       ],
       "Person or Org": "Organization",
-      "Focus": "Climate Change is entity's primary focus",
+      "Link to More Info on Entity (bio or overview page)": "https://mechanicaltrees.com/",
       "Partners With": [
         "ASU"
       ],
-      "Link to More Info on Entity (bio or overview page)": "https://mechanicaltrees.com/",
-      "Year founded / Born": "2019",
-      "Primary Operating Geography (Country)": "Ireland",
+      "Primary Operating Geography (Country)": "IE",
       "id": "Actors--Silicon Kingdom Holdings / MechanicalTrees",
       "label": "Silicon Kingdom Holdings / MechanicalTrees",
       "year": 2019
     },
     {
+      "Entity": "U.S. Department of Energy",
       "Topical Contribution Area": [
         "Mitigation: Carbon Removal / Carbon Capture",
         "Adaptation: Natural Ecosystem Preservation",
@@ -1229,14 +2318,15 @@
         "Mitigation: Green Energy / Decarbonization"
       ],
       "Number of People Involved (to 3 sig digits)": "1000+",
-      "Entity": "U.S. Department of Energy",
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Status": [
+        "Active"
+      ],
       "Entity Type": [
         "Funder Org (public e.g., NSF)",
         "Regulatory / Gov Org"
       ],
-      "Status": [
-        "Active"
-      ],
+      "Year founded / Born": "1977",
       "Person or Org": "Organization",
       "Funding XYZ Interventions": [
         "CO2 Capture for Concrete/Cement production"
@@ -1244,15 +2334,14 @@
       "Made XYZ Investment(s)": [
         "DoE - A Scalable Process for Upcycling Carbon Dioxide (CO2) and Coal Combustion Residues Into Construction Products"
       ],
-      "Focus": "Climate Change is among entity's portfolio focuses",
       "Link to More Info on Entity (bio or overview page)": "https://www.energy.gov/science-innovation/climate-change",
-      "Year founded / Born": "1977",
-      "Primary Operating Geography (Country)": "USA",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--U.S. Department of Energy",
       "label": "U.S. Department of Energy",
       "year": 1977
     },
     {
+      "Entity": "Japan Climate Leaders' Partnership (JCLP)",
       "Topical Contribution Area": [
         "Mitigation: Emissions Reduction",
         "Mitigation: Carbon Removal / Carbon Capture",
@@ -1261,33 +2350,61 @@
         "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)"
       ],
       "Number of People Involved (to 3 sig digits)": "100-500",
-      "Entity": "Japan Climate Leaders' Partnership (JCLP)",
-      "Entity Type": [
-        "Activist / Advocacy Org"
-      ],
+      "Focus": "Climate Change is entity's primary focus",
       "Status": [
         "Active"
       ],
+      "Entity Type": [
+        "Activist / Advocacy Org"
+      ],
       "Person or Org": "Organization",
-      "Focus": "Climate Change is entity's primary focus",
       "Link to More Info on Entity (bio or overview page)": "https://japan-clp.jp/en",
-      "Primary Operating Geography (Country)": "Japan",
+      "Primary Operating Geography (Country)": "JP",
       "id": "Actors--Japan Climate Leaders' Partnership (JCLP)",
       "label": "Japan Climate Leaders' Partnership (JCLP)",
       "year": null
     },
     {
+      "Entity": "Jennifer Wilcox",
+      "Topical Contribution Area": [
+        "Mitigation: Emissions Reduction",
+        "Mitigation: Green Energy / Decarbonization"
+      ],
+      "Number of People Involved (to 3 sig digits)": "Individual ",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Scientific/Engineering Researcher Individual"
+      ],
+      "Year founded / Born": "1976",
+      "Person or Org": "Individual Person",
+      "Directly Associated Orgs (e.g., employment/parent org):": [
+        "U.S. Department of Energy",
+        "Heirloom",
+        "University of Pennsylvania"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://kleinmanenergy.upenn.edu/people/jennifer-wilcox/",
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--Jennifer Wilcox",
+      "label": "Jennifer Wilcox",
+      "year": 1976
+    },
+    {
+      "Entity": "XPRIZE (consortium funders)",
       "Topical Contribution Area": [
         "Mitigation: Carbon Removal / Carbon Capture"
       ],
       "Number of People Involved (to 3 sig digits)": "50-100",
-      "Entity": "XPRIZE (consortium funders)",
-      "Entity Type": [
-        "Funder Org (private e.g., VC or foundation)"
-      ],
+      "Focus": "Climate Change is among entity's portfolio focuses",
       "Status": [
         "Active"
       ],
+      "Entity Type": [
+        "Funder Org (private e.g., VC or foundation)"
+      ],
+      "Year founded / Born": "1994",
       "Person or Org": "Organization",
       "Funding XYZ Interventions": [
         "CO2 Capture for Concrete/Cement production"
@@ -1295,15 +2412,14 @@
       "Made XYZ Investment(s)": [
         "NRG COSIA Carbon XPRIZE"
       ],
-      "Focus": "Climate Change is among entity's portfolio focuses",
       "Link to More Info on Entity (bio or overview page)": "https://carbon.xprize.org/home",
-      "Year founded / Born": "1994",
-      "Primary Operating Geography (Country)": "USA",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--XPRIZE (consortium funders)",
       "label": "XPRIZE (consortium funders)",
       "year": 1994
     },
     {
+      "Entity": "Council on Foreign Relations",
       "Topical Contribution Area": [
         "Mitigation: Emissions Reduction",
         "Mitigation: Green Energy / Decarbonization",
@@ -1311,78 +2427,78 @@
         "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)"
       ],
       "Number of People Involved (to 3 sig digits)": "100-500",
-      "Enacting/Undertaking XYZ Interventions": [
-        "Advancing Energy Innovation"
-      ],
-      "Entity": "Council on Foreign Relations",
-      "Received XYZ Investment(s)": [
-        "Program on Energy Security and Climate Change"
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Status": [
+        "Active"
       ],
       "Entity Type": [
         "Think Tank / Policy Org (outside academia)"
       ],
-      "Status": [
-        "Active"
+      "Year founded / Born": "1921",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Advancing Energy Innovation"
       ],
       "Person or Org": "Organization",
-      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Received XYZ Investment(s)": [
+        "Program on Energy Security and Climate Change"
+      ],
       "Link to More Info on Entity (bio or overview page)": "https://www.cfr.org/",
-      "Year founded / Born": "1921",
-      "Primary Operating Geography (Country)": "USA",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--Council on Foreign Relations",
       "label": "Council on Foreign Relations",
       "year": 1921
     },
     {
+      "Entity": "OtherLabs",
       "Topical Contribution Area": [
         "Mitigation: Green Energy / Decarbonization",
         "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)"
       ],
       "Number of People Involved (to 3 sig digits)": "10-50",
-      "Enacting/Undertaking XYZ Interventions": [
-        "Decarbonizing the Economy"
-      ],
-      "Entity": "OtherLabs",
-      "Entity Type": [
-        "For-Profit Climate Intervention Company"
-      ],
+      "Focus": "Climate Change is among entity's portfolio focuses",
       "Status": [
         "Active"
       ],
-      "Person or Org": "Organization",
-      "Focus": "Climate Change is among entity's portfolio focuses",
-      "Link to More Info on Entity (bio or overview page)": "https://www.otherlab.com/blog-posts/us-energy-flow-super-sankey",
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
       "Year founded / Born": "2009",
-      "Primary Operating Geography (Country)": "USA",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Decarbonizing the Economy"
+      ],
+      "Person or Org": "Organization",
+      "Link to More Info on Entity (bio or overview page)": "https://www.otherlab.com/blog-posts/us-energy-flow-super-sankey",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--OtherLabs",
       "label": "OtherLabs",
       "year": 2009
     },
     {
+      "Entity": "Shizen Energy Group",
       "Topical Contribution Area": [
         "Mitigation: Green Energy / Decarbonization"
       ],
       "Number of People Involved (to 3 sig digits)": "100-500",
-      "Enacting/Undertaking XYZ Interventions": [
-        "Decarbonizing the Economy"
-      ],
-      "Entity": "Shizen Energy Group",
-      "Entity Type": [
-        "For-Profit Climate Intervention Company"
-      ],
+      "Focus": "Climate Change is among entity's portfolio focuses",
       "Status": [
         "Active"
       ],
-      "Person or Org": "Organization",
-      "Focus": "Climate Change is among entity's portfolio focuses",
-      "Link to More Info on Entity (bio or overview page)": "https://www.shizenenergy.net/en/about/",
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
       "Year founded / Born": "2011",
-      "Primary Operating Geography (Country)": "Japan",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Decarbonizing the Economy"
+      ],
+      "Person or Org": "Organization",
+      "Link to More Info on Entity (bio or overview page)": "https://www.shizenenergy.net/en/about/",
+      "Primary Operating Geography (Country)": "JP",
       "id": "Actors--Shizen Energy Group",
       "label": "Shizen Energy Group",
       "year": 2011
     },
     {
+      "Entity": "Ayana Elizabeth Johnson",
       "Topical Contribution Area": [
         "Geoengineering: Oceanic Ecosystems and Chemistry",
         "Adaptation: Natural Ecosystem Preservation",
@@ -1390,85 +2506,200 @@
         "Adaptation: Urban Human Built-Environment Protection"
       ],
       "Number of People Involved (to 3 sig digits)": "Individual ",
-      "Entity": "Ayana Elizabeth Johnson",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
       "Entity Type": [
         "Activist / Advocacy Individual ",
         "Founder / StartUp Individual "
       ],
-      "Status": [
-        "Active"
-      ],
       "Person or Org": "Individual Person",
-      "Focus": "Climate Change is entity's primary focus",
-      "Link to More Info on Entity (bio or overview page)": "https://www.ayanaelizabeth.com/projects",
       "Directly Associated Orgs (e.g., employment/parent org):": [
         "Ocean Collectiv",
         "Urban Ocean Lab"
       ],
-      "Primary Operating Geography (Country)": "USA",
+      "Link to More Info on Entity (bio or overview page)": "https://www.ayanaelizabeth.com/projects",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--Ayana Elizabeth Johnson",
       "label": "Ayana Elizabeth Johnson",
       "year": null
     },
     {
+      "Entity": "Pale Blue Dot",
       "Topical Contribution Area": [
         "Mitigation: Green Energy / Decarbonization",
         "Mitigation: Carbon Removal / Carbon Capture"
       ],
       "Number of People Involved (to 3 sig digits)": "10-50",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Year founded / Born": "2013",
       "Enacting/Undertaking XYZ Interventions": [
         "CO2 Capture from ambient air to make carbon-neutral hydrocarbon fuels",
         "Advancing Energy Innovation"
       ],
-      "Entity": "Pale Blue Dot",
-      "Entity Type": [
-        "For-Profit Climate Intervention Company"
-      ],
-      "Status": [
-        "Active"
-      ],
       "Person or Org": "Organization",
-      "Focus": "Climate Change is entity's primary focus",
+      "Link to More Info on Entity (bio or overview page)": "https://pale-blu.com/",
       "Partners With": [
         "Carbon Engineering "
       ],
-      "Link to More Info on Entity (bio or overview page)": "https://pale-blu.com/",
-      "Year founded / Born": "2013",
-      "Primary Operating Geography (Country)": "UK",
+      "Primary Operating Geography (Country)": "GB",
       "id": "Actors--Pale Blue Dot",
       "label": "Pale Blue Dot",
       "year": 2013
     },
     {
+      "Entity": "CarbonChain",
+      "Topical Contribution Area": [
+        "Mitigation: Emissions Reduction"
+      ],
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Year founded / Born": "2019",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Decarbonizing the Economy"
+      ],
+      "Person or Org": "Organization",
+      "Received XYZ Investment(s)": [
+        "Investment in CarbonChain"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://carbonchain.com/",
+      "Primary Operating Geography (Country)": "GB",
+      "id": "Actors--CarbonChain",
+      "label": "CarbonChain",
+      "year": 2019
+    },
+    {
+      "Entity": "Mission Zero Technologies",
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture"
+      ],
+      "Number of People Involved (to 3 sig digits)": "Under 10",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Year founded / Born": "2020",
+      "Enacting/Undertaking XYZ Interventions": [
+        "CO2 capture from ambient air (multiple downstream applications)"
+      ],
+      "Person or Org": "Organization",
+      "Link to More Info on Entity (bio or overview page)": "https://missionzero.tech/about-us/",
+      "Partners With": [
+        "Stripe"
+      ],
+      "Primary Operating Geography (Country)": "GB",
+      "id": "Actors--Mission Zero Technologies",
+      "label": "Mission Zero Technologies",
+      "year": 2020
+    },
+    {
+      "Entity": "C-Zero",
+      "Topical Contribution Area": [
+        "Mitigation: Green Energy / Decarbonization",
+        "Mitigation: Emissions Reduction"
+      ],
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Year founded / Born": "2018",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Advancing Energy Innovation"
+      ],
+      "Person or Org": "Organization",
+      "Received XYZ Investment(s)": [
+        "Investment in C-Zero"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://www.czero.energy/",
+      "Partners With": [
+        "U.S. Department of Energy"
+      ],
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--C-Zero",
+      "label": "C-Zero",
+      "year": 2018
+    },
+    {
+      "Entity": "Project Vesta",
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture"
+      ],
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Academic Org"
+      ],
+      "Year founded / Born": "2019",
+      "Enacting/Undertaking XYZ Interventions": [
+        "CO2 removal via enhanced rock weathering"
+      ],
+      "Person or Org": "Organization",
+      "Received XYZ Investment(s)": [
+        "Additional Ventures Grant to Project Vesta"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://projectvesta.org",
+      "Partners With": [
+        "Stripe"
+      ],
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--Project Vesta",
+      "label": "Project Vesta",
+      "year": 2019
+    },
+    {
+      "Entity": "ASU Center for Negative Carbon Emissions",
       "Topical Contribution Area": [
         "Mitigation: Emissions Reduction",
         "Mitigation: Carbon Removal / Carbon Capture",
         "Mitigation: Green Energy / Decarbonization"
       ],
       "Number of People Involved (to 3 sig digits)": "10-50",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Academic Org"
+      ],
       "Enacting/Undertaking XYZ Interventions": [
         "CO2 capture from ambient air (multiple downstream applications)",
         "Advancing Energy Innovation"
       ],
-      "Entity": "ASU Center for Negative Carbon Emissions",
-      "Entity Type": [
-        "Academic Org"
-      ],
-      "Status": [
-        "Active"
-      ],
       "Person or Org": "Organization",
-      "Focus": "Climate Change is entity's primary focus",
-      "Link to More Info on Entity (bio or overview page)": "https://cnce.engineering.asu.edu/faqs/",
       "Directly Associated Orgs (e.g., employment/parent org):": [
         "ASU"
       ],
-      "Primary Operating Geography (Country)": "USA",
+      "Link to More Info on Entity (bio or overview page)": "https://cnce.engineering.asu.edu/faqs/",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--ASU Center for Negative Carbon Emissions",
       "label": "ASU Center for Negative Carbon Emissions",
       "year": null
     },
     {
+      "Entity": "CalTech",
       "Topical Contribution Area": [
         "Mitigation: Emissions Reduction",
         "Mitigation: Carbon Removal / Carbon Capture",
@@ -1480,80 +2711,139 @@
         "Geoengineering: Solar Radiation Management"
       ],
       "Number of People Involved (to 3 sig digits)": "1000+",
-      "Entity": "CalTech",
-      "Entity Type": [
-        "Academic Org"
-      ],
+      "Focus": "Climate Change is among entity's portfolio focuses",
       "Status": [
         "Active"
       ],
-      "Person or Org": "Organization",
-      "Focus": "Climate Change is among entity's portfolio focuses",
-      "Link to More Info on Entity (bio or overview page)": "https://www.caltech.edu/",
+      "Entity Type": [
+        "Academic Org"
+      ],
       "Year founded / Born": "1891",
-      "Primary Operating Geography (Country)": "USA",
+      "Person or Org": "Organization",
+      "Link to More Info on Entity (bio or overview page)": "https://www.caltech.edu/",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--CalTech",
       "label": "CalTech",
       "year": 1891
     },
     {
+      "Entity": "Harvard's Solar Geoengineering Research Program",
       "Topical Contribution Area": [
         "Geoengineering: Solar Radiation Management"
       ],
       "Number of People Involved (to 3 sig digits)": "10-50",
-      "Enacting/Undertaking XYZ Interventions": [
-        "Addition of Atmospheric Aerosols"
-      ],
-      "Entity": "Harvard's Solar Geoengineering Research Program",
-      "Received XYZ Investment(s)": [
-        "Founding Harvard Solar Geoengineering Research Program",
-        "Symposium for Harvard Solar Geoengineering Research Program"
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
       ],
       "Entity Type": [
         "Academic Org"
       ],
-      "Status": [
-        "Active"
+      "Year founded / Born": "2017",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Addition of Atmospheric Aerosols"
       ],
       "Person or Org": "Organization",
-      "Focus": "Climate Change is entity's primary focus",
-      "Link to More Info on Entity (bio or overview page)": "https://geoengineering.environment.harvard.edu/about",
+      "Received XYZ Investment(s)": [
+        "Founding Harvard Solar Geoengineering Research Program",
+        "Symposium for Harvard Solar Geoengineering Research Program"
+      ],
       "Directly Associated Orgs (e.g., employment/parent org):": [
         "Harvard University "
       ],
-      "Year founded / Born": "2017",
-      "Primary Operating Geography (Country)": "USA",
+      "Link to More Info on Entity (bio or overview page)": "https://geoengineering.environment.harvard.edu/about",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--Harvard's Solar Geoengineering Research Program",
       "label": "Harvard's Solar Geoengineering Research Program",
       "year": 2017
     },
     {
+      "Entity": "Oil and Gas Climate Initiative (OGCI)",
       "Topical Contribution Area": [
         "Mitigation: Green Energy / Decarbonization",
         "Mitigation: Emissions Reduction",
         "Mitigation: Carbon Removal / Carbon Capture"
       ],
       "Number of People Involved (to 3 sig digits)": "10-50",
-      "Entity": "Oil and Gas Climate Initiative (OGCI)",
-      "Entity Type": [
-        "Funder Org (private e.g., VC or foundation)"
-      ],
+      "Focus": "Climate Change is entity's primary focus",
       "Status": [
         "Active"
       ],
+      "Entity Type": [
+        "Funder Org (private e.g., VC or foundation)"
+      ],
+      "Year founded / Born": "2014",
       "Person or Org": "Organization",
       "Funding XYZ Interventions": [
         "Environmental Monitoring"
       ],
-      "Focus": "Climate Change is entity's primary focus",
       "Link to More Info on Entity (bio or overview page)": "https://oilandgasclimateinitiative.com/",
-      "Year founded / Born": "2014",
-      "Primary Operating Geography (Country)": "UK",
+      "Primary Operating Geography (Country)": "GB",
       "id": "Actors--Oil and Gas Climate Initiative (OGCI)",
       "label": "Oil and Gas Climate Initiative (OGCI)",
       "year": 2014
     },
     {
+      "Entity": "Remora Carbon",
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture",
+        "Mitigation: Emissions Reduction"
+      ],
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Year founded / Born": "2020",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Decarbonizing the Economy"
+      ],
+      "Person or Org": "Organization",
+      "Received XYZ Investment(s)": [
+        "Investment in Remora Carbon"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://www.remoracarbon.com/",
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--Remora Carbon",
+      "label": "Remora Carbon",
+      "year": 2020
+    },
+    {
+      "Entity": "The Land Institute",
+      "Topical Contribution Area": [
+        "Adaptation: Natural Ecosystem Preservation"
+      ],
+      "Number of People Involved (to 3 sig digits)": "50-100",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Activist / Advocacy Org",
+        "Academic Org"
+      ],
+      "Year founded / Born": "1976",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Biomass/Ecosystem Managment"
+      ],
+      "Person or Org": "Organization",
+      "Received XYZ Investment(s)": [
+        "Additional Ventures Grant to The Land Institute"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://landinstitute.org/our-work/",
+      "Partners With": [
+        "MIT"
+      ],
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--The Land Institute",
+      "label": "The Land Institute",
+      "year": 1976
+    },
+    {
+      "Entity": "Columbia University",
       "Topical Contribution Area": [
         "Mitigation: Emissions Reduction",
         "Mitigation: Carbon Removal / Carbon Capture",
@@ -1562,23 +2852,23 @@
         "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)"
       ],
       "Number of People Involved (to 3 sig digits)": "1000+",
-      "Entity": "Columbia University",
-      "Entity Type": [
-        "Academic Org"
-      ],
+      "Focus": "Climate Change is among entity's portfolio focuses",
       "Status": [
         "Active"
       ],
-      "Person or Org": "Organization",
-      "Focus": "Climate Change is among entity's portfolio focuses",
-      "Link to More Info on Entity (bio or overview page)": "https://www.columbia.edu/",
+      "Entity Type": [
+        "Academic Org"
+      ],
       "Year founded / Born": "1754",
-      "Primary Operating Geography (Country)": "USA",
+      "Person or Org": "Organization",
+      "Link to More Info on Entity (bio or overview page)": "https://www.columbia.edu/",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--Columbia University",
       "label": "Columbia University",
       "year": 1754
     },
     {
+      "Entity": "UCLA Center for Climate Science",
       "Topical Contribution Area": [
         "Mitigation: Emissions Reduction",
         "Mitigation: Carbon Removal / Carbon Capture",
@@ -1589,25 +2879,25 @@
         "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)"
       ],
       "Number of People Involved (to 3 sig digits)": "10-50",
-      "Entity": "UCLA Center for Climate Science",
-      "Entity Type": [
-        "Academic Org"
-      ],
+      "Focus": "Climate Change is entity's primary focus",
       "Status": [
         "Active"
       ],
+      "Entity Type": [
+        "Academic Org"
+      ],
       "Person or Org": "Organization",
-      "Focus": "Climate Change is entity's primary focus",
-      "Link to More Info on Entity (bio or overview page)": "https://www.ioes.ucla.edu/climate/",
       "Directly Associated Orgs (e.g., employment/parent org):": [
         "UCLA"
       ],
-      "Primary Operating Geography (Country)": "USA",
+      "Link to More Info on Entity (bio or overview page)": "https://www.ioes.ucla.edu/climate/",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--UCLA Center for Climate Science",
       "label": "UCLA Center for Climate Science",
       "year": null
     },
     {
+      "Entity": "Tapio Schneider",
       "Topical Contribution Area": [
         "Mitigation: Emissions Reduction",
         "Adaptation: Natural Ecosystem Preservation",
@@ -1615,177 +2905,376 @@
         "Adaptation: Rural Human Built-Environment Protection"
       ],
       "Number of People Involved (to 3 sig digits)": "Individual ",
-      "Enacting/Undertaking XYZ Interventions": [
-        "Climate/Earth System Modelling"
-      ],
-      "Entity": "Tapio Schneider",
-      "Entity Type": [
-        "Scientific/Engineering Researcher Individual"
-      ],
+      "Focus": "Climate Change is entity's primary focus",
       "Status": [
         "Active"
       ],
+      "Entity Type": [
+        "Scientific/Engineering Researcher Individual"
+      ],
+      "Year founded / Born": "1972",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Climate/Earth System Modelling"
+      ],
       "Person or Org": "Individual Person",
-      "Focus": "Climate Change is entity's primary focus",
-      "Link to More Info on Entity (bio or overview page)": "https://en.wikipedia.org/wiki/Tapio_Schneider",
       "Directly Associated Orgs (e.g., employment/parent org):": [
         "CalTech"
       ],
-      "Year founded / Born": "1972",
-      "Primary Operating Geography (Country)": "USA",
+      "Link to More Info on Entity (bio or overview page)": "https://en.wikipedia.org/wiki/Tapio_Schneider",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--Tapio Schneider",
       "label": "Tapio Schneider",
       "year": 1972
     },
     {
+      "Entity": "Greenbelt Alliance",
       "Topical Contribution Area": [
         "Adaptation: Natural Ecosystem Preservation",
         "Adaptation: Urban Human Built-Environment Protection",
         "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)"
       ],
       "Number of People Involved (to 3 sig digits)": "10-50",
-      "Entity": "Greenbelt Alliance",
-      "Entity Type": [
-        "Activist / Advocacy Org"
-      ],
+      "Focus": "Climate Change is among entity's portfolio focuses",
       "Status": [
         "Active"
       ],
+      "Entity Type": [
+        "Activist / Advocacy Org"
+      ],
+      "Year founded / Born": "1958",
       "Person or Org": "Organization",
-      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Link to More Info on Entity (bio or overview page)": "https://www.greenbelt.org/",
       "Partners With": [
         "The Nature Conservancy"
       ],
-      "Link to More Info on Entity (bio or overview page)": "https://www.greenbelt.org/",
-      "Year founded / Born": "1958",
-      "Primary Operating Geography (Country)": "USA",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--Greenbelt Alliance",
       "label": "Greenbelt Alliance",
       "year": 1958
     },
     {
+      "Entity": "The Future Forest Company",
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture"
+      ],
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Year founded / Born": "2020",
+      "Enacting/Undertaking XYZ Interventions": [
+        "CO2 capture from ambient air (multiple downstream applications)",
+        "CO2 removal via enhanced rock weathering"
+      ],
+      "Person or Org": "Organization",
+      "Link to More Info on Entity (bio or overview page)": "https://thefutureforestcompany.com/",
+      "Partners With": [
+        "Stripe"
+      ],
+      "Primary Operating Geography (Country)": "GB",
+      "id": "Actors--The Future Forest Company",
+      "label": "The Future Forest Company",
+      "year": 2020
+    },
+    {
+      "Entity": "Charm Industrial",
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture"
+      ],
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Year founded / Born": "2018",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Biomass/Ecosystem Managment"
+      ],
+      "Person or Org": "Organization",
+      "Received XYZ Investment(s)": [
+        "Investment in Charm Industrial"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://charmindustrial.com/",
+      "Partners With": [
+        "Stripe"
+      ],
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--Charm Industrial",
+      "label": "Charm Industrial",
+      "year": 2018
+    },
+    {
+      "Entity": "Dandelion Energy",
+      "Topical Contribution Area": [
+        "Mitigation: Green Energy / Decarbonization",
+        "Adaptation: Urban Human Built-Environment Protection"
+      ],
+      "Number of People Involved (to 3 sig digits)": "50-100",
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Year founded / Born": "2017",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Advancing Energy Innovation"
+      ],
+      "Person or Org": "Organization",
+      "Received XYZ Investment(s)": [
+        "Investment in Dandelion Energy"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://dandelionenergy.com/",
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--Dandelion Energy",
+      "label": "Dandelion Energy",
+      "year": 2017
+    },
+    {
+      "Entity": "BioMason",
       "Topical Contribution Area": [
         "Mitigation: Carbon Removal / Carbon Capture"
       ],
       "Number of People Involved (to 3 sig digits)": "Under 10",
-      "Enacting/Undertaking XYZ Interventions": [
-        "CO2 Capture for Concrete/Cement production"
-      ],
-      "Entity": "BioMason",
-      "Entity Type": [
-        "For-Profit Climate Intervention Company"
-      ],
+      "Focus": "Climate Change is entity's primary focus",
       "Status": [
         "Active"
       ],
-      "Person or Org": "Organization",
-      "Focus": "Climate Change is entity's primary focus",
-      "Link to More Info on Entity (bio or overview page)": "https://www.biomason.com/",
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
       "Year founded / Born": "2012",
-      "Primary Operating Geography (Country)": "USA",
+      "Enacting/Undertaking XYZ Interventions": [
+        "CO2 Capture for Concrete/Cement production"
+      ],
+      "Person or Org": "Organization",
+      "Link to More Info on Entity (bio or overview page)": "https://www.biomason.com/",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--BioMason",
       "label": "BioMason",
       "year": 2012
     },
     {
+      "Entity": "Stripe",
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture",
+        "Mitigation: Emissions Reduction"
+      ],
+      "Number of People Involved (to 3 sig digits)": "1000+",
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Funder Org (private e.g., VC or foundation)"
+      ],
+      "Year founded / Born": "2009",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Decarbonizing the Economy"
+      ],
+      "Person or Org": "Organization",
+      "Link to More Info on Entity (bio or overview page)": "https://stripe.com",
+      "Partners With": [
+        "Climeworks",
+        "Watershed Climate",
+        "Project Vesta",
+        "CarbonCure",
+        "Charm Industrial",
+        "RunningTide",
+        "Heirloom",
+        "Mission Zero Technologies",
+        "CarbonBuilt "
+      ],
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--Stripe",
+      "label": "Stripe",
+      "year": 2009
+    },
+    {
+      "Entity": "Saul Griffith ",
       "Topical Contribution Area": [
         "Mitigation: Green Energy / Decarbonization"
       ],
       "Number of People Involved (to 3 sig digits)": "Individual ",
-      "Enacting/Undertaking XYZ Interventions": [
-        "Decarbonizing the Economy"
-      ],
-      "Entity": "Saul Griffith ",
-      "Entity Type": [
-        "Founder / StartUp Individual "
-      ],
+      "Focus": "Climate Change is among entity's portfolio focuses",
       "Status": [
         "Active"
       ],
+      "Entity Type": [
+        "Founder / StartUp Individual "
+      ],
+      "Year founded / Born": "1974",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Decarbonizing the Economy"
+      ],
       "Person or Org": "Individual Person",
-      "Focus": "Climate Change is among entity's portfolio focuses",
-      "Link to More Info on Entity (bio or overview page)": "https://www.saulgriffith.com/blog/gnd-shooting-for-the-moon",
       "Directly Associated Orgs (e.g., employment/parent org):": [
         "OtherLabs"
       ],
-      "Year founded / Born": "1974",
-      "Primary Operating Geography (Country)": "USA",
+      "Link to More Info on Entity (bio or overview page)": "https://www.saulgriffith.com/blog/gnd-shooting-for-the-moon",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--Saul Griffith ",
       "label": "Saul Griffith ",
       "year": 1974
     },
     {
+      "Entity": "Yes VC",
+      "Number of People Involved (to 3 sig digits)": "Under 10",
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Funder Org (private e.g., VC or foundation)"
+      ],
+      "Year founded / Born": "2018",
+      "Person or Org": "Organization",
+      "Made XYZ Investment(s)": [
+        "Investment in Heirloom",
+        "Investment in RunningTide"
+      ],
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--Yes VC",
+      "label": "Yes VC",
+      "year": 2018
+    },
+    {
+      "Entity": "Y Combinator",
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Funder Org (private e.g., VC or foundation)"
+      ],
+      "Year founded / Born": "2005",
+      "Person or Org": "Organization",
+      "Made XYZ Investment(s)": [
+        "Investment in Pachama",
+        "Investment in CarbonChain",
+        "Investment in Remora Carbon"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://ycombinator.com",
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--Y Combinator",
+      "label": "Y Combinator",
+      "year": 2005
+    },
+    {
+      "Entity": "Breakthrough Energy Ventures",
+      "Number of People Involved (to 3 sig digits)": "100-500",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Funder Org (private e.g., VC or foundation)"
+      ],
+      "Year founded / Born": "2015",
+      "Person or Org": "Organization",
+      "Made XYZ Investment(s)": [
+        "Breakthrough Energy Ventures Investment in CarbonCure",
+        "Investment in Heirloom",
+        "Investment in Bloom Biorenewables",
+        "Investment in Boston Metal",
+        "Investment in C-Zero",
+        "Investment in enVerid",
+        "Investment in Dandelion Energy",
+        "Investment in Pachama",
+        "Investment in Solidia Technologies"
+      ],
+      "Directly Associated Orgs (e.g., employment/parent org):": [
+        "Bill Gates"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://www.breakthroughenergy.org/",
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--Breakthrough Energy Ventures",
+      "label": "Breakthrough Energy Ventures",
+      "year": 2015
+    },
+    {
+      "Entity": "Susteon",
       "Topical Contribution Area": [
         "Mitigation: Carbon Removal / Carbon Capture",
         "Mitigation: Green Energy / Decarbonization"
       ],
       "Number of People Involved (to 3 sig digits)": "10-50",
-      "Enacting/Undertaking XYZ Interventions": [
-        "CO2 Capture for Concrete/Cement production"
-      ],
-      "Entity": "Susteon",
-      "Received XYZ Investment(s)": [
-        "DoE - A Scalable Process for Upcycling Carbon Dioxide (CO2) and Coal Combustion Residues Into Construction Products"
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
       ],
       "Entity Type": [
         "For-Profit Climate Intervention Company"
       ],
-      "Status": [
-        "Active"
+      "Year founded / Born": "2018",
+      "Enacting/Undertaking XYZ Interventions": [
+        "CO2 Capture for Concrete/Cement production"
       ],
       "Person or Org": "Organization",
-      "Focus": "Climate Change is entity's primary focus",
+      "Received XYZ Investment(s)": [
+        "DoE - A Scalable Process for Upcycling Carbon Dioxide (CO2) and Coal Combustion Residues Into Construction Products"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "http://susteon.com/what-we-do/",
       "Partners With": [
         "Carbon Upcycling UCLA"
       ],
-      "Link to More Info on Entity (bio or overview page)": "http://susteon.com/what-we-do/",
-      "Year founded / Born": "2018",
-      "Primary Operating Geography (Country)": "USA",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--Susteon",
       "label": "Susteon",
       "year": 2018
     },
     {
+      "Entity": "Klaus Lackner",
       "Topical Contribution Area": [
         "Mitigation: Carbon Removal / Carbon Capture",
         "Mitigation: Green Energy / Decarbonization"
       ],
       "Number of People Involved (to 3 sig digits)": "Individual ",
-      "Enacting/Undertaking XYZ Interventions": [
-        "CO2 capture from ambient air (multiple downstream applications)"
-      ],
-      "Entity": "Klaus Lackner",
-      "Entity Type": [
-        "Scientific/Engineering Researcher Individual"
-      ],
+      "Focus": "Climate Change is entity's primary focus",
       "Status": [
         "Active"
       ],
+      "Entity Type": [
+        "Scientific/Engineering Researcher Individual"
+      ],
+      "Enacting/Undertaking XYZ Interventions": [
+        "CO2 capture from ambient air (multiple downstream applications)"
+      ],
       "Person or Org": "Individual Person",
-      "Focus": "Climate Change is entity's primary focus",
-      "Link to More Info on Entity (bio or overview page)": "https://cnce.engineering.asu.edu/klaus-lackner/",
       "Directly Associated Orgs (e.g., employment/parent org):": [
         "ASU",
         "ASU Center for Negative Carbon Emissions",
         "Silicon Kingdom Holdings / MechanicalTrees"
       ],
-      "Primary Operating Geography (Country)": "USA",
+      "Link to More Info on Entity (bio or overview page)": "https://cnce.engineering.asu.edu/klaus-lackner/",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--Klaus Lackner",
       "label": "Klaus Lackner",
       "year": null
     },
     {
+      "Entity": "Open Philanthropy",
       "Topical Contribution Area": [
         "Geoengineering: Solar Radiation Management"
       ],
       "Number of People Involved (to 3 sig digits)": "10-50",
-      "Entity": "Open Philanthropy",
-      "Entity Type": [
-        "Funder Org (private e.g., VC or foundation)"
-      ],
+      "Focus": "Climate Change is among entity's portfolio focuses",
       "Status": [
         "Active"
       ],
+      "Entity Type": [
+        "Funder Org (private e.g., VC or foundation)"
+      ],
+      "Year founded / Born": "2017",
       "Person or Org": "Organization",
       "Funding XYZ Interventions": [
         "Addition of Atmospheric Aerosols"
@@ -1793,75 +3282,146 @@
       "Made XYZ Investment(s)": [
         "Founding Harvard Solar Geoengineering Research Program"
       ],
-      "Focus": "Climate Change is among entity's portfolio focuses",
       "Link to More Info on Entity (bio or overview page)": "https://www.openphilanthropy.org/focus/global-catastrophic-risks/miscellaneous/harvard-university-solar-geoengineering-research-program",
-      "Year founded / Born": "2017",
-      "Primary Operating Geography (Country)": "USA",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--Open Philanthropy",
       "label": "Open Philanthropy",
       "year": 2017
     },
     {
+      "Entity": "University of Southern California",
+      "Number of People Involved (to 3 sig digits)": "1000+",
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Academic Org"
+      ],
+      "Year founded / Born": "1880",
+      "Person or Org": "Organization",
+      "Link to More Info on Entity (bio or overview page)": "https://usc.edu",
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--University of Southern California",
+      "label": "University of Southern California",
+      "year": 1880
+    },
+    {
+      "Entity": "RunningTide",
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture"
+      ],
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Year founded / Born": "2018",
+      "Enacting/Undertaking XYZ Interventions": [
+        "CO2 capture from ambient air (multiple downstream applications)"
+      ],
+      "Person or Org": "Organization",
+      "Received XYZ Investment(s)": [
+        "Investment in RunningTide"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://www.runningtide.com/",
+      "Partners With": [
+        "Stripe"
+      ],
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--RunningTide",
+      "label": "RunningTide",
+      "year": 2018
+    },
+    {
+      "Entity": "Carbon Engineering ",
       "Topical Contribution Area": [
         "Mitigation: Carbon Removal / Carbon Capture",
         "Mitigation: Green Energy / Decarbonization"
       ],
       "Number of People Involved (to 3 sig digits)": "10-50",
-      "Enacting/Undertaking XYZ Interventions": [
-        "CO2 Capture from ambient air to make carbon-neutral hydrocarbon fuels"
-      ],
-      "Entity": "Carbon Engineering ",
-      "Received XYZ Investment(s)": [
-        "Investment in Carbon Energy "
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
       ],
       "Entity Type": [
         "For-Profit Climate Intervention Company"
       ],
-      "Status": [
-        "Active"
+      "Year founded / Born": "2009",
+      "Enacting/Undertaking XYZ Interventions": [
+        "CO2 Capture from ambient air to make carbon-neutral hydrocarbon fuels"
       ],
       "Person or Org": "Organization",
-      "Focus": "Climate Change is entity's primary focus",
+      "Received XYZ Investment(s)": [
+        "Investment in Carbon Energy "
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://carbonengineering.com/our-story/",
       "Partners With": [
         "Pale Blue Dot"
       ],
-      "Link to More Info on Entity (bio or overview page)": "https://carbonengineering.com/our-story/",
-      "Year founded / Born": "2009",
-      "Primary Operating Geography (Country)": "Canada",
+      "Primary Operating Geography (Country)": "CA",
       "id": "Actors--Carbon Engineering ",
       "label": "Carbon Engineering ",
       "year": 2009
     },
     {
+      "Entity": "The Engine",
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Funder Org (private e.g., VC or foundation)"
+      ],
+      "Year founded / Born": "2015",
+      "Person or Org": "Organization",
+      "Made XYZ Investment(s)": [
+        "Investment in Boston Metal"
+      ],
+      "Directly Associated Orgs (e.g., employment/parent org):": [
+        "MIT"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://www.engine.xyz/",
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--The Engine",
+      "label": "The Engine",
+      "year": 2015
+    },
+    {
+      "Entity": "Gernot Wagner ",
       "Topical Contribution Area": [
         "Geoengineering: Solar Radiation Management",
         "Mitigation: Emissions Reduction"
       ],
       "Number of People Involved (to 3 sig digits)": "Individual ",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Journalist / Author Individual"
+      ],
+      "Year founded / Born": "1980",
       "Enacting/Undertaking XYZ Interventions": [
         "Economics of Geoengineering",
         "Governance / Public Policy for Geoengineering"
       ],
-      "Entity": "Gernot Wagner ",
-      "Entity Type": [
-        "Journalist / Author Individual"
-      ],
-      "Status": [
-        "Active"
-      ],
       "Person or Org": "Individual Person",
-      "Focus": "Climate Change is entity's primary focus",
-      "Link to More Info on Entity (bio or overview page)": "https://en.wikipedia.org/wiki/Gernot_Wagner",
       "Directly Associated Orgs (e.g., employment/parent org):": [
         "Harvard's Solar Geoengineering Research Program"
       ],
-      "Year founded / Born": "1980",
-      "Primary Operating Geography (Country)": "USA",
+      "Link to More Info on Entity (bio or overview page)": "https://en.wikipedia.org/wiki/Gernot_Wagner",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--Gernot Wagner ",
       "label": "Gernot Wagner ",
       "year": 1980
     },
     {
+      "Entity": "Stanford University ",
       "Topical Contribution Area": [
         "Mitigation: Emissions Reduction",
         "Mitigation: Carbon Removal / Carbon Capture",
@@ -1873,78 +3433,171 @@
         "Geoengineering: Oceanic Ecosystems and Chemistry"
       ],
       "Number of People Involved (to 3 sig digits)": "1000+",
-      "Entity": "Stanford University ",
-      "Entity Type": [
-        "Academic Org"
-      ],
+      "Focus": "Climate Change is among entity's portfolio focuses",
       "Status": [
         "Active"
       ],
-      "Person or Org": "Organization",
-      "Focus": "Climate Change is among entity's portfolio focuses",
-      "Link to More Info on Entity (bio or overview page)": "https://www.stanford.edu/",
+      "Entity Type": [
+        "Academic Org"
+      ],
       "Year founded / Born": "1885",
-      "Primary Operating Geography (Country)": "USA",
+      "Person or Org": "Organization",
+      "Link to More Info on Entity (bio or overview page)": "https://www.stanford.edu/",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--Stanford University ",
       "label": "Stanford University ",
       "year": 1885
     },
     {
+      "Entity": "CarbonCure",
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture"
+      ],
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Year founded / Born": "2007",
+      "Enacting/Undertaking XYZ Interventions": [
+        "CO2 Capture for Concrete/Cement production"
+      ],
+      "Person or Org": "Organization",
+      "Received XYZ Investment(s)": [
+        "NRG COSIA Carbon XPRIZE",
+        "Breakthrough Energy Ventures Investment in CarbonCure"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://www.carboncure.com/",
+      "Partners With": [
+        "Stripe"
+      ],
+      "Primary Operating Geography (Country)": "CA",
+      "Secondary Geography (Country)": "USA",
+      "id": "Actors--CarbonCure",
+      "label": "CarbonCure",
+      "year": 2007
+    },
+    {
+      "Entity": "Kairos Aerospace, Inc",
       "Topical Contribution Area": [
         "Mitigation: Emissions Reduction"
       ],
       "Number of People Involved (to 3 sig digits)": "10-50",
-      "Enacting/Undertaking XYZ Interventions": [
-        "Environmental Monitoring"
-      ],
-      "Entity": "Kairos Aerospace, Inc",
-      "Entity Type": [
-        "For-Profit Climate Intervention Company"
-      ],
+      "Focus": "Climate Change is entity's primary focus",
       "Status": [
         "Active"
       ],
-      "Person or Org": "Organization",
-      "Focus": "Climate Change is entity's primary focus",
-      "Link to More Info on Entity (bio or overview page)": "http://kairosaerospace.com/",
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
       "Year founded / Born": "2014",
-      "Primary Operating Geography (Country)": "USA",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Environmental Monitoring"
+      ],
+      "Person or Org": "Organization",
+      "Link to More Info on Entity (bio or overview page)": "http://kairosaerospace.com/",
+      "Primary Operating Geography (Country)": "US",
       "id": "Actors--Kairos Aerospace, Inc",
       "label": "Kairos Aerospace, Inc",
       "year": 2014
     },
     {
+      "Entity": "University of Pennsylvania",
+      "Number of People Involved (to 3 sig digits)": "1000+",
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Academic Org"
+      ],
+      "Year founded / Born": "1740",
+      "Person or Org": "Organization",
+      "Link to More Info on Entity (bio or overview page)": "https://upenn.edu",
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--University of Pennsylvania",
+      "label": "University of Pennsylvania",
+      "year": 1740
+    },
+    {
+      "Entity": "Bill Gates",
+      "Number of People Involved (to 3 sig digits)": "Individual ",
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Funder / Donor Individual "
+      ],
+      "Year founded / Born": "1955",
+      "Person or Org": "Individual Person",
+      "Directly Associated Orgs (e.g., employment/parent org):": [
+        "Breakthrough Energy Ventures"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://en.wikipedia.org/wiki/Bill_Gates",
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--Bill Gates",
+      "label": "Bill Gates",
+      "year": 1955
+    },
+    {
+      "Entity": "David Keith",
       "Topical Contribution Area": [
         "Geoengineering: Solar Radiation Management",
         "Mitigation: Carbon Removal / Carbon Capture",
         "Mitigation: Green Energy / Decarbonization"
       ],
       "Number of People Involved (to 3 sig digits)": "Individual ",
-      "Enacting/Undertaking XYZ Interventions": [
-        "CO2 Capture from ambient air to make carbon-neutral hydrocarbon fuels",
-        "Addition of Atmospheric Aerosols"
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
       ],
-      "Entity": "David Keith",
-      "Secondary Geography (Country)": "Canada",
       "Entity Type": [
         "Scientific/Engineering Researcher Individual",
         "Activist / Advocacy Individual ",
         "Founder / StartUp Individual "
       ],
-      "Status": [
-        "Active"
+      "Enacting/Undertaking XYZ Interventions": [
+        "CO2 Capture from ambient air to make carbon-neutral hydrocarbon fuels",
+        "Addition of Atmospheric Aerosols"
       ],
       "Person or Org": "Individual Person",
-      "Focus": "Climate Change is entity's primary focus",
-      "Link to More Info on Entity (bio or overview page)": "https://keith.seas.harvard.edu/people/david-keith",
       "Directly Associated Orgs (e.g., employment/parent org):": [
         "Harvard University ",
         "Harvard's Solar Geoengineering Research Program",
         "Carbon Engineering "
       ],
-      "Primary Operating Geography (Country)": "USA",
+      "Link to More Info on Entity (bio or overview page)": "https://keith.seas.harvard.edu/people/david-keith",
+      "Primary Operating Geography (Country)": "US",
+      "Secondary Geography (Country)": "CA",
       "id": "Actors--David Keith",
       "label": "David Keith",
+      "year": null
+    },
+    {
+      "Entity": "Peter Keleman",
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture"
+      ],
+      "Number of People Involved (to 3 sig digits)": "Individual ",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Scientific/Engineering Researcher Individual"
+      ],
+      "Person or Org": "Individual Person",
+      "Directly Associated Orgs (e.g., employment/parent org):": [
+        "Columbia University",
+        "Heirloom"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://www.ldeo.columbia.edu/~peterk/Welcome.html",
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--Peter Keleman",
+      "label": "Peter Keleman",
       "year": null
     }
   ],
