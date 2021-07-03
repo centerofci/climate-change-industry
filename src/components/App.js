@@ -44,6 +44,17 @@ function App() {
 
   return (
     <div className={`App App--is-${isEmbed ? "embed" : "normal"}`}>
+      <div className="App__nav">
+        <a
+          href="/?viz=network"
+          className={viz === "network" ? "active" : "inactive"}
+        >
+          Network
+        </a>
+        <a href="/?viz=map" className={viz === "map" ? "active" : "inactive"}>
+          Map
+        </a>
+      </div>
       {viz === "network" ? (
         <Network
           {...{
