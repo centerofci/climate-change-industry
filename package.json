@@ -4,6 +4,8 @@
   "homepage": "https://centerofci.github.io/climate-change-industry",
   "private": true,
   "dependencies": {
+    "basic-ftp": "^4.6.6",
+    "cheerio": "^1.0.0-rc.10",
     "classnames": "^2.2.6",
     "d3": "^6.3.1",
     "d3-array": "^2.4.0",
