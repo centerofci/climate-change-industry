@@ -34,6 +34,8 @@ This will build the production bundle and push to the `gh-pages` branch, which i
 
 ## Updating data
 
+### Airtable data
+
 I have a file named `.env.local` that sits in the base of this repository that contains my airtable API key.
 
 ```
@@ -44,4 +46,8 @@ When `yarn data` is run, it will run the node script `./getData.js`, which uses 
 
 The repo has an attached Github Action that can access that API key (pls don't steal it), runs `yarn data`, and commits any changes to the `data.json` file.
 
-This Action will run whenever a change is pushed to `master`, and at midnight UTC every day. See past runs or re-run the Action [in the Github interface](https://github.com/Wattenberger/climate-change-industry/actions).
+This Action will run whenever a change is pushed to `master`, and at midnight UTC every day (by the `fetch-data.yml` GitHub Action). See past runs or re-run the Action [in the Github interface](https://github.com/Wattenberger/climate-change-industry/actions).
+
+### Benchmark data
+
+There are several node scripts for scraping benchmark data, which output data in the `src/data/` folder. These can all be run using `yarn scrape-data`, and the `scrape-dashboard-data.yml` GitHub Action will automatically run it every Sunday.
