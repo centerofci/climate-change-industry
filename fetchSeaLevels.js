@@ -28,13 +28,13 @@ function parse(html) {
     .replace(', "mm");', '')
   const chartData = JSON.parse(chartExtract).map((o) => {
     const { month, day, year, x, y } = o
-    return { month, day, year, year_fraction: x, level: y }
+    return { month: +month, day: +day, year: +year, year_fraction: +x, level: +y }
   })
 
   return { unit: 'mm', levels: chartData }
 }
 
-;(async () => {
+; (async () => {
   const html = await pullHtml()
   const json = parse(html)
 

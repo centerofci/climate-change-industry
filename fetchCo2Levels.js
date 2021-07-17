@@ -19,7 +19,7 @@ function parse(text) {
     .filter((o) => o.split(' ').length > 1)
     .map((o) => {
       let split = o.split(' ')
-      return { year: split[1], month: split[2], level: split[5] }
+      return { year: +split[1], month: +split[2], level: +split[5] }
     })
 
   return { unit: 'ppm', levels: result }
