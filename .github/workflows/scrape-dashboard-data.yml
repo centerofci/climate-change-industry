@@ -1,0 +1,53 @@
+name: Scrape data for the dashboard
+
+on:
+  push:
+    paths:
+      - ".github/workflows/scrape-dashboard-data.yml"
+      - "fetchSeaLevels.js"
+      - "fetchCo2Levels.js"
+      - "fetchCh4Levels.js"
+
+  schedule:
+    - cron: "0 4 * * 0"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - run: npm install
+
+      - name: Download data
+        run: npm run scrape-data
+
+      - name: Commit files
+        run: |
+          git config --local user.name "wattenberger"
+          git add ./src/data.json
+          git commit -m "Updating data.json" --allow-empty
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          force: true
+
+      - name: Build bundle
+        run: CI='' npm run build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
