@@ -1,4 +1,3 @@
-const cheerio = require('cheerio')
 const ftp = require('basic-ftp')
 const fs = require('fs')
 
@@ -26,7 +25,7 @@ function parse(text) {
   return { unit: 'ppm', levels: result }
 }
 
-;(async () => {
+; (async () => {
   await pullData()
   const raw = fs.readFileSync('./co2_raw.txt', 'utf8')
   fs.unlinkSync('./co2_raw.txt')
