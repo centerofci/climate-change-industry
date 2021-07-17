@@ -57,8 +57,7 @@ const NetworkBubbles = ({
   const clusterByKey = (groupMeta || {})["clusterBy"];
   const getClusterName =
     (groupMeta || {})["getClusterName"] || ((d) => d[clusterByKey]);
-  const getColor = (d) =>
-    contributionAreaColors[d["mainContributionArea"].sort().join("--")] ||
+  const getColor = (d) => (contributionAreaColors[d["mainContributionArea"]] && contributionAreaColors[d["mainContributionArea"].sort().join("--")]) ||
     "#888";
   const getSize = (groupMeta || {})["getSize"] || (() => 1);
   const fromColor = "#92C8C6";
@@ -280,12 +279,12 @@ const NetworkBubbles = ({
       linkedNodeIds: node.isMain
         ? []
         : [
-            ...new Set(
-              getMatches(node).map(
-                (d) => [d.source, d.target].filter((d) => d != node.id)[0]
-              )
-            ),
-          ],
+          ...new Set(
+            getMatches(node).map(
+              (d) => [d.source, d.target].filter((d) => d != node.id)[0]
+            )
+          ),
+        ],
     }));
 
     const newFocusedNode = focusedNode || nodes.find((d) => d.isMain);
@@ -352,8 +351,8 @@ const NetworkBubbles = ({
           (d) =>
             d["r"] +
             baseCircleSize *
-              (groupType == "Actors" ? 3 : 1.2) *
-              (d.isMain ? 1.3 : 0.6)
+            (groupType == "Actors" ? 3 : 1.2) *
+            (d.isMain ? 1.3 : 0.6)
         )
           .strength(0.7)
           // .iterations(groupType == "Actors" ? 10 : 6)
@@ -381,35 +380,35 @@ const NetworkBubbles = ({
     groupType == "Actors"
       ? []
       : clusters.map(({ name, items = [] }) => {
-          const position = getClusterPosition(items[0]);
-          if (!position) return [];
-          const points = groups.current
-            .filter((d) => getClusterName(d) == name && d.isMain)
-            .map((d) => [d.x, d.y]);
-          let hull = polygonHull(points) || [];
-          if (!hull.length) hull = points;
-          const top = [
-            keepBetween(
-              points.map((d) => d[0]).reduce((a, b) => a + b, 0) /
-                points.length,
-              50,
-              dms.width - 50
-            ),
-            keepBetween(
-              Math.min(...points.map((d) => d[1])) - baseCircleSize * 5,
-              10,
-              dms.height - 10
-            ),
-          ];
-          return {
-            name,
-            path: hull.length
-              ? "M" + hull.map((d) => d.join(" ")).join(" L ") + "Z"
-              : "",
-            top,
-            position,
-          };
-        });
+        const position = getClusterPosition(items[0]);
+        if (!position) return [];
+        const points = groups.current
+          .filter((d) => getClusterName(d) == name && d.isMain)
+          .map((d) => [d.x, d.y]);
+        let hull = polygonHull(points) || [];
+        if (!hull.length) hull = points;
+        const top = [
+          keepBetween(
+            points.map((d) => d[0]).reduce((a, b) => a + b, 0) /
+            points.length,
+            50,
+            dms.width - 50
+          ),
+          keepBetween(
+            Math.min(...points.map((d) => d[1])) - baseCircleSize * 5,
+            10,
+            dms.height - 10
+          ),
+        ];
+        return {
+          name,
+          path: hull.length
+            ? "M" + hull.map((d) => d.join(" ")).join(" L ") + "Z"
+            : "",
+          top,
+          position,
+        };
+      });
 
   function onTick(d) {
     const padding = 20;
@@ -449,8 +448,8 @@ const NetworkBubbles = ({
             secondaryNodesOnNodeRunningCount[linkedId] = 0;
           const spiralPosition =
             spiralPositions[
-              secondaryNodesOnNodeRunningCount[linkedId] %
-                spiralPositions.length
+            secondaryNodesOnNodeRunningCount[linkedId] %
+            spiralPositions.length
             ];
           position = [
             linkedNodes[0].x + spiralPosition.x,
@@ -545,9 +544,8 @@ const NetworkBubbles = ({
   return (
     <div
       ref={ref}
-      className={`NetworkBubbles NetworkBubbles--${
-        activeFilters.length || searchTerm ? "is" : "is-not"
-      }-hovering`}
+      className={`NetworkBubbles NetworkBubbles--${activeFilters.length || searchTerm ? "is" : "is-not"
+        }-hovering`}
     >
       <div className="NetworkBubbles__wrapper">
         {groups.current && (
@@ -691,7 +689,7 @@ const NetworkBubbles = ({
                     <circle
                       fill={
                         groupType == "Actors" &&
-                        item["id"] == (focusedNode || {})["id"]
+                          item["id"] == (focusedNode || {})["id"]
                           ? "white"
                           : "transparent"
                       }
@@ -705,7 +703,7 @@ const NetworkBubbles = ({
                       }}
                     >
                       {item["type"] == "Actors" &&
-                      item["Person or Org"] == "Organization"
+                        item["Person or Org"] == "Organization"
                         ? typeShapes["Organizations"]
                         : typeShapes[item["type"]]}
                     </g>

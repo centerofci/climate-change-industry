@@ -16,6 +16,7 @@ export const groupOptions = [
     pluralNoun: "interventions",
     key: "Interventions",
     accessor: (d) => d["Interventions"],
+    getSize: (d) => 0.8,
     clusterBy: "mainContributionArea",
     getClusterName: (d) => d["mainContributionArea"],
     // getColor: (d) => contributionAreaColors[d["mainContributionArea"]],
@@ -77,8 +78,8 @@ export const groupOptions = [
       d.type != "Actors"
         ? 1.7
         : d["Person or Org"] == "Individual Person"
-        ? 2.1
-        : ([
+          ? 2.1
+          : ([
             "Under 10",
             "10-50",
             "50-100",
