@@ -34,8 +34,8 @@ jobs:
       - name: Commit files
         run: |
           git config --local user.name "wattenberger"
-          git add ./src/data.json
-          git commit -m "Updating data.json" --allow-empty
+          git add .
+          git commit -m "Updating dashboard data" --allow-empty
 
       - name: Push changes
         uses: ad-m/github-push-action@master
