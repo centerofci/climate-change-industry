@@ -32,7 +32,7 @@ function parse(text) {
   const json = parse(raw)
 
   fs.writeFileSync(
-    `${process.env.LOCATION || './public/'}co2_levels.json`,
+    `${process.env.LOCATION || './src/data/'}co2_levels.json`,
     JSON.stringify(json)
   )
 })()

@@ -39,7 +39,7 @@ function parse(html) {
   const json = parse(html)
 
   fs.writeFileSync(
-    `${process.env.LOCATION || './public/'}sea_levels.json`,
+    `${process.env.LOCATION || './src/data/'}sea_levels.json`,
     JSON.stringify(json)
   )
 })()

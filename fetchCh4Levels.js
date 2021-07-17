@@ -34,7 +34,7 @@ function parse(text) {
   const json = parse(raw)
 
   fs.writeFileSync(
-    `${process.env.LOCATION || './public/'}ch4_levels.json`,
+    `${process.env.LOCATION || './src/data/'}ch4_levels.json`,
     JSON.stringify(json)
   )
 })()
