@@ -1,0 +1,49 @@
+.Timeline {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.Timeline__wrapper {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  overflow: hidden;
+}
+.Timeline svg {
+  overflow: visible;
+}
+.Timeline__line {
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke: var(--accent-2);
+}
+.Timeline__area {
+  fill: var(--accent-2);
+  opacity: 0.2;
+}
+.Timeline__x-ticks {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.Timeline__x-tick {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 0.3em;
+  border-right: 1px solid var(--accent-2);
+  z-index: 10px;
+}
+.Timeline__x {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.9em;
+}
+
+.Timeline__delta {
+  opacity: 0.8;
+}

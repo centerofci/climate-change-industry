@@ -81,18 +81,18 @@ export const getNumberWithUnits = (d, numDecimals = 1) => {
   return siUnits >= 15
     ? format(`.${numDecimals}f`)(d / 1000000000000000) + " quadrillion"
     : siUnits >= 12
-    ? format(`.${numDecimals}f`)(d / 1000000000000) + " trillion"
-    : siUnits >= 9
-    ? format(`.${numDecimals}f`)(d / 1000000000) + " billion"
-    : siUnits >= 6
-    ? format(`.${numDecimals}f`)(d / 1000000) + " million"
-    : siUnits >= 3
-    ? format(`.${numDecimals}f`)(d / 1000) + " thousand"
-    : d < 0.001
-    ? 0
-    : d < 0.1
-    ? format(`,.2f`)(d)
-    : format(`,.02f`)(d);
+      ? format(`.${numDecimals}f`)(d / 1000000000000) + " trillion"
+      : siUnits >= 9
+        ? format(`.${numDecimals}f`)(d / 1000000000) + " billion"
+        : siUnits >= 6
+          ? format(`.${numDecimals}f`)(d / 1000000) + " million"
+          : siUnits >= 3
+            ? format(`.${numDecimals}f`)(d / 1000) + " thousand"
+            : d < 0.001
+              ? 0
+              : d < 0.1
+                ? format(`,.2f`)(d)
+                : format(`,.02f`)(d);
 };
 
 // grabbed from https://gist.github.com/callumlocke/cc258a193839691f60dd
@@ -189,13 +189,13 @@ export const parseDate = (date) => {
 export const sortBy = (arr, key) =>
   arr.sort((a, b) =>
     (typeof key === "function" ? key(a) : a[key]) >
-    (typeof key === "function" ? key(b) : b[key])
+      (typeof key === "function" ? key(b) : b[key])
       ? 1
       : -1
   );
 export const sortByFunction = (key) => (a, b) =>
   (typeof key === "function" ? key(a) : a[key]) >
-  (typeof key === "function" ? key(b) : b[key])
+    (typeof key === "function" ? key(b) : b[key])
     ? 1
     : -1;
 
@@ -221,14 +221,14 @@ export const combineChartDimensions = (dimensions) => {
     ...parsedDimensions,
     boundedHeight: Math.max(
       parsedDimensions.height -
-        parsedDimensions.marginTop -
-        parsedDimensions.marginBottom,
+      parsedDimensions.marginTop -
+      parsedDimensions.marginBottom,
       0
     ),
     boundedWidth: Math.max(
       parsedDimensions.width -
-        parsedDimensions.marginLeft -
-        parsedDimensions.marginRight,
+      parsedDimensions.marginLeft -
+      parsedDimensions.marginRight,
       0
     ),
   };
@@ -387,3 +387,10 @@ export function countBy(collection, func) {
 
 export const truncate = (str, len = 23) =>
   str.length > len - 2 ? str.slice(0, len) + "..." : str;
+
+export const getOrdinal = (n) => (
+  n % 100 == 11 || n % 10 == 1 ? "st"
+    : n % 100 == 12 || n % 10 == 2 ? "nd"
+      : n % 100 == 13 || n % 10 == 3 ? "rd"
+        : "th"
+);

@@ -4,6 +4,7 @@ import { data } from "./../constants";
 import { useQueryParams } from "./../utils";
 import Network from "./Network/Network";
 import MapWrapper from "./Map/MapWrapper";
+import Benchmarks from "./Benchmarks/Benchmarks";
 
 import "./App.css";
 
@@ -54,6 +55,9 @@ function App() {
         <a href="?viz=map" className={viz === "map" ? "active" : "inactive"}>
           Map
         </a>
+        <a href="?viz=benchmarks" className={viz === "benchmarks" ? "active" : "inactive"}>
+          Benchmarks
+        </a>
       </div>
       {viz === "network" ? (
         <Network
@@ -66,6 +70,11 @@ function App() {
             onChangeState,
           }}
         />
+      ) : viz === "benchmarks" ? (
+        <Benchmarks
+          data={data}
+        />
+
       ) : (
         <MapWrapper
           data={data}

@@ -21,6 +21,7 @@ html {
   --gray-dark: #d4b46b;
   /* --gray-dark: #888; */
   --gray-dark: #afb9c5;
+  --gray-darker: #6f7985;
 
   font-family: Inter, serif;
   font-size: 1.1em;

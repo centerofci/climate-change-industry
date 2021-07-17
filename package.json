@@ -40,7 +40,7 @@
     "predeploy": "CI='' npm run build",
     "deploy": "gh-pages -d build",
     "data": "node getData.js",
-    "scrape-data": "node fetchSeaLevels.js && node fetchCo2Levels.js && node fetchCh4Levels.js",
+    "scrape-data": "node fetchSeaLevels.js && node fetchCo2Levels.js && node fetchCh4Levels.js && node fetchTempLevels.js",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
