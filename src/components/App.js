@@ -43,21 +43,28 @@ function App() {
     return matchingItem;
   }, [params["focused"], data]);
 
+  const onChangeViz = (viz, e) => {
+    e.preventDefault()
+    // change the url param
+    onChangeState("viz", viz);
+  }
+
   return (
     <div className={`App App--is-${isEmbed ? "embed" : "normal"}`}>
       <div className="App__nav">
-        <a
-          href="?viz=network"
-          className={viz === "network" ? "active" : "inactive"}
-        >
-          Network
-        </a>
-        <a href="?viz=map" className={viz === "map" ? "active" : "inactive"}>
-          Map
-        </a>
-        <a href="?viz=benchmarks" className={viz === "benchmarks" ? "active" : "inactive"}>
-          Benchmarks
-        </a>
+        {[
+          ["Network", "network"],
+          ["Map", "map"],
+          ["Benchmarks", "benchmarks"],
+        ].map(([label, slug]) => (
+          <a
+            href={`?viz=${slug}`}
+            className={viz === slug ? "active" : "inactive"}
+            onClick={(e) => onChangeViz(slug, e)}
+          >
+            {label}
+          </a>
+        ))}
       </div>
       {viz === "network" ? (
         <Network
