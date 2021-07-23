@@ -1,17 +1,17 @@
 import React, { useMemo } from "react";
 import uniqueId from "lodash/uniqueId";
-import { scaleLinear, scaleTime, extent, line, area, curveMonotoneX, curveStep } from "d3"
+import { scaleLinear, scaleTime, extent, max, line, area, curveMonotoneX, curveStep } from "d3"
 import { useChartDimensions } from "../../utils";
 import "./Timeline.css";
 
-const Timeline = ({ data, xAccessor, yAccessor }) => {
+const Timeline = ({ data, xAccessor, yAccessor, yMinAccessor, yMaxAccessor }) => {
   const [ref, dms] = useChartDimensions();
   const deltaHeight = 20
   const timelineId = useMemo(() => uniqueId(), [])
 
   const deltaAccessor = (d, i) => data[i - 1] && (yAccessor(d, i) - yAccessor(data[i - 1])) / (xAccessor(d, i) - xAccessor(data[i - 1]))
 
-  const { lineD, areaD, deltaZero, lineDeltaD, areaDeltaD, xTicks, yearsExtent } = useMemo(() => {
+  const { lineD, areaD, deltaZero, areaUndertaintyD, lineDeltaD, areaDeltaD, xTicks, yearsExtent } = useMemo(() => {
     const xExtent = extent(data, xAccessor)
     const yearsExtent = xExtent.map(x => x.getFullYear())
     const xScale = scaleTime()
@@ -21,15 +21,21 @@ const Timeline = ({ data, xAccessor, yAccessor }) => {
     const numberOfDecades = Math.floor((yearsExtent[1] - yearsExtent[0]) / 10)
     const xTicks = xScale.ticks(numberOfDecades).map(d => ([xScale(d), d.getFullYear()]))
 
-    const yExtent = extent(data, yAccessor)
+    const yExtent = extent([...data.map(yMinAccessor), ...data.map(yMaxAccessor)])
     const yScale = scaleLinear()
       // .domain(extent(data, yAccessor))
-      .domain(yExtent[0] > 0 ? [0, extent(data, yAccessor)[1]] : yExtent)
+      .domain(yExtent[0] > 0 ? [0, max(data, yMaxAccessor)] : yExtent)
       .range([dms.height, 0])
 
     const deltaScale = scaleLinear()
       .domain(extent(data, deltaAccessor))
       .range([deltaHeight, 0])
+
+    const areaUndertaintyD = area()
+      .x(d => xScale(xAccessor(d)))
+      .y0(d => yScale(yMinAccessor(d)))
+      .y1(d => yScale(yMaxAccessor(d)))
+      .curve(curveMonotoneX)(data)
 
     const lineD = line()
       .x(d => xScale(xAccessor(d)))
@@ -54,15 +60,16 @@ const Timeline = ({ data, xAccessor, yAccessor }) => {
       .y1((d, i) => deltaScale(deltaAccessor(d, i + 1)))
       .curve(curveStep)(data.slice(1))
 
-    return { lineD, areaD, deltaZero, lineDeltaD, areaDeltaD, xTicks, yearsExtent }
+    return { lineD, areaD, deltaZero, lineDeltaD, areaUndertaintyD, areaDeltaD, xTicks, yearsExtent }
   }, [dms, data, xAccessor, yAccessor])
 
   return (
     <div className="Timeline">
       <div className="Timeline__wrapper" ref={ref}>
         <svg width={dms.width} height={dms.height}>
-          <path d={lineD} className="Timeline__line" />
           <path d={areaD} className="Timeline__area" />
+          <path d={areaUndertaintyD} className="Timeline__uncertainty-area" />
+          <path d={lineD} className="Timeline__line" />
         </svg>
         <div className="Timeline__x-ticks">
           {xTicks.map(([offset, year]) => (

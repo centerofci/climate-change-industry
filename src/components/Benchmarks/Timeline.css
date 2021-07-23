@@ -24,6 +24,10 @@
   fill: var(--accent-2);
   opacity: 0.2;
 }
+.Timeline__uncertainty-area {
+  fill: var(--accent-2);
+  opacity: 0.3;
+}
 .Timeline__x-ticks {
   position: absolute;
   bottom: 0;

@@ -28,7 +28,7 @@ function parse(html) {
     .replace(', "mm");', '')
   const chartData = JSON.parse(chartExtract).map((o) => {
     const { month, day, year, x, y } = o
-    return { month: +month, day: +day, year: +year, year_fraction: +x, level: +y }
+    return { month: +month, day: +day, year: +year, year_fraction: +x, level: +y, min: +y - 4, max: +y + 4 }
   })
 
   return { unit: 'mm', levels: chartData }

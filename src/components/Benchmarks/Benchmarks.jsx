@@ -7,6 +7,8 @@ import "./Benchmarks.css"
 
 const xAccessor = d => new Date([d.month || 1, d.day || 1, d.year].join("/"))
 const yAccessor = d => d.level
+const yMinAccessor = d => d.min || d.level
+const yMaxAccessor = d => d.max || d.level
 const Benchmarks = ({ data }) => {
   console.log(benchmarkData)
   console.log(data)
@@ -39,7 +41,7 @@ const Benchmarks = ({ data }) => {
                 </div>
               </div>
               <div className="Benchmarks__chart">
-                <Timeline data={data} xAccessor={xAccessor} yAccessor={yAccessor} />
+                <Timeline data={data} xAccessor={xAccessor} yAccessor={yAccessor} yMinAccessor={yMinAccessor} yMaxAccessor={yMaxAccessor} />
               </div>
               <div className="Benchmarks__note">
                 <div>Last updated: {getDate(latestValue)}</div>
