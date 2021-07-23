@@ -13,8 +13,8 @@ export const benchmarkInfo = {
   },
   co2: {
     name: "Atmospheric CO2 levels",
-    source: "NASA",
-    sourceUrl: "https://climate.nasa.gov/vital-signs/carbon-dioxide/",
+    source: "NOAA",
+    sourceUrl: "https://sos.noaa.gov/catalog/datasets/carbon-dioxide-concentration-geos-5-model/",
   },
   ch4: {
     name: "Atmospheric methane levels",
