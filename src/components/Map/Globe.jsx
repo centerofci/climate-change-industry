@@ -7,13 +7,13 @@ import { getSpiralPositions } from "./../../utils";
 import Globe from "react-globe.gl";
 // import BlankMap from "./BlankMap";
 import MapTooltip from "./MapTooltip";
+import countryNamesMap from "./countryNamesMap.json"
 import mapImageUrl from "./map.png";
 
 import "./Globe.css";
 
 const countryAccessor = (d) => d["Primary Operating Geography (Country)"];
 const spiralPositions = getSpiralPositions(100, 5, 2, 1.1);
-const countryNamesMap = { USA: "United States of America" };
 
 const getCentroid = (country) => countryCentersMap[country];
 
@@ -102,8 +102,8 @@ const GlobeWrapper = ({ allData, data, setFocusedItem, imageName }) => {
           d["Person or Org"] === "Individual Person"
             ? `rgba(239, 209, 201, ${d.opacity})`
             : imageName === "day"
-            ? `rgba(236, 243, 250, ${d.opacity})`
-            : `rgba(255, 255, 255, ${d.opacity})`;
+              ? `rgba(236, 243, 250, ${d.opacity})`
+              : `rgba(255, 255, 255, ${d.opacity})`;
         // ? `rgba(91, 156, 121, ${d.opacity})`
         // : `rgba(49, 63, 83, ${d.opacity})`;
 
@@ -318,17 +318,17 @@ const GlobeWrapper = ({ allData, data, setFocusedItem, imageName }) => {
         arcsTransitionDuration={1}
         onGlobeReady={onGlobeLoad}
         onPointClick={setFocusedItem}
-        // pointOfView={{ lat: 38, lng: -97, altitude: 2.5 }}
-        // ref={globeElement}
-        // onMapReady={() => {
-        //   globeElement.current.pointOfView({
-        //     lat: 39.6,
-        //     lng: -98.5,
-        //     altitude: 2,
-        //   });
-        // }}
+      // pointOfView={{ lat: 38, lng: -97, altitude: 2.5 }}
+      // ref={globeElement}
+      // onMapReady={() => {
+      //   globeElement.current.pointOfView({
+      //     lat: 39.6,
+      //     lng: -98.5,
+      //     altitude: 2,
+      //   });
+      // }}
 
-        // pointsData={myData}
+      // pointsData={myData}
       />
     </div>
   );

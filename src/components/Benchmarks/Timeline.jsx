@@ -30,8 +30,6 @@ const Timeline = ({ data, xAccessor, yAccessor }) => {
     const deltaScale = scaleLinear()
       .domain(extent(data, deltaAccessor))
       .range([deltaHeight, 0])
-    console.log(extent(data, deltaAccessor), deltaAccessor(data[1], 1))
-
 
     const lineD = line()
       .x(d => xScale(xAccessor(d)))
@@ -58,7 +56,6 @@ const Timeline = ({ data, xAccessor, yAccessor }) => {
 
     return { lineD, areaD, deltaZero, lineDeltaD, areaDeltaD, xTicks, yearsExtent }
   }, [dms, data, xAccessor, yAccessor])
-  console.log(xTicks)
 
   return (
     <div className="Timeline">

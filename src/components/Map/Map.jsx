@@ -33,6 +33,7 @@ import {
   useChartDimensions,
 } from "./../../utils";
 import countryShapes from "./countries.json";
+import countryNamesMap from "./countryNamesMap.json"
 import MapTooltip from "./MapTooltip";
 
 import "./Map.css";
@@ -40,7 +41,6 @@ import "./Map.css";
 const sphere = { type: "Sphere" };
 const countryAccessor = (d) => d["Primary Operating Geography (Country)"];
 const spiralPositions = getSpiralPositions(100, 5, 2, 1.2);
-const countryNamesMap = { USA: "United States of America" };
 
 const MapWrapper = ({ allData, data, projectionName, setFocusedItem }) => {
   const [ref, dms] = useChartDimensions();
