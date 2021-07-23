@@ -58,6 +58,7 @@ function App() {
           ["Benchmarks", "benchmarks"],
         ].map(([label, slug]) => (
           <a
+            key={slug}
             href={`?viz=${slug}`}
             className={viz === slug ? "active" : "inactive"}
             onClick={(e) => onChangeViz(slug, e)}
