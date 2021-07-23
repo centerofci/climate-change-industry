@@ -7,7 +7,7 @@ export const benchmarkData = { seaLevels: seaLevelData, co2: co2Data, ch4: ch4Da
 
 export const benchmarkInfo = {
   seaLevels: {
-    name: "Sea Level",
+    name: "Sea Level Rise",
     source: "NASA",
     sourceUrl: "https://climate.nasa.gov/vital-signs/sea-level/",
   },
@@ -23,7 +23,7 @@ export const benchmarkInfo = {
     fact: "Methane will trap 84x more heat than the same amount of CO2 would over a 20 year time period."
   },
   temp: {
-    name: "Global Temperature",
+    name: "Global Temperature Rise",
     source: "NASA",
     sourceUrl: "https://climate.nasa.gov/vital-signs/global-temperature/",
     fact: "If the climate stabilizes at 2C above pre-industrial levels, over 40% of current permafrost could melt. Stabilizing at 1.5C instead of 2C would save ~2 million square kilometers of permafrost."

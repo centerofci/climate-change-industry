@@ -22,7 +22,7 @@ const Benchmarks = ({ data }) => {
 
   return (
     <div className="Benchmarks">
-      <h1>Benchmarks</h1>
+      <h1>Earth Health KPIs</h1>
       <div className="Benchmarks__grid">
         {benchmarks.map(benchmarkName => {
           const data = benchmarkData[benchmarkName].levels
