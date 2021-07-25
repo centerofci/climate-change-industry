@@ -64,11 +64,22 @@
   stroke-linejoin: round;
 }
 .NetworkBubbles .NetworkBubbles__cluster-name {
-  fill: var(--gray-dark);
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 0.8em;
+  color: var(--gray-dark);
   text-transform: uppercase;
   letter-spacing: 0.16em;
   font-weight: 700;
   text-anchor: middle;
+}
+.NetworkBubbles__mouse-target {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 100%;
+  cursor: pointer;
 }
 .NetworkBubbles__type-use {
   opacity: 0;
@@ -96,6 +107,13 @@
 .NetworkBubbles--is-hovering .NetworkBubbles__mission--is-hovered--search,
 .NetworkBubbles__mission--is-hovered--type .NetworkBubbles__type-use {
   opacity: 1;
+}
+.NetworkBubbles__annotation-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: visible;
+  pointer-events: none;
 }
 
 @keyframes fadeOut {

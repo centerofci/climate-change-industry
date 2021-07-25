@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
+import svgpath from "svgpath"
 import {
   forceSimulation,
   forceX,
@@ -16,15 +17,15 @@ import {
   getPointFromAngleAndDistance,
   flatten,
   fromPairs,
-  getSpiralPositions,
-  sortBy,
   useChartDimensions,
+  useInterval,
+  useTween,
 } from "./../../utils";
 import {
   types,
   contributionAreaColors,
-  contributionAreaColorCombos,
   typeShapes,
+  accentColors,
 } from "./../../constants";
 import CircleText from "./../CircleText";
 
@@ -50,21 +51,19 @@ const NetworkBubbles = ({
   const simulation = useRef();
   const simulationData = useRef();
   const tickIteration = useRef();
-  const groups = useRef([]);
+  const [groups, setGroups] = useState([]);
   const links = useRef([]);
   const cachedGroupPositions = useRef({});
-  const forceUpdate = useForceUpdate();
+  const canvasElement = useRef(null);
   const clusterByKey = (groupMeta || {})["clusterBy"];
   const getClusterName =
     (groupMeta || {})["getClusterName"] || ((d) => d[clusterByKey]);
-  const getColor = (d) => (contributionAreaColors[d["mainContributionArea"]] && contributionAreaColors[d["mainContributionArea"].sort().join("--")]) ||
-    "#888";
+  const getColor = (d) => d["mainContributionArea"] ? d["mainContributionArea"].sort().map(d => contributionAreaColors[d]) : "#888";
   const getSize = (groupMeta || {})["getSize"] || (() => 1);
-  const fromColor = "#92C8C6";
-  const toColor = "#EEA969";
 
   const baseCircleSize =
-    (dms.width * dms.height * 0.001) / (data[groupType].length + 30);
+    (dms.width * dms.height * 0.0008) / (data[groupType].length + 30);
+  const [dashOffset, setDashOffset] = useState(0);
 
   const { clusters, clusterPositions } = useMemo(() => {
     if (!data) return [];
@@ -248,7 +247,7 @@ const NetworkBubbles = ({
         if (!cachedPosition)
           cachedPosition = d.clusterPosition || [dms.width / 2, dms.height / 2];
         const matchTypes = getMatchTypes(d).join("--");
-        const color = d.isMain ? getColor(d) : "var(--accent-1)";
+        const color = d.isMain ? getColor(d) : accentColors[1];
         const clusterPosition = getClusterPosition(d);
         // {
         //     from: fromColor,
@@ -259,8 +258,8 @@ const NetworkBubbles = ({
           ...d,
           // x: dms.width / 2 + spiralPositions[i].x,
           // y: dms.height / 2 + spiralPositions[i].y,
-          x: cachedPosition[0],
-          y: cachedPosition[1],
+          // x: cachedPosition[0],
+          // y: cachedPosition[1],
           r:
             (d["type"] == groupType
               ? baseCircleSize * 1.5
@@ -382,7 +381,7 @@ const NetworkBubbles = ({
       : clusters.map(({ name, items = [] }) => {
         const position = getClusterPosition(items[0]);
         if (!position) return [];
-        const points = groups.current
+        const points = groups
           .filter((d) => getClusterName(d) == name && d.isMain)
           .map((d) => [d.x, d.y]);
         let hull = polygonHull(points) || [];
@@ -461,17 +460,17 @@ const NetworkBubbles = ({
         d["y"] = position[1];
       }
     });
-    groups.current = simulationData.current;
+    setGroups([...simulationData.current]);
 
     cachedGroupPositions.current = {
       ...cachedGroupPositions.current,
       ...fromPairs(
-        groups.current.map((item) => [item["id"], [item["x"], item["y"]]])
+        groups.map((item) => [item["id"], [item["x"], item["y"]]])
       ),
     };
     tickIteration.current++;
 
-    forceUpdate();
+    // forceUpdate();
     // setGroups(simulationData.current);
   }
 
@@ -501,6 +500,31 @@ const NetworkBubbles = ({
     ];
     if (type == "to") points.reverse();
     return `M ${points[0].join(" ")} L ${points[1].join(" ")}`;
+  };
+
+  const getLinkArrowPath = ({ source, target, type }) => {
+    const angle = getAngleFromPoints(source, target);
+    const reverseAngle = getAngleFromPoints(target, source);
+    const startDiff = getPointFromAngleAndDistance(angle, source.r + 2);
+    const targetDiff = getPointFromAngleAndDistance(reverseAngle, target.r + 2);
+    let points = [
+      [source.x - startDiff.x, source.y - startDiff.y],
+      [target.x - targetDiff.x, target.y - targetDiff.y],
+    ];
+    if (type == "to") points.reverse();
+    const targetPoint = points[0]
+    const arrowWidth = 5
+    const arrowHeight = 3
+    const arrowPoints = [
+      [-arrowWidth, arrowHeight * 2],
+      [arrowWidth, arrowHeight * 2],
+      [0, 0],
+    ]
+
+    return svgpath(`M ${arrowPoints.map(d => d.join(" ")).join(" L ")}`)
+      .rotate((type == "to" ? reverseAngle : angle) + 90)
+      .translate(...targetPoint)
+      .toString()
   };
 
   const isInHoveredPointNetwork = (item, source) => {
@@ -541,6 +565,115 @@ const NetworkBubbles = ({
     return unsatisifiedActiveFilters.length ? 0.13 : 1;
   };
 
+  const onDraw = () => {
+    const ctx = canvasElement.current.getContext("2d");
+    ctx.clearRect(0, 0, dms.width, dms.height);
+
+    ctx.fillStyle = "#fff"
+    ctx.strokeStyle = "#fff"
+    ctx.lineJoin = "round"
+    ctx.globalAlpha = 1
+    groupBubbles.forEach(({ name, path, top }) => {
+      ctx.lineWidth = baseCircleSize / 7 * 36
+      drawShape(ctx, path)
+    })
+
+    ctx.strokeStyle = "#a8a4a4"
+    ctx.fillStyle = "transparent"
+    ctx.lineDashOffset = dashOffset
+    links.current.forEach(link => {
+      ctx.strokeStyle = "#a8a4a4"
+      const pathDString = getLinkPath(link)
+      const opacity = getItemOpacity(link.target, link.source)
+      ctx.globalAlpha = opacity
+
+      ctx.lineWidth = 1
+      drawShape(ctx, pathDString)
+
+      if (link["type"] !== "equal") {
+        ctx.strokeStyle = "transparent"
+        ctx.fillStyle = "#a8a4a4"
+        const arrowDString = getLinkArrowPath(link)
+        drawShape(ctx, arrowDString)
+
+        ctx.fillStyle = "transparent"
+        ctx.strokeStyle = "#fff"
+        ctx.globalCompositeOperation = "color-dodge"
+        ctx.globalAlpha = 0.7
+        ctx.setLineDash([8, 6])
+        drawShape(ctx, pathDString)
+
+      }
+      ctx.setLineDash([])
+      ctx.globalAlpha = 1
+      ctx.globalCompositeOperation = "normal"
+
+
+    })
+    setDashOffset(d => d + 3)
+
+    groups.forEach(item => {
+      const x = item.x
+      const y = item.y
+
+      ctx.globalAlpha = getItemOpacity(item)
+
+      if (groupType === "Actors" &&
+        item["id"] === (focusedNode || {})["id"]) {
+        ctx.fillStyle = "white"
+        ctx.beginPath();
+        ctx.arc(x, y, item.r * 1.7, 0, 2 * Math.PI, false)
+        ctx.fill()
+      }
+
+      const shape = item["type"] == "Actors" &&
+        item["Person or Org"] == "Organization"
+        ? typeShapes["Organizations"]
+        : typeShapes[item["type"]]
+
+      if (typeof item["color"] === "string") {
+        ctx.fillStyle = item["color"]
+      } else if (item["color"].length === 1) {
+        ctx.fillStyle = item["color"][0]
+      } else {
+        const gradient = ctx.createLinearGradient(x + -item.r, 0, x + item.r, 0);
+        item["color"].forEach(function (color, i) {
+          gradient.addColorStop(i / (item["color"].length - 1), color);
+        })
+        ctx.fillStyle = gradient
+      }
+      ctx.strokeStyle = "transparent"
+      shape.shapes.forEach(shapePart => {
+        if (typeof shapePart !== "string") {
+          shapePart = svgpath(getCirclePath(shapePart.r))
+            .translate(shapePart.x, shapePart.y)
+            .toString()
+        }
+        const translatedPath = svgpath(shapePart)
+          .translate(shape.x, shape.y)
+          .scale(item["r"] / 50)
+          .scale(shape["scale"] || 1)
+          .translate(x, y)
+          .toString()
+        drawShape(ctx, translatedPath)
+      })
+
+    })
+
+    // ctx.globalAlpha = 1
+    // ctx.font = '13px sans-serif 700';
+    // groupBubbles.forEach(({ name, path, top }) => {
+    //   const text = (name || "").toUpperCase()
+
+    //   ctx.fillStyle = "#afb9c5"
+    //   // letterSpacing="0.16em"
+    //   // align="center"
+    //   ctx.fillText(text, top[0], top[1]);
+    // })
+  }
+
+  useInterval(onDraw, 50)
+
   return (
     <div
       ref={ref}
@@ -548,9 +681,62 @@ const NetworkBubbles = ({
         }-hovering`}
     >
       <div className="NetworkBubbles__wrapper">
-        {groups.current && (
-          <>
-            {/* {topLeftDot && (
+        <canvas ref={canvasElement} width={dms.width} height={dms.height} />
+
+        {groupBubbles.map(({ name, top }, i) => (
+          <div
+            key={name}
+            className="NetworkBubbles__cluster-name"
+            style={{
+              transform: `translate(calc(${top[0]}px - 50%), ${top[1]}px)`,
+            }}>
+            {name || ""}
+          </div>
+        ))}
+
+        {groups.map((item) => {
+          const r = item["r"] * 1.6
+          const opacity = getItemOpacity(item)
+
+          return (
+            <>
+              {groupType === item["type"] && (
+                <svg className="NetworkBubbles__annotation-text" style={{
+                  ...move(item["x"], item["y"]),
+                  opacity,
+                }} >
+                  <CircleText r={item["r"] + 6}>
+                    {truncate(item["label"], Math.floor(item["r"] * 0.36))}
+                  </CircleText>
+                </svg>
+              )}
+
+              <div className="NetworkBubbles__mouse-target" style={{
+                ...move(item["x"] - r, item["y"] - r),
+                width: r * 2,
+                height: r * 2,
+
+              }}
+
+                onMouseEnter={() => updateTooltip(item)}
+                onMouseLeave={() =>
+                  groupType == "Actors"
+                    ? updateTooltip(focusedNode)
+                    : updateTooltip(null)
+                }
+                onClick={() =>
+                  groupType == "Actors"
+                    ? setFocusedNodeId(item["id"])
+                    : onFocusItem(item["id"])
+                }
+              />
+            </>
+          )
+        })}
+
+        {/* {groups && (
+        <>
+          {/* {topLeftDot && (
               <div
                 className="NetworkBubbles__annotation"
                 style={move(
@@ -574,9 +760,10 @@ const NetworkBubbles = ({
                   <i>hover to see details</i>
                 </div>
               </div>
-            )} */}
-            <svg width={dms.width} height={dms.height}>
-              <defs>
+            )}
+        <Stage width={dms.width} height={dms.height}>
+        <Layer>
+      {/* <defs>
                 <linearGradient id={`from-to`}>
                   {[fromColor, toColor].map((color, i) => (
                     <stop key={i} stopColor={color} offset={i * 100 + "%"} />
@@ -628,109 +815,130 @@ const NetworkBubbles = ({
                 </filter>
               </defs>
 
-              {groupBubbles.map(({ name, path, top }, i) => (
-                <path
-                  key={name}
-                  className={`NetworkBubbles__cluster`}
-                  style={{ strokeWidth: baseCircleSize * 7 }}
-                  filter="url(#noise)"
-                  d={path}
-                ></path>
-              ))}
+            {groupBubbles.map(({ name, path, top }, i) => (
+              <Shape
+                key={name}
+                // className={`NetworkBubbles__cluster`}
 
-              {links.current.map((link, i) => (
-                <g key={i}>
-                  <path
+                strokeWidth={baseCircleSize * 7}
+                fill="#fff"
+                stroke="#fff"
+                lineJoin="round"
+                // stroke-linejoin="round"
+                // filter="url(#noise)"
+                sceneFunc={sceneFunctionDrawShape(path)}
+              />
+            ))}
+
+            {links.current.map((link, i) => {
+              const pathDString = getLinkPath(link)
+              const opacity = getItemOpacity(link.target, link.source)
+              return (
+                <Group key={i}>
+                  <Shape
                     className={`NetworkBubbles__link NetworkBubbles__link--${link["type"]}`}
-                    d={getLinkPath(link)}
+                    fill="none"
+                    stroke="#a8a4a4"
+                    strokeWidth={1}
+                    lineJoin="round"
+                    sceneFunc={sceneFunctionDrawShape(pathDString)}
                     markerStart={
                       link["type"] == "equal"
                         ? null
                         : "url(#NetworkBubbles__arrow)"
                     }
-                    style={{
-                      opacity: getItemOpacity(link.target, link.source),
-                    }}
-                  ></path>
-                  {link["type"] != "equal" && (
-                    <path
-                      className={`NetworkBubbles__link__pulse NetworkBubbles__link__pulse--${link["type"]}`}
-                      d={getLinkPath(link)}
-                      style={{
-                        opacity: getItemOpacity(link.target, link.source),
-                      }}
-                    ></path>
+                    opacity={opacity}
+                  />
+                  {link["type"] !== "equal" && (
+                    // todo: animate path2D like NetworkBubbles__link__pulse
+                    <Shape
+                      fill="none"
+                      stroke="#a8a4a4"
+                      strokeWidth={2.7}
+                      lineJoin="round"
+                      // mix-blend-mode: color-dodge;
+                      sceneFunc={sceneFunctionDrawShape(pathDString)}
+                      opacity={opacity}
+                    />
                   )}
-                </g>
-              ))}
+                </Group>
+              )
+            })}
 
-              {groups.current.map((item) => (
-                <g
-                  key={item["id"]}
-                  className={`NetworkBubbles__group-g`}
-                  style={{
-                    ...move(item["x"], item["y"]),
-                    opacity: getItemOpacity(item),
-                  }}
-                  onClick={() =>
-                    groupType == "Actors"
-                      ? setFocusedNodeId(item["id"])
-                      : onFocusItem(item["id"])
+            {groups.map((item) => (
+              <Group
+                key={item["id"]}
+                className={`NetworkBubbles__group-g`}
+                x={item["x"]}
+                y={item["y"]}
+                opacity={getItemOpacity(item)}
+
+                onMouseEnter={e => {
+                  // style stage container:
+                  const container = e.target.getStage().container();
+                  container.style.cursor = "pointer";
+                }}
+                onMouseLeave={e => {
+                  const container = e.target.getStage().container();
+                  container.style.cursor = "default";
+                }}
+                onClick={() =>
+                  groupType == "Actors"
+                    ? setFocusedNodeId(item["id"])
+                    : onFocusItem(item["id"])
+                }
+              >
+                <Group
+                  onMouseEnter={() => updateTooltip(item)}
+                  onMouseLeave={() =>
+                    svg>= "Actors"
+                      ? updateTooltip(focusedNode)
+                      : updateTooltip(null)
                   }
                 >
-                  <g
-                    onMouseEnter={() => updateTooltip(item)}
-                    onMouseLeave={() =>
-                      groupType == "Actors"
-                        ? updateTooltip(focusedNode)
-                        : updateTooltip(null)
+                  <Circle
+                    fill={
+                      groupType == "Actors" &&
+                        item["id"] == (focusedNode || {})["id"]
+                        ? "white"
+                        : "transparent"
                     }
+                    r={item["r"] * 1.6}
+                  />
+                  <Group
                   >
-                    <circle
-                      fill={
-                        groupType == "Actors" &&
-                          item["id"] == (focusedNode || {})["id"]
-                          ? "white"
-                          : "transparent"
-                      }
-                      r={item["r"] * 1.6}
-                    />
-                    <g
-                      style={{
-                        // fill: typeColors[item["type"]],
-                        fill: item["color"],
-                        transform: `scale(${item["r"] / 50})`,
-                      }}
-                    >
-                      {item["type"] == "Actors" &&
-                        item["Person or Org"] == "Organization"
-                        ? typeShapes["Organizations"]
-                        : typeShapes[item["type"]]}
-                    </g>
-                  </g>
+                    {item["type"] == "Actors" &&
+                      item["Person or Org"] == "Organization"
+                      ? typeShapes["Organizations"](item["color"])
+                      : typeShapes[item["type"]](item["color"])}
+                  </Group>
+                </Group>
 
-                  {groupType == item["type"] && (
+                {/* {groupType == item["type"] && (
                     <CircleText r={item["r"] + 6}>
                       {truncate(item["label"], Math.floor(item["r"] * 0.36))}
                     </CircleText>
                   )}
-                </g>
-              ))}
-
-              {groupBubbles.map(({ name, path, top }, i) => (
-                <text
-                  key={name}
-                  style={move(...top)}
-                  className={`NetworkBubbles__cluster-name`}
-                >
-                  {name}
-                </text>
-              ))}
-            </svg>
-          </>
-        )}
+              </Group>
+            ))}
+            {groupBubbles.map(({ name, path, top }, i) => (
+              <Text
+                key={name}
+                x={top[0]}
+                y={top[1]}
+                fill="#d4b46b"
+                fontWeight="700"
+                letterSpacing="0.16em"
+                align="center"
+                text={(name || "").toUpperCase()}
+              />
+            ))}
+          </Layer>
+        </Stage>
+      </>
+      )}*/}
       </div>
-    </div>
+    </div >
   );
 };
 
@@ -747,3 +955,17 @@ const getFilterFromItem = (d, filter) => {
   if (typeof value == "object") return value;
   return [value];
 };
+
+function drawShape(ctx, path) {
+  const path2d = new Path2D(path);
+  ctx.fill(path2d);
+  ctx.stroke(path2d);
+}
+
+function getCirclePath(r) {
+  return [
+    ["M", 0, r].join(" "),
+    ["A", r, r, 0, 0, 1, 0, -r].join(" "),
+    ["A", r, r, 0, 0, 1, 0, r].join(" "),
+  ].join(" ")
+}

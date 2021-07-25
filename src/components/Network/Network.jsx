@@ -70,9 +70,8 @@ const Network = ({
     <div className="Network__wrapper">
       <div className="Network__main">
         <div
-          className={`Network__sidebar Network__sidebar--filters-${
-            areFiltersShowing ? "showing" : "hidden"
-          } Network__sidebar--about-${isAboutShowing ? "showing" : "hidden"}`}
+          className={`Network__sidebar Network__sidebar--filters-${areFiltersShowing ? "showing" : "hidden"
+            } Network__sidebar--about-${isAboutShowing ? "showing" : "hidden"}`}
         >
           <div className="Network__sidebar__top">
             <h1 className="Network__title">The Climate Change Industry</h1>
@@ -82,24 +81,44 @@ const Network = ({
             />
             <div className="Network__type">
               <div className="Network__toggle">
-                {groupOptions.map(({ label, id }) => (
-                  <button
-                    key={id}
-                    className={`Network__toggle__button Network__toggle__button--is-${
-                      groupType == id ? "selected" : "unselected"
-                    }`}
-                    onClick={() => {
-                      setActiveFilters([]);
-                      setSearchTerm(null);
-                      onHoverItem(null);
-                      onChangeState("group", id);
-                      setFocusedNodeId(null);
-                    }}
-                  >
-                    <svg viewBox="-75 -75 150 150">{typeShapes[id]}</svg>
-                    {label}
-                  </button>
-                ))}
+                {groupOptions.map(({ label, id }) => {
+                  const shape = typeShapes[id]
+                  return (
+                    <button
+                      key={id}
+                      className={`Network__toggle__button Network__toggle__button--is-${groupType == id ? "selected" : "unselected"
+                        }`}
+                      onClick={() => {
+                        setActiveFilters([]);
+                        setSearchTerm(null);
+                        onHoverItem(null);
+                        onChangeState("group", id);
+                        setFocusedNodeId(null);
+                      }}
+                    >
+                      <svg viewBox="-75 -75 150 150">
+                        <g transform={`translate(${shape.x}, ${shape.y})`}>
+                          {shape.shapes.map((shape, i) => (
+                            typeof shape === "string" ? (
+                              <path
+                                key={i}
+                                d={shape}
+                              />
+                            ) : (
+                              <circle
+                                key={i}
+                                cx={shape.x}
+                                cy={shape.y}
+                                r={shape.r}
+                              />
+                            )
+                          ))}
+                        </g>
+                      </svg>
+                      {label}
+                    </button>
+                  )
+                })}
               </div>
             </div>
           </div>

@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from "react";
+import { timer } from "d3";
+import { scaleLinear } from "d3-scale";
 import { format } from "d3-format";
 import { timeParse } from "d3-time-format";
 
@@ -394,3 +396,33 @@ export const getOrdinal = (n) => (
       : n % 100 == 13 || n % 10 == 3 ? "rd"
         : "th"
 );
+
+export function useTween(number = 0, duration = 500) {
+  const currentNumber = useRef(number);
+  // const [currentNumber, setCurrentNumber] = useState(number);
+  const currentTimer = useRef()
+
+  useEffect(() => {
+    if (currentTimer.current) currentTimer.current.stop();
+    const timeScale = scaleLinear()
+      .domain([0, duration])
+      .range([currentNumber.current, number])
+      .clamp(true)
+    console.log([currentNumber.current, number])
+
+    currentTimer.current = timer(elapsed => {
+      if (currentNumber.current === number) return
+      const newNumber = timeScale(elapsed)
+      currentNumber.current = newNumber
+
+      if (elapsed > duration) {
+        currentTimer.current.stop()
+        currentNumber.current = number
+      }
+    })
+    return () => {
+      currentTimer.current.stop()
+    }
+  }, [number])
+  return currentNumber.current
+}
