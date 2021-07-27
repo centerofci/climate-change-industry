@@ -159,7 +159,11 @@
       ],
       "Enacted/Undertaken By": [
         "Blue Sky Analytics",
-        "Kairos Aerospace, Inc"
+        "Kairos Aerospace, Inc",
+        "Aclima"
+      ],
+      "Associated Investments": [
+        "Investment in Aclima"
       ],
       "id": "Interventions--Environmental Monitoring",
       "label": "Environmental Monitoring"
@@ -191,12 +195,14 @@
         "Dendra Systems",
         "The Land Institute",
         "Charm Industrial",
-        "Mootral"
+        "Mootral",
+        "DroneSeed"
       ],
       "Associated Investments": [
         "Additional Ventures Grant to The Land Institute",
         "Investment in Charm Industrial",
-        "Investment in Mootral"
+        "Investment in Mootral",
+        "Investment in DroneSeed"
       ],
       "id": "Interventions--Biomass/Ecosystem Managment",
       "label": "Biomass/Ecosystem Managment"
@@ -359,13 +365,15 @@
         "Susteon",
         "CarbonCure",
         "CarbonBuilt ",
-        "Solidia"
+        "Solidia",
+        "Neustark"
       ],
       "Associated Investments": [
         "DoE - A Scalable Process for Upcycling Carbon Dioxide (CO2) and Coal Combustion Residues Into Construction Products",
         "NRG COSIA Carbon XPRIZE",
         "Breakthrough Energy Ventures Investment in CarbonCure",
-        "Investment in Solidia Technologies"
+        "Investment in Solidia Technologies",
+        "Investment in Neustark"
       ],
       "id": "Interventions--CO2 Capture for Concrete/Cement production",
       "label": "CO2 Capture for Concrete/Cement production"
@@ -639,6 +647,33 @@
       "date": null
     },
     {
+      "Entry Name": "Investment in Aclima",
+      "Amount": 64000000,
+      "Source": [
+        "Social Capital",
+        "Clearvision Ventures"
+      ],
+      "Recipient": [
+        "Aclima"
+      ],
+      "Intervention(s) being addressed:": [
+        null
+      ],
+      "Geography (of receiving entity)": [
+        "North America"
+      ],
+      "Geography (where intervention is applied)": [
+        "North America"
+      ],
+      "Topical Contribution Area": [
+        "Mitigation: Emissions Reduction"
+      ],
+      "URL for Context": "https://www.crunchbase.com/organization/aclima/company_financials",
+      "id": "Investments--Investment in Aclima",
+      "label": "Investment in Aclima",
+      "date": null
+    },
+    {
       "Entry Name": "DoE - A Scalable Process for Upcycling Carbon Dioxide (CO2) and Coal Combustion Residues Into Construction Products",
       "Amount": 1800000,
       "Source": [
@@ -768,6 +803,33 @@
       "date": "2020-12-01T00:00:00.000Z"
     },
     {
+      "Entry Name": "Investment in DroneSeed",
+      "Amount": 4800000,
+      "Source": [
+        "Social Capital",
+        "Techstars"
+      ],
+      "Recipient": [
+        "DroneSeed"
+      ],
+      "Intervention(s) being addressed:": [
+        null
+      ],
+      "Geography (of receiving entity)": [
+        "North America"
+      ],
+      "Geography (where intervention is applied)": [
+        "North America"
+      ],
+      "Topical Contribution Area": [
+        "Adaptation: Natural Ecosystem Preservation"
+      ],
+      "URL for Context": "https://www.crunchbase.com/organization/droneseed/company_financials",
+      "id": "Investments--Investment in DroneSeed",
+      "label": "Investment in DroneSeed",
+      "date": null
+    },
+    {
       "Entry Name": "Investment in Charm Industrial",
       "Source": [
         "Lowercarbon Capital"
@@ -865,6 +927,33 @@
       "URL for Context": "https://www.crunchbase.com/organization/enverid/company_financials",
       "id": "Investments--Investment in enVerid",
       "label": "Investment in enVerid",
+      "date": null
+    },
+    {
+      "Entry Name": "Investment in Neustark",
+      "Amount": 20000,
+      "Source": [
+        "MassChallenge"
+      ],
+      "Recipient": [
+        "Neustark"
+      ],
+      "Intervention(s) being addressed:": [
+        null
+      ],
+      "Geography (of receiving entity)": [
+        "Europe"
+      ],
+      "Geography (where intervention is applied)": [
+        "Global"
+      ],
+      "Topical Contribution Area": [
+        "Mitigation: Emissions Reduction",
+        "Mitigation: Carbon Removal / Carbon Capture "
+      ],
+      "URL for Context": "https://www.crunchbase.com/organization/neustark-ag/company_financials",
+      "id": "Investments--Investment in Neustark",
+      "label": "Investment in Neustark",
       "date": null
     },
     {
@@ -1257,6 +1346,28 @@
       "id": "Actors--Watershed Climate",
       "label": "Watershed Climate",
       "year": 2020
+    },
+    {
+      "Entity": "EIT Climate-KIC",
+      "Number of People Involved (to 3 sig digits)": "100-500",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Funder Org (private e.g., VC or foundation)",
+        "Think Tank / Policy Org (outside academia)"
+      ],
+      "Year founded / Born": "2010",
+      "Person or Org": "Organization",
+      "Link to More Info on Entity (bio or overview page)": "https://www.climate-kic.org/",
+      "Partners With": [
+        "Neustark"
+      ],
+      "Primary Operating Geography (Country)": "DE",
+      "id": "Actors--EIT Climate-KIC",
+      "label": "EIT Climate-KIC",
+      "year": 2010
     },
     {
       "Entity": "Prelude Ventures",
@@ -1660,6 +1771,46 @@
       "id": "Actors--Additional Ventures",
       "label": "Additional Ventures",
       "year": 2017
+    },
+    {
+      "Entity": "ETH Zurich",
+      "Number of People Involved (to 3 sig digits)": "1000+",
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Academic Org"
+      ],
+      "Year founded / Born": "1855",
+      "Person or Org": "Organization",
+      "Link to More Info on Entity (bio or overview page)": "https://ethz.ch",
+      "Primary Operating Geography (Country)": "CH",
+      "id": "Actors--ETH Zurich",
+      "label": "ETH Zurich",
+      "year": 1855
+    },
+    {
+      "Entity": "Social Capital",
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Funder Org (private e.g., VC or foundation)"
+      ],
+      "Year founded / Born": "2011",
+      "Person or Org": "Organization",
+      "Made XYZ Investment(s)": [
+        "Investment in DroneSeed",
+        "Investment in Aclima"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://www.socialcapital.com/",
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--Social Capital",
+      "label": "Social Capital",
+      "year": 2011
     },
     {
       "Entity": "Pachama",
@@ -2987,6 +3138,33 @@
       "year": 2020
     },
     {
+      "Entity": "DroneSeed",
+      "Topical Contribution Area": [
+        "Adaptation: Natural Ecosystem Preservation"
+      ],
+      "Number of People Involved (to 3 sig digits)": "50-100",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Year founded / Born": "2016",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Biomass/Ecosystem Managment"
+      ],
+      "Person or Org": "Organization",
+      "Received XYZ Investment(s)": [
+        "Investment in DroneSeed"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://droneseed.com/",
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--DroneSeed",
+      "label": "DroneSeed",
+      "year": 2016
+    },
+    {
       "Entity": "Charm Industrial",
       "Topical Contribution Area": [
         "Mitigation: Carbon Removal / Carbon Capture"
@@ -3015,6 +3193,27 @@
       "id": "Actors--Charm Industrial",
       "label": "Charm Industrial",
       "year": 2018
+    },
+    {
+      "Entity": "Techstars",
+      "Number of People Involved (to 3 sig digits)": "100-500",
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Funder Org (private e.g., VC or foundation)"
+      ],
+      "Year founded / Born": "2006",
+      "Person or Org": "Organization",
+      "Made XYZ Investment(s)": [
+        "Investment in DroneSeed"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://www.techstars.com/",
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--Techstars",
+      "label": "Techstars",
+      "year": 2006
     },
     {
       "Entity": "Dandelion Energy",
@@ -3067,6 +3266,26 @@
       "id": "Actors--BioMason",
       "label": "BioMason",
       "year": 2012
+    },
+    {
+      "Entity": "Clearvision Ventures",
+      "Number of People Involved (to 3 sig digits)": "Under 10",
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Funder Org (private e.g., VC or foundation)"
+      ],
+      "Person or Org": "Organization",
+      "Made XYZ Investment(s)": [
+        "Investment in Aclima"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://www.clearvisionventures.com/",
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--Clearvision Ventures",
+      "label": "Clearvision Ventures",
+      "year": null
     },
     {
       "Entity": "Stripe",
@@ -3130,6 +3349,27 @@
       "id": "Actors--Saul Griffith ",
       "label": "Saul Griffith ",
       "year": 1974
+    },
+    {
+      "Entity": "MassChallenge",
+      "Number of People Involved (to 3 sig digits)": "50-100",
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Funder Org (private e.g., VC or foundation)"
+      ],
+      "Year founded / Born": "2009",
+      "Person or Org": "Organization",
+      "Made XYZ Investment(s)": [
+        "Investment in Neustark"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://masschallenge.org",
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--MassChallenge",
+      "label": "MassChallenge",
+      "year": 2009
     },
     {
       "Entity": "Yes VC",
@@ -3427,6 +3667,33 @@
       "year": 1980
     },
     {
+      "Entity": "Aclima",
+      "Topical Contribution Area": [
+        "Mitigation: Emissions Reduction"
+      ],
+      "Number of People Involved (to 3 sig digits)": "50-100",
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Year founded / Born": "2007",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Environmental Monitoring"
+      ],
+      "Person or Org": "Organization",
+      "Received XYZ Investment(s)": [
+        "Investment in Aclima"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://www.aclima.io/",
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--Aclima",
+      "label": "Aclima",
+      "year": 2007
+    },
+    {
       "Entity": "Stanford University ",
       "Topical Contribution Area": [
         "Mitigation: Emissions Reduction",
@@ -3547,6 +3814,41 @@
       "id": "Actors--Bill Gates",
       "label": "Bill Gates",
       "year": 1955
+    },
+    {
+      "Entity": "Neustark",
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture",
+        "Mitigation: Emissions Reduction"
+      ],
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Year founded / Born": "2019",
+      "Enacting/Undertaking XYZ Interventions": [
+        "CO2 Capture for Concrete/Cement production"
+      ],
+      "Person or Org": "Organization",
+      "Received XYZ Investment(s)": [
+        "Investment in Neustark"
+      ],
+      "Directly Associated Orgs (e.g., employment/parent org):": [
+        "ETH Zurich"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://www.neustark.com/",
+      "Partners With": [
+        "Climeworks",
+        "EIT Climate-KIC"
+      ],
+      "Primary Operating Geography (Country)": "CH",
+      "id": "Actors--Neustark",
+      "label": "Neustark",
+      "year": 2019
     },
     {
       "Entity": "David Keith",
