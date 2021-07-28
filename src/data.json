@@ -331,11 +331,13 @@
         "Mission Zero Technologies",
         "The Future Forest Company",
         "RunningTide",
-        "Soil Carbon Co."
+        "Soil Carbon Co.",
+        "Newlight Technologies"
       ],
       "Associated Investments": [
         "Investment in Heirloom",
-        "Investment in RunningTide"
+        "Investment in RunningTide",
+        "Investment in Newlight Technologies"
       ],
       "id": "Interventions--CO2 capture from ambient air (multiple downstream applications)",
       "label": "CO2 capture from ambient air (multiple downstream applications)"
@@ -412,7 +414,8 @@
         "Solidia",
         "CarbonChain",
         "Remora Carbon",
-        "Normative"
+        "Normative",
+        "Newlight Technologies"
       ],
       "Associated Investments": [
         "Investment in Watershed Climate",
@@ -422,7 +425,8 @@
         "Investment in Solidia Technologies",
         "Investment in CarbonChain",
         "Investment in Remora Carbon",
-        "Investment in Normative"
+        "Investment in Normative",
+        "Investment in Newlight Technologies"
       ],
       "id": "Interventions--Decarbonizing the Economy",
       "label": "Decarbonizing the Economy"
@@ -827,6 +831,31 @@
       "URL for Context": "https://www.crunchbase.com/organization/droneseed/company_financials",
       "id": "Investments--Investment in DroneSeed",
       "label": "Investment in DroneSeed",
+      "date": null
+    },
+    {
+      "Entry Name": "Investment in Newlight Technologies",
+      "Amount": 106600000,
+      "Recipient": [
+        "Newlight Technologies"
+      ],
+      "Intervention(s) being addressed:": [
+        null,
+        null
+      ],
+      "Geography (of receiving entity)": [
+        "North America"
+      ],
+      "Geography (where intervention is applied)": [
+        "North America"
+      ],
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture ",
+        "Mitigation: Emissions Reduction"
+      ],
+      "URL for Context": "https://www.crunchbase.com/organization/newlight-technologies/company_financials",
+      "id": "Investments--Investment in Newlight Technologies",
+      "label": "Investment in Newlight Technologies",
       "date": null
     },
     {
@@ -2186,6 +2215,35 @@
       "year": null
     },
     {
+      "Entity": "Newlight Technologies",
+      "Topical Contribution Area": [
+        "Mitigation: Emissions Reduction",
+        "Mitigation: Carbon Removal / Carbon Capture"
+      ],
+      "Number of People Involved (to 3 sig digits)": "50-100",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Year founded / Born": "2003",
+      "Enacting/Undertaking XYZ Interventions": [
+        "CO2 capture from ambient air (multiple downstream applications)",
+        "Decarbonizing the Economy"
+      ],
+      "Person or Org": "Organization",
+      "Received XYZ Investment(s)": [
+        "Investment in Newlight Technologies"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://www.newlight.com/",
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--Newlight Technologies",
+      "label": "Newlight Technologies",
+      "year": 2003
+    },
+    {
       "Entity": "Urban Ocean Lab",
       "Topical Contribution Area": [
         "Adaptation: Natural Ecosystem Preservation",
@@ -3266,6 +3324,20 @@
       "id": "Actors--BioMason",
       "label": "BioMason",
       "year": 2012
+    },
+    {
+      "Entity": "CarbiCrete",
+      "Topical Contribution Area": [
+        "Mitigation: Emissions Reduction",
+        "Mitigation: Carbon Removal / Carbon Capture"
+      ],
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Person or Org": "Organization",
+      "id": "Actors--CarbiCrete",
+      "label": "CarbiCrete",
+      "year": null
     },
     {
       "Entity": "Clearvision Ventures",
