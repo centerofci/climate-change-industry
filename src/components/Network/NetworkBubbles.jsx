@@ -573,6 +573,7 @@ const NetworkBubbles = ({
   };
 
   useEffect(() => {
+    console.log("useEffect")
     const ctx = canvasElement.current.getContext("2d");
     scaleCanvas(canvasElement.current, ctx, dms.width, dms.height)
   }, [dms.width, dms.height])
@@ -740,22 +741,16 @@ const NetworkBubbles = ({
 
   useInterval(onDraw, 50)
 
-  const setTopLeftCornerPositionDebounced = throttle(setTopLeftCornerPosition, 100)
   const onDrag = e => {
-    console.log(e)
+    if (!e.clientX && !e.clientY) return
     const diff = [
       e.clientX - dragStartMousePosition.current[0],
       e.clientY - dragStartMousePosition.current[1]
     ]
-    const newTopLeftCornerPosition = [
-      startTopLeftCornerPosition.current[0] + diff[0],
-      startTopLeftCornerPosition.current[1] + diff[1]
-    ]
-    // console.log(newTopLeftCornerPosition)
-    setTopLeftCornerPositionDebounced(newTopLeftCornerPosition)
-
+    dragStartMousePosition.current = [e.clientX, e.clientY]
+    onPan(diff)
   }
-  // const onDragDebounced = debounce(onDrag, 100)
+  const onDragThrottle = throttle(onDrag, 100)
 
   return (
     <div
@@ -766,13 +761,13 @@ const NetworkBubbles = ({
       <div className="NetworkBubbles__wrapper">
         <canvas ref={canvasElement} width={dms.width} height={dms.height} />
 
-        {/* <div className="NetworkBubbles__drag-layer"
+        <div className="NetworkBubbles__drag-layer"
           draggable="true"
           onDragStart={e => {
             dragStartMousePosition.current = [e.clientX, e.clientY]
             startTopLeftCornerPosition.current = topLeftCornerPosition
           }}
-          onDrag={onDrag} /> */}
+          onDrag={onDragThrottle} />
 
         <svg className="NetworkBubbles__overlay"
           width={dms.width}

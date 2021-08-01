@@ -17,6 +17,7 @@
   height: 100%;
   opacity: 0;
   cursor: move;
+  cursor: -webkit-grab;
 }
 .NetworkBubbles__overlay {
   position: absolute;
