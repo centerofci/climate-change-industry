@@ -9,6 +9,60 @@
 .NetworkBubbles__wrapper {
   position: relative;
 }
+.NetworkBubbles__drag-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: move;
+}
+.NetworkBubbles__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.NetworkBubbles__overlay path,
+.NetworkBubbles__overlay text {
+  transition: all 0.3s;
+}
+.NetworkBubbles__overlay rect {
+  pointer-events: all;
+}
+.NetworkBubbles__controls {
+  position: fixed;
+  bottom: 2em;
+  right: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.NetworkBubbles__control-row {
+  display: flex;
+  align-items: center;
+  margin: -0.4em;
+}
+.NetworkBubbles__control-row .NetworkBubbles__control {
+  margin: 0 0.6em;
+}
+.NetworkBubbles__control {
+  font-size: 1em;
+  font-weight: 600;
+  width: 2em;
+  height: 2em;
+  margin: 0.2em 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4em;
+  background: #fff;
+  border-radius: 100%;
+}
+
 .NetworkBubbles text {
   font-weight: 700;
   font-size: calc(0.4em + 0.2vw + 0.2vh);

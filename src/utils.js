@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { timer } from "d3";
 import { scaleLinear } from "d3-scale";
 import { format } from "d3-format";
@@ -425,4 +425,15 @@ export function useTween(number = 0, duration = 500) {
     }
   }, [number])
   return currentNumber.current
+}
+
+
+export const useKeyPress = (callback) => {
+  const onKeyDown = useCallback(callback, [callback])
+  useEffect(() => {
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [callback]);
 }

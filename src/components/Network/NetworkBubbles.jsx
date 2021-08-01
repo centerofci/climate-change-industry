@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import svgpath from "svgpath"
+import throttle from "lodash/throttle"
 import {
   forceSimulation,
   forceX,
@@ -20,6 +21,7 @@ import {
   useChartDimensions,
   useInterval,
   scaleCanvas,
+  useKeyPress,
 } from "./../../utils";
 import {
   types,
@@ -28,6 +30,7 @@ import {
   accentColors,
 } from "./../../constants";
 import CircleText from "./../CircleText";
+import Icon from "./../Icon/Icon";
 
 import "./NetworkBubbles.css";
 
@@ -55,6 +58,10 @@ const NetworkBubbles = ({
   const links = useRef([]);
   const cachedGroupPositions = useRef({});
   const canvasElement = useRef(null);
+  const zoom = useRef(1);
+  const [topLeftCornerPosition, setTopLeftCornerPosition] = useState([0, 0])
+  const dragStartMousePosition = useRef([0, 0]);
+  const startTopLeftCornerPosition = useRef([0, 0]);
   const clusterByKey = (groupMeta || {})["clusterBy"];
   const getClusterName =
     (groupMeta || {})["getClusterName"] || ((d) => d[clusterByKey]);
@@ -570,8 +577,62 @@ const NetworkBubbles = ({
     scaleCanvas(canvasElement.current, ctx, dms.width, dms.height)
   }, [dms.width, dms.height])
 
+  const onZoom = (diff) => {
+    const newZoom = Math.max(0.1, Math.min(zoom.current * diff, 10));
+    const zoomDiff = newZoom / zoom.current;
+    const ctx = canvasElement.current.getContext("2d");
+    ctx.translate(-topLeftCornerPosition[0], -topLeftCornerPosition[1]);
+    ctx.scale(zoomDiff, zoomDiff);
+    zoom.current = newZoom;
+    ctx.translate(topLeftCornerPosition[0], topLeftCornerPosition[1]);
+  }
+
+  const onPan = (diff) => {
+    const ctx = canvasElement.current.getContext("2d");
+    const newTopLeftCornerPosition = [
+      topLeftCornerPosition[0] + diff[0],
+      topLeftCornerPosition[1] + diff[1],
+    ];
+    const topLeftCornerDiff = [
+      (newTopLeftCornerPosition[0] - topLeftCornerPosition[0]),
+      (newTopLeftCornerPosition[1] - topLeftCornerPosition[1]),
+    ];
+    setTopLeftCornerPosition(newTopLeftCornerPosition);
+    ctx.translate(...topLeftCornerDiff);
+  }
+
+  useKeyPress(e => {
+    const panMovement = {
+      "ArrowLeft": [-dms.width * 0.1, 0],
+      "ArrowRight": [dms.width * 0.1, 0],
+      "ArrowUp": [0, dms.height * 0.1],
+      "ArrowDown": [0, -dms.height * 0.1],
+    }[e.key];
+    if (panMovement) {
+      onPan(panMovement);
+      return
+    }
+
+    if (!e.ctrlKey && !e.metaKey) return
+    if (e.key === "=") {
+      onZoom(1.1)
+      e.stopPropagation()
+      e.preventDefault()
+    } else if (e.key === "-") {
+      onZoom(0.9)
+      e.stopPropagation()
+      e.preventDefault()
+    }
+  })
+
   const onDraw = () => {
     const ctx = canvasElement.current.getContext("2d");
+    ctx.clearRect(
+      -topLeftCornerPosition[0] * zoom.current * 2,
+      -topLeftCornerPosition[1] * zoom.current * 2,
+      (dms.width + topLeftCornerPosition[0]) * zoom.current * 2,
+      (dms.height + topLeftCornerPosition[1]) * zoom.current * 2
+    );
     ctx.clearRect(0, 0, dms.width, dms.height);
 
     ctx.fillStyle = "#fff"
@@ -679,6 +740,23 @@ const NetworkBubbles = ({
 
   useInterval(onDraw, 50)
 
+  const setTopLeftCornerPositionDebounced = throttle(setTopLeftCornerPosition, 100)
+  const onDrag = e => {
+    console.log(e)
+    const diff = [
+      e.clientX - dragStartMousePosition.current[0],
+      e.clientY - dragStartMousePosition.current[1]
+    ]
+    const newTopLeftCornerPosition = [
+      startTopLeftCornerPosition.current[0] + diff[0],
+      startTopLeftCornerPosition.current[1] + diff[1]
+    ]
+    // console.log(newTopLeftCornerPosition)
+    setTopLeftCornerPositionDebounced(newTopLeftCornerPosition)
+
+  }
+  // const onDragDebounced = debounce(onDrag, 100)
+
   return (
     <div
       ref={ref}
@@ -688,56 +766,109 @@ const NetworkBubbles = ({
       <div className="NetworkBubbles__wrapper">
         <canvas ref={canvasElement} width={dms.width} height={dms.height} />
 
-        {groupBubbles.map(({ name, top }, i) => (
-          <div
-            key={name}
-            className="NetworkBubbles__cluster-name"
-            style={{
-              transform: `translate(calc(${top[0]}px - 50%), ${top[1]}px)`,
-            }}>
-            {name || ""}
+        {/* <div className="NetworkBubbles__drag-layer"
+          draggable="true"
+          onDragStart={e => {
+            dragStartMousePosition.current = [e.clientX, e.clientY]
+            startTopLeftCornerPosition.current = topLeftCornerPosition
+          }}
+          onDrag={onDrag} /> */}
+
+        <svg className="NetworkBubbles__overlay"
+          width={dms.width}
+          height={dms.height}
+          viewBox={[
+            -topLeftCornerPosition[0],
+            -topLeftCornerPosition[1],
+            dms.width / zoom.current,
+            dms.height / zoom.current,
+          ].join(" ")}>
+          {groupBubbles.map(({ name, top }, i) => (
+            <text
+              key={name}
+              className="NetworkBubbles__cluster-name"
+              x={top[0]}
+              y={top[1]}
+            // style={{
+            //   transform: `translate(calc(${top[0]}px - 50%), ${top[1]}px)`,
+            // }}
+            >
+              {name || ""}
+            </text>
+          ))}
+
+          {groups.map((item) => {
+            const r = item["r"] * 1.6
+            const opacity = getItemOpacity(item)
+
+            return (
+              <>
+                {groupType === item["type"] && (
+                  <g className="NetworkBubbles__annotation-text" style={{
+                    ...move(item["x"], item["y"]),
+                    opacity,
+                  }}>
+                    <CircleText r={item["r"] + 6}>
+                      {truncate(item["label"], Math.floor(item["r"] * 0.36))}
+                    </CircleText>
+                  </g>
+                )}
+
+                <rect className="NetworkBubbles__mouse-target"
+                  x={item["x"] - r}
+                  y={item["y"] - r}
+                  width={r * 2}
+                  height={r * 2}
+                  fill="transparent"
+
+                  //   style={{
+                  //   ...move(item["x"] - r, item["y"] - r),
+                  //   width: r * 2,
+                  //   height: r * 2,
+
+                  // }}
+
+                  onMouseEnter={() => updateTooltip(item)}
+                  onMouseLeave={() =>
+                    groupType == "Actors"
+                      ? updateTooltip(focusedNode)
+                      : updateTooltip(null)
+                  }
+                  onClick={() =>
+                    groupType == "Actors"
+                      ? setFocusedNodeId(item["id"])
+                      : onFocusItem(item["id"])
+                  }
+                />
+              </>
+            )
+          })}
+        </svg>
+
+        <div className="NetworkBubbles__controls">
+          <button className="NetworkBubbles__control" onClick={() => onPan([0, -dms.height * 0.1])}>
+            <Icon name="arrow" size="s" direction="n" />
+          </button>
+          <div className="NetworkBubbles__control-row">
+
+            <button className="NetworkBubbles__control" onClick={() => onPan([-dms.width * 0.1, 0])}>
+              <Icon name="arrow" size="s" direction="w" />
+            </button>
+            <button className="NetworkBubbles__control" onClick={() => onPan([dms.width * 0.1, 0])}>
+              <Icon name="arrow" size="s" direction="e" />
+            </button>
           </div>
-        ))}
+          <button className="NetworkBubbles__control" onClick={() => onPan([0, dms.height * 0.1])}>
+            <Icon name="arrow" size="s" direction="s" />
+          </button>
+          <button className="NetworkBubbles__control" onClick={() => onZoom(0.9)}>
+            <Icon name="minus" size="s" />
+          </button>
+          <button className="NetworkBubbles__control" onClick={() => onZoom(1.1)}>
+            <Icon name="plus" size="s" />
+          </button>
 
-        {groups.map((item) => {
-          const r = item["r"] * 1.6
-          const opacity = getItemOpacity(item)
-
-          return (
-            <>
-              {groupType === item["type"] && (
-                <svg className="NetworkBubbles__annotation-text" style={{
-                  ...move(item["x"], item["y"]),
-                  opacity,
-                }} >
-                  <CircleText r={item["r"] + 6}>
-                    {truncate(item["label"], Math.floor(item["r"] * 0.36))}
-                  </CircleText>
-                </svg>
-              )}
-
-              <div className="NetworkBubbles__mouse-target" style={{
-                ...move(item["x"] - r, item["y"] - r),
-                width: r * 2,
-                height: r * 2,
-
-              }}
-
-                onMouseEnter={() => updateTooltip(item)}
-                onMouseLeave={() =>
-                  groupType == "Actors"
-                    ? updateTooltip(focusedNode)
-                    : updateTooltip(null)
-                }
-                onClick={() =>
-                  groupType == "Actors"
-                    ? setFocusedNodeId(item["id"])
-                    : onFocusItem(item["id"])
-                }
-              />
-            </>
-          )
-        })}
+        </div>
 
         {/* {groups && (
         <>
