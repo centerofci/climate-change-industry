@@ -19,7 +19,7 @@ import {
   fromPairs,
   useChartDimensions,
   useInterval,
-  useTween,
+  scaleCanvas,
 } from "./../../utils";
 import {
   types,
@@ -564,6 +564,11 @@ const NetworkBubbles = ({
     );
     return unsatisifiedActiveFilters.length ? 0.13 : 1;
   };
+
+  useEffect(() => {
+    const ctx = canvasElement.current.getContext("2d");
+    scaleCanvas(canvasElement.current, ctx, dms.width, dms.height)
+  }, [dms.width, dms.height])
 
   const onDraw = () => {
     const ctx = canvasElement.current.getContext("2d");
