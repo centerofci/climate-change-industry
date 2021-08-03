@@ -100,7 +100,8 @@
         "Ken Caldeira",
         "James Hansen",
         "Susan Solomon",
-        "Pachama"
+        "Pachama",
+        "Future Climate for Africa"
       ],
       "id": "Interventions--Climate/Earth System Modelling",
       "label": "Climate/Earth System Modelling"
@@ -160,7 +161,8 @@
       "Enacted/Undertaken By": [
         "Blue Sky Analytics",
         "Kairos Aerospace, Inc",
-        "Aclima"
+        "Aclima",
+        "Future Climate for Africa"
       ],
       "Associated Investments": [
         "Investment in Aclima"
@@ -359,7 +361,8 @@
       "Big/Latest News": "https://www.ourdailyplanet.com/story/new-biotech-companies-aim-to-shrink-the-carbon-footprint-of-cement/",
       "Funded by": [
         "U.S. Department of Energy",
-        "XPRIZE (consortium funders)"
+        "XPRIZE (consortium funders)",
+        "Sustainable Development Technology Canada"
       ],
       "Enacted/Undertaken By": [
         "Carbon Upcycling UCLA",
@@ -368,14 +371,16 @@
         "CarbonCure",
         "CarbonBuilt ",
         "Solidia",
-        "Neustark"
+        "Neustark",
+        "CarbiCrete"
       ],
       "Associated Investments": [
         "DoE - A Scalable Process for Upcycling Carbon Dioxide (CO2) and Coal Combustion Residues Into Construction Products",
         "NRG COSIA Carbon XPRIZE",
         "Breakthrough Energy Ventures Investment in CarbonCure",
         "Investment in Solidia Technologies",
-        "Investment in Neustark"
+        "Investment in Neustark",
+        "Grant to Carbicrete"
       ],
       "id": "Interventions--CO2 Capture for Concrete/Cement production",
       "label": "CO2 Capture for Concrete/Cement production"
@@ -703,6 +708,34 @@
       "id": "Investments--DoE - A Scalable Process for Upcycling Carbon Dioxide (CO2) and Coal Combustion Residues Into Construction Products",
       "label": "DoE - A Scalable Process for Upcycling Carbon Dioxide (CO2) and Coal Combustion Residues Into Construction Products",
       "date": "2019-01-01T00:00:00.000Z"
+    },
+    {
+      "Entry Name": "Grant to Carbicrete",
+      "Amount": 2100000,
+      "Source": [
+        "Sustainable Development Technology Canada"
+      ],
+      "Recipient": [
+        "CarbiCrete"
+      ],
+      "Date": "2018-10-03",
+      "Intervention(s) being addressed:": [
+        null
+      ],
+      "Geography (of receiving entity)": [
+        "North America"
+      ],
+      "Geography (where intervention is applied)": [
+        "North America"
+      ],
+      "Topical Contribution Area": [
+        "Mitigation: Emissions Reduction",
+        "Mitigation: Carbon Removal / Carbon Capture "
+      ],
+      "URL for Context": "https://www.crunchbase.com/organization/carbicrete/company_financials",
+      "id": "Investments--Grant to Carbicrete",
+      "label": "Grant to Carbicrete",
+      "date": "2018-10-03T00:00:00.000Z"
     },
     {
       "Entry Name": "Investment in Normative",
@@ -3058,6 +3091,30 @@
       "year": 1976
     },
     {
+      "Entity": "Sustainable Development Technology Canada",
+      "Number of People Involved (to 3 sig digits)": "50-100",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Regulatory / Gov Org"
+      ],
+      "Year founded / Born": "2001",
+      "Person or Org": "Organization",
+      "Funding XYZ Interventions": [
+        "CO2 Capture for Concrete/Cement production"
+      ],
+      "Made XYZ Investment(s)": [
+        "Grant to Carbicrete"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://www.sdtc.ca/en/",
+      "Primary Operating Geography (Country)": "CA",
+      "id": "Actors--Sustainable Development Technology Canada",
+      "label": "Sustainable Development Technology Canada",
+      "year": 2001
+    },
+    {
       "Entity": "Columbia University",
       "Topical Contribution Area": [
         "Mitigation: Emissions Reduction",
@@ -3331,13 +3388,27 @@
         "Mitigation: Emissions Reduction",
         "Mitigation: Carbon Removal / Carbon Capture"
       ],
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
       "Entity Type": [
         "For-Profit Climate Intervention Company"
       ],
+      "Year founded / Born": "2016",
+      "Enacting/Undertaking XYZ Interventions": [
+        "CO2 Capture for Concrete/Cement production"
+      ],
       "Person or Org": "Organization",
+      "Received XYZ Investment(s)": [
+        "Grant to Carbicrete"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://carbicrete.com/",
+      "Primary Operating Geography (Country)": "CA",
       "id": "Actors--CarbiCrete",
       "label": "CarbiCrete",
-      "year": null
+      "year": 2016
     },
     {
       "Entity": "Clearvision Ventures",
@@ -3707,6 +3778,35 @@
       "Primary Operating Geography (Country)": "US",
       "id": "Actors--The Engine",
       "label": "The Engine",
+      "year": 2015
+    },
+    {
+      "Entity": "Future Climate for Africa",
+      "Topical Contribution Area": [
+        "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)",
+        "Adaptation: Natural Ecosystem Preservation"
+      ],
+      "Number of People Involved (to 3 sig digits)": "50-100",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Think Tank / Policy Org (outside academia)",
+        "Academic Org"
+      ],
+      "Year founded / Born": "2015",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Climate/Earth System Modelling",
+        "Environmental Monitoring"
+      ],
+      "Person or Org": "Organization",
+      "Partners With": [
+        "NASA"
+      ],
+      "Primary Operating Geography (Country)": "ZA",
+      "id": "Actors--Future Climate for Africa",
+      "label": "Future Climate for Africa",
       "year": 2015
     },
     {
