@@ -101,7 +101,9 @@
         "James Hansen",
         "Susan Solomon",
         "Pachama",
-        "Future Climate for Africa"
+        "Future Climate for Africa",
+        "Riken",
+        "Japan Agency for Marine-Earth Science and Technology"
       ],
       "id": "Interventions--Climate/Earth System Modelling",
       "label": "Climate/Earth System Modelling"
@@ -198,7 +200,9 @@
         "The Land Institute",
         "Charm Industrial",
         "Mootral",
-        "DroneSeed"
+        "DroneSeed",
+        "Riken",
+        "Japan Agency for Marine-Earth Science and Technology"
       ],
       "Associated Investments": [
         "Additional Ventures Grant to The Land Institute",
@@ -1432,6 +1436,39 @@
       "year": 2010
     },
     {
+      "Entity": "Riken",
+      "Topical Contribution Area": [
+        "Mitigation: Emissions Reduction",
+        "Mitigation: Green Energy / Decarbonization",
+        "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)",
+        "Adaptation: Natural Ecosystem Preservation"
+      ],
+      "Number of People Involved (to 3 sig digits)": "1000+",
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Academic Org",
+        "Funder Org (private e.g., VC or foundation)"
+      ],
+      "Year founded / Born": "1917",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Climate/Earth System Modelling",
+        "Biomass/Ecosystem Managment"
+      ],
+      "Person or Org": "Organization",
+      "Link to More Info on Entity (bio or overview page)": "https://www.riken.jp/en/",
+      "Partners With": [
+        "NASA",
+        "U.S. Department of Energy"
+      ],
+      "Primary Operating Geography (Country)": "JP",
+      "id": "Actors--Riken",
+      "label": "Riken",
+      "year": 1917
+    },
+    {
       "Entity": "Prelude Ventures",
       "Number of People Involved (to 3 sig digits)": "10-50",
       "Focus": "Climate Change is entity's primary focus",
@@ -2349,6 +2386,33 @@
       "id": "Actors--Global Thermostat",
       "label": "Global Thermostat",
       "year": 2010
+    },
+    {
+      "Entity": "Japan Agency for Marine-Earth Science and Technology",
+      "Topical Contribution Area": [
+        "Adaptation: Natural Ecosystem Preservation",
+        "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)"
+      ],
+      "Number of People Involved (to 3 sig digits)": "500-1000",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Regulatory / Gov Org",
+        "Academic Org"
+      ],
+      "Year founded / Born": "1971",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Climate/Earth System Modelling",
+        "Biomass/Ecosystem Managment"
+      ],
+      "Person or Org": "Organization",
+      "Link to More Info on Entity (bio or overview page)": "https://www.jamstec.go.jp/e/",
+      "Primary Operating Geography (Country)": "JP",
+      "id": "Actors--Japan Agency for Marine-Earth Science and Technology",
+      "label": "Japan Agency for Marine-Earth Science and Technology",
+      "year": 1971
     },
     {
       "Entity": "Rusheen Capital Management ",
