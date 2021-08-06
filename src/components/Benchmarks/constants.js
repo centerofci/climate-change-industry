@@ -2,8 +2,9 @@ import seaLevelData from "./../../data/sea_levels.json"
 import co2Data from "./../../data/co2_levels.json"
 import ch4Data from "./../../data/ch4_levels.json"
 import tempData from "./../../data/temperature.json"
+import forestData from "./../../data/global_forest_area.json"
 
-export const benchmarkData = { seaLevels: seaLevelData, co2: co2Data, ch4: ch4Data, temp: tempData };
+export const benchmarkData = { seaLevels: seaLevelData, co2: co2Data, ch4: ch4Data, temp: tempData, forest: forestData };
 
 export const benchmarkInfo = {
   seaLevels: {

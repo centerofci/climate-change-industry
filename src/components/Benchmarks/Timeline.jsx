@@ -3,6 +3,7 @@ import uniqueId from "lodash/uniqueId";
 import { scaleLinear, scaleTime, extent, max, line, area, curveMonotoneX, curveStep } from "d3"
 import { useChartDimensions } from "../../utils";
 import "./Timeline.css";
+import { min } from "lodash";
 
 const Timeline = ({ data, xAccessor, yAccessor, yMinAccessor, yMaxAccessor }) => {
   const [ref, dms] = useChartDimensions();
@@ -27,8 +28,9 @@ const Timeline = ({ data, xAccessor, yAccessor, yMinAccessor, yMaxAccessor }) =>
       .domain(yExtent[0] > 0 ? [0, max(data, yMaxAccessor)] : yExtent)
       .range([dms.height, 0])
 
+    const maxDelta = max([Math.abs(min(data, deltaAccessor)), max(data, deltaAccessor)])
     const deltaScale = scaleLinear()
-      .domain(extent(data, deltaAccessor))
+      .domain([-maxDelta, maxDelta])
       .range([deltaHeight, 0])
 
     const areaUndertaintyD = area()
@@ -66,7 +68,7 @@ const Timeline = ({ data, xAccessor, yAccessor, yMinAccessor, yMaxAccessor }) =>
   return (
     <div className="Timeline">
       <div className="Timeline__wrapper" ref={ref}>
-        <svg width={dms.width} height={dms.height}>
+        <svg width={dms.width} height={dms.height} className="Timeline__svg">
           <path d={areaD} className="Timeline__area" />
           <path d={areaUndertaintyD} className="Timeline__uncertainty-area" />
           <path d={lineD} className="Timeline__line" />

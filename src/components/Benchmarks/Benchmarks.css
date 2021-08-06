@@ -67,7 +67,7 @@
 }
 .Benchmarks__chart {
   flex: 1;
-  /* max-height: 10em; */
+  min-height: 6em;
   margin-bottom: 1em;
   overflow: hidden;
 }

@@ -11,7 +11,8 @@
   flex: 1;
   overflow: hidden;
 }
-.Timeline svg {
+.Timeline__svg {
+  margin-top: 3px;
   overflow: visible;
 }
 .Timeline__line {

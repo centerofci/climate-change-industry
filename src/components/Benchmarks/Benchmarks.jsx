@@ -12,7 +12,7 @@ const yMaxAccessor = d => d.max || d.level
 const Benchmarks = ({ data }) => {
   console.log(benchmarkData)
   console.log(data)
-  const benchmarks = Object.keys(benchmarkData)
+  const benchmarks = Object.keys(benchmarkInfo)
   console.log(benchmarks)
 
   const formatDate = d => [
