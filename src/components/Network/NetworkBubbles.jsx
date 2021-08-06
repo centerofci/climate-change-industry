@@ -626,6 +626,11 @@ const NetworkBubbles = ({
     }
   })
 
+  const onScroll = e => {
+    const delta = e.deltaY
+    onZoom(delta > 0 ? 0.9 : 1.1)
+  }
+
   const onDraw = () => {
     const ctx = canvasElement.current.getContext("2d");
     ctx.clearRect(
@@ -763,6 +768,7 @@ const NetworkBubbles = ({
 
         <div className="NetworkBubbles__drag-layer"
           draggable="true"
+          onWheel={onScroll}
           onDragStart={e => {
             dragStartMousePosition.current = [e.clientX, e.clientY]
             startTopLeftCornerPosition.current = topLeftCornerPosition
