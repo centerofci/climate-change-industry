@@ -103,7 +103,8 @@
         "Pachama",
         "Future Climate for Africa",
         "Riken",
-        "Japan Agency for Marine-Earth Science and Technology"
+        "Japan Agency for Marine-Earth Science and Technology",
+        "The University of Tokyo"
       ],
       "id": "Interventions--Climate/Earth System Modelling",
       "label": "Climate/Earth System Modelling"
@@ -164,7 +165,8 @@
         "Blue Sky Analytics",
         "Kairos Aerospace, Inc",
         "Aclima",
-        "Future Climate for Africa"
+        "Future Climate for Africa",
+        "The University of Tokyo"
       ],
       "Associated Investments": [
         "Investment in Aclima"
@@ -202,7 +204,8 @@
         "Mootral",
         "DroneSeed",
         "Riken",
-        "Japan Agency for Marine-Earth Science and Technology"
+        "Japan Agency for Marine-Earth Science and Technology",
+        "The University of Tokyo"
       ],
       "Associated Investments": [
         "Additional Ventures Grant to The Land Institute",
@@ -301,7 +304,8 @@
         "ASU Center for Negative Carbon Emissions",
         "Bloom Biorenewables",
         "C-Zero",
-        "Dandelion Energy"
+        "Dandelion Energy",
+        "The University of Tokyo"
       ],
       "Associated Investments": [
         "Program on Energy Security and Climate Change",
@@ -2210,6 +2214,36 @@
       "id": "Actors--UCLA",
       "label": "UCLA",
       "year": 1919
+    },
+    {
+      "Entity": "The University of Tokyo",
+      "Topical Contribution Area": [
+        "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)",
+        "Adaptation: Natural Ecosystem Preservation",
+        "Mitigation: Carbon Removal / Carbon Capture",
+        "Mitigation: Green Energy / Decarbonization"
+      ],
+      "Number of People Involved (to 3 sig digits)": "1000+",
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Academic Org"
+      ],
+      "Year founded / Born": "1877",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Environmental Monitoring",
+        "Climate/Earth System Modelling",
+        "Biomass/Ecosystem Managment",
+        "Advancing Energy Innovation"
+      ],
+      "Person or Org": "Organization",
+      "Link to More Info on Entity (bio or overview page)": "https://www.u-tokyo.ac.jp/en/",
+      "Primary Operating Geography (Country)": "JP",
+      "id": "Actors--The University of Tokyo",
+      "label": "The University of Tokyo",
+      "year": 1877
     },
     {
       "Entity": "Climeworks",
