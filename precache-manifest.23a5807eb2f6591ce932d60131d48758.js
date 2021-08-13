@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "a6793e32ff3279e30131",
+    "revision": "4efee166e87ad84005eb",
     "url": "/climate-change-industry/static/css/main.188afb5b.chunk.css"
   },
   {
-    "revision": "a6793e32ff3279e30131",
-    "url": "/climate-change-industry/static/js/main.5a0c646c.chunk.js"
+    "revision": "4efee166e87ad84005eb",
+    "url": "/climate-change-industry/static/js/main.0599c021.chunk.js"
   },
   {
     "revision": "df294fdfd50e19dc2956",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/climate-change-industry/static/media/map.237b420e.png"
   },
   {
-    "revision": "481de087efbd0841678c4fba73017215",
+    "revision": "43072c9c8760bf42174dee7bff17724b",
     "url": "/climate-change-industry/index.html"
   }
 ];
