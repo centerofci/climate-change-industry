@@ -166,7 +166,8 @@
         "Kairos Aerospace, Inc",
         "Aclima",
         "Future Climate for Africa",
-        "The University of Tokyo"
+        "The University of Tokyo",
+        "Africa Wildlife Foundation"
       ],
       "Associated Investments": [
         "Investment in Aclima"
@@ -2818,6 +2819,33 @@
       "id": "Actors--OtherLabs",
       "label": "OtherLabs",
       "year": 2009
+    },
+    {
+      "Entity": "Africa Wildlife Foundation",
+      "Topical Contribution Area": [
+        "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)",
+        "Adaptation: Natural Ecosystem Preservation"
+      ],
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Activist / Advocacy Org",
+        "Think Tank / Policy Org (outside academia)"
+      ],
+      "Year founded / Born": "1961",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Environmental Monitoring"
+      ],
+      "Person or Org": "Organization",
+      "Link to More Info on Entity (bio or overview page)": "https://awf.org",
+      "Primary Operating Geography (Country)": "KE",
+      "Secondary Geography (Country)": "CM",
+      "id": "Actors--Africa Wildlife Foundation",
+      "label": "Africa Wildlife Foundation",
+      "year": 1961
     },
     {
       "Entity": "Shizen Energy Group",
