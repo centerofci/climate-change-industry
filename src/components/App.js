@@ -22,6 +22,10 @@ function App() {
   const searchTerm = params["search"] || "";
   const isEmbed = !!params["embed"];
   const projectionName = params["projection"];
+  const focusedMitigationArea = params["mitigation-area"];
+  const focusedCountry = params["country"];
+  const backCountry = params["back-country"];
+  const backMitigationArea = params["back-mitigation-area"];
 
   const focusedItem = useMemo(() => {
     if (!params["item"]) return null;
@@ -88,6 +92,10 @@ function App() {
           data={data}
           {...{
             focusedItem,
+            focusedCountry,
+            focusedMitigationArea,
+            backCountry,
+            backMitigationArea,
             projectionName,
             onChangeState,
           }}

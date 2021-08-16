@@ -6,12 +6,23 @@ import Icon from "./../Icon/Icon";
 
 import "./NetworkModal.css";
 
-const NetworkModal = ({ info = {}, onClose }) => {
+const NetworkModal = ({ info = {}, backCountry, backMitigationArea, onChangeState, onClose }) => {
+  console.log(backMitigationArea)
   return (
     <>
       <div className="NetworkModal__background" onClick={onClose}></div>
       <div className="NetworkModal">
         <div className="NetworkModal__content">
+          {!!backCountry && onChangeState && (<div className="NetworkModal__back" onClick={() => {
+            onChangeState("country", backCountry)
+            onChangeState("mitigation-area", backMitigationArea)
+            onChangeState("back-country", null)
+            onChangeState("back-mitigation-area", null)
+            onChangeState("item", null)
+          }}>
+            <Icon size="s" name="arrow" direction="w" />
+          </div>
+          )}
           <div className="NetworkModal__close" onClick={onClose}>
             <Icon size="s" name="x" />
           </div>

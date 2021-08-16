@@ -3,7 +3,9 @@ import Select from "react-select";
 import { active, group } from "d3";
 
 import Globe from "./Globe";
+import GlobeCountry from "./GlobeCountry";
 import NetworkModal from "./../Network/NetworkModal";
+import CountryModal from "./../Network/CountryModal";
 import Map, { projectionNameOptionsParsed } from "./Map";
 
 import "./MapWrapper.css";
@@ -12,7 +14,11 @@ import NetworkFilters from "../Network/NetworkFilters";
 const MapWrapper = ({
   data = {},
   projectionName,
+  focusedCountry,
+  focusedMitigationArea,
   focusedItem,
+  backCountry,
+  backMitigationArea,
   onChangeState,
 }) => {
   const [activeFilters, setActiveFilters] = useState([]);
@@ -59,12 +65,19 @@ const MapWrapper = ({
     [parsedData]
   );
 
+  const setFocusedCountry = useCallback((newCountry) => {
+    onChangeState("country", newCountry && newCountry.countryName);
+    onChangeState("mitigation-area", newCountry && newCountry.mitigationArea);
+  });
   const setFocusedItem = useCallback((newItem) => {
     onChangeState("item", newItem && newItem.id);
   });
 
   const onCloseFocusedItem = useCallback(() => {
     setFocusedItem(null);
+    setFocusedCountry(null);
+    onChangeState("back-country", null);
+    onChangeState("back-mitigation-area", null);
   }, []);
 
   return (
@@ -96,6 +109,12 @@ const MapWrapper = ({
             allData={parsedData}
             {...{ focusedItem, setFocusedItem }}
           />
+        ) : projection.value === "globe-country" ? (
+          <GlobeCountry
+            data={groupedData}
+            allData={parsedData}
+            {...{ focusedItem, setFocusedItem: setFocusedCountry }}
+          />
         ) : projection.value === "globe-day" ? (
           <Globe
             data={groupedData}
@@ -114,7 +133,13 @@ const MapWrapper = ({
       </div>
 
       {focusedItem && (
-        <NetworkModal info={focusedItem} onClose={onCloseFocusedItem} />
+        <NetworkModal info={focusedItem} backCountry={backCountry} backMitigationArea={backMitigationArea} onChangeState={onChangeState} onClose={onCloseFocusedItem} />
+      )}
+      {focusedCountry && (
+        <CountryModal country={focusedCountry} mitigationArea={focusedMitigationArea} actors={data["Actors"].filter(actor => (
+          countryAccessor(actor) === focusedCountry
+          && (!focusedMitigationArea || (actor["mainContributionArea"] || []).includes(focusedMitigationArea))
+        ))} onChangeState={onChangeState} onClose={onCloseFocusedItem} />
       )}
     </div>
   );
@@ -123,6 +148,10 @@ const MapWrapper = ({
 export default MapWrapper;
 
 const typeOptions = [
+  {
+    label: "Globe (rollup)",
+    value: "globe-country",
+  },
   {
     label: "Globe",
     value: "globe",
