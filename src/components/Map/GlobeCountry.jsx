@@ -87,7 +87,6 @@ const GlobeWrapper = ({ allData, data, setFocusedItem, imageName }) => {
 
     let bubbles = [];
     const mitigationAreaPositions = fromPairs(contributionAreas.map((d, i) => [d, spiralPositions[i]]))
-    console.log({ data })
     data.forEach(([countryName, actors]) => {
       const lookupName = countryNamesMap[countryName] || countryName;
       const country = Object.values(countryShapes).find(
@@ -106,7 +105,8 @@ const GlobeWrapper = ({ allData, data, setFocusedItem, imageName }) => {
         bubbles.push({
           countryName,
           mitigationArea,
-          name: `${countryName} working on ${mitigationArea}`,
+          // name: `${countryName} working on ${mitigationArea}`,
+          name: "",
           lng: centroid[0] + offset.x * xScale,
           lat: centroid[1] + offset.y * yScale,
           alt: count * 0.01,

@@ -1,8 +1,6 @@
 import React from "react";
-import { format } from "d3-format";
-
-import StatusPill from "./StatusPill";
 import Icon from "./../Icon/Icon";
+import countryNamesMap from "./../Map/countryNamesMap.json"
 
 import "./NetworkModal.css";
 import { contributionAreaColors } from "../../constants";
@@ -21,7 +19,7 @@ const NetworkModal = ({ country = {}, mitigationArea, actors = [], onChangeState
           <div className="NetworkModal__name">
             <div>
 
-              Individuals & Organizations in {country}{!!mitigationArea && <> working on <span style={{ color: contributionAreaColors[mitigationArea] }}>{mitigationArea}</span></>}
+              Individuals & Organizations in {countryNamesMap[country] || country}{!!mitigationArea && <> working on <span style={{ color: contributionAreaColors[mitigationArea] }}>{mitigationArea}</span></>}
             </div>
           </div>
 

@@ -42,8 +42,8 @@ const MapTooltip = ({ data }) => {
               {d.type === "collaboration"
                 ? "Collaborates with"
                 : d.type === "from"
-                ? "Invested in"
-                : "Received investment from"}{" "}
+                  ? "Invested in"
+                  : "Received investment from"}{" "}
               <b>{[d.toName, d.fromName].find((d) => d != data.label)}</b>
             </div>
           ))}

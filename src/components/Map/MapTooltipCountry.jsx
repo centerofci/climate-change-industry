@@ -1,9 +1,10 @@
 import React from "react";
-import { format } from "d3";
+// import { format } from "d3";
+import countryNamesMap from "./countryNamesMap.json"
 
 import "./MapTooltip.css";
 
-const countryAccessor = (d) => d["Primary Operating Geography (Country)"];
+// const countryAccessor = (d) => d["Primary Operating Geography (Country)"];
 
 const maxActorsInList = 10
 const MapTooltip = ({ data }) => {
@@ -14,7 +15,7 @@ const MapTooltip = ({ data }) => {
   return (
     <div className={["MapTooltip"].join(" ")}>
       <div className="MapTooltip__name">
-        {data["countryName"]} working on {data["mitigationArea"]}
+        {countryNamesMap[data["countryName"]] || data["countryName"]} working on {data["mitigationArea"]}
       </div>
       <div className="MapTooltip__text">
         {data["relevantActors"].slice(0, maxActorsInList).map(actor => (
