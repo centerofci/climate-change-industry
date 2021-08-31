@@ -22,10 +22,12 @@
       "Enacted/Undertaken By": [
         "David Keith",
         "Carbon Engineering ",
-        "Pale Blue Dot"
+        "Pale Blue Dot",
+        "Prometheus Fuels"
       ],
       "Associated Investments": [
-        "Investment in Carbon Energy "
+        "Investment in Carbon Energy ",
+        "Investment in Prometheus Fuels"
       ],
       "id": "Interventions--CO2 Capture from ambient air to make carbon-neutral hydrocarbon fuels",
       "label": "CO2 Capture from ambient air to make carbon-neutral hydrocarbon fuels"
@@ -689,6 +691,34 @@
       "URL for Context": "https://www.crunchbase.com/organization/aclima/company_financials",
       "id": "Investments--Investment in Aclima",
       "label": "Investment in Aclima",
+      "date": null
+    },
+    {
+      "Entry Name": "Investment in Prometheus Fuels",
+      "Amount": 14920000,
+      "Source": [
+        "Y Combinator",
+        "Preston-Werner Ventures"
+      ],
+      "Recipient": [
+        "Prometheus Fuels"
+      ],
+      "Intervention(s) being addressed:": [
+        null
+      ],
+      "Geography (of receiving entity)": [
+        "North America"
+      ],
+      "Geography (where intervention is applied)": [
+        "Global"
+      ],
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture ",
+        "Mitigation: Green Energy / Decarbonization"
+      ],
+      "URL for Context": "https://pitchbook.com/profiles/company/266440-69",
+      "id": "Investments--Investment in Prometheus Fuels",
+      "label": "Investment in Prometheus Fuels",
       "date": null
     },
     {
@@ -2872,6 +2902,64 @@
       "year": 2011
     },
     {
+      "Entity": "Prometheus Fuels",
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture",
+        "Mitigation: Green Energy / Decarbonization"
+      ],
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "For-Profit Climate Intervention Company"
+      ],
+      "Year founded / Born": "2019",
+      "Enacting/Undertaking XYZ Interventions": [
+        "CO2 Capture from ambient air to make carbon-neutral hydrocarbon fuels"
+      ],
+      "Person or Org": "Organization",
+      "Received XYZ Investment(s)": [
+        "Investment in Prometheus Fuels"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://prometheusfuels.com",
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--Prometheus Fuels",
+      "label": "Prometheus Fuels",
+      "year": 2019
+    },
+    {
+      "Entity": "Preston-Werner Ventures",
+      "Topical Contribution Area": [
+        "Adaptation: Resource Quality/Access Preservation (Air/Water/Farmland/etc)",
+        "Mitigation: Emissions Reduction",
+        "Mitigation: Carbon Removal / Carbon Capture",
+        "Mitigation: Green Energy / Decarbonization"
+      ],
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Funder Org (private e.g., VC or foundation)"
+      ],
+      "Year founded / Born": "2019",
+      "Person or Org": "Organization",
+      "Made XYZ Investment(s)": [
+        "Investment in Prometheus Fuels"
+      ],
+      "Link to More Info on Entity (bio or overview page)": "https://prestonwernerventures.com/",
+      "Partners With": [
+        "CarbonPlan"
+      ],
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--Preston-Werner Ventures",
+      "label": "Preston-Werner Ventures",
+      "year": 2019
+    },
+    {
       "Entity": "Ayana Elizabeth Johnson",
       "Topical Contribution Area": [
         "Geoengineering: Oceanic Ecosystems and Chemistry",
@@ -3215,6 +3303,35 @@
       "id": "Actors--The Land Institute",
       "label": "The Land Institute",
       "year": 1976
+    },
+    {
+      "Entity": "CarbonPlan",
+      "Topical Contribution Area": [
+        "Mitigation: Emissions Reduction",
+        "Mitigation: Carbon Removal / Carbon Capture",
+        "Mitigation: Green Energy / Decarbonization"
+      ],
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Focus": "Climate Change is entity's primary focus",
+      "Status": [
+        "Active"
+      ],
+      "Entity Type": [
+        "Think Tank / Policy Org (outside academia)",
+        "Academic Org"
+      ],
+      "Year founded / Born": "2020",
+      "Person or Org": "Organization",
+      "Link to More Info on Entity (bio or overview page)": "https://carbonplan.org",
+      "Partners With": [
+        "Harvard University ",
+        "Columbia University",
+        "University of Pennsylvania"
+      ],
+      "Primary Operating Geography (Country)": "US",
+      "id": "Actors--CarbonPlan",
+      "label": "CarbonPlan",
+      "year": 2020
     },
     {
       "Entity": "Sustainable Development Technology Canada",
@@ -3676,7 +3793,8 @@
       "Made XYZ Investment(s)": [
         "Investment in Pachama",
         "Investment in CarbonChain",
-        "Investment in Remora Carbon"
+        "Investment in Remora Carbon",
+        "Investment in Prometheus Fuels"
       ],
       "Link to More Info on Entity (bio or overview page)": "https://ycombinator.com",
       "Primary Operating Geography (Country)": "US",
