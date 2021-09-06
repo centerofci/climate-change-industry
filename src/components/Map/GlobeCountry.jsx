@@ -26,45 +26,6 @@ const GlobeWrapper = ({ allData, data, setFocusedItem, imageName }) => {
   // const [blankMapTextureImage, setBlankMapTextureImage] = useState();
   const globeElement = useRef();
 
-  // const canvasElement = useRef();
-
-  // const width = useMemo(() => Math.min(1400, dms.height * 1.3, dms.width), [
-  //   dms.width,
-  //   dms.height,
-  // ]);
-
-  // const getCentroid = (country) => {
-  //   const centroid = geoPath(projection).centroid(country);
-  //   return centroid;
-  // };
-
-  // const rScale = useMemo(
-  //   () =>
-  //     scaleSqrt()
-  //       .domain([0, Math.max(...data.map((d) => d[1].length))])
-  //       .range([0.1, width * 0.06]),
-  //   [width, data]
-  // );
-
-  // const globeMaterial = useMemo(() => {
-  //   if (!blankMapTextureImage) return;
-  //   const globeMaterial = new MeshPhongMaterial();
-  //   globeMaterial.specularMap = blankMapTextureImage;
-  //   globeMaterial.specular = new Color("grey");
-  //   globeMaterial.shininess = 15;
-  //   return globeMaterial;
-  // }, [blankMapTextureImage]);
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     // wait for scene to be populated (asynchronously)
-  //     const directionalLight = globeElement.current
-  //       .scene()
-  //       .children.find((obj3d) => obj3d.type === "DirectionalLight");
-  //     directionalLight && directionalLight.position.set(1, 1, 1); // change light position to see the specularMap's effect
-  //   });
-  // }, []);
-
   const onGlobeLoad = () => {
     const scene = globeElement.current.scene();
     // ambient light
@@ -79,7 +40,6 @@ const GlobeWrapper = ({ allData, data, setFocusedItem, imageName }) => {
   const xScale = 0.26;
   const yScale = 0.2;
 
-  const arcOpacity = 0.8;
   const { bubbles, arcs } = useMemo(() => {
     // const heightScale = scaleLinear()
     //   .domain(extent(data.map((d) => d[1].length)))
@@ -333,6 +293,7 @@ const GlobeWrapper = ({ allData, data, setFocusedItem, imageName }) => {
         Each bar represents organizations within a country that are focused on {contributionAreas.map((area, i) => (
           <Fragment key={area}>
             <span style={{
+              fontWeight: 600,
               color: contributionAreaColors[area]
             }}>{area}</span>
             {i !== contributionAreas.length - 2 ? ', ' : ', and '}

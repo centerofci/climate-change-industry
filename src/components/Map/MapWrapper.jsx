@@ -6,10 +6,10 @@ import Globe from "./Globe";
 import GlobeCountry from "./GlobeCountry";
 import NetworkModal from "./../Network/NetworkModal";
 import CountryModal from "./../Network/CountryModal";
-import Map, { projectionNameOptionsParsed } from "./Map";
+import Map, { projectionNameOptionsParsed } from "./MapCountry";
+import NetworkFilters from "../Network/NetworkFilters";
 
 import "./MapWrapper.css";
-import NetworkFilters from "../Network/NetworkFilters";
 
 const MapWrapper = ({
   data = {},
@@ -127,7 +127,7 @@ const MapWrapper = ({
             data={groupedData}
             allData={parsedData}
             projectionName={projection.value}
-            {...{ focusedItem, setFocusedItem }}
+            {...{ focusedItem, setFocusedItem: setFocusedCountry }}
           />
         )}
       </div>
@@ -149,17 +149,17 @@ export default MapWrapper;
 
 const typeOptions = [
   {
-    label: "Globe (rollup)",
+    label: "Globe",
     value: "globe-country",
   },
-  {
-    label: "Globe",
-    value: "globe",
-  },
-  {
-    label: "Globe (light theme)",
-    value: "globe-day",
-  },
+  // {
+  //   label: "Globe",
+  //   value: "globe",
+  // },
+  // {
+  //   label: "Globe (light theme)",
+  //   value: "globe-day",
+  // },
   ...projectionNameOptionsParsed,
 ];
 
