@@ -164,10 +164,12 @@ const GlobeWrapper = ({ allData, data, setFocusedItem, imageName }) => {
         if (!(fromObject["mainContributionArea"] || []).length || !(toObject["mainContributionArea"] || []).length) return;
         const fromOffset = getCountryOffset(fromObject, fromObject["mainContributionArea"][0]);
         const toOffset = getCountryOffset(toObject, toObject["mainContributionArea"][0]);
+        const fromColor = contributionAreaColors[fromObject["mainContributionArea"][0]];
+        const toColor = contributionAreaColors[toObject["mainContributionArea"][0]];
 
         return {
-          from: { ...from, offset: fromOffset },
-          to: { ...to, offset: toOffset },
+          from: { ...from, offset: fromOffset, mainContributionArea: fromObject["mainContributionArea"][0] },
+          to: { ...to, offset: toOffset, mainContributionArea: toObject["mainContributionArea"][0] },
           startLat: from.centroid[1] + fromOffset[1],
           startLng: from.centroid[0] + fromOffset[0],
           endLat: to.centroid[1] + toOffset[1],
@@ -181,9 +183,8 @@ const GlobeWrapper = ({ allData, data, setFocusedItem, imageName }) => {
           dashGap: 0.1,
           altitudeAutoScale: 0.6,
           initialColor: [
-            `rgba(32, 190, 201, ${arcOpacity})`,
-            `rgba(134, 111, 172, ${arcOpacity})`,
-            // `rgba(255, 0, 0, ${arcOpacity})`,
+            fromColor,
+            toColor,
           ],
         };
       })
@@ -212,11 +213,13 @@ const GlobeWrapper = ({ allData, data, setFocusedItem, imageName }) => {
         const fromOffset = getCountryOffset(fromObject, fromObject["mainContributionArea"]);
         const toOffset = getCountryOffset(toObject, toObject["mainContributionArea"]);
 
+        const fromColor = contributionAreaColors[fromObject["mainContributionArea"][0]];
+        const toColor = contributionAreaColors[toObject["mainContributionArea"][0]];
         collaborations = [
           ...collaborations,
           {
-            from: { ...from, offset: fromOffset },
-            to: { ...to, offset: toOffset },
+            from: { ...from, offset: fromOffset, mainContributionArea: fromObject["mainContributionArea"][0] },
+            to: { ...to, offset: toOffset, mainContributionArea: toObject["mainContributionArea"][0] },
             startLat: from.centroid[1] + fromOffset[1],
             startLng: from.centroid[0] + fromOffset[0],
             endLat: to.centroid[1] + toOffset[1],
@@ -230,16 +233,15 @@ const GlobeWrapper = ({ allData, data, setFocusedItem, imageName }) => {
             dashGap: 0,
             altitudeAutoScale: 0.3,
             initialColor: [
-              `rgba(188, 135, 151, ${arcOpacity})`,
-              `rgba(239, 209, 201, ${arcOpacity})`,
+              fromColor,
+              toColor,
             ],
           },
         ];
       });
     });
 
-    const arcs = [...investments, ...collaborations];
-
+    const arcs = [...investments, ...collaborations].filter(d => !(d.startLat === d.endLat && d.startLng === d.endLng));
     return { bubbles, arcs };
   }, [data]);
 
@@ -248,14 +250,15 @@ const GlobeWrapper = ({ allData, data, setFocusedItem, imageName }) => {
       .map((arc) => {
         const isHighlighted =
           !hoveredItem ||
-          arc.fromId === hoveredItem.id ||
-          arc.toId === hoveredItem.id;
+          ((
+            (arc.from.name === hoveredItem.countryName && arc.from.mainContributionArea === hoveredItem.mitigationArea)
+            ||
+            (arc.to.name === hoveredItem.countryName && arc.to.mainContributionArea === hoveredItem.mitigationArea)
+          ));
         return {
           ...arc,
           sortOrder: isHighlighted ? 1 : 0,
-          color: isHighlighted
-            ? arc.initialColor.map((d) => multiplyRgbaOpacity(d, 1))
-            : arc.initialColor.map((d) => multiplyRgbaOpacity(d, 0)),
+          color: isHighlighted ? arc.initialColor : ["transparent", "transparent"]
         };
       })
       .sort((a, b) => b.sortOrder - a.sortOrder);

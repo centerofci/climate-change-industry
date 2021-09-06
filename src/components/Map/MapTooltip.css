@@ -7,8 +7,9 @@
   font-size: 0.9em;
   line-height: 1.3em;
   text-align: right;
-  background: var(--gray-lightest);
+  background: rgba(226, 232, 240, 0.6);
   z-index: 10;
+  pointer-events: none;
 }
 .MapTooltip__name {
   /* display: flex;
