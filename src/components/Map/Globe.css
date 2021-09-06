@@ -10,3 +10,14 @@
 
 .Globe__controls {
 }
+
+.Globe__legend {
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+  font-size: 0.8em;
+  max-width: min(90vw, 25em);
+  line-height: 1.3em;
+  text-align: right;
+  font-style: italic;
+}

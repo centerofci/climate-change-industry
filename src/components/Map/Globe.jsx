@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useState } from "react";
+import React, { Fragment, useMemo, useRef, useState } from "react";
 // import { MeshPhongMaterial, Color } from "three";
 
 import countryShapes from "./countries.json";
@@ -11,6 +11,7 @@ import countryNamesMap from "./countryNamesMap.json"
 import mapImageUrl from "./map.png";
 
 import "./Globe.css";
+import { contributionAreaColors, contributionAreas } from "../../constants";
 
 const countryAccessor = (d) => d["Primary Operating Geography (Country)"];
 const spiralPositions = getSpiralPositions(100, 5, 2, 1.1);

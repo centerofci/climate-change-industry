@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useState } from "react";
+import React, { Fragment, useMemo, useRef, useState } from "react";
 import uniq from "lodash/uniq";
 import flatten from "lodash/flatten";
 import fromPairs from "lodash/fromPairs";
@@ -328,6 +328,19 @@ const GlobeWrapper = ({ allData, data, setFocusedItem, imageName }) => {
 
       // pointsData={myData}
       />
+
+      <div className="Globe__legend">
+        Each bar represents organizations within a country that are focused on {contributionAreas.map((area, i) => (
+          <Fragment key={area}>
+            <span style={{
+              color: contributionAreaColors[area]
+            }}>{area}</span>
+            {i !== contributionAreas.length - 2 ? ', ' : ', and '}
+          </Fragment>
+        ))}growing taller with more organizations.
+        <br />
+        The arcs show collaborations between countries.
+      </div>
     </div>
   );
 };
