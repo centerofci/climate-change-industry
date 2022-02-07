@@ -34,6 +34,34 @@
     },
     {
       "Type (approach)": [
+        "Information/Education Intervention",
+        "Policy Intervention",
+        "Regulatory Intervention",
+        "Industrial Process/Enterprise Change"
+      ],
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture"
+      ],
+      "Rate-Limiting Feature": [
+        "Society",
+        "Politics ",
+        "Scale / Collaboration",
+        "Funding / Financing"
+      ],
+      "Intervention": "Environmental Consultancy",
+      "Big/Latest News": "https://carbonremovalcentre.com/category/news/",
+      "Funded by": [
+        "Imperial College London"
+      ],
+      "Enacted/Undertaken By": [
+        "Mark Workman",
+        "Carbon Removal Centre"
+      ],
+      "id": "Interventions--Environmental Consultancy",
+      "label": "Environmental Consultancy"
+    },
+    {
+      "Type (approach)": [
         "Economic Intervention"
       ],
       "Topical Contribution Area": [
@@ -164,7 +192,8 @@
       "Funded by": [
         "Oil and Gas Climate Initiative (OGCI)",
         "Energy Innovation Capital ",
-        "Additional Ventures"
+        "Additional Ventures",
+        "Imperial College London"
       ],
       "Enacted/Undertaken By": [
         "Blue Sky Analytics",
@@ -172,7 +201,8 @@
         "Aclima",
         "Future Climate for Africa",
         "The University of Tokyo",
-        "Africa Wildlife Foundation"
+        "Africa Wildlife Foundation",
+        "Imperial College London"
       ],
       "id": "Interventions--Environmental Monitoring",
       "label": "Environmental Monitoring"
@@ -1725,6 +1755,33 @@
     },
     {
       "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture"
+      ],
+      "Number of People Involved (to 3 sig digits)": "10-50",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Environmental Consultancy"
+      ],
+      "Entity": "Carbon Removal Centre",
+      "Entity Type": [
+        "Academic Org"
+      ],
+      "Status": [
+        "Active"
+      ],
+      "Person or Org": "Organization",
+      "Focus": "Climate Change is entity's primary focus",
+      "Link to More Info on Entity (bio or overview page)": "https://carbonremovalcentre.com/",
+      "Directly Associated Orgs (e.g., employment/parent org):": [
+        "Imperial College London"
+      ],
+      "Year founded / Born": "2018",
+      "Primary Operating Geography (Country)": "UK",
+      "id": "Actors--Carbon Removal Centre",
+      "label": "Carbon Removal Centre",
+      "year": 2018
+    },
+    {
+      "Topical Contribution Area": [
         "Mitigation: Emissions Reduction",
         "Mitigation: Carbon Removal / Carbon Capture",
         "Geoengineering: Solar Radiation Management",
@@ -2740,6 +2797,34 @@
       "id": "Actors--Japan Climate Leaders' Partnership (JCLP)",
       "label": "Japan Climate Leaders' Partnership (JCLP)",
       "year": null
+    },
+    {
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture"
+      ],
+      "Number of People Involved (to 3 sig digits)": "1000+",
+      "Enacting/Undertaking XYZ Interventions": [
+        "Environmental Monitoring"
+      ],
+      "Entity": "Imperial College London",
+      "Entity Type": [
+        "Academic Org"
+      ],
+      "Status": [
+        "Active"
+      ],
+      "Person or Org": "Organization",
+      "Funding XYZ Interventions": [
+        "Environmental Monitoring",
+        "Environmental Consultancy"
+      ],
+      "Focus": "Climate Change is among entity's portfolio focuses",
+      "Link to More Info on Entity (bio or overview page)": "https://www.imperial.ac.uk/",
+      "Year founded / Born": "1907",
+      "Primary Operating Geography (Country)": "UK",
+      "id": "Actors--Imperial College London",
+      "label": "Imperial College London",
+      "year": 1907
     },
     {
       "Topical Contribution Area": [
@@ -3892,6 +3977,29 @@
       "Primary Operating Geography (Country)": "US",
       "id": "Actors--Klaus Lackner",
       "label": "Klaus Lackner",
+      "year": null
+    },
+    {
+      "Topical Contribution Area": [
+        "Mitigation: Carbon Removal / Carbon Capture"
+      ],
+      "Enacting/Undertaking XYZ Interventions": [
+        "Environmental Consultancy"
+      ],
+      "Entity": "Mark Workman",
+      "Entity Type": [
+        "Founder / StartUp Individual "
+      ],
+      "Status": [
+        "Active"
+      ],
+      "Person or Org": "Individual Person",
+      "Directly Associated Orgs (e.g., employment/parent org):": [
+        "Imperial College London"
+      ],
+      "Primary Operating Geography (Country)": "UK",
+      "id": "Actors--Mark Workman",
+      "label": "Mark Workman",
       "year": null
     },
     {
