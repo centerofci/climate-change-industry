@@ -168,6 +168,7 @@ const GlobeWrapper = ({ allData, data, setFocusedItem, imageName }) => {
 
         const from = getActorCountry(fromObject);
         const to = getActorCountry(toObject);
+        if (!from || !to) return;
         if (!(fromObject["mainContributionArea"] || []).length || !(toObject["mainContributionArea"] || []).length) return;
 
         const fromOffset = getCountryOffset(fromObject, fromObject["mainContributionArea"]);

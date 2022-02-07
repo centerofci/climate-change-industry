@@ -275,6 +275,7 @@ const MapWrapper = ({ allData, data, projectionName, setFocusedItem }) => {
 
         const from = getActorCountry(fromObject);
         const to = getActorCountry(toObject);
+        if (!from || !to) return;
         if (!(fromObject["mainContributionArea"] || []).length || !(toObject["mainContributionArea"] || []).length) return;
 
         const fromOffset = mitigationAreaPositions[fromObject["mainContributionArea"][0]]
