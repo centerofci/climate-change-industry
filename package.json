@@ -39,8 +39,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "BUILD_PATH=build PUBLIC_URL=/ && react-scripts build && npx staticrypt ./build/index.html climate -o ./build/index.html",
-    "github": "BUILD_PATH=docs PUBLIC_URL=/climate-change-industry react-scripts build && npx staticrypt ./docs/index.html climate -o ./docs/index.html",
+    "build": "BUILD_PATH=build PUBLIC_URL=/ && react-scripts build",
+    "github": "BUILD_PATH=docs PUBLIC_URL=/climate-change-industry react-scripts build",
     "predeploy": "CI='' npm run build",
     "deploy": "gh-pages -d build",
     "data": "node getData.js",
