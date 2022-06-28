@@ -7,7 +7,7 @@ const d3TimeFormat = require("d3-time-format");
 const fetch = require("node-fetch");
 
 const apiUrlBase = "https://api.airtable.com/v0/";
-const airtableBaseKey = "appm79HVYtbuke7SO";
+const airtableBaseKey = "appLTyNEd5xaM4gur";
 const getApiUrl = (base) =>
   apiUrlBase +
   airtableBaseKey +
