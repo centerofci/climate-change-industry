@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/climate-change-industry/precache-manifest.f4a95ee3bac65893f46f638bdff74fd9.js"
+  "/climate-change-industry/precache-manifest.e48d00c88c594176ebb440800d65c5d2.js"
 );
 
 workbox.clientsClaim();
