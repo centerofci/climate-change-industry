@@ -59,7 +59,7 @@ function App() {
         {[
           ["Network", "network"],
           ["Map", "map"],
-          ["Benchmarks", "benchmarks"],
+          ["Earth Health KPIs", "benchmarks"],
         ].map(([label, slug]) => (
           <a
             key={slug}
